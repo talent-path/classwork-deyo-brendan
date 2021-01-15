@@ -57,21 +57,41 @@ public class App {
 
             boolean isGameOver = false;
 
-            while (!isGameOver && cellCount != 0) {
+            while (!isGameOver) {
+
                 isGameOver = declareWinner(board);
+                if (cellCount == 0 && isGameOver == false) {
+                    System.out.println();
+                    System.out.println("DRAW!");
+                    System.out.println();
+                    numDraws++;
+                    numOfGames--;
+                    break;
+                }
+
+                // System.out.println("Game is over? " + declareWinner(board));
+                // System.out.println("Turn Number: " + turnNum);
 
                 if (isGameOver == true) {
-                    if (turnNum == 0) {
-                        System.out.println("PLAYER WINS!");
-                        playerWins++;
-                        break;
-                    } else if (turnNum == 1) {
+
+                    if (turnNum == 1) {
+                        System.out.println();
                         System.out.println("COMPUTER WINS!");
+                        System.out.println();
                         compWins++;
+                        numOfGames--;
+                        break;
+                    } else if (turnNum == 0) {
+                        System.out.println();
+                        System.out.println("PLAYER WINS!");
+                        System.out.println();
+                        playerWins++;
+                        numOfGames--;
                         break;
                     }
-                } else
-                    turnNum = (turnNum + 1) % 2;
+                }
+
+                turnNum = (turnNum + 1) % 2;
 
                 if (turnNum == 0)
                     playerMove(board, playerSymbol);
@@ -80,18 +100,10 @@ public class App {
 
                 if (cellCount != 0) {
                     displayBoard(board);
-                    cellCount--;
 
-                } else if (cellCount == 0) {
-                    System.out.println("DRAW");
-                    numDraws++;
-                    break;
                 }
-
+                cellCount--;
             }
-
-            numOfGames--;
-
         }
 
         System.out.println();
@@ -109,8 +121,6 @@ public class App {
             }
             System.out.println();
         }
-
-        // displayBoard(board);
     }
 
     public static void displayBoard(char[][] board) {
@@ -151,34 +161,43 @@ public class App {
     }
 
     public static void compMove(char[][] board, char compO) {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                if (board[i][j] == emptyCell) {
-                    board[i][j] = compO;
-                    return;
-                }
+
+        boolean isValid = false;
+
+        while (!isValid) {
+            int compRow = RNG.randInt(0, 2);
+            int compCol = RNG.randInt(0, 2);
+
+            if (board[compRow][compCol] == emptyCell) {
+                board[compRow][compCol] = compO;
+                isValid = true;
             }
         }
     }
 
     public static boolean declareWinner(char[][] board) {
 
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                if (board[i][j] == emptyCell) {
-                    return false;
-                }
-            }
+        if (board[0][0] != emptyCell && (board[0][0] == board[0][1] && board[0][0] == board[0][2])) {
+            return true;
+        } else if (board[0][0] != emptyCell && (board[0][0] == board[1][1] && board[0][0] == board[2][2])) {
+            return true;
+        } else if (board[0][0] != emptyCell && (board[0][0] == board[1][0] && board[0][0] == board[2][0])) {
+            return true;
+        } else if (board[2][0] != emptyCell && (board[2][0] == board[2][1] && board[2][0] == board[2][2])) {
+            return true;
+        } else if (board[2][0] != emptyCell && (board[2][0] == board[1][1] && board[0][0] == board[0][2])) {
+            return true;
+        } else if (board[0][2] != emptyCell && (board[0][2] == board[1][2] && board[0][2] == board[2][2])) {
+            return true;
+        } else if (board[0][1] != emptyCell && (board[0][1] == board[1][1] && board[0][1] == board[2][1])) {
+            return true;
+        } else if (board[1][0] != emptyCell && (board[1][0] == board[1][1] && board[1][0] == board[1][2])) {
+            return true;
+        } else if (board[0][0] != emptyCell && (board[0][0] == board[0][1]) && board[0][0] == board[0][2]) {
+            return true;
         }
+        return false;
 
-        return (board[0][0] == board[0][1] && board[0][0] == board[0][2]) ||
-                (board[0][0] == board[1][1] && board[0][0] == board[2][2]) ||
-                (board[0][0] == board[1][0] && board[0][0] == board[2][0]) ||
-                (board[2][0] == board[2][1] && board[2][0] == board[2][2]) ||
-                (board[2][0] == board[1][1] && board[0][0] == board[0][2]) ||
-                (board[0][2] == board[1][2] && board[0][2] == board[2][2]) ||
-                (board[0][1] == board[1][1] && board[0][1] == board[2][1]) ||
-                (board[1][0] == board[1][1] && board[1][0] == board[1][2]);
     }
 
 }
