@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Console {
 
     public static void print(String msg) {
-        System.out.print(msg);
+        System.out.println(msg);
     }
 
     public static float readFloat(String msg)
@@ -92,3 +92,5 @@ public class Console {
     }
 
 }
+
+

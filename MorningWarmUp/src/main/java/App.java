@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class App {
@@ -24,16 +25,141 @@ public class App {
 //        System.out.println(canBalance(new int[]{1, 2, 3, 4, 4, 3, 2, 1}));
 //        System.out.println(canBalance(new int[]{2, 8, 1, 5, 5}));
 
-        System.out.println(noTriples(new int[]{1, 2, 2, 2, 3, 4, 5, 6})); // false
-        System.out.println(noTriples(new int[]{1, 2, 3, 4})); // true
-        System.out.println(noTriples(new int[]{1 , 2, 100, 100, 100, 4, 5, 6, 7})); // false
-        System.out.println(noTriples(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})); // true
+//        System.out.println(noTriples(new int[]{1, 2, 2, 2, 3, 4, 5, 6})); // false
+//        System.out.println(noTriples(new int[]{1, 2, 3, 4})); // true
+//        System.out.println(noTriples(new int[]{1 , 2, 100, 100, 100, 4, 5, 6, 7})); // false
+//        System.out.println(noTriples(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})); // true
+
+//        int[] arr1 = new int[100];
+//        int[] arr2 = new int[100];
+//
+//        for (int i = 0; i < arr1.length; i++)
+//        {
+//            arr1[i] = RNG.randInt(0, 9);
+//        }
+//
+//        for (int j = 0; j < arr2.length; j++)
+//        {
+//            arr2[j] = RNG.randInt(0, 9);
+//        }
+//
+//        int[] sum = addBigNum(arr1, arr2);
+//
+//        System.out.println(sum);
 
 
+//        int[] arr1 = {1, 2, 3, 8, 9, 3, 2, 1};
+//        int[] arr2 = {1, 2, 1, 4};
+//        int[] arr3 = {7, 1, 2, 9, 7, 2, 1};
+//
+//        System.out.println(maxMirror(arr1));
+//        System.out.println(maxMirror(arr2));
+//        System.out.println(maxMirror(arr3));
+
+//        List<String> testList = new ArrayList<>();
+//
+//        testList.add("Bob");
+//        testList.add("Bobby");
+//        testList.add("Robert");
+//        testList.add("Roberto");
+//        testList.add("Alice");
+//        testList.add("Alicia");
+//
+//        String[] allNames = testList.toArray(new String[0]);
+//
+//        Map<String, List<String>> testMap = new HashMap<>();
+//
+//        List<String> someList = new ArrayList<>();
+//
+//        testMap.put(" some string", someList);
+//
+//        for (int i = 0; i < someList.size(); i++)
+//        {
+//            System.out.println(someList.get(i));
+//        }
+//
+//        Map<String, List<String>> groupedNames = groupByFirstTwoLetters(allNames);
 
 
+            longestChain();
 
     }
+
+
+    public static void longestChain()
+    {
+        int max = 1;
+        int chainSize;
+        int temp = Integer.MIN_VALUE;
+        int startPoint = 2;
+
+        while(startPoint < 1000000)
+        {
+            chainSize = collatzSequence(startPoint);
+            if (chainSize > max)
+            {
+                max = chainSize;
+                temp = startPoint;
+            }
+            startPoint++;
+        }
+
+        System.out.println("# which produces longest chain is: " + temp);
+    }
+
+    public static int collatzSequence(long num)
+    {
+       List<Long> newList = new ArrayList<>();
+       int listSize;
+
+       while(num > 1)
+       {
+           newList.add(num);
+
+           if (num % 2 == 0)
+               num /= 2;
+           else if (num % 2 != 0)
+               num = 3 * num + 1;
+       }
+
+       listSize = newList.size();
+       return listSize;
+
+    }
+
+
+    //input: ["Bob", "Bobby", "Robert", "Roberto", "Alice", "Alicia" ]
+    //output:
+    //      Map with 3 keys:
+    //      "Bo"    -> List: {"Bob", "Bobby"}
+    //      "Ro"    ->  List: { "Robert", "Roberto" }
+    //      "Al"    ->  List: { "Alice", "Alicia" }
+
+    public static Map<String, List<String>> groupByFirstTwoLetters(String[] toGroup)
+    {
+        String twoRootLetters;
+
+        Map<String, List<String>> newMap = new HashMap<>();
+        List<String> newList = new ArrayList<>();
+
+        for (int i = 0; i < toGroup.length; i++) {
+
+            twoRootLetters = toGroup[i].substring(0, 2);
+
+            System.out.print(twoRootLetters + ": ");
+
+            if (toGroup[i].startsWith(twoRootLetters))
+            {
+                newList.add(toGroup[i]);
+                newMap.put(toGroup[i], newList);
+                System.out.println(newList);
+            }
+        }
+
+        return newMap;
+
+    }
+
 
     public static int middleOfThree(int a, int b, int c) // WORKS
     {
@@ -46,8 +172,7 @@ public class App {
             if (temp > b) {
                 temp = b;
             }
-        }
-        else if (a > c && a > b) {
+        } else if (a > c && a > b) {
             temp = c;
             if (temp > b && temp < a)
                 temp = c;
@@ -63,11 +188,9 @@ public class App {
     {
         int max = Math.max(a, b);
 
-        if (max > c)
-        {
+        if (max > c) {
 
-        }
-        else
+        } else
             max = c;
 
         return max;
@@ -75,8 +198,7 @@ public class App {
 
     public static void fizzBuzz() // WORKS :D
     {
-        for (int i = 1; i < 100; i++)
-        {
+        for (int i = 1; i < 100; i++) {
             if (i % 3 == 0 && i % 5 == 0)
                 System.out.println("FIZZBUZZ");
             else if (i % 3 == 0)
@@ -94,8 +216,7 @@ public class App {
         int sum = 0;
         int balance = 0;
 
-        for (int i = 0; i < arr.length; i++)
-        {
+        for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
         }
 
@@ -104,11 +225,9 @@ public class App {
         else
             sum /= 2;
 
-        for (int j = 0; j < arr.length; j++)
-        {
+        for (int j = 0; j < arr.length; j++) {
             balance += arr[j];
-            if (balance == sum)
-            {
+            if (balance == sum) {
                 return true;
             }
         }
@@ -122,22 +241,15 @@ public class App {
         if (arr.length < 3)
             return true;
 
-        for (int i = 0; i < arr.length; i++)
-        {
-            for (int j = 1; j < arr.length; j++)
-            {
-                if (arr[i] != arr[j])
-                {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 1; j < arr.length; j++) {
+                if (arr[i] != arr[j]) {
                     break;
-                }
-                else if (arr[i] == arr[j])
-                {
-                    for (int k = 2; k < arr.length; k++)
-                    {
+                } else if (arr[i] == arr[j]) {
+                    for (int k = 2; k < arr.length; k++) {
                         if (arr[i] != arr[k])
                             break;
-                        else if (arr[i] == arr[k])
-                        {
+                        else if (arr[i] == arr[k]) {
                             return false;
                         }
 
@@ -146,6 +258,64 @@ public class App {
             }
         }
         return true;
+    }
+
+    //given two arrays of size 100 each representing a 100 digit number
+    // (each element of the input array will have a value between 0 and 9)
+    // return the 101 element "sum" of these two numbers
+    // (in the output array, the digits should also be between 0 and 9)
+    // the digit at index 0 is the one's place, index 1 is the 10's place and so on
+
+    public static int[] addBigNum(int[] left, int[] right) // another failed attempt
+    {
+        StringBuilder sumArray1 = new StringBuilder();
+        StringBuilder sumArray2 = new StringBuilder();
+
+        for (int num1 : left) {
+            sumArray1.append(num1);
+        }
+
+        for (int num2 : right) {
+            sumArray2.append(num2);
+        }
+
+        int totalInt1 = Integer.parseInt(sumArray1.toString());
+        int totalInt2 = Integer.parseInt(sumArray2.toString());
+
+        String temp = Integer.toString(totalInt1 + totalInt2);
+
+        int[] totalSumArray = new int[temp.length()];
+
+        for (int k = 0; k < totalSumArray.length; k++) {
+            totalSumArray[k] = temp.charAt(k) - '0';
+        }
+
+        return totalSumArray;
+
+    }
+
+    public static int maxMirror(int[] nums) {
+        int num = Integer.MIN_VALUE;
+
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = nums.length - 1; j >= 0; j--) {
+
+                int count = 0;
+
+                while (i <= nums.length - 1 && j >= 0 && nums[i] == nums[j]) {
+                    i++;
+                    j--;
+                    count++;
+                }
+
+                if (num <= count)
+                    num = count;
+
+            }
+        }
+
+        return num;
+
     }
 
 

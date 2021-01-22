@@ -34,17 +34,19 @@ public class App {
 
             while (!isValid) {
                 try {
-                    System.out.print("Will Player be moving first? (Y/N)");
+                    System.out.print("Will Player be moving first? (Y/N): ");
 
                     char turnChoice = scan.next().toLowerCase().charAt(0);
                     System.out.println();
 
                     if (turnChoice == 'y') {
                         turnNum = 0;
+                        System.out.println("--- PLAYER MOVES FIRST! ---");
                         playerMove(board, playerSymbol);
                         isValid = true;
                     } else if (turnChoice == 'n') {
                         turnNum = 1;
+                        System.out.println("--- COMPUTER MOVES FIRST! ---");
                         compMove(board, compSymbol);
                         isValid = true;
                     }
@@ -93,10 +95,16 @@ public class App {
 
                 turnNum = (turnNum + 1) % 2;
 
-                if (turnNum == 0)
+                if (turnNum == 0) {
+                    System.out.println();
+                    System.out.println("PLAYERS TURN");
                     playerMove(board, playerSymbol);
-                else
+                }
+                else {
+                    System.out.println();
+                    System.out.println("COMPUTER MOVES...");
                     compMove(board, compSymbol);
+                }
 
                 if (cellCount != 0) {
                     displayBoard(board);
@@ -156,6 +164,8 @@ public class App {
 
         }
 
+        System.out.println();
+
         board[rowIndex][colIndex] = playerX;
 
     }
@@ -185,7 +195,7 @@ public class App {
             return true;
         } else if (board[2][0] != emptyCell && (board[2][0] == board[2][1] && board[2][0] == board[2][2])) {
             return true;
-        } else if (board[2][0] != emptyCell && (board[2][0] == board[1][1] && board[0][0] == board[0][2])) {
+        } else if (board[2][0] != emptyCell && (board[2][0] == board[1][1] && board[2][0] == board[0][2])) {
             return true;
         } else if (board[0][2] != emptyCell && (board[0][2] == board[1][2] && board[0][2] == board[2][2])) {
             return true;
@@ -193,9 +203,8 @@ public class App {
             return true;
         } else if (board[1][0] != emptyCell && (board[1][0] == board[1][1] && board[1][0] == board[1][2])) {
             return true;
-        } else if (board[0][0] != emptyCell && (board[0][0] == board[0][1]) && board[0][0] == board[0][2]) {
-            return true;
         }
+
         return false;
 
     }
