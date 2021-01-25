@@ -6,24 +6,20 @@ public class Application {
 
         PlayerCharacter pc = setUpPlayer();
         NonPlayerCharacter npc = setUpEnemy();
+        int winner = 0;
 
         System.out.println("Player chooses: " + pc.getPlayerName().toUpperCase());
-        System.out.println("Armor Set : " + pc.getArmorSet() + " | " + "Weapon Choice: " + pc.getWeaponChoice());
+        System.out.println("Armor Set : " + pc.getArmorSet().getName() + " | " + "Weapon Choice: "
+                + pc.getWeaponChoice().getName());
         System.out.println();
         System.out.println("Computer chooses: " + npc.getPlayerName().toUpperCase());
-        System.out.println("Armor Set : " + npc.getArmorSet() + " | " + "Weapon Choice: " + npc.getWeaponChoice());
+        System.out.println("Armor Set : " + npc.getArmorSet().getName() + " | " + "Weapon Choice: "
+                + npc.getWeaponChoice().getName());
         System.out.println();
 
+        battle(pc, npc, winner);
 
-
-//        while (pc.isAlive()) {
-//
-//            battle(pc, npc);
-//
-//
-//        }
-//
-//        gameOverScreen();
+        gameOverScreen(pc, npc, winner);
 
     }
 
@@ -36,7 +32,7 @@ public class Application {
         System.out.println("(1) Knight Artorias | Armor: Black Iron Set | Weapon: Broadsword |");
         System.out.println("(2) Hawkwood | Armor: Cloth Armor Set | Weapon : Dual Daggers |");
         System.out.println("(3) Siegward of Catarina | Armor: Smough's Set | Weapon: Stone Greatsword |");
-        optionNumber = Console.readInt("--- *** Choose your knight *** ---");
+        optionNumber = Console.readInt("--- *** Choose your knight *** --- : ");
         System.out.println();
 
         if (optionNumber == 1)
@@ -93,17 +89,45 @@ public class Application {
     }
 
     //a and b battle until one is dead
-    private static void battle(PlayerCharacter a, NonPlayerCharacter b) {
+    private static void battle(PlayerCharacter a, NonPlayerCharacter b, int winner) {
         PlayerCharacter attacker = a;
         NonPlayerCharacter defender = b;
 
-        while (a.isAlive() && b.isAlive()) {
-            if (a.makeChoice().equals("Attack")) {
-                attacker.attack(defender);
-            } else {
-                //TODO: consider other actions
-                throw new UnsupportedOperationException();
+        int playerHP = attacker.getArmorSet().baseArmor();
+        int computerHP = defender.getArmorSet().baseArmor();
+
+        while (a.isAlive(playerHP) && b.isAlive(computerHP)) {
+//
+            if(a.getArmorSet().movementSpeed() > b.getArmorSet().movementSpeed())
+            {
+                computerHP -= attacker.getWeaponChoice().generateDamage();
+                if (a.getArmorSet().movementSpeed() / 3 == b.getArmorSet().movementSpeed())
+                {
+                    computerHP -= attacker.getWeaponChoice().generateDamage();
+                }
+                playerHP -= defender.getWeaponChoice().generateDamage();
             }
+            else if (b.getArmorSet().movementSpeed() > a.getArmorSet().movementSpeed())
+            {
+                playerHP -= defender.getWeaponChoice().generateDamage();
+                if (b.getArmorSet().movementSpeed() / 3 == a.getArmorSet().movementSpeed())
+                {
+                    playerHP -= defender.getWeaponChoice().generateDamage();
+                }
+                computerHP -= attacker.getWeaponChoice().generateDamage();
+            }
+//
+            System.out.println(a.getPlayerName().toUpperCase() + " HP = " + playerHP);
+            System.out.println(b.getPlayerName().toUpperCase() + " HP = " + computerHP);
+
+//
+//
+//            if (a.makeChoice().equals("Attack")) {
+//                attacker.attack(defender);
+//            } else {
+//                //TODO: consider other actions
+//                throw new UnsupportedOperationException();
+//            }
 
 //            Character temp = a;
 //            a = b;
@@ -111,9 +135,24 @@ public class Application {
 
             //TODO: display HP status?
         }
+
+        if(playerHP <= 0)
+            winner = 0;
+        else
+            winner = 1;
+
     }
 
     //display some message
-    private static void gameOverScreen() {
+    private static void gameOverScreen(PlayerCharacter a, NonPlayerCharacter b, int whoDied) {
+
+        System.out.println("--- *** GAME OVER *** --- ");
+        if (whoDied == 1)
+        {
+            System.out.println("--- *** " + a.getPlayerName().toUpperCase() + " WINS! *** ---");
+        }
+        else
+            System.out.println("--- *** " + b.getPlayerName().toUpperCase() + " WINS! *** ---");
+
     }
 }

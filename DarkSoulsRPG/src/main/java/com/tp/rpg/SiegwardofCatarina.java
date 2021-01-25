@@ -7,18 +7,15 @@ import com.tp.rpg.weapons.Weapon;
 
 public class SiegwardofCatarina extends PlayerCharacter{
 
-    private Armor armorSet;
-    private Weapon weaponChoice;
-    private String playerName;
+//    private Armor armorSet;
+//    private Weapon weaponChoice;
+//    private String playerName;
 
     // constructor
 
     public SiegwardofCatarina()
     {
-        super();
-        this.armorSet = new SmoughsSet();
-        this.weaponChoice = new StoneGreatsword();
-        this.playerName = "Siegward of Catarina";
+        super("Siegward of Catarina", new SmoughsSet(), new StoneGreatsword());
     }
 
     @Override
@@ -26,19 +23,19 @@ public class SiegwardofCatarina extends PlayerCharacter{
         return "attack";
     }
 
-    public String getArmorName()
-    {
-        return armorSet.getName();
-    }
-
-    public String getWeaponName()
-    {
-        return weaponChoice.getName();
-    }
-
-    public String getPlayerName()
-    {
-        return this.playerName;
-    }
+//    public String getArmorName()
+//    {ss
+//        return armorSet.getName();
+//    }
+//
+//    public String getWeaponName()
+//    {
+//        return weaponChoice.getName();
+//    }
+//
+//    public String getPlayerName()
+//    {
+//        return this.playerName;
+//    }
 
 }

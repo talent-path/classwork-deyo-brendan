@@ -3,7 +3,7 @@ package com.tp.rpg;
 import com.tp.rpg.armors.Armor;
 import com.tp.rpg.weapons.Weapon;
 
-public class PlayerCharacter {
+public abstract class PlayerCharacter {
     //use scanner here to get something from the user
 
     private String playerName;
@@ -11,9 +11,11 @@ public class PlayerCharacter {
     private Weapon weaponChoice;
 
 
-    public PlayerCharacter()
+    public PlayerCharacter(String name, Armor armor, Weapon weapon)
     {
-        super();
+        playerName = name;
+        armorSet = armor;
+        weaponChoice = weapon;
     }
 
     public String makeChoice() {
@@ -41,9 +43,13 @@ public class PlayerCharacter {
         throw new UnsupportedOperationException();
     }
 
-    public boolean isAlive(){
+    public boolean isAlive(int hp){
 
-        throw new UnsupportedOperationException();
+        if (hp <= 0)
+            return false;
+        else
+            return true;
+
     }
 
 

@@ -7,18 +7,13 @@ import com.tp.rpg.weapons.Weapon;
 
 public class RingfingerLeonhard extends NonPlayerCharacter{
 
-    private Armor armorSet;
-    private Weapon weaponChoice;
-    private String npcName;
 
     // constructor
 
     public RingfingerLeonhard()
     {
-        super();
-        this.armorSet = new ClothArmorSet();
-        this.weaponChoice = new StoneGreatsword();
-        this.npcName = "Ringfinger Leonhard";
+        super("Ringfinger Leonhard", new ClothArmorSet(), new StoneGreatsword());
+
     }
 
     @Override
@@ -31,19 +26,5 @@ public class RingfingerLeonhard extends NonPlayerCharacter{
         return 3;
     }
 
-    public String getArmorName()
-    {
-        return armorSet.getName();
-    }
-
-    public String getWeaponName()
-    {
-        return weaponChoice.getName();
-    }
-
-    public String getPlayerName()
-    {
-        return this.npcName;
-    }
 
 }

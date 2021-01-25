@@ -7,10 +7,5 @@ public interface Weapon {
 
     String getName();
 
-    int getAttackSpeed();
-
-    int getDurability();
-
-    int optionNumber();
 
 }

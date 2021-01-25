@@ -9,18 +9,11 @@ public class KnightSolaire extends NonPlayerCharacter {
 
     // properties
 
-    private Armor armorSet;
-    private Weapon weaponChoice;
-    private String npcName;
-
     // constructor
 
     public KnightSolaire()
     {
-        super();
-        this.armorSet = new SmoughsSet();
-        this.weaponChoice = new BroadSword();
-        this.npcName = "Knight Solaire";
+        super("Knight Solaire", new SmoughsSet(), new BroadSword());
     }
 
     // methods
@@ -30,19 +23,5 @@ public class KnightSolaire extends NonPlayerCharacter {
         return "attack";
     }
 
-    public String getArmorName()
-    {
-        return armorSet.getName();
-    }
-
-    public String getWeaponName()
-    {
-        return weaponChoice.getName();
-    }
-
-    public String getPlayerName()
-    {
-        return this.npcName;
-    }
 
 }

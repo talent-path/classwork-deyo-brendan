@@ -2,34 +2,26 @@ package com.tp.rpg.weapons;
 
 public class StoneGreatsword implements Weapon{
 
-    @Override
-    public String getName()
-    {
-        return "Stone Greatsword";
-    }
+    private String weaponName;
+    private int generateDamage;
 
-    @Override
-    public int getAttackSpeed()
+    public StoneGreatsword()
     {
-        return 33;
+        this.weaponName = "Stone Greatsword";
+        this.generateDamage = 20;
     }
 
     @Override
     public int generateDamage()
     {
-        return 100;
+        return this.generateDamage;
     }
 
     @Override
-    public int getDurability()
+    public String getName()
     {
-        return 20;
-    }
+        return this.weaponName;
 
-    @Override
-    public int optionNumber()
-    {
-        return 3;
     }
 
 }

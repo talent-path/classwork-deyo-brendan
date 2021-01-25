@@ -2,34 +2,25 @@ package com.tp.rpg.weapons;
 
 public class DualDaggers implements Weapon{
 
-    @Override
-    public String getName()
-    {
-        return "Dual Daggers";
-    }
+    private String weaponName;
+    private int generateDamage;
 
-    @Override
-    public int getAttackSpeed()
+    public DualDaggers()
     {
-        return 100;
+        this.weaponName = "Dual Daggers";
+        this.generateDamage = 10;
     }
 
     @Override
     public int generateDamage()
     {
-        return 33;
+        return this.generateDamage;
     }
 
     @Override
-    public int getDurability()
+    public String getName()
     {
-        return 10;
-    }
+        return this.weaponName;
 
-    @Override
-    public int optionNumber()
-    {
-        return 2;
     }
-
 }

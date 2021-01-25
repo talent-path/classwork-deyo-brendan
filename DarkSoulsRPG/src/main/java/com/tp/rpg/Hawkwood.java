@@ -8,18 +8,15 @@ import com.tp.rpg.weapons.Weapon;
 
 public class Hawkwood extends PlayerCharacter{
 
-    private Armor armorSet;
-    private Weapon weaponChoice;
-    private String playerName;
+//    private Armor armorSet;
+//    private Weapon weaponChoice;
+//    private String playerName;
 
     // constructor
 
     public Hawkwood()
     {
-        super();
-        this.armorSet = new ClothArmorSet();
-        this.weaponChoice = new DualDaggers();
-        this.playerName = "Hawkwood";
+        super("Hawkwood", new ClothArmorSet(), new DualDaggers());
     }
 
     @Override
@@ -27,19 +24,19 @@ public class Hawkwood extends PlayerCharacter{
         return "attack";
     }
 
-    public String getArmorName()
-    {
-        return armorSet.getName();
-    }
-
-    public String getWeaponName()
-    {
-        return weaponChoice.getName();
-    }
-
-    public String getPlayerName()
-    {
-        return this.playerName;
-    }
+//    public String getArmorName()
+//    {
+//        return armorSet.getName();
+//    }
+//
+//    public String getWeaponName()
+//    {
+//        return weaponChoice.getName();
+//    }
+//
+//    public String getPlayerName()
+//    {
+//        return this.playerName;
+//    }
 
 }

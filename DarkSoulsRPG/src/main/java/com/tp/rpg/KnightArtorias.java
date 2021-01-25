@@ -7,18 +7,15 @@ import com.tp.rpg.weapons.Weapon;
 
 public class KnightArtorias extends PlayerCharacter{
 
-    private Armor armorSet;
-    private Weapon weaponChoice;
-    private String playerName;
+//    private Armor armorSet;
+//    private Weapon weaponChoice;
+//    private String playerName;
 
     // constructor
 
     public KnightArtorias()
     {
-        super();
-        this.armorSet = new BlackIronSet();
-        this.weaponChoice = new BroadSword();
-        playerName = "Knight Artorias";
+        super("Knight Artorias", new BlackIronSet(), new BroadSword());
     }
 
     @Override
@@ -35,9 +32,5 @@ public class KnightArtorias extends PlayerCharacter{
 //        return weaponChoice.getName();
 //    }
 
-    public String getPlayerName()
-    {
-        return this.playerName;
-    }
 
 }

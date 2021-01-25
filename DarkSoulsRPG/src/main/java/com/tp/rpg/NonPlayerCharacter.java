@@ -1,16 +1,20 @@
 package com.tp.rpg;
 
+import com.tp.rpg.armors.Armor;
+import com.tp.rpg.weapons.Weapon;
+
 public class NonPlayerCharacter {
 
 
     private String nonPlayerName;
-    private String armorSet;
-    private String weaponChoice;
+    private Armor armorSet;
+    private Weapon weaponChoice;
 
-    public NonPlayerCharacter() {
+    public NonPlayerCharacter(String name, Armor armor, Weapon weapon) {
 
-        super();
-
+        nonPlayerName = name;
+        armorSet = armor;
+        weaponChoice = weapon;
     }
 
     public String makeChoice() {
@@ -22,23 +26,27 @@ public class NonPlayerCharacter {
         return this.nonPlayerName;
     }
 
-    public String getArmorSet()
-    {
-        return this.armorSet;
-    }
-
-    public String getWeaponChoice() {
-        return this.weaponChoice;
-    }
-
     public void attack(PlayerCharacter defender) {
 
         throw new UnsupportedOperationException();
     }
 
-    public boolean isAlive() {
+    public Armor getArmorSet() {
 
-        throw new UnsupportedOperationException();
+        return this.armorSet;
+    }
+
+    public Weapon getWeaponChoice() {
+        return this.weaponChoice;
+    }
+
+    public boolean isAlive(int hp) {
+
+        if (hp <= 0)
+            return false;
+        else
+            return true;
+
     }
 
 }

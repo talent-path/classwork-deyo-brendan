@@ -81,10 +81,27 @@ public class App {
 //        Map<String, List<String>> groupedNames = groupByFirstTwoLetters(allNames);
 
 
-            longestChain();
+//            longestChain();
+
+        System.out.println(digitReverse(1234));
+        System.out.println(digitReverse(0002));
+        System.out.println(digitReverse(-10245));
 
     }
 
+
+    public static int digitReverse(int num)
+    {
+        int reverseNum = 0;
+
+        for( ; Math.abs(num) > 0; num /= 10)
+        {
+            reverseNum = (num % 10) + (reverseNum * 10);
+        }
+
+        return reverseNum;
+
+    }
 
     public static void longestChain()
     {

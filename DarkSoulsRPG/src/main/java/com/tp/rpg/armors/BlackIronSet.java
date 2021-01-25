@@ -3,10 +3,27 @@ package com.tp.rpg.armors;
 public class BlackIronSet implements Armor{
 
     private String armorName;
+    private int damageReduction;
+    private int baseArmor;
+    private int movementSpeed;
 
     public BlackIronSet()
     {
         this.armorName = "Black Iron Set";
+        this.damageReduction = -30;
+        this.baseArmor = 150;
+        this.movementSpeed = 3;
+    }
+
+    @Override
+    public int damageReduction(int startingDamage) {
+        startingDamage = startingDamage + this.damageReduction;
+        return startingDamage;
+    }
+
+    @Override
+    public int baseArmor() {
+        return 150;
     }
 
     @Override
@@ -16,30 +33,12 @@ public class BlackIronSet implements Armor{
     }
 
     @Override
-    public int getArmorNum()
-    {
-        return 150;
-    }
-
-    @Override
-    public int reduceDamage(int startingDamage)
-    {
-        startingDamage = -30;
-        return startingDamage;
-    }
-
-    @Override
-    public int getWeight()
-    {
-        return 12;
+    public int movementSpeed() {
+        return 3;
     }
 
 
-    @Override
-    public int optionNumber()
-    {
-        return 1;
-    }
+
 
 
 

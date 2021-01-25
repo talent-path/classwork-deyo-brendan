@@ -3,15 +3,14 @@ public interface Armor {
 
     //takes in an amount of damage dealt
     //outputs the amount of damage to actually take
-    int reduceDamage( int startingDamage );
+    int damageReduction( int startingDamage );
 
-    int getArmorNum();
+    int baseArmor();
 
     String getName();
 
-    int getWeight();
+    int movementSpeed();
 
-    int optionNumber();
 
 
 }

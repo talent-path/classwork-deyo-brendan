@@ -2,34 +2,40 @@ package com.tp.rpg.armors;
 
 public class ClothArmorSet implements Armor{
 
-    @Override
-    public String getName()
+    private String armorName;
+    private int damageReduction;
+    private int baseArmor;
+    private int movementSpeed;
+
+    public ClothArmorSet()
     {
-        return "Cloth Armor Set";
+        this.armorName = "Cloth Armor Set";
+        this.damageReduction = -10;
+        this.baseArmor = 50;
+        this.movementSpeed = 9;
     }
 
     @Override
-    public int getArmorNum()
-    {
-        return 50;
-    }
-
-    @Override
-    public int reduceDamage(int startingDamage)
-    {
-        startingDamage = -10;
+    public int damageReduction(int startingDamage) {
+        startingDamage = startingDamage + this.damageReduction;
         return startingDamage;
     }
 
     @Override
-    public int getWeight()
-    {
-        return 4;
+    public int baseArmor() {
+        return this.baseArmor;
     }
 
     @Override
-    public int optionNumber()
+    public String getName()
     {
-        return 2;
+        return this.armorName;
     }
+
+    @Override
+    public int movementSpeed() {
+        return this.movementSpeed;
+    }
+
+
 }
