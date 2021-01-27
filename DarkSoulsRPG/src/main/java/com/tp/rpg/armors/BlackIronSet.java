@@ -12,7 +12,7 @@ public class BlackIronSet implements Armor{
         this.armorName = "Black Iron Set";
         this.damageReduction = -30;
         this.baseArmor = 150;
-        this.movementSpeed = 3;
+        this.movementSpeed = 10;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class BlackIronSet implements Armor{
 
     @Override
     public int baseArmor() {
-        return 150;
+        return this.baseArmor;
     }
 
     @Override

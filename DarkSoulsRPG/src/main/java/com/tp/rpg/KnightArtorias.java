@@ -18,11 +18,6 @@ public class KnightArtorias extends PlayerCharacter{
         super("Knight Artorias", new BlackIronSet(), new BroadSword());
     }
 
-    @Override
-    public String makeChoice() {
-        return "attack";
-    }
-
 //    public String getArmorName() {
 //        return this.armorName;
 //    }

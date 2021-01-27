@@ -83,19 +83,114 @@ public class App {
 
 //            longestChain();
 
-        System.out.println(digitReverse(1234));
-        System.out.println(digitReverse(0002));
-        System.out.println(digitReverse(-10245));
+//        System.out.println(digitReverse(1234));
+//        System.out.println(digitReverse(0002));
+//        System.out.println(digitReverse(-10245));
+
+//        System.out.println(lengthOfLongestSubstring("abcabcbb"));
+
+//        System.out.println(isPerfect(6));
+//        System.out.println(isPerfect(28));
+//        System.out.println(isPerfect(10));
+//        System.out.println(isPerfect(99));
+//        System.out.println(isPerfect(496));
+//        System.out.println(isPerfect(8128));
+
 
     }
 
-
-    public static int digitReverse(int num)
+    public boolean isValidSudoku(char[][] board)
     {
+        boolean valid = true;
+
+        for (int row = 0; row < 9; row++)
+        {
+            for (int col = 0; col < 9; col++)
+            {
+                if (board[row][col] != '.')
+                {
+                    int boxTopRow = row / 3 * 3;
+                    int boxLeftCol = col / 3 * 3;
+
+                    for (int i = 0; i < 9; i++)
+                    {
+                        int boxR = boxTopRow + i / 3;
+                        int boxC = boxLeftCol + i % 3;
+
+                        if (i != col && board[row][i] == board[row][col])
+                        {
+                            valid = false;
+                        }
+                        if (i != row && board[i][col] == board[row][col])
+                        {
+                            valid = false;
+                        }
+                        if ((boxR != row || boxC != col ) && board[boxR][boxC] == board[row][col])
+                        {
+                            valid = false;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        return true;
+    }
+
+    public static boolean isPerfect(int num) {
+        int sum = 0;
+
+        boolean isPerfect;
+
+        for (int i = 1; i < num; i++) {
+            // check if perfectly divisible by i
+            if (num % i == 0)
+                sum += i;
+        }
+
+        if (sum == num)
+            isPerfect = true;
+        else
+            isPerfect = false;
+
+        return isPerfect;
+    }
+
+    public static int lengthOfLongestSubstring(String s) {
+
+        char[] toArr = s.toCharArray();
+        char[] newArr = new char[0];
+        StringBuilder newStr = new StringBuilder();
+
+        for (char check : toArr) {
+
+            if (newStr.length() == 0) {
+                newStr.append(check);
+            }
+
+            newArr = newStr.toString().toCharArray();
+
+            for (int i = 0; i < newArr.length; i++) {
+
+                if (newArr[i] == check) {
+                    break;
+                } else {
+                    newStr.append(check);
+                }
+            }
+
+        }
+
+        return newStr.length();
+
+    }
+
+    public static int digitReverse(int num) {
         int reverseNum = 0;
 
-        for( ; Math.abs(num) > 0; num /= 10)
-        {
+        for (; Math.abs(num) > 0; num /= 10) {
             reverseNum = (num % 10) + (reverseNum * 10);
         }
 
@@ -103,18 +198,15 @@ public class App {
 
     }
 
-    public static void longestChain()
-    {
+    public static void longestChain() {
         int max = 1;
         int chainSize;
         int temp = Integer.MIN_VALUE;
         int startPoint = 2;
 
-        while(startPoint < 1000000)
-        {
+        while (startPoint < 1000000) {
             chainSize = collatzSequence(startPoint);
-            if (chainSize > max)
-            {
+            if (chainSize > max) {
                 max = chainSize;
                 temp = startPoint;
             }
@@ -124,23 +216,21 @@ public class App {
         System.out.println("# which produces longest chain is: " + temp);
     }
 
-    public static int collatzSequence(long num)
-    {
-       List<Long> newList = new ArrayList<>();
-       int listSize;
+    public static int collatzSequence(long num) {
+        List<Long> newList = new ArrayList<>();
+        int listSize;
 
-       while(num > 1)
-       {
-           newList.add(num);
+        while (num > 1) {
+            newList.add(num);
 
-           if (num % 2 == 0)
-               num /= 2;
-           else if (num % 2 != 0)
-               num = 3 * num + 1;
-       }
+            if (num % 2 == 0)
+                num /= 2;
+            else if (num % 2 != 0)
+                num = 3 * num + 1;
+        }
 
-       listSize = newList.size();
-       return listSize;
+        listSize = newList.size();
+        return listSize;
 
     }
 
@@ -152,8 +242,7 @@ public class App {
     //      "Ro"    ->  List: { "Robert", "Roberto" }
     //      "Al"    ->  List: { "Alice", "Alicia" }
 
-    public static Map<String, List<String>> groupByFirstTwoLetters(String[] toGroup)
-    {
+    public static Map<String, List<String>> groupByFirstTwoLetters(String[] toGroup) {
         String twoRootLetters;
 
         Map<String, List<String>> newMap = new HashMap<>();
@@ -165,8 +254,7 @@ public class App {
 
             System.out.print(twoRootLetters + ": ");
 
-            if (toGroup[i].startsWith(twoRootLetters))
-            {
+            if (toGroup[i].startsWith(twoRootLetters)) {
                 newList.add(toGroup[i]);
                 newMap.put(toGroup[i], newList);
                 System.out.println(newList);

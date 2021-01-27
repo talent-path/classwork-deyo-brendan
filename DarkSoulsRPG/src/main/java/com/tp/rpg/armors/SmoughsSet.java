@@ -11,8 +11,8 @@ public class SmoughsSet implements Armor{
     {
         this.armorName = "Smough's Set";
         this.damageReduction = -20;
-        this.baseArmor = 100;
-        this.movementSpeed = 6;
+        this.baseArmor = 125;
+        this.movementSpeed = 20;
     }
 
     @Override

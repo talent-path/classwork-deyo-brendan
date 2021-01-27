@@ -7,5 +7,6 @@ public interface Weapon {
 
     String getName();
 
+    int movement();
 
 }

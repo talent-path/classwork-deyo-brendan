@@ -9,6 +9,7 @@ public abstract class PlayerCharacter {
     private String playerName;
     private Armor armorSet;
     private Weapon weaponChoice;
+    private int getMovement;
 
 
     public PlayerCharacter(String name, Armor armor, Weapon weapon)
@@ -17,11 +18,6 @@ public abstract class PlayerCharacter {
         armorSet = armor;
         weaponChoice = weapon;
     }
-
-    public String makeChoice() {
-        throw new UnsupportedOperationException();
-    }
-
 
     public String getPlayerName()
     {
@@ -33,23 +29,16 @@ public abstract class PlayerCharacter {
         return this.armorSet;
     }
 
-    public Weapon getWeaponChoice() {
-        return this.weaponChoice;
-    }
-
-
-    public void attack( NonPlayerCharacter defender ){
-
-        throw new UnsupportedOperationException();
-    }
-
-    public boolean isAlive(int hp){
-
-        if (hp <= 0)
+    public boolean isAlive(int num)
+    {
+        if (num <= 0)
             return false;
         else
             return true;
+    }
 
+    public Weapon getWeaponChoice() {
+        return this.weaponChoice;
     }
 
 

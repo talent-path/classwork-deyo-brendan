@@ -19,10 +19,6 @@ public class Hawkwood extends PlayerCharacter{
         super("Hawkwood", new ClothArmorSet(), new DualDaggers());
     }
 
-    @Override
-    public String makeChoice() {
-        return "attack";
-    }
 
 //    public String getArmorName()
 //    {

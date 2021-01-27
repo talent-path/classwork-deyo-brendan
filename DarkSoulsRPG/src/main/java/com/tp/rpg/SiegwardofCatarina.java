@@ -18,11 +18,6 @@ public class SiegwardofCatarina extends PlayerCharacter{
         super("Siegward of Catarina", new SmoughsSet(), new StoneGreatsword());
     }
 
-    @Override
-    public String makeChoice() {
-        return "attack";
-    }
-
 //    public String getArmorName()
 //    {ss
 //        return armorSet.getName();

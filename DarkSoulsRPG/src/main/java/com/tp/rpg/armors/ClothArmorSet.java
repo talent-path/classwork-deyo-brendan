@@ -11,8 +11,8 @@ public class ClothArmorSet implements Armor{
     {
         this.armorName = "Cloth Armor Set";
         this.damageReduction = -10;
-        this.baseArmor = 50;
-        this.movementSpeed = 9;
+        this.baseArmor = 100;
+        this.movementSpeed = 30;
     }
 
     @Override

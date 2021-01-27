@@ -40,9 +40,9 @@ public class NonPlayerCharacter {
         return this.weaponChoice;
     }
 
-    public boolean isAlive(int hp) {
+    public boolean isAlive(int num) {
 
-        if (hp <= 0)
+        if (num <= 0)
             return false;
         else
             return true;
