@@ -97,46 +97,80 @@ public class App {
 //        System.out.println(isPerfect(8128));
 
 
+
+        char[][] board = {{'5','3','.','.','7','.','.','.','.'},
+                        {'6','.','.','1','9','5','.','.','.'},
+                        {'.','9','8','.','.','.','.','6','.'},
+                        {'8','.','.','.','6','.','.','.','3'},
+                        {'4','.','.','8','.','3','.','.','1'},
+                        {'7','.','.','.','2','.','.','.','6'},
+                        {'.','6','.','.','.','.','2','8','.'},
+                        {'.','.','.','4','1','9','.','.','5'},
+                        {'.','.','.','.','8','.','.','7','9'}};
+
+        solveSudoku(board);
+
+
+
+
+
+
     }
 
-    public boolean isValidSudoku(char[][] board)
+    public static void solveSudoku(char[][] board)
     {
-        boolean valid = true;
+        boolean isValid = false;
 
-        for (int row = 0; row < 9; row++)
+        while (!isValid)
         {
-            for (int col = 0; col < 9; col++)
+            for (int row = 0; row <  board.length; row++)
             {
-                if (board[row][col] != '.')
+                for (int col = 0; col < board.length; col++)
                 {
-                    int boxTopRow = row / 3 * 3;
-                    int boxLeftCol = col / 3 * 3;
-
-                    for (int i = 0; i < 9; i++)
+                    if (board[row][col] == '.')
                     {
-                        int boxR = boxTopRow + i / 3;
-                        int boxC = boxLeftCol + i % 3;
-
-                        if (i != col && board[row][i] == board[row][col])
+                        char[] index = {'1','2','3','4','5','6','7','8','9'};
+                        for (int check = 0; check <= index.length; check++)
                         {
-                            valid = false;
-                        }
-                        if (i != row && board[i][col] == board[row][col])
-                        {
-                            valid = false;
-                        }
-                        if ((boxR != row || boxC != col ) && board[boxR][boxC] == board[row][col])
-                        {
-                            valid = false;
+                            board[row][col] = index[check];
+                            if (isValidSudoku(board, row, col))
+                            {
+                                isValid = true;
+                            }
+                            else
+                                board[row][col] = '.';
                         }
                     }
                 }
             }
         }
 
+    }
 
+    public static boolean isValidSudoku(char[][] board, int row, int col)
+    {
+        for (int i = 0; i < board.length; i++)
+        {
+            if ((i != row || i != '.') && board[i][col] == board[row][col])
+                return false;
+        }
+        for (int j = 0; j < board.length; j++)
+        {
+            if((j != col || j != '.') && board[row][j] == board[row][col])
+                return false;
+        }
+        for (int i = (row / 3) * 3; i < (i / 3) * 3 + 3; i++)
+        {
+            for (int j = (col / 3) * 3; i < (col / 3) * 3 + 3; j++)
+            {
+                if (((i != row || j != col) && board[i][j] != '.') &&
+                        board[i][j] == board[row][col])
+                    return false;
+            }
+        }
 
         return true;
+
     }
 
     public static boolean isPerfect(int num) {
