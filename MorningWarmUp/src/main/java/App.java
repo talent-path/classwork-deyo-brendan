@@ -1,3 +1,6 @@
+import com.sun.source.tree.Tree;
+
+import javax.swing.tree.TreeNode;
 import java.sql.SQLOutput;
 import java.util.*;
 
@@ -98,21 +101,93 @@ public class App {
 
 
 
-        char[][] board = {{'5','3','.','.','7','.','.','.','.'},
-                        {'6','.','.','1','9','5','.','.','.'},
-                        {'.','9','8','.','.','.','.','6','.'},
-                        {'8','.','.','.','6','.','.','.','3'},
-                        {'4','.','.','8','.','3','.','.','1'},
-                        {'7','.','.','.','2','.','.','.','6'},
-                        {'.','6','.','.','.','.','2','8','.'},
-                        {'.','.','.','4','1','9','.','.','5'},
-                        {'.','.','.','.','8','.','.','7','9'}};
-
-        solveSudoku(board);
-
-
+//        char[][] board = {{'5','3','.','.','7','.','.','.','.'},
+//                        {'6','.','.','1','9','5','.','.','.'},
+//                        {'.','9','8','.','.','.','.','6','.'},
+//                        {'8','.','.','.','6','.','.','.','3'},
+//                        {'4','.','.','8','.','3','.','.','1'},
+//                        {'7','.','.','.','2','.','.','.','6'},
+//                        {'.','6','.','.','.','.','2','8','.'},
+//                        {'.','.','.','4','1','9','.','.','5'},
+//                        {'.','.','.','.','8','.','.','7','9'}};
+//
+//        solveSudoku(board);
 
 
+
+
+
+
+    }
+
+    public int rangeSumBST(TreeNode root, int low, int high) {
+
+        List<TreeNode> newTree = new ArrayList<TreeNode>();
+
+        TreeNode node = new TreeNode() {
+            @Override
+            public TreeNode getChildAt(int childIndex) {
+                return null;
+            }
+
+            @Override
+            public int getChildCount() {
+                return 0;
+            }
+
+            @Override
+            public TreeNode getParent() {
+                return null;
+            }
+
+            @Override
+            public int getIndex(TreeNode node) {
+                return 0;
+            }
+
+            @Override
+            public boolean getAllowsChildren() {
+                return false;
+            }
+
+            @Override
+            public boolean isLeaf() {
+                return false;
+            }
+
+            @Override
+            public Enumeration<? extends TreeNode> children() {
+                return null;
+            }
+        }
+
+        int output = 0;
+
+        newTree.add(root);
+
+        if (root != null)
+        {
+            for (int i = 0; i < newTree.size(); i++)
+            {
+                newTree.remove(i);
+                if (newTree != null)
+                {
+                    int value = newTree.indexOf(i);
+                    if (low <= value && value <= high )
+                    {
+                        output += value;
+                    }
+                    if (low < value)
+                    {
+                        newTree.remove(root.left);
+                    }
+                    if (value < high)
+                    {
+                        newTree.add(root.right);
+                    }
+                }
+            }
+        }
 
 
     }
