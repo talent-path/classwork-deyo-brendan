@@ -118,7 +118,34 @@ public class App {
 
 
 
+
+
     }
+
+
+    public int search(int[] nums, int target) {
+
+        int pivot = Integer.MIN_VALUE;
+        int i = nums[0];
+        int searchArr = nums[nums.length - 1];
+
+        while (i <= searchArr)
+        {
+            pivot = i + (searchArr - i) / 2;
+            if (nums[pivot] == target)
+                return pivot;
+            if (target < nums[pivot])
+                searchArr = pivot - 1;
+            else if (target > nums[pivot])
+                i = pivot + 1;
+        }
+        return -1;
+
+
+
+
+    }
+
 
     public int rangeSumBST(TreeNode root, int low, int high) {
 

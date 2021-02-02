@@ -43,17 +43,20 @@ public class ManageLibraryInMemDao implements ManageLibraryDao {
         return toReturn;
     }
 
-    public Book getBookByAuthors(String[] bookAuthors) throws InvalidAuthorException {
+    public Book getBookByAuthors(String bookAuthors) throws InvalidAuthorException {
+
         Book toReturn = null;
 
         for (Book toCheck : allBooks) {
-            if (toCheck.getBookAuthors().equals(bookAuthors)) {
+            if (toCheck.getBookAuthors().equals(bookAuthors))
+            {
                 toReturn = new Book(toCheck);
                 break;
             }
         }
 
-        if (toReturn.getBookAuthors() == null || toReturn.getBookAuthors().length == 0) {
+        if (toReturn.getBookAuthors() == null || toReturn.getBookAuthors().length < 1
+            || toReturn.getBookAuthors().length > 10) {
             throw new InvalidAuthorException("There must be at least one author.");
         }
 
@@ -89,7 +92,7 @@ public class ManageLibraryInMemDao implements ManageLibraryDao {
         }
 
         if (toReturn.getBookTitle() == null || (toReturn.getBookTitle().length() < 3 &&
-                toReturn.getBookTitle().length() > 100)) {
+                toReturn.getBookTitle().length() > 50)) {
             throw new InvalidTitleException("Title is either to short or too long.");
         }
 
@@ -120,7 +123,8 @@ public class ManageLibraryInMemDao implements ManageLibraryDao {
             throw new InvalidBookIDException("Book ID does not exist.");
         }
 
-        if (newBook.getBookAuthors() == null || newBook.getBookAuthors().length < 1) {
+        if (newBook.getBookAuthors() == null || newBook.getBookAuthors().length < 1
+            || newBook.getBookAuthors().length > 10) {
             throw new InvalidAuthorException("There must be at least one author.");
         }
 
@@ -139,7 +143,8 @@ public class ManageLibraryInMemDao implements ManageLibraryDao {
         return newBook;
     }
 
-    public Book editBook(Book editedBook) {
+    public Book editBook(Book editedBook) throws InvalidBookIDException, InvalidAuthorException,
+            InvalidPublicationYearException, InvalidTitleException {
 
         Book newBook = new Book();
 
@@ -147,6 +152,24 @@ public class ManageLibraryInMemDao implements ManageLibraryDao {
             if (allBooks.get(i).getBookID().equals(editedBook.getBookID())) {
                 newBook = allBooks.set(i, new Book(editedBook));
             }
+        }
+
+        if (newBook.getBookID() == null) {
+            throw new InvalidBookIDException("Book ID does not exist.");
+        }
+
+        if (newBook.getBookAuthors() == null || newBook.getBookAuthors().length < 1) {
+            throw new InvalidAuthorException("There must be at least one author.");
+        }
+
+        if (newBook.getPublicationYear() == null || (newBook.getPublicationYear() < 1300 &&
+                newBook.getPublicationYear() > 2022)) {
+            throw new InvalidPublicationYearException("Publication year does not exist.");
+        }
+
+        if (newBook.getBookTitle() == null || (newBook.getBookTitle().length() < 3 &&
+                newBook.getBookTitle().length() > 100)) {
+            throw new InvalidTitleException("Title is either to short or too long.");
         }
 
         return newBook;

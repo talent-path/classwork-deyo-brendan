@@ -2,6 +2,7 @@ package com.tp.managelibrary.services;
 
 
 import com.tp.managelibrary.exceptions.InvalidAuthorException;
+import com.tp.managelibrary.exceptions.InvalidBookIDException;
 import com.tp.managelibrary.exceptions.InvalidPublicationYearException;
 import com.tp.managelibrary.exceptions.InvalidTitleException;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,7 +25,8 @@ public class ManageLibraryServicesTests {
     ManageLibraryService service;
 
     @BeforeEach
-    public void setup() {
+    public void setup() throws InvalidPublicationYearException, InvalidAuthorException,
+            InvalidTitleException, InvalidBookIDException {
 
         List<Book> allBooks = service.getAllBooks();
 
@@ -34,43 +36,35 @@ public class ManageLibraryServicesTests {
             service.deleteBook(id);
         }
 
-        String[] authors = {"Edgar"};
-        int pub = 1301;
-        String title = "Book";
-
+        String[] authors = {"Edgar Allan Poe"};
+        int pub = 1845;
+        String title = "The Raven";
         service.addBook(authors, pub, title);
 
-        authors = new String[]{"Stephen"};
-
-        pub = 1900;
-
-        title = "Book2";
-
+        authors = new String[]{"Stephen King"};
+        pub = 1986;
+        title = "IT";
         service.addBook(authors, pub, title);
 
-        authors = new String[]{"Brooke"};
-
-        pub = 2001;
-
-        title = "Book3";
-
+        authors = new String[]{"Lois Lowry"};
+        pub = 2002;
+        title = "The Giver";
         service.addBook(authors, pub, title);
 
-        authors = new String[]{"Steve"};
-
-        pub = 1902;
-
-        title = "Book4";
-
+        authors = new String[]{"Brendan Deyo", "Rick Riordan", "Elon Musk"};
+        pub = 2021;
+        title = "Best Book Ever";
         service.addBook(authors, pub, title);
 
     }
 
     @Test
-    public void testAddBookGoldenPath() {
-        String[] authors = {"Edgar"};
-        int pub = 1301;
-        String title = "Book";
+    public void testAddBookGoldenPath() throws InvalidPublicationYearException, InvalidAuthorException,
+            InvalidTitleException, InvalidBookIDException {
+
+        String[] authors = {"John Doe"};
+        int pub = 1299;
+        String title = "Chronicles of the Mysterious John Doe";
 
         Book testBook = service.addBook(authors, pub, title);
 
@@ -79,69 +73,66 @@ public class ManageLibraryServicesTests {
     }
 
     @Test
-    public void testGetAllBooksGoldenPath() {
-
-
+    public void testGetAllBooksGoldenPath() throws InvalidBookIDException {
+        service.deleteBook(1);
+        service.deleteBook(2);
+        service.getAllBooks();
+        assertEquals(service.getAllBooks().size(), 2);
     }
 
     @Test
-    public void testDeleteBookGoldenPath() {
+    public void testDeleteBookGoldenPath() throws InvalidBookIDException, InvalidTitleException,
+            InvalidPublicationYearException, InvalidAuthorException {
         String[] authors = {"Edgar"};
         int pub = 1301;
         String title = "Book";
-
         service.addBook(authors, pub, title);
 
         authors = new String[]{"Stephen"};
-
         pub = 1900;
-
         title = "Book2";
-
         service.addBook(authors, pub, title);
 
         authors = new String[]{"Brooke"};
-
         pub = 2001;
-
         title = "Book3";
-
         service.addBook(authors, pub, title);
 
         authors = new String[]{"Steve"};
-
         pub = 1902;
-
         title = "Book4";
-
         service.addBook(authors, pub, title);
 
         List<Book> allBooks = service.getAllBooks();
 
-        int bookToDelete = 3;
-        for (int i = 0; i < allBooks.size(); i++)
+        service.deleteBook(5);
+
+        try
         {
-            if(allBooks.get(i).getBookID() == bookToDelete)
-            {
-                service.deleteBook(bookToDelete);
-            }
+            service.getBookByID(5);
+        } catch (InvalidBookIDException ex)
+        {
+            fail();
         }
-
-        allBooks.size();
-
-        int x = 1;
 
     }
 
     @Test
-    public void testEditBookGoldenPath()
-    {
-        Book editBook = new Book();
+    public void testEditBookGoldenPath() throws InvalidPublicationYearException, InvalidAuthorException,
+            InvalidTitleException, InvalidBookIDException {
+
+        Book toEdit = service.getBookByID(1);
+
+        service.editBook(toEdit);
+
+        assertEquals(service.getBookByID(123), 123);
+        assertEquals(service.getBookByAuthor("Edited Author"), "Edited Author");
+        assertEquals(service.getBookByYear(1999), 1999);
+        assertEquals(service.getBookByTitle("Edited Book Title"), "Edited Book Title");
 
 
-
-       // service.editBook()
 
     }
+
 
 }

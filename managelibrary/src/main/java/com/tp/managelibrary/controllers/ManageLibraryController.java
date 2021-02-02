@@ -8,6 +8,7 @@ import com.tp.managelibrary.exceptions.InvalidTitleException;
 import com.tp.managelibrary.models.Book;
 import com.tp.managelibrary.services.ManageLibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,54 +25,87 @@ public class ManageLibraryController {
     }
 
     @GetMapping("/get/ID/{bookID}")
-    public Book getBookByID(@PathVariable Integer bookID) {
-        return service.getBookByID(bookID);
+    public ResponseEntity getBookByID(@PathVariable Integer bookID) {
+        try
+        {
+            return ResponseEntity.ok(service.getBookByID(bookID));
+        } catch (InvalidBookIDException ex)
+        {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
 
     @GetMapping("/get/author/{bookAuthors}")
-    public Book getBookByAuthor(@PathVariable String[] bookAuthors) {
-        return service.getBookByAuthor(bookAuthors);
+    public ResponseEntity getBookByAuthor(@PathVariable String bookAuthors) {
+        try
+        {
+            return ResponseEntity.ok(service.getBookByAuthor(bookAuthors));
+        } catch (InvalidAuthorException ex)
+        {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+
     }
 
     @GetMapping("/get/year/{publicationYear}")
-    public Book getBookByYear(@PathVariable Integer publicationYear) {
-        return service.getBookByYear(publicationYear);
+    public ResponseEntity getBookByYear(@PathVariable Integer publicationYear) {
+        try
+        {
+            return ResponseEntity.ok(service.getBookByYear(publicationYear));
+        } catch (InvalidPublicationYearException ex)
+        {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+
     }
 
     @GetMapping("get/title/{bookTitle}")
-    public Book getBookByTitle(@PathVariable String bookTitle) {
-        return service.getBookByTitle(bookTitle);
+    public ResponseEntity getBookByTitle(@PathVariable String bookTitle) {
+        try
+        {
+            return ResponseEntity.ok(service.getBookByTitle(bookTitle));
+        } catch (InvalidTitleException ex)
+        {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
 
     @PostMapping("/add")
-    public Book addBook(@RequestBody AddBookRequest request) {
-        return service.addBook(request.getBookAuthors(), request.getPublicationYear(), request.getBookTitle());
+    public ResponseEntity addBook(@RequestBody AddBookRequest request) {
+        try
+        {
+            return ResponseEntity.ok(service.addBook(request.getBookAuthors(), request.getPublicationYear(),
+                    request.getBookTitle()));
+        } catch (InvalidBookIDException | InvalidAuthorException | InvalidPublicationYearException
+            | InvalidTitleException ex)
+        {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
 
     @DeleteMapping("/delete/{bookID}")
     public void deleteBook(@PathVariable Integer bookID) {
-        service.deleteBook(bookID);
-
-        System.out.println("Deleted book with ID" + bookID);
+        try
+        {
+            service.deleteBook(bookID);
+        } catch (InvalidBookIDException ex)
+        {
+            ex.getMessage();
+        }
 
     }
 
     @PutMapping("/edit")
-    public Book editBook(@RequestBody Book bookObject) {
+    public ResponseEntity editBook(@RequestBody Book bookObject) {
 
-        return service.editBook(bookObject);
-
-//        HangmanViewModel toReturn = null;
-//
-//        try{
-//            toReturn = service.makeGuess( request.getGameId(), request.getGuess() );
-//        } catch( NullGuessException | InvalidGuessException | InvalidGameIdException ex ){
-//
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
-//        }
-//
-//        return ResponseEntity.ok(toReturn);
-
+        try
+        {
+            return ResponseEntity.ok(service.editBook(bookObject));
+        } catch (InvalidBookIDException | InvalidAuthorException | InvalidPublicationYearException
+            | InvalidTitleException ex)
+        {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
 
     }
 

@@ -28,26 +28,19 @@ public class ManageLibraryService {
         return converted;
     }
 
-    public Book getBookByID(Integer bookID) {
+    public Book getBookByID(Integer bookID) throws InvalidBookIDException {
         Book book = null;
-        try {
-            book = dao.getBookByID(bookID);
-        } catch (InvalidBookIDException e) {
-            e.printStackTrace();
-        }
+        book = dao.getBookByID(bookID);
         return book;
     }
 
-    public Book getBookByAuthor(String[] bookAuthors) {
+    public Book getBookByAuthor(String bookAuthors) throws InvalidAuthorException {
         Book book = null;
-        try {
-            book = dao.getBookByAuthors(bookAuthors);
-        } catch (InvalidAuthorException e) {
-        }
+        book = dao.getBookByAuthors(bookAuthors);
         return book;
     }
 
-    public Book getBookByYear(Integer publicationYear) {
+    public Book getBookByYear(Integer publicationYear) throws InvalidPublicationYearException {
         Book book = null;
         try {
             book = dao.getBookByYear(publicationYear);
@@ -57,7 +50,7 @@ public class ManageLibraryService {
         return book;
     }
 
-    public Book getBookByTitle(String bookTitle) {
+    public Book getBookByTitle(String bookTitle) throws InvalidTitleException {
         Book book = null;
         try {
             book = dao.getBookByTitle(bookTitle);
@@ -66,28 +59,21 @@ public class ManageLibraryService {
         return book;
     }
 
-    public Book addBook(String[] bookAuthors, Integer publicationYear, String bookTitle) {
+    public Book addBook(String[] bookAuthors, Integer publicationYear, String bookTitle) throws InvalidBookIDException,
+            InvalidAuthorException, InvalidPublicationYearException, InvalidTitleException {
 
         Book newBook = null;
-
-        try {
-            newBook = dao.addBook(bookAuthors, publicationYear, bookTitle);
-        } catch (InvalidBookIDException | InvalidAuthorException | InvalidPublicationYearException
-                | InvalidTitleException e) {
-        }
-
+        newBook = dao.addBook(bookAuthors, publicationYear, bookTitle);
         return newBook;
     }
 
-    public Book editBook(Book editedBook) {
+    public Book editBook(Book editedBook) throws InvalidBookIDException, InvalidAuthorException,
+            InvalidPublicationYearException, InvalidTitleException {
         return dao.editBook(editedBook);
     }
 
-    public void deleteBook(Integer bookID) {
-        try {
-            dao.deleteBook(bookID);
-        } catch (InvalidBookIDException e) {
-        }
+    public void deleteBook(Integer bookID) throws InvalidBookIDException {
+        dao.deleteBook(bookID);
     }
 
 }

@@ -12,7 +12,7 @@ public interface ManageLibraryDao {
 
     Book getBookByID(Integer bookID) throws InvalidBookIDException;
 
-    Book getBookByAuthors(String[] bookAuthors) throws InvalidAuthorException;
+    Book getBookByAuthors(String bookAuthors) throws InvalidAuthorException;
 
     Book getBookByYear(Integer publicationYear) throws InvalidPublicationYearException;
 
@@ -20,7 +20,8 @@ public interface ManageLibraryDao {
 
     List<Book> getAllBooks();
 
-    Book editBook(Book bookObject);
+    Book editBook(Book bookObject) throws InvalidBookIDException, InvalidAuthorException,
+            InvalidPublicationYearException, InvalidTitleException;
 
     Book addBook(String[] bookAuthors, Integer publicationYear, String bookTitle)
             throws InvalidBookIDException, InvalidAuthorException, InvalidPublicationYearException, InvalidTitleException;
