@@ -5,10 +5,16 @@ import com.tp.DailyPumpInitiative.models.Workout;
 
 import java.util.List;
 
-public interface DailyPumpDao {
+public interface WorkoutDao {
+
 
     Workout getWorkoutByID(Integer workoutID);
 
-    Workout getExerciseList(List<Exercise> exerciseList);
+    Workout getIntensityByID(Integer intensityID);
+
+    List<Workout> getWorkoutList(Integer intensityID);
+
+
+
 
 }

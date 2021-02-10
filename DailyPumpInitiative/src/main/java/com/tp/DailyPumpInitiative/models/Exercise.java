@@ -6,32 +6,45 @@ public class Exercise {
     private boolean bodyweight;
     private boolean isComplete;
     private Integer exerciseWeight;
-    private Integer exerciseReps;
+    private String exerciseReps;
+    private Integer exerciseID;
     private Integer workoutID;
+    private String exerciseDesc;
 
     public Exercise()
     {
 
     }
 
-    public Exercise (String exerciseName, Integer exerciseWeight, Integer exerciseReps, Integer workoutID
-        , boolean bodyweight, boolean isComplete)
+    public Exercise (String exerciseName, Integer exerciseWeight, String exerciseReps, Integer workoutID
+        , boolean bodyweight, boolean isComplete, Integer exerciseID, String exerciseDesc)
     {
+        this.exerciseDesc = exerciseDesc;
         this.bodyweight = bodyweight;
         this.isComplete = isComplete;
         this.exerciseName = exerciseName;
         this.exerciseWeight = exerciseWeight;
         this.exerciseReps = exerciseReps;
         this.workoutID = workoutID;
+        this.exerciseID = exerciseID;
     }
 
-    public Exercise (Exercise that)
-    {
-        this.isComplete = that.isComplete;
-        this.bodyweight = that.bodyweight;
-        this.exerciseName = that.exerciseName;
-        this.exerciseWeight = that.exerciseWeight;
-        this.exerciseReps = that.exerciseReps;
+//    public Exercise (Exercise that)
+//    {
+//        this.isComplete = that.isComplete;
+//        this.bodyweight = that.bodyweight;
+//        this.exerciseName = that.exerciseName;
+//        this.exerciseWeight = that.exerciseWeight;
+//        this.exerciseReps = that.exerciseReps;
+//        this.exerciseID = that.exerciseID;
+//    }
+
+    public Integer getExerciseID() {
+        return exerciseID;
+    }
+
+    public void setExerciseID(Integer exerciseID) {
+        this.exerciseID = exerciseID;
     }
 
     public String getExerciseName() {
@@ -50,11 +63,11 @@ public class Exercise {
         this.exerciseWeight = exerciseWeight;
     }
 
-    public Integer getExerciseReps() {
+    public String getExerciseReps() {
         return exerciseReps;
     }
 
-    public void setExerciseReps(Integer exerciseReps) {
+    public void setExerciseReps(String exerciseReps) {
         this.exerciseReps = exerciseReps;
     }
 
@@ -80,5 +93,13 @@ public class Exercise {
 
     public void setComplete(boolean complete) {
         isComplete = complete;
+    }
+
+    public String getExerciseDesc() {
+        return exerciseDesc;
+    }
+
+    public void setExerciseDesc(String exerciseDesc) {
+        this.exerciseDesc = exerciseDesc;
     }
 }
