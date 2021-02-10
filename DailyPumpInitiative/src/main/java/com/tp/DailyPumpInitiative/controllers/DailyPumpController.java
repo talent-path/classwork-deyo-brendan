@@ -22,33 +22,48 @@ public class DailyPumpController {
     DailyPumpServices service;
 
     @PostMapping("/intensity/{intensityID}")
-    public ResponseEntity selectIntensity(Integer intensityID)
-    {
-        return service.setWorkoutList(intensityID); // return list of workouts
+    public ResponseEntity selectIntensity(Integer intensityID) {
+        try {
+            return ResponseEntity.ok(service.setWorkoutList(intensityID));
+        } catch (NullPointerException ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
 
     @PostMapping("/workout/{workoutID}")
-    public ResponseEntity selectWorkout(Integer workoutID)
-    {
-        return service.setExerciseList(workoutID); // return list of exercises
+    public ResponseEntity selectWorkout(Integer workoutID) {
+        try {
+            return ResponseEntity.ok(service.setExerciseList(workoutID));
+        } catch (NullPointerException ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
 
     @GetMapping("/workouts")
-    public ResponseEntity getWorkoutList(Integer intensityID)
-    {
-        return service.getWorkoutList(intensityID);
+    public ResponseEntity getWorkoutList(Integer intensityID) {
+        try {
+            return ResponseEntity.ok(service.getWorkoutList(intensityID));
+        } catch (NullPointerException ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
 
     @GetMapping("/exercises")
-    public ResponseEntity getExerciseList(Integer workoutID)
-    {
-        return service.getExerciseList(workoutID); // return list of exercises
+    public ResponseEntity getExerciseList(Integer workoutID) {
+        try {
+            return ResponseEntity.ok(service.getExerciseList(workoutID));
+        } catch (NullPointerException ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
 
     @PostMapping("/exercise/{exerciseID}")
-    public ResponseEntity isCompleted(Integer exerciseID)
-    {
-        return service.getCompleted(exerciseID); // return exercise completed variable as true for given exerciseID
+    public ResponseEntity isCompleted(Integer exerciseID) {
+        try {
+            return ResponseEntity.ok(service.getCompleted(exerciseID));
+        } catch (NullPointerException ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
 
 }

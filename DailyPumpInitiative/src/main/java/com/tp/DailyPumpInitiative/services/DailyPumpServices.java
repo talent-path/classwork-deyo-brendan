@@ -19,20 +19,20 @@ public class DailyPumpServices {
     @Autowired
     ExerciseDao exerciseDao;
 
-    public Workout setWorkoutList(Integer intensityID)
-    {
-        return workoutDao.getIntensityByID(intensityID);
-    }
+//    public Workout setWorkoutList(Integer intensityID)
+//    {
+//        return workoutDao.getIntensityByID(intensityID);
+//    }
 
     public Workout selectWorkout(Integer workoutID)
     {
         return workoutDao.getWorkoutByID(workoutID);
     }
 
-    public List<Exercise> setExerciseList(Integer workoutID)
-    {
-        return exerciseDao.setExerciseList(workoutID);
-    }
+//    public List<Exercise> setExerciseList(Integer workoutID)
+//    {
+//        return exerciseDao.setExerciseList(workoutID);
+//    }
 
     public List<Exercise> getExerciseList(Integer workoutID)
     {
@@ -44,9 +44,9 @@ public class DailyPumpServices {
         return workoutDao.getWorkoutList(intensityID);
     }
 
-    public boolean getCompleted(Integer exerciseID)
-    {
-        return exerciseDao.isCompleted(exerciseID);
-    }
+//    public boolean getCompleted(Integer exerciseID)
+//    {
+//        return exerciseDao.isCompleted(exerciseID);
+//    }
 
 }

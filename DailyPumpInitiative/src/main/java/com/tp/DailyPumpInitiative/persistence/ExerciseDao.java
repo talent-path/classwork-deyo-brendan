@@ -8,7 +8,5 @@ public interface ExerciseDao {
 
     List<Exercise> getExerciseList(Integer workoutID);
 
-    boolean isCompleted(Integer exerciseID);
-
-    List<Exercise> setExerciseList(Integer workoutID);
+    Exercise getExerciseByID(Integer exerciseID);
 }
