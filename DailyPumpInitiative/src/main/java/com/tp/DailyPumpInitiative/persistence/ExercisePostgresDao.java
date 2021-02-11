@@ -5,8 +5,11 @@ import com.tp.DailyPumpInitiative.persistence.mappers.ExerciseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,29 +23,37 @@ public class ExercisePostgresDao implements ExerciseDao {
     @Override
     public Exercise getExerciseByID(Integer exerciseID)
     {
-        Exercise toReturn = new Exercise();
-
-        toReturn = template.queryForObject("SELECT \"" + exerciseID + "\", \"name\", \"description\", " +
+        List<Exercise> toReturn = template.query("SELECT \"" + exerciseID + "\", \"name\", \"description\", " +
                 "\"bodyweight\", \"weight\", \"reps\", \"completed\", \"sets\" from \"Exercise\";"
                     , new ExerciseMapper() );
 
-        return toReturn;
+        if (toReturn.isEmpty())
+            return null;
+
+        return toReturn.get(0);
     }
 
-    @Override
-    public List<Exercise> getExerciseList(Integer workoutID)
+    public boolean isCompleted(Integer exerciseID)
     {
-        List<Exercise> toReturn = new ArrayList<>();
+        List<Boolean> toReturn = template.query("SELECT \"completed\", \"" + exerciseID + "\" " +
+                "FROM \"Exercise\";", new BooleanMapper ());
 
-        toReturn.add(template.queryForObject("SELECT wk.\"" + workoutID + "\", ex.\"exerciseID\", wk.\"name\", " +
-                "ex.\"name\" FROM \"Workout\" wk, \"Exercise\" ex WHERE " +
-                "(wk.\"workoutID\" = ex.\"workoutID\");", new ExerciseMapper()) );
+        if (toReturn.isEmpty())
+            return false;
 
-        return toReturn;
-
+        return toReturn.get(0);
     }
 
+    private class BooleanMapper implements RowMapper<Boolean>
+    {
 
+        @Override
+        public Boolean mapRow(ResultSet resultSet, int i) throws SQLException {
 
+            Boolean toReturn = resultSet.getBoolean("completed");
 
+            return toReturn;
+
+        }
+    }
 }

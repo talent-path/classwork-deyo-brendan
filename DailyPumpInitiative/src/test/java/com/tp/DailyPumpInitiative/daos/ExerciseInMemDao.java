@@ -13,13 +13,14 @@ import java.util.List;
 @Profile("serviceTest")
 public class ExerciseInMemDao implements ExerciseDao {
 
+
     @Override
-    public Exercise getExerciseByID(Integer exerciseID)
-    {
+    public Exercise getExerciseByID(Integer exerciseID) {
         throw new UnsupportedOperationException();
     }
 
-    public List<Exercise> getExerciseList(Integer workoutID) {
-        throw new UnsupportedOperationException();
+    @Override
+    public boolean isCompleted(Integer exerciseID) {
+        return false;
     }
 }

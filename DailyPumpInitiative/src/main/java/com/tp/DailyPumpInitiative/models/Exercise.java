@@ -10,6 +10,7 @@ public class Exercise {
     private Integer exerciseID;
     private Integer workoutID;
     private String exerciseDesc;
+    private Integer exerciseSets;
 
     public Exercise()
     {
@@ -17,7 +18,8 @@ public class Exercise {
     }
 
     public Exercise (String exerciseName, Integer exerciseWeight, String exerciseReps, Integer workoutID
-        , boolean bodyweight, boolean isComplete, Integer exerciseID, String exerciseDesc)
+        , boolean bodyweight, boolean isComplete, Integer exerciseID, String exerciseDesc,
+                     Integer exerciseSets)
     {
         this.exerciseDesc = exerciseDesc;
         this.bodyweight = bodyweight;
@@ -27,6 +29,7 @@ public class Exercise {
         this.exerciseReps = exerciseReps;
         this.workoutID = workoutID;
         this.exerciseID = exerciseID;
+        this.exerciseSets = exerciseSets;
     }
 
 //    public Exercise (Exercise that)
@@ -38,6 +41,14 @@ public class Exercise {
 //        this.exerciseReps = that.exerciseReps;
 //        this.exerciseID = that.exerciseID;
 //    }
+
+    public Integer getExerciseSets() {
+        return exerciseSets;
+    }
+
+    public void setExerciseSets(Integer exerciseSets) {
+        this.exerciseSets = exerciseSets;
+    }
 
     public Integer getExerciseID() {
         return exerciseID;

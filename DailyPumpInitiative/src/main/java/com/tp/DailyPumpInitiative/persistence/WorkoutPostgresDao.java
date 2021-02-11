@@ -1,7 +1,9 @@
 package com.tp.DailyPumpInitiative.persistence;
 
 
+import com.tp.DailyPumpInitiative.models.Exercise;
 import com.tp.DailyPumpInitiative.models.Workout;
+import com.tp.DailyPumpInitiative.persistence.mappers.ExerciseMapper;
 import com.tp.DailyPumpInitiative.persistence.mappers.WorkoutMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -22,29 +24,27 @@ public class WorkoutPostgresDao implements WorkoutDao {
     @Override
     public Workout getWorkoutByID(Integer workoutID)
     {
-        Workout toReturn = new Workout();
-
-        toReturn = template.queryForObject("SELECT \"" + workoutID + "\", \"intensityID\", \"name\", \"description\", " +
+        List<Workout> toReturn = template.query("SELECT \"" + workoutID + "\", \"intensityID\", \"name\", \"description\", " +
                 "\"completed\" FROM \"Workout\";", new WorkoutMapper() );
 
-        return toReturn;
+        if (toReturn == null)
+            return null;
+
+        return toReturn.get(0);
     }
 
     @Override
-    public List<Workout> getWorkoutList(Integer intensityID)
+    public List<Exercise> getExerciseList(Integer workoutID)
     {
-        List<Workout> toReturn = new ArrayList<>();
+        List<Exercise> toReturn = template.query("SELECT wk.\"" + workoutID + "\", ex.\"exerciseID\", wk.\"name\", " +
+                "ex.\"name\" FROM \"Workout\" wk, \"Exercise\" ex WHERE " +
+                "(wk.\"" + workoutID + "\" = ex.\"" + workoutID + "\");", new ExerciseMapper());
 
-        toReturn.add(template.queryForObject("SELECT int.\"intensityID\", " +
-                "int.\"name\", wk.\"name\" FROM \"Intensity\" int, \"Workout\" wk WHERE (int.\"intensityID\" " +
-                "= wk.\"" + intensityID + "\"); ", new WorkoutMapper()) );
+        if(toReturn.isEmpty())
+            return null;
 
         return toReturn;
+
     }
-
-
-
-
-
 
 }

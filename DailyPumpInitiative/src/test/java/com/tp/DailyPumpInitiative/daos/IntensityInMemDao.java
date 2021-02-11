@@ -1,24 +1,26 @@
 package com.tp.DailyPumpInitiative.daos;
 
-import com.tp.DailyPumpInitiative.models.Exercise;
+import com.tp.DailyPumpInitiative.models.Intensity;
 import com.tp.DailyPumpInitiative.models.Workout;
-import com.tp.DailyPumpInitiative.persistence.WorkoutDao;
+import com.tp.DailyPumpInitiative.persistence.IntensityDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+
 @Component
 @Profile("serviceTest")
-public class WorkoutInMemDao implements WorkoutDao {
+public class IntensityInMemDao implements IntensityDao {
 
     @Override
-    public Workout getWorkoutByID(Integer workoutID) {
+    public Intensity getIntensityByID(Integer intensityID) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public List<Exercise> getExerciseList(Integer workoutID) {
+    public List<Workout> getWorkoutList(Integer intensityID) {
         throw new UnsupportedOperationException();
     }
 }

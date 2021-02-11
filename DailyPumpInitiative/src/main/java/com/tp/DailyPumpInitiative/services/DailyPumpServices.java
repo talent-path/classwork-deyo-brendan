@@ -3,6 +3,7 @@ package com.tp.DailyPumpInitiative.services;
 import com.tp.DailyPumpInitiative.models.Exercise;
 import com.tp.DailyPumpInitiative.models.Workout;
 import com.tp.DailyPumpInitiative.persistence.ExerciseDao;
+import com.tp.DailyPumpInitiative.persistence.IntensityDao;
 import com.tp.DailyPumpInitiative.persistence.WorkoutDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,6 +20,9 @@ public class DailyPumpServices {
     @Autowired
     ExerciseDao exerciseDao;
 
+    @Autowired
+    IntensityDao intensityDao;
+
 //    public Workout setWorkoutList(Integer intensityID)
 //    {
 //        return workoutDao.getIntensityByID(intensityID);
@@ -29,6 +33,11 @@ public class DailyPumpServices {
         return workoutDao.getWorkoutByID(workoutID);
     }
 
+    public Exercise selectExercise(Integer exerciseID)
+    {
+        return exerciseDao.getExerciseByID(exerciseID);
+    }
+
 //    public List<Exercise> setExerciseList(Integer workoutID)
 //    {
 //        return exerciseDao.setExerciseList(workoutID);
@@ -36,17 +45,17 @@ public class DailyPumpServices {
 
     public List<Exercise> getExerciseList(Integer workoutID)
     {
-        return exerciseDao.getExerciseList(workoutID);
+        return workoutDao.getExerciseList(workoutID);
     }
 
     public List<Workout> getWorkoutList(Integer intensityID)
     {
-        return workoutDao.getWorkoutList(intensityID);
+        return intensityDao.getWorkoutList(intensityID);
     }
 
-//    public boolean getCompleted(Integer exerciseID)
-//    {
-//        return exerciseDao.isCompleted(exerciseID);
-//    }
+    public boolean getCompleted(Integer exerciseID)
+    {
+        return exerciseDao.isCompleted(exerciseID);
+    }
 
 }

@@ -8,6 +8,7 @@ import java.util.List;
 public interface WorkoutDao {
 
     Workout getWorkoutByID(Integer workoutID);
-    List<Workout> getWorkoutList(Integer intensityID);
+
+    List<Exercise> getExerciseList(Integer workoutID);
 
 }
