@@ -1,6 +1,10 @@
 package com.tp.DailyPumpInitiative.controllers;
 
 
+import com.tp.DailyPumpInitiative.exceptions.InvalidInputException;
+import com.tp.DailyPumpInitiative.exceptions.NullExerciseException;
+import com.tp.DailyPumpInitiative.exceptions.NullIntensityException;
+import com.tp.DailyPumpInitiative.exceptions.NullWorkoutException;
 import com.tp.DailyPumpInitiative.services.DailyPumpServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +24,7 @@ public class WorkoutController {
     public ResponseEntity selectWorkout(Integer workoutID) {
         try {
             return ResponseEntity.ok(service.getExerciseList(workoutID));
-        } catch (NullPointerException ex) {
+        } catch (NullExerciseException | NullWorkoutException | InvalidInputException ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
@@ -29,7 +33,7 @@ public class WorkoutController {
     public ResponseEntity getWorkoutList(Integer intensityID) {
         try {
             return ResponseEntity.ok(service.getWorkoutList(intensityID));
-        } catch (NullPointerException ex) {
+        } catch (NullIntensityException | NullWorkoutException | InvalidInputException ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }

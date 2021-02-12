@@ -1,6 +1,11 @@
 package com.tp.DailyPumpInitiative.services;
 
+import com.tp.DailyPumpInitiative.exceptions.InvalidInputException;
+import com.tp.DailyPumpInitiative.exceptions.NullExerciseException;
+import com.tp.DailyPumpInitiative.exceptions.NullIntensityException;
+import com.tp.DailyPumpInitiative.exceptions.NullWorkoutException;
 import com.tp.DailyPumpInitiative.models.Exercise;
+import com.tp.DailyPumpInitiative.models.Intensity;
 import com.tp.DailyPumpInitiative.models.Workout;
 import com.tp.DailyPumpInitiative.persistence.ExerciseDao;
 import com.tp.DailyPumpInitiative.persistence.IntensityDao;
@@ -28,32 +33,26 @@ public class DailyPumpServices {
 //        return workoutDao.getIntensityByID(intensityID);
 //    }
 
-    public Workout selectWorkout(Integer workoutID)
+    public List<Intensity> getIntensityList() throws NullIntensityException,
+            InvalidInputException
     {
-        return workoutDao.getWorkoutByID(workoutID);
+        return intensityDao.getIntensityList();
     }
 
-    public Exercise selectExercise(Integer exerciseID)
-    {
-        return exerciseDao.getExerciseByID(exerciseID);
-    }
-
-//    public List<Exercise> setExerciseList(Integer workoutID)
-//    {
-//        return exerciseDao.setExerciseList(workoutID);
-//    }
-
-    public List<Exercise> getExerciseList(Integer workoutID)
+    public List<Exercise> getExerciseList(Integer workoutID) throws NullExerciseException,
+            NullWorkoutException, InvalidInputException
     {
         return workoutDao.getExerciseList(workoutID);
     }
 
-    public List<Workout> getWorkoutList(Integer intensityID)
+    public List<Workout> getWorkoutList(Integer intensityID) throws NullIntensityException,
+            NullWorkoutException, InvalidInputException
     {
         return intensityDao.getWorkoutList(intensityID);
     }
 
-    public boolean getCompleted(Integer exerciseID)
+    public boolean getCompleted(Integer exerciseID) throws NullExerciseException,
+            InvalidInputException
     {
         return exerciseDao.isCompleted(exerciseID);
     }

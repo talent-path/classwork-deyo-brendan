@@ -23,4 +23,9 @@ public class IntensityInMemDao implements IntensityDao {
     public List<Workout> getWorkoutList(Integer intensityID) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public List<Intensity> getIntensityList() {
+        throw new UnsupportedOperationException();
+    }
 }

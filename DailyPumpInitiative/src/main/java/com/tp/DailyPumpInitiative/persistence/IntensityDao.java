@@ -11,4 +11,6 @@ public interface IntensityDao {
 
     List<Workout> getWorkoutList (Integer intensityID);
 
+    List<Intensity> getIntensityList();
+
 }

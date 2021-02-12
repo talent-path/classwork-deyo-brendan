@@ -34,6 +34,14 @@ public class IntensityPostgresDao implements IntensityDao {
     }
 
     @Override
+    public List<Intensity> getIntensityList()
+    {
+        List<Intensity> toReturn = template.query("SELECT * FROM \"Intensity\";", new IntensityMapper());
+
+        return toReturn;
+    }
+
+    @Override
     public List<Workout> getWorkoutList(Integer intensityID)
     {
         List<Workout> toReturn = template.query("SELECT *\n" +

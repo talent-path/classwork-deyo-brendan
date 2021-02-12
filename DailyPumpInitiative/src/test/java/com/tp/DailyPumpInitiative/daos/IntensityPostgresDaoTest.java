@@ -69,6 +69,15 @@ public class IntensityPostgresDaoTest {
     }
 
     @Test
+    public void getIntensityListGoldenPath()
+    {
+
+        assertEquals(1, toTest.getIntensityList().get(0).getIntensityID());
+        assertEquals(2, toTest.getIntensityList().get(1).getIntensityID());
+        assertEquals(3, toTest.getIntensityList().get(2).getIntensityID());
+    }
+
+    @Test
     public void getWorkoutByIntensityIDGoldenPath()
     {
 

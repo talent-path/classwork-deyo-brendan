@@ -15,12 +15,11 @@ public class Intensity {
 
     }
 
-    public Intensity(Integer intensityID, String intensityName, List<Workout> workoutList,
+    public Intensity(Integer intensityID, String intensityName,
                      String intensityDuration, String intensityDescription)
     {
         this.intensityID = intensityID;
         this.intensityName = intensityName;
-        this.workoutList = workoutList;
         this.intensityDuration = intensityDuration;
         this.intensityDescription = intensityDescription;
     }
