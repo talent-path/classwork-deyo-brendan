@@ -33,6 +33,12 @@ public class IntensityPostgresDaoTest {
     }
 
     @Test
+    public void getIntensityValuesByIntensityIDGoldenPath()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    @Test
     public void addWorkoutByIntensityGoldenPath()
     {
         Intensity newIntensity = new Intensity();

@@ -42,21 +42,6 @@ public class Exercise {
 //        this.exerciseID = that.exerciseID;
 //    }
 
-    public Integer getExerciseSets() {
-        return exerciseSets;
-    }
-
-    public void setExerciseSets(Integer exerciseSets) {
-        this.exerciseSets = exerciseSets;
-    }
-
-    public Integer getExerciseID() {
-        return exerciseID;
-    }
-
-    public void setExerciseID(Integer exerciseID) {
-        this.exerciseID = exerciseID;
-    }
 
     public String getExerciseName() {
         return exerciseName;
@@ -64,30 +49,6 @@ public class Exercise {
 
     public void setExerciseName(String exerciseName) {
         this.exerciseName = exerciseName;
-    }
-
-    public Integer getExerciseWeight() {
-        return exerciseWeight;
-    }
-
-    public void setExerciseWeight(Integer exerciseWeight) {
-        this.exerciseWeight = exerciseWeight;
-    }
-
-    public String getExerciseReps() {
-        return exerciseReps;
-    }
-
-    public void setExerciseReps(String exerciseReps) {
-        this.exerciseReps = exerciseReps;
-    }
-
-    public Integer getWorkoutID() {
-        return workoutID;
-    }
-
-    public void setWorkoutID(Integer workoutID) {
-        this.workoutID = workoutID;
     }
 
     public boolean isBodyweight() {
@@ -106,11 +67,51 @@ public class Exercise {
         isComplete = complete;
     }
 
+    public Integer getExerciseWeight() {
+        return exerciseWeight;
+    }
+
+    public void setExerciseWeight(Integer exerciseWeight) {
+        this.exerciseWeight = exerciseWeight;
+    }
+
+    public String getExerciseReps() {
+        return exerciseReps;
+    }
+
+    public void setExerciseReps(String exerciseReps) {
+        this.exerciseReps = exerciseReps;
+    }
+
+    public Integer getExerciseID() {
+        return exerciseID;
+    }
+
+    public void setExerciseID(Integer exerciseID) {
+        this.exerciseID = exerciseID;
+    }
+
+    public Integer getWorkoutID() {
+        return workoutID;
+    }
+
+    public void setWorkoutID(Integer workoutID) {
+        this.workoutID = workoutID;
+    }
+
     public String getExerciseDesc() {
         return exerciseDesc;
     }
 
     public void setExerciseDesc(String exerciseDesc) {
         this.exerciseDesc = exerciseDesc;
+    }
+
+    public Integer getExerciseSets() {
+        return exerciseSets;
+    }
+
+    public void setExerciseSets(Integer exerciseSets) {
+        this.exerciseSets = exerciseSets;
     }
 }

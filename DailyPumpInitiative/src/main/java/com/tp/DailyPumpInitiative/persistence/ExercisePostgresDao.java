@@ -23,8 +23,9 @@ public class ExercisePostgresDao implements ExerciseDao {
     @Override
     public Exercise getExerciseByID(Integer exerciseID)
     {
-        List<Exercise> toReturn = template.query("SELECT \"" + exerciseID + "\", \"name\", \"description\", " +
-                "\"bodyweight\", \"weight\", \"reps\", \"completed\", \"sets\" from \"Exercise\";"
+        List<Exercise> toReturn = template.query("SELECT \"workoutID\", \"exerciseID\", \"name\", \"description\", \"bodyweight\", \"weight\", \"reps\", \"completed\", \"sets\"\n" +
+                        "FROM \"Exercise\"\n" +
+                        "WHERE (\"exerciseID\" = '" + exerciseID + "')"
                     , new ExerciseMapper() );
 
         if (toReturn.isEmpty())
@@ -35,8 +36,9 @@ public class ExercisePostgresDao implements ExerciseDao {
 
     public boolean isCompleted(Integer exerciseID)
     {
-        List<Boolean> toReturn = template.query("SELECT \"completed\", \"" + exerciseID + "\" " +
-                "FROM \"Exercise\";", new BooleanMapper ());
+        List<Boolean> toReturn = template.query("SELECT \"workoutID\", \"exerciseID\", \"name\", \"description\", \"bodyweight\", \"weight\", \"reps\", \"completed\", \"sets\"\n" +
+                "FROM \"Exercise\"\n" +
+                "WHERE (\"exerciseID\" = '" + exerciseID + "')", new BooleanMapper ());
 
         if (toReturn.isEmpty())
             return false;

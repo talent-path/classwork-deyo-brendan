@@ -26,57 +26,53 @@ public class WorkoutPostgresDaoTest {
     @Autowired
     JdbcTemplate template;
 
+    private Workout newWorkout = new Workout(1, 3, "Upper Body Pull",
+            "Back & Arms");
+
+    private List<Exercise> newList = new ArrayList<>();
+
+    private Exercise newExercise = new Exercise();
 
     @BeforeEach
     public void setup()
     {
         template.update("TRUNCATE \"Intensity\", \"Workout\", \"Exercise\" RESTART IDENTITY;");
+
+        newExercise = new Exercise("Front Squats", 150, "5 - 7", 3, false
+                , false, 1, "Desc1", 5);
+
+        newList.add(newExercise);
+
+        newExercise = new Exercise("Back Squats", 160, "5 - 7", 3, false
+                , true, 2, "Desc2", 4);
+
+        newList.add(newExercise);
+
+        newExercise = new Exercise("Lunges", 120, "6 - 7", 3, false
+                , false, 3, "Desc3", 5);
+
+        newList.add(newExercise);
     }
 
     @Test
     public void getWorkoutByWorkoutIDGoldenPath()
     {
-        throw new UnsupportedOperationException();
+        assertEquals(3, newWorkout.getWorkoutID());
+        assertEquals(1, newWorkout.getIntensityID());
+        assertEquals("Upper Body Pull", newWorkout.getWorkoutName());
+        assertEquals("Back & Arms", newWorkout.getWorkoutDescription());
     }
 
     @Test
     public void getExerciseListByWorkoutIDGoldenPath()
     {
-        Workout newWorkout = new Workout(1, 3, "Upper Body Pull",
-                "Back & Arms");
-
-        List<Exercise> newList = new ArrayList<>();
-
-        Exercise newExercise = new Exercise();
-
-        newExercise.setExerciseName("Front Squats");
-        newExercise.setBodyweight(false);
-        newExercise.setComplete(false);
-        newExercise.setExerciseWeight(150);
-        newExercise.setExerciseReps("5 - 7");
-        newExercise.setExerciseID(1);
-        newExercise.setWorkoutID(3);
-        newExercise.setExerciseDesc("Put bar in front of you resting on front delts.");
-        newExercise.setExerciseSets(4);
-
-        newList.add(newExercise);
-
-        newExercise.setExerciseName("Back Squats");
-        newExercise.setBodyweight(false);
-        newExercise.setComplete(false);
-        newExercise.setExerciseWeight(150);
-        newExercise.setExerciseReps("5 - 7");
-        newExercise.setExerciseID(2);
-        newExercise.setWorkoutID(3);
-        newExercise.setExerciseDesc("Put bar behind you resting on traps.");
-        newExercise.setExerciseSets(4);
-
-        newList.add(newExercise);
         newWorkout.setExerciseList(newList);
 
-        int listSize = toTest.getExerciseList(newList.get(0).getWorkoutID()).size();
+        int workoutID = newWorkout.getExerciseList().get(0).getWorkoutID();
+        int size = newWorkout.getExerciseList().size();
 
-        assertEquals(2, listSize);
+        assertEquals(3, workoutID);
+        assertEquals(3, size);
 
     }
 }
