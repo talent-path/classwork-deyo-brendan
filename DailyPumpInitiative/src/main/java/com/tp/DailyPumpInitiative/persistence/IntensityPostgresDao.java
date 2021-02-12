@@ -23,8 +23,9 @@ public class IntensityPostgresDao implements IntensityDao {
     @Override
     public Intensity getIntensityByID(Integer intensityID)
     {
-        List<Intensity> toReturn = template.query("SELECT \"" + intensityID + "\", \"name\", \"time\", \"description\" " +
-                "FROM \"Intensity\";", new IntensityMapper() );
+        List<Intensity> toReturn = template.query("SELECT \"intensityID\", \"name\", \"time\", \"description\" \n" +
+                "FROM \"Intensity\"\n" +
+                "WHERE \"intensityID\" = '" + intensityID + "';", new IntensityMapper() );
 
         if (toReturn.isEmpty())
             return null;
@@ -35,9 +36,10 @@ public class IntensityPostgresDao implements IntensityDao {
     @Override
     public List<Workout> getWorkoutList(Integer intensityID)
     {
-        List<Workout> toReturn = template.query("SELECT int.\"" + intensityID + "\", wk.\"workoutID\", wk.\"name\" FROM " +
-                "\"Intensity\" int, \"Workout\" " +
-                "wk WHERE (int.\"" + intensityID + "\" = wk.\"" + intensityID + "\");", new WorkoutMapper() );
+        List<Workout> toReturn = template.query("SELECT \"Intensity\".\"intensityID\", \"Workout\".\"workoutID\", \"Workout\".\"name\" \n" +
+                "FROM \"Intensity\"\n" +
+                "INNER JOIN \"Workout\" ON \"Intensity\".\"intensityID\" = \"Workout\".\"intensityID\"\n" +
+                "WHERE (\"Intensity\".\"intensityID\" = '" + intensityID + "');", new WorkoutMapper() );
 
         if (toReturn.isEmpty())
             return null;

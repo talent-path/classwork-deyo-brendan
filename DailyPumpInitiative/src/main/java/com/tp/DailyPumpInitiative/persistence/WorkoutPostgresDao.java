@@ -24,8 +24,9 @@ public class WorkoutPostgresDao implements WorkoutDao {
     @Override
     public Workout getWorkoutByID(Integer workoutID)
     {
-        List<Workout> toReturn = template.query("SELECT \"" + workoutID + "\", \"intensityID\", \"name\", \"description\", " +
-                "\"completed\" FROM \"Workout\";", new WorkoutMapper() );
+        List<Workout> toReturn = template.query("SELECT \"workoutID\", \"intensityID\", \"name\", \"description\", \"completed\" \n" +
+                "FROM \"Workout\"\n" +
+                "WHERE (\"workoutID\" = '" + workoutID + "');", new WorkoutMapper() );
 
         if (toReturn == null)
             return null;
@@ -36,9 +37,11 @@ public class WorkoutPostgresDao implements WorkoutDao {
     @Override
     public List<Exercise> getExerciseList(Integer workoutID)
     {
-        List<Exercise> toReturn = template.query("SELECT wk.\"" + workoutID + "\", ex.\"exerciseID\", wk.\"name\", " +
-                "ex.\"name\" FROM \"Workout\" wk, \"Exercise\" ex WHERE " +
-                "(wk.\"" + workoutID + "\" = ex.\"" + workoutID + "\");", new ExerciseMapper());
+        List<Exercise> toReturn = template.query("SELECT \"Exercise\".\"exerciseID\", \"Exercise\".\"name\", \"Exercise\".\"description\", \"Exercise\".\"bodyweight\",\n" +
+                "\"Exercise\".\"weight\", \"Exercise\".\"reps\", \"Exercise\".\"completed\", \"Exercise\".\"sets\"\n" +
+                "FROM \"Exercise\"\n" +
+                "INNER JOIN \"Workout\" ON \"Exercise\".\"workoutID\" = \"Workout\".\"workoutID\"\n" +
+                "WHERE (\"Exercise\".\"workoutID\" = '" + workoutID + "');", new ExerciseMapper());
 
         if(toReturn.isEmpty())
             return null;
