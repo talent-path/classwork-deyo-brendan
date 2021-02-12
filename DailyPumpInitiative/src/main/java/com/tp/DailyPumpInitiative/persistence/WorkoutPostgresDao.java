@@ -37,11 +37,10 @@ public class WorkoutPostgresDao implements WorkoutDao {
     @Override
     public List<Exercise> getExerciseList(Integer workoutID)
     {
-        List<Exercise> toReturn = template.query("SELECT \"Exercise\".\"exerciseID\", \"Exercise\".\"name\", \"Exercise\".\"description\", \"Exercise\".\"bodyweight\",\n" +
-                "\"Exercise\".\"weight\", \"Exercise\".\"reps\", \"Exercise\".\"completed\", \"Exercise\".\"sets\"\n" +
+        List<Exercise> toReturn = template.query("SELECT *\n" +
                 "FROM \"Exercise\"\n" +
                 "INNER JOIN \"Workout\" ON \"Exercise\".\"workoutID\" = \"Workout\".\"workoutID\"\n" +
-                "WHERE (\"Exercise\".\"workoutID\" = '" + workoutID + "');", new ExerciseMapper());
+                "WHERE \"Exercise\".\"workoutID\" = '" + workoutID + "';", new ExerciseMapper());
 
         if(toReturn.isEmpty())
             return null;

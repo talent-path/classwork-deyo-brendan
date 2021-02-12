@@ -1,6 +1,7 @@
 package com.tp.DailyPumpInitiative.persistence;
 
 import com.tp.DailyPumpInitiative.models.Exercise;
+import com.tp.DailyPumpInitiative.persistence.mappers.BooleanMapper;
 import com.tp.DailyPumpInitiative.persistence.mappers.ExerciseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -38,7 +39,7 @@ public class ExercisePostgresDao implements ExerciseDao {
     {
         List<Boolean> toReturn = template.query("SELECT \"workoutID\", \"exerciseID\", \"name\", \"description\", \"bodyweight\", \"weight\", \"reps\", \"completed\", \"sets\"\n" +
                 "FROM \"Exercise\"\n" +
-                "WHERE (\"exerciseID\" = '" + exerciseID + "')", new BooleanMapper ());
+                "WHERE (\"exerciseID\" = '" + exerciseID + "')", new BooleanMapper());
 
         if (toReturn.isEmpty())
             return false;
@@ -46,16 +47,4 @@ public class ExercisePostgresDao implements ExerciseDao {
         return toReturn.get(0);
     }
 
-    private class BooleanMapper implements RowMapper<Boolean>
-    {
-
-        @Override
-        public Boolean mapRow(ResultSet resultSet, int i) throws SQLException {
-
-            Boolean toReturn = resultSet.getBoolean("completed");
-
-            return toReturn;
-
-        }
-    }
 }
