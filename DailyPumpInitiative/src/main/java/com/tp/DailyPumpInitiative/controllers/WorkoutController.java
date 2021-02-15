@@ -20,7 +20,7 @@ public class WorkoutController {
     @Autowired
     DailyPumpServices service;
 
-    @PostMapping("/workout/{workoutID}")
+    @GetMapping("/workout/{workoutID}")
     public ResponseEntity selectWorkout(Integer workoutID) {
         try {
             return ResponseEntity.ok(service.getExerciseList(workoutID));

@@ -29,7 +29,7 @@ public class IntensityController {
         }
     }
 
-    @PostMapping("/intensity/{intensityID}")
+    @GetMapping("/intensity/{intensityID}")
     public ResponseEntity selectIntensity(Integer intensityID) {
         try {
             return ResponseEntity.ok(service.getWorkoutList(intensityID));

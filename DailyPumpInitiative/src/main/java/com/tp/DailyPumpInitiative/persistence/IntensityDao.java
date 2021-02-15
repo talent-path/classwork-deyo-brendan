@@ -9,7 +9,7 @@ public interface IntensityDao {
 
     Intensity getIntensityByID(Integer intensityID);
 
-    List<Workout> getWorkoutList (Integer intensityID);
+    List<Workout> getWorkoutList(Integer intensityID);
 
     List<Intensity> getIntensityList();
 

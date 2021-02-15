@@ -78,7 +78,8 @@ public class IntensityInMemDao implements IntensityDao {
 
         for (Workout toCopy : workoutList)
         {
-            newList.add(new Workout(toCopy));
+            if (toCopy.getWorkoutID().equals(intensityID))
+                newList.add(new Workout(toCopy));
         }
 
         return newList;

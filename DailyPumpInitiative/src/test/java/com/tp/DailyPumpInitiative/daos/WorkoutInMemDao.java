@@ -77,11 +77,10 @@ public class WorkoutInMemDao implements WorkoutDao {
 
         for (Exercise toCopy : exerciseList)
         {
-            newList.add(new Exercise(toCopy));
+            if (toCopy.getWorkoutID().equals(workoutID))
+                newList.add(new Exercise(toCopy));
         }
         return newList;
-
-
 
     }
 }
