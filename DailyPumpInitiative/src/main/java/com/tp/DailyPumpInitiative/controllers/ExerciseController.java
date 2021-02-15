@@ -6,10 +6,7 @@ import com.tp.DailyPumpInitiative.exceptions.NullWorkoutException;
 import com.tp.DailyPumpInitiative.services.DailyPumpServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -19,7 +16,7 @@ public class ExerciseController {
     DailyPumpServices service;
 
     @GetMapping("/exercises/{workoutID}")
-    public ResponseEntity getExerciseList(Integer workoutID) {
+    public ResponseEntity getExerciseList(@PathVariable Integer workoutID) {
         try {
             return ResponseEntity.ok(service.getExerciseList(workoutID));
         } catch (NullExerciseException | NullWorkoutException | InvalidInputException ex) {
@@ -28,7 +25,7 @@ public class ExerciseController {
     }
 
     @PostMapping("/exercise/{exerciseID}")
-    public ResponseEntity isCompleted(Integer exerciseID) {
+    public ResponseEntity isCompleted(@PathVariable Integer exerciseID) {
         try {
             return ResponseEntity.ok(service.getCompleted(exerciseID));
         } catch (NullExerciseException | InvalidInputException ex) {

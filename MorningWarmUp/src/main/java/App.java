@@ -124,6 +124,31 @@ public class App {
 
 
 
+    public static int calculate(String expression)
+    {
+
+        char[] operators = {'^', '*', '%', '*', '/', '+', '-'};
+
+        expression.replace(" ", "");
+
+        int sum = 0;
+
+        for (int i = 0; i < expression.length(); i++)
+        {
+            char check = expression.charAt(i);
+            for (int j = 0; j < operators.length; j++)
+            {
+                if (check == operators[j])
+                {
+
+                }
+            }
+        }
+
+
+
+    }
+
 
 
     public int search(int[] nums, int target) {
