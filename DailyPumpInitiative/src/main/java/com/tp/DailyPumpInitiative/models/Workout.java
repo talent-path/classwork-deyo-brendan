@@ -28,14 +28,14 @@ public class Workout {
 //        this.isComplete = isComplete;
     }
 
-//    public Workout(Workout that)
-//    {
-//        this.isComplete = that.isComplete;
-//        this.workoutID = that.workoutID;
-//        this.intensityID = that.intensityID;
-//        this.workoutName = that.workoutName;
-//        this.exerciseList = that.exerciseList;
-//    }
+
+    public Workout(Workout that)
+    {
+        this.workoutID = that.workoutID;
+        this.intensityID = that.intensityID;
+        this.workoutName = that.workoutName;
+        this.workoutDescription = that.workoutDescription;
+    }
 
     public List<Exercise> getExerciseList() {
         return exerciseList;

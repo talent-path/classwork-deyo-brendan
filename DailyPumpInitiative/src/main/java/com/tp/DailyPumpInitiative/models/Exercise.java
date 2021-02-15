@@ -32,15 +32,18 @@ public class Exercise {
         this.exerciseSets = exerciseSets;
     }
 
-//    public Exercise (Exercise that)
-//    {
-//        this.isComplete = that.isComplete;
-//        this.bodyweight = that.bodyweight;
-//        this.exerciseName = that.exerciseName;
-//        this.exerciseWeight = that.exerciseWeight;
-//        this.exerciseReps = that.exerciseReps;
-//        this.exerciseID = that.exerciseID;
-//    }
+    public Exercise (Exercise that)
+    {
+        this.isComplete = that.isComplete;
+        this.bodyweight = that.bodyweight;
+        this.exerciseName = that.exerciseName;
+        this.exerciseWeight = that.exerciseWeight;
+        this.exerciseReps = that.exerciseReps;
+        this.exerciseID = that.exerciseID;
+        this.exerciseDesc = that.exerciseDesc;
+        this.exerciseSets = that.exerciseSets;
+        this.workoutID = that.workoutID;
+    }
 
 
     public String getExerciseName() {

@@ -24,6 +24,15 @@ public class Intensity {
         this.intensityDescription = intensityDescription;
     }
 
+    public Intensity(Intensity that)
+    {
+        this.intensityID = that.intensityID;
+        this.intensityName = that.intensityName;
+        this.intensityDuration = that.intensityDuration;
+        this.intensityDescription = that.intensityDuration;
+
+    }
+
     public Integer getIntensityID() {
         return intensityID;
     }

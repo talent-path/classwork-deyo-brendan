@@ -1,5 +1,8 @@
 package com.tp.DailyPumpInitiative.services;
 
+import com.tp.DailyPumpInitiative.daos.ExerciseInMemDao;
+import com.tp.DailyPumpInitiative.daos.IntensityInMemDao;
+import com.tp.DailyPumpInitiative.daos.WorkoutInMemDao;
 import com.tp.DailyPumpInitiative.exceptions.InvalidInputException;
 import com.tp.DailyPumpInitiative.exceptions.NullExerciseException;
 import com.tp.DailyPumpInitiative.exceptions.NullIntensityException;
@@ -8,20 +11,32 @@ import com.tp.DailyPumpInitiative.models.Exercise;
 import com.tp.DailyPumpInitiative.models.Intensity;
 import com.tp.DailyPumpInitiative.models.Workout;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
-@ActiveProfiles("serviceTesting")
+@ActiveProfiles("serviceTest")
 public class DailyPumpServicesTest {
 
 
     @Autowired
     DailyPumpServices toTest;
+
+    @Autowired
+    ExerciseInMemDao exerciseDao;
+
+    @Autowired
+    IntensityInMemDao intensityDao;
+
+    @Autowired
+    WorkoutInMemDao workoutDao;
+
 
     private List<Intensity> intensityList = new ArrayList<>();
     private List<Workout> workoutList = new ArrayList<>();
@@ -31,48 +46,58 @@ public class DailyPumpServicesTest {
     private Workout newWorkout = new Workout();
     private Exercise newExercise = new Exercise();
 
-    @BeforeEach
-    public void setup() throws InvalidInputException, NullWorkoutException,
-            NullExerciseException, NullIntensityException
+    @Test
+    public void getIntensityByIDGoldenPath()
     {
+        String intensityName = intensityDao.getIntensityByID(1).getIntensityName();
+        int intensityID = intensityDao.getIntensityList().get(0).getIntensityID();
 
-        // configure intensities + variables
-        newIntensity = new Intensity(1, "Light", "20 Minutes", "Desc1");
-        intensityList.add(newIntensity);
+        assertEquals("Light", intensityName);
+        assertEquals(1, intensityID);
+    }
 
-        newIntensity = new Intensity(2, "Moderate", "40 Minutes", "Desc2");
-        intensityList.add(newIntensity);
+    @Test
+    public void getWorkoutListGoldenPath()
+    {
+        List<Workout> newList = new ArrayList<>();
+        newList = intensityDao.getWorkoutList(3);
+        String workoutTitle = newList.get(2).getWorkoutName();
 
-        newIntensity = new Intensity(3, "Heavy", "60 Minutes", "Desc3");
-        intensityList.add(newIntensity);
-
-        // configure workouts
-        newWorkout = new Workout(1, 1, "HIIT Circuit",
-                "AMRAP");
-        workoutList.add(newWorkout);
-
-        newWorkout = new Workout(2, 2, "Upper Body Push",
-                "Chest & Shoulders");
-        workoutList.add(newWorkout);
-
-        newWorkout = new Workout(3, 3, "Full Lower Body",
-                "Pump the legs!");
-        workoutList.add(newWorkout);
-
-        // configure exercises
-        newExercise = new Exercise("Front Squats", 150, "5 - 7", 3, false
-                , false, 1, "Desc1", 5);
-        exerciseList.add(newExercise);
-
-        newExercise = new Exercise("Back Squats", 160, "5 - 7", 3, false
-                , true, 2, "Desc2", 4);
-        exerciseList.add(newExercise);
-
-        newExercise = new Exercise("Lunges", 120, "6 - 7", 3, false
-                , false, 3, "Desc3", 5);
-        exerciseList.add(newExercise);
+        assertEquals("Full Lower Body", workoutTitle);
 
     }
+
+    @Test
+    public void getIntensityListGoldenPath()
+    {
+
+    }
+
+    @Test
+    public void getWorkoutByIDGoldenPath()
+    {
+
+    }
+
+    @Test
+    public void getExerciseListGoldenPath()
+    {
+
+    }
+
+    @Test
+    public void getExerciseByIDGoldenPath()
+    {
+
+    }
+
+    @Test
+    public void getIsExerciseCompleteGoldenPath()
+    {
+
+    }
+
+
 
 
 
