@@ -127,7 +127,7 @@ public class App {
     public static int calculate(String expression)
     {
 
-        char[] operators = {'^', '*', '%', '*', '/', '+', '-'};
+        char[] operators = {'^', '*', '%', '/', '+', '-'};
 
         expression.replace(" ", "");
 
@@ -140,12 +140,37 @@ public class App {
             {
                 if (check == operators[j])
                 {
-
+                    if (j == 0)
+                    {
+                        sum = expression.charAt(i) ^ expression.charAt(i + 1));
+                    }
+                    else if (j == 1)
+                    {
+                        sum = expression.charAt(i) * expression.charAt(i + 1);
+                    }
+                    else if (j == 2)
+                    {
+                        sum = expression.charAt(i) % expression.charAt(i + 1);
+                    }
+                    else if (j == 3)
+                    {
+                        sum = expression.charAt(i) / expression.charAt(i + 1);
+                    }
+                    else if (j == 4)
+                    {
+                        sum = expression.charAt(i) + expression.charAt(i + 1);
+                    }
+                    else if (j == 5)
+                    {
+                        sum = expression.charAt(i) - expression.charAt(i + 1);
+                    }
                 }
+                else
+                    break;
             }
         }
 
-
+        return sum;
 
     }
 
@@ -157,8 +182,7 @@ public class App {
         int i = nums[0];
         int searchArr = nums[nums.length - 1];
 
-        while (i <= searchArr)
-        {
+        while (i <= searchArr) {
             pivot = i + (searchArr - i) / 2;
             if (nums[pivot] == target)
                 return pivot;
@@ -168,81 +192,6 @@ public class App {
                 i = pivot + 1;
         }
         return -1;
-
-
-
-
-    }
-
-
-    public int rangeSumBST(TreeNode root, int low, int high) {
-
-        List<TreeNode> newTree = new ArrayList<TreeNode>();
-
-        TreeNode node = new TreeNode() {
-            @Override
-            public TreeNode getChildAt(int childIndex) {
-                return null;
-            }
-
-            @Override
-            public int getChildCount() {
-                return 0;
-            }
-
-            @Override
-            public TreeNode getParent() {
-                return null;
-            }
-
-            @Override
-            public int getIndex(TreeNode node) {
-                return 0;
-            }
-
-            @Override
-            public boolean getAllowsChildren() {
-                return false;
-            }
-
-            @Override
-            public boolean isLeaf() {
-                return false;
-            }
-
-            @Override
-            public Enumeration<? extends TreeNode> children() {
-                return null;
-            }
-        }
-
-        int output = 0;
-
-        newTree.add(root);
-
-        if (root != null)
-        {
-            for (int i = 0; i < newTree.size(); i++)
-            {
-                newTree.remove(i);
-                if (newTree != null)
-                {
-                    int value = newTree.indexOf(i);
-                    if (low <= value && value <= high )
-                    {
-                        output += value;
-                    }
-                    if (low < value)
-                    {
-                        newTree.remove(root.left);
-                    }
-                    if (value < high)
-                    {
-                        newTree.add(root.right);
-                    }
-                }
-            }
-        }
 
 
     }

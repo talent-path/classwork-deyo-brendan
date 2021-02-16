@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <!-- defines information about the page, METADATA -->
+    <head>
+        <title>My First Site!</title>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <!--  O background: url('https://www.clipartmax.com/png/middle/440-4408148_transparent-o-tic-tac-toe-o.png'); -->
+
+        <!-- X https://www.clipartmax.com/png/middle/134-1340885_swarm-bee-x-delete-comments-tic-tac-toe-cross.png -->
+
+
+        <p style= "text-align: center;">Press on the grid where you want to place markers</p>
+
+        <p style="text-align: center;" >
+        <button id = "button1" onclick = "placeMarker(1)" style ="height: 100px; width: 100px;"></button>
+        <button id = "button2" onclick = "placeMarker(2)" style ="height: 100px; width: 100px;"></button>
+        <button id = "button3" onclick = "placeMarker(3)" style ="height: 100px; width: 100px;"></button>
+        <br>
+        <button id = "button4" onclick = "placeMarker(4)" style ="height: 100px; width: 100px;"></button>
+        <button id = "button5" onclick = "placeMarker(5)" style ="height: 100px; width: 100px;"></button>
+        <button id = "button6" onclick = "placeMarker(6)" style ="height: 100px; width: 100px;"></button>
+        <br>
+        <button id = "button7" onclick = "placeMarker(7)" style ="height: 100px; width: 100px;"></button>
+        <button id = "button8" onclick = "placeMarker(8)" style ="height: 100px; width: 100px;"></button>
+        <button id = "button9" onclick = "placeMarker(9)" style ="height: 100px; width: 100px;"></button>
+        </p>
+        
+
+
+        <p id = "win1" onclick = "winCondition(1)" style= "margin-top: 100px; text-align: center; display: none;">X WINS!</p>
+        <p id = "win2" onclick = "winCondition(2)" style="text-align: center; display: none;">O WINS!</p>
+        <p id = "win3" onclick = "winCondition(3)" style="text-align: center; display: none;">DRAW</p>
+
+        <script type = "text/javascript" src = "index.js"></script>
+    </body>
+</html>
