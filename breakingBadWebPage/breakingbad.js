@@ -1,9 +1,3 @@
-let reset = function() {
-
-    document.getElementById("displayCharacter").style.display = "none";
-
-}
-
 const getRandomNum = function() {
 
     let allUnique = false;
@@ -36,83 +30,127 @@ const getRandomNum = function() {
 
 const getRandomCharacterByID = function() {
 
-    // $.get(
-    //     `https://www.breakingbadapi.com/api/characters/${characterID}`,
-    //     function(data, textStatus, jqXHR) {
+    let characterID = getRandomNum();
 
-    //         let imageURL = `${data[0].img}`;
+    $.get(
+        `https://www.breakingbadapi.com/api/characters/${characterID}`,
+        function(data, textStatus, jqXHR) {
+
+            for (let character of data)
+            {
+                let characterDiv = "</div>";
+                characterDiv += `<h1>${character.name}</h1>`;
+                characterDiv += `<h3>Portrayed By: ${character.portrayed}</h3>`;
+                characterDiv += `<h3>Status: ${character.status}</h3>`;
+
+                characterDiv += `<img src = ${character.img}>`;
+
+                characterDiv += `<h3>Birthday: ${character.birthday}</h3>`;
+
+                characterDiv += `<h3>Nickname: ${character.nickname}</h3>`;
+
+                characterDiv += "<h3>Season Appearences</h3>";
+
+                characterDiv += "<h3>Occupation(s)</h3>";
+                for (let occupation of character.occupation)
+                {
+                    characterDiv += `<li>${occupation}</li>`;
+                }
+                characterDiv += "<br>";
+                characterDiv += "</div>";
+                
+                $("#searchResult").append(characterDiv);
+            }
 
 
-    //         $("#characterImage").attr("src", imageURL);
-    //         $("#char").text(`${data[0].name}`);
-    //         $("#nickname").text(`${data[0].nickname}`);
-    //         $("#birthday").text(`${data[0].birthday}`);
-    //         $("#status").text(`${data[0].status}`);
+        }
+    )
+}
 
+const getDeathCountByName = function() {
 
+    const name = $("#deathName").val();
 
-    //         console.log(data);
-    //         console.log(textStatus);
-    //         console.log(jqXHR);
+    $.get(
+        `https://www.breakingbadapi.com/api/characters?name=${name}`,
+        function(data, textStatus, jqXHR) {
 
-    //     }
-    // )
-    // document.getElementById("displayCharacter").style.display = "block";
+            let charName = data[0].name.split(' ').join('+');
+
+            for (let dCharacter of data)
+            {
+                let dCharacterDiv = "</div>";
+                dCharacterDiv += `<h1>${dCharacter.name}</h1>`;
+                dCharacterDiv += `<h3>Portrayed By: ${dCharacter.portrayed}</h3>`;
+                dCharacterDiv += `<h3>Status: ${dCharacter.status}</h3>`;
+
+                dCharacterDiv += `<img src = ${dCharacter.img}>`;
+
+                dCharacterDiv += `<h3 id = "deathC${dCharacter.char_id}"></h3>`;
+                $.get(
+                    `https://www.breakingbadapi.com/api/death-count?name=${charName}`,
+                    function(deathData, textStatus, jqXHR) {
+                        $("#deathC" + dCharacter.char_id).text(`Death Count: ${deathData[0].deathCount}`);
+                    }
+                )
+                dCharacterDiv += "</div>";
+                $("#searchResult").append(dCharacterDiv);
+    
+            }
+        }
+    )
 }
 
 const getCharacterByName = function() {
-
 
     const characterName = $("#characterName").val();
 
     $.get(
         `https://www.breakingbadapi.com/api/characters?name=${characterName}`,
-        function(data, textStatus, jqXHR) {
+        function(data, textStatus, jqXHR) {   
+            
+            let newName = data[0].name.split(' ').join('+');
 
-            console.log(data);
-            let imageURL = `${data[0].img}`;
+            for (let character of data)
+            {
+                let characterDiv = "</div>";
+                characterDiv += `<h1>${character.name}</h1>`;
+                characterDiv += `<h3>Portrayed By: ${character.portrayed}</h3>`;
+                characterDiv += `<h3>Status: ${character.status}</h3>`;
 
+                characterDiv += `<img src = ${character.img}>`;
 
-            $("#characterImage").attr("src", imageURL);
-            $("#char").text(`${data[0].name}`);
-            $("#nickname").text(`${data[0].nickname}`);
-            $("#birthday").text(`${data[0].birthday}`);
-            $("#status").text(`${data[0].status}`);
+                characterDiv += `<h3 id ="quote${character.char_id}"></h3>`;
+                    $.get(
+                        `https://www.breakingbadapi.com/api/quote/random?author=${newName}`,
+                        function(quoteData, textStatus, jqXHR) {
+                                console.log(quoteData);
+                                $("#quote" + character.char_id).text(`Quote: ${quoteData[0].quote}`);
+                                // characterDiv += `<h3>Quote: "${data[0].quote}"</h3>`;
+                        }
+                    )
 
+                characterDiv += `<h3>Birthday: ${character.birthday}</h3>`;
 
+                characterDiv += `<h3>Nickname: ${character.nickname}</h3>`;
 
-            console.log(data);
-            console.log(textStatus);
-            console.log(jqXHR);
+                characterDiv += "<h3>Season Appearances</h3>";
 
+                for (let appearance of character.appearance)
+                {
+                    characterDiv += `<li>${appearance}</li>`;
+                }
+
+                characterDiv += "<h3>Occupation(s)</h3>";
+                for (let occupation of character.occupation)
+                {
+                    characterDiv += `<li>${occupation}</li>`;
+                }
+                characterDiv += "<br>";
+                characterDiv += "</div>";
+                
+                $("#searchResult").append(characterDiv);
+            }
         }
     )
-    document.getElementById("displayCharacter").style.display = "block";
 }
-
-
-// const getWeather = function() {
-
-//     const zipcode = $("#zip").val();
-
-//     $.get(
-
-//         `http://api.openweathermap.org/data/2.5/weather?zip=${zipcode},US&appid=a2518a3df43cf0587826991dc6b6ccb0&units=imperial`,
-//         function(data, textStatus, jqXHR) {
-
-//             $("#reportHeader").text(`Weather Report for ${data.name}`);
-//             $("#weatherDesc").text(data.weather[0].description);
-
-//             let imageUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-
-//             $("#weatherIcon").attr("src", imageUrl);
-
-//             $("#currentTemp").text(`${data.main.temp} degrees`);
-
-//             console.log(data);
-//             console.log(textStatus);
-//             console.log(jqXHR);
-//         }
-//     )
-
-// }

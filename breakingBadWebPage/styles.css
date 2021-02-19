@@ -7,40 +7,34 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
-#characterImage {
-    height: 400px;
-    width: 400px;
-}
-
-#displayCharacter {
-    margin: 0 auto;
-    text-align: center;
-}
-
-#displayInfo {
-    text-align: center;
-    color: whitesmoke;
-    text-shadow: 50px black;
-}
-
-.getInfo {
-    color: whitesmoke;
+button:hover {
+    background-color: gray;
+    border: 1px solid black;
 }
 
 #header {
     text-align: center;
     border: 5px solid black;
     color: whitesmoke;
-    font-size: 50px;
+    font-size: 60px;
+    text-shadow: 10px 10px 10px #000000;
+    margin-top: 10px;
+}
+
+#searchResult {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 20px;
+    text-shadow: 10px 10px 10px #000000;
+}
+
+#searchResult img {
+    height: 450px;
+    width: 400px;
 }
 
 #selection {
     margin: 0 auto;
     text-align: center;
 
-}
-
-hr {
-    width: 75%;
-    opacity: .25;
 }
