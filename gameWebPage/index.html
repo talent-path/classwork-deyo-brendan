@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guessing Game Webpage</title>
     <style>
-        div {
+        /* body {
+            display: flex;
+            flex-direction: column;
+        } */
+        .block {
             margin: auto;
             border: 5px solid black;
             position: relative;
@@ -15,17 +19,43 @@
             height: 150px;
             width: 150px;
             display: inline-block;
+            font-size: 100px;
+            text-align: center;
+        }
+        .input {
+            text-align: center;
+            margin-top: 50px;
+        }
+        textarea {
+            text-align: center;
+            position: relative;
+            left: 42%;
+        }
+        #buttonBox {
+            display: flex;
+            position: relative;
+            left: 45.25%;
         }
     </style>
 </head>
 <body>
     <h2 style="text-align: center; margin-top: 10px;">GUESSING GAME</h2>
 
-    <div id = "firstBlock"></div>
-    <div id = "secondBlock"></div>
-    <div id = "thirdBlock"></div>
-    <div id = "fourthBlock"></div>
+    <div class = "block" id = "guessBlock1"></div>
+    <div class = "block" id = "guessBlock2"></div>
+    <div class = "block" id = "guessBlock3"></div>
+    <div class = "block" id = "guessBlock4"></div>
 
+    <div class = "input">Enter Guess: </div>
+    <textarea id = "userText"></textarea>
+    <br>
+    <div id = "buttonBox">
+        <input id = "getGuess" type = "submit" onclick = "checkNums()" value = "Submit"/>
+        <button id = "reset" type = "reset" onclick = "reset()" value = "Reset">Reset</button>
+    </div>
+    <br>
+    <br>
+    <div id = "hidden" style = "display: none; text-align: center; font-size: 100px;">YOU WON!</div>
 
     <script type = "text/javascript" src = "guessGame.js"></script>
 </body>
