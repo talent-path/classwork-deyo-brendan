@@ -28,13 +28,27 @@ const getRandomNum = function() {
     return num;
 }
 
+let reset = function() {
+
+    $("#searchResult").empty();
+
+}
+
+function getRandomArbitrary(min, max) {
+
+    return Math.random() * (max - min) + min;
+  
+}
+
 const getRandomCharacterByID = function() {
 
-    let characterID = getRandomNum();
+    $("#searchResult").empty();
 
     $.get(
-        `https://www.breakingbadapi.com/api/characters/${characterID}`,
+        `https://www.breakingbadapi.com/api/character/random`,
         function(data, textStatus, jqXHR) {
+
+            let newName = data[0].name.split(' ').join('+');
 
             for (let character of data)
             {
@@ -45,11 +59,26 @@ const getRandomCharacterByID = function() {
 
                 characterDiv += `<img src = ${character.img}>`;
 
+                characterDiv += `<h3 id ="quote${character.char_id}"></h3>`;
+                    $.get(
+                        `https://www.breakingbadapi.com/api/quote/random?author=${newName}`,
+                        function(quoteData, textStatus, jqXHR) {
+                                console.log(quoteData);
+                                $("#quote" + character.char_id).text(`Quote: ${quoteData[0].quote}`);
+                                // characterDiv += `<h3>Quote: "${data[0].quote}"</h3>`;
+                        }
+                    )
+
                 characterDiv += `<h3>Birthday: ${character.birthday}</h3>`;
 
                 characterDiv += `<h3>Nickname: ${character.nickname}</h3>`;
 
-                characterDiv += "<h3>Season Appearences</h3>";
+                characterDiv += "<h3>Season Appearances</h3>";
+
+                for (let appearance of character.appearance)
+                {
+                    characterDiv += `<li>${appearance}</li>`;
+                }
 
                 characterDiv += "<h3>Occupation(s)</h3>";
                 for (let occupation of character.occupation)
@@ -61,13 +90,13 @@ const getRandomCharacterByID = function() {
                 
                 $("#searchResult").append(characterDiv);
             }
-
-
         }
     )
 }
 
 const getDeathCountByName = function() {
+
+    $("#searchResult").empty();
 
     const name = $("#deathName").val();
 
@@ -102,6 +131,8 @@ const getDeathCountByName = function() {
 }
 
 const getCharacterByName = function() {
+
+    $("#searchResult").empty();
 
     const characterName = $("#characterName").val();
 
