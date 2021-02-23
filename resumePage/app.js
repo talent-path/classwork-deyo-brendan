@@ -10,10 +10,10 @@ particlesJS('particles-js',
         }
       },
       "color": {
-        "value": "#FFFF00"
+        "value": "#ffffff"
       },
       "shape": {
-        "type": "circle",
+        "type": "polygon",
         "stroke": {
           "width": 0,
           "color": "#000000"
@@ -28,7 +28,7 @@ particlesJS('particles-js',
         }
       },
       "opacity": {
-        "value": 0.5,
+        "value": 0.05,
         "random": false,
         "anim": {
           "enable": false,

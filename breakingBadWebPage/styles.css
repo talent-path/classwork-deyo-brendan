@@ -7,31 +7,41 @@ body {
 }
 
 #particles-js {
-    background: linear-gradient(to right bottom, darkgreen, black);
+    background: url("yellobg.jpg");
     width: 100%;
     height: 100%;
     background-size: cover;
+    position: fixed;
+
+    overflow: scroll;
 }
 
 button:hover {
-    background-color: gray;
+    background-color: black;
     border: 1px solid black;
+    color: whitesmoke;
 }
 
 #header {
     text-align: center;
-    border: 5px solid black;
-    color: whitesmoke;
+    color: black;
     font-size: 60px;
-    text-shadow: 10px 10px 10px #000000;
+    text-shadow: 30px 30px 30px black;
     margin-top: 10px;
+    background: whitesmoke;
+    border: 1px solid black;
 }
 
 #searchResult {
     text-align: center;
-    color: whitesmoke;
+    color: black;
     font-size: 20px;
-    text-shadow: 10px 10px 10px #000000;
+    text-shadow: 1px 1px 1px #000000;
+    background: whitesmoke;
+    border: 5px solid black;
+    margin: auto;
+    width: 40%;
+    margin-top: 10px;
 }
 
 #searchResult img {
@@ -39,8 +49,28 @@ button:hover {
     width: 400px;
 }
 
+input {
+    text-align: center;
+}
+
 #selection {
     margin: 0 auto;
     text-align: center;
+    border: 10px solid black;
+    text-shadow: 10px 10px 10px #000000;
+    background: linear-gradient(to right bottom, yellow, black);
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: large;
+}
 
+#waltersHead {
+    position: relative;
+    left: 65%;
+    overflow: hidden;
+}
+
+#selection button, input {
+    font-size: 20px;
 }

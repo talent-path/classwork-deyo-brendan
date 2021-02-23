@@ -30,6 +30,8 @@ const getRandomNum = function() {
 
 let reset = function() {
 
+    document.querySelector("#characterName").value = '';
+    document.querySelector("#deathName").value = '';
     $("#searchResult").empty();
 
 }
@@ -64,7 +66,7 @@ const getRandomCharacterByID = function() {
                         `https://www.breakingbadapi.com/api/quote/random?author=${newName}`,
                         function(quoteData, textStatus, jqXHR) {
                                 console.log(quoteData);
-                                $("#quote" + character.char_id).text(`Quote: ${quoteData[0].quote}`);
+                                $("#quote" + character.char_id).text(`Quote: "${quoteData[0].quote}"`);
                                 // characterDiv += `<h3>Quote: "${data[0].quote}"</h3>`;
                         }
                     )
@@ -124,8 +126,8 @@ const getDeathCountByName = function() {
                 )
                 dCharacterDiv += "</div>";
                 $("#searchResult").append(dCharacterDiv);
-    
             }
+    
         }
     )
 }
@@ -156,7 +158,7 @@ const getCharacterByName = function() {
                         `https://www.breakingbadapi.com/api/quote/random?author=${newName}`,
                         function(quoteData, textStatus, jqXHR) {
                                 console.log(quoteData);
-                                $("#quote" + character.char_id).text(`Quote: ${quoteData[0].quote}`);
+                                $("#quote" + character.char_id).text(`Quote: "${quoteData[0].quote}"`);
                                 // characterDiv += `<h3>Quote: "${data[0].quote}"</h3>`;
                         }
                     )

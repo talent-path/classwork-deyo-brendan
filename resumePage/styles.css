@@ -1,0 +1,70 @@
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#particles-js {
+    background: linear-gradient(to left bottom, black, #3272b3);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: -100;
+}
+
+.card {
+    margin: auto;
+    position: relative;
+    background: whitesmoke;
+    border: 10px solid black;
+    width: 70%;
+    height: 100%;
+}
+
+#aboutMe {
+    padding-top: 20px;
+}
+
+.container {
+    text-align: center;
+}
+
+#header {
+    font-size: 80px;
+    text-shadow: 10px 10px 10px gray;
+}
+
+#headshot {
+    width: 20%;
+    height: 30%;
+    border: 5px solid black;
+}
+
+hr {
+    border-top: 4px dotted gray;
+    width: 60%;
+}
+
+.fa-facebook {
+    color: #3b5998;
+    font-size: 60px;
+}
+  
+.fa-instagram {
+    color: #517fa4;
+    font-size: 60px;
+}
+  
+.fa-youtube {
+    color: #bb0000;
+    font-size: 60px;
+}
+
+.fa-linkedin-square {
+    color: #3674b5;
+    font-size: 60px;
+}
+  
+.fa-youtube:hover, .fa-instagram:hover, .fa-facebook:hover, .fa-linkedin-square:hover {
+    color: #d5d5d5;
+}
