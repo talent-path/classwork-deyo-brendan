@@ -14,11 +14,11 @@ export interface Board{
 
     allSquares : Piece[][];
 
-    // isWhiteTurn : boolean;
-    // wKingSideCastle : boolean;
-    // wQueenSideCastle: boolean;
-    // bKingSideCastle : boolean;
-    // bQueenSideCastle: boolean;
+    isWhiteTurn : boolean;
+    wKingSideCastle : boolean;
+    wQueenSideCastle: boolean;
+    bKingSideCastle : boolean;
+    bQueenSideCastle: boolean;
 
     fiftyMoveCount : number;
     enPassantCaptureLoc : Position;
@@ -30,6 +30,12 @@ export interface Board{
 
 
 class ChessBoard implements Board{
+
+    isWhiteTurn : boolean;
+    wKingSideCastle : boolean;
+    wQueenSideCastle: boolean;
+    bKingSideCastle : boolean;
+    bQueenSideCastle: boolean;
 
     //TODO: capture this in the copy constructor at some point...
     fiftyMoveCount : number;
@@ -51,6 +57,7 @@ class ChessBoard implements Board{
     pieceAt( loc : Position ) : Piece{
 
         return this.allSquares[loc.row][loc.col];
+
     }
 
 
@@ -61,7 +68,8 @@ class ChessBoard implements Board{
         this.allSquares = [];
         for( let row = 0; row < 8; row++ ){
             this.allSquares[row] = [];
-            for( let col = 0; col < 8; col++ ){
+            for( let col = 0; col < 8; col++ )
+            {
                 // if( row === 6 ){
                 //     this.allSquares[row][col] = {kind: PieceType.Pawn, isWhite: false};
                 // }
@@ -116,18 +124,49 @@ class ChessBoard implements Board{
 
     makeMove: ( toMake : Move) => Board = toMake => {
 
-        //TODO: enpassant stuff
-        //TODO: 50 move rule stuff
-
         let nextBoard : ChessBoard = new ChessBoard(this);
 
-
         let oldPiece : Piece = nextBoard.allSquares[toMake.from.row][toMake.from.col];
+
+        let enPassant : Piece = nextBoard.allSquares[toMake.from.row][toMake.from.col];
+
+
+        if (oldPiece.isWhite)
+        {
+            this.isWhiteTurn = false;
+        }
+        else
+            this.isWhiteTurn = true;
+
+        //TODO: enpassant stuff
+        
+        if (this.enPassantCaptureLoc === null && this.isWhiteTurn)
+        {
+            nextBoard.allSquares[toMake.from.row][toMake.from.col] = null;
+            nextBoard.allSquares[toMake.to.row + 2][toMake.from.col] = enPassant;
+        }
+        else if (this.enPassantCaptureLoc === null && !this.isWhiteTurn)
+        {
+            nextBoard.allSquares[toMake.from.row][toMake.from.col] = null;
+            nextBoard.allSquares[toMake.to.row + 2][toMake.from.col] = enPassant;
+        }
+        else if (this.enPassantCaptureLoc !== null)
+        {
+            enPassant === null;
+        }
+
+        //TODO: 50 move rule stuff
+        let count = 0;
+
+        if (count === 50)
+        {
+            //TODO: draw??
+        }
 
         nextBoard.allSquares[toMake.from.row][toMake.from.col] = null;
         nextBoard.allSquares[toMake.to.row][toMake.to.col] = oldPiece;
 
-
+        count++;
 
         return nextBoard;
     }

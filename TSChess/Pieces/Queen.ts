@@ -6,57 +6,60 @@ import { PieceType } from "./Piece";
 
 export class Queen extends ChessPiece {
 
-    constructor( isWhite : boolean ){
-        super( PieceType.Queen, isWhite );
+    constructor(isWhite: boolean) {
+        super(PieceType.Queen, isWhite);
     }
 
-    generateMoves: (moveOn: Board, loc: Position) => Move[] = 
-    (moveOn: Board, loc: Position)  => {
-    
-        let queenMoves : Move[] = [];
+    generateMoves: (moveOn: Board, loc: Position) => Move[] =
+        (moveOn: Board, loc: Position) => {
 
-        let queenDirections : Position[] = [];
+            let queenMoves: Move[] = [];
 
-        queenDirections.push( {row : 1, col: 0} );
-        queenDirections.push( {row : -1, col: 0} );
-        queenDirections.push( {row : 0, col: 1} );
-        queenDirections.push( {row : 0, col: -1} );
-        queenDirections.push( {row : 1, col: 1} );
-        queenDirections.push( {row : 1, col: -1} );
-        queenDirections.push( {row : -1, col: 1} );
-        queenDirections.push( {row : -1, col: -1} );
+            let queenDirections: Position[] = [];
 
-        for( let direction of queenDirections ){
-            let directionMoves : Move[] = Queen.slidePiece( moveOn, loc, direction, this.isWhite );
-            queenMoves.push( ...directionMoves );
-        }
+            queenDirections.push({ row: 1, col: 0 });
+            queenDirections.push({ row: -1, col: 0 });
+            queenDirections.push({ row: 0, col: 1 });
+            queenDirections.push({ row: 0, col: -1 });
+            queenDirections.push({ row: 1, col: 1 });
+            queenDirections.push({ row: 1, col: -1 });
+            queenDirections.push({ row: -1, col: 1 });
+            queenDirections.push({ row: -1, col: -1 });
 
-        return queenMoves;
-
-    }
-
-    static slidePiece: (moveOn : Board, loc : Position, dir : Position, isWhite : boolean ) =>  Move[] = 
-        ( moveOn : Board, loc : Position, dir : Position, isWhite: boolean ) : Move[] => {
-
-            let allMoves : Move[] = [];
-
-            let currentLoc : Position = { row : loc.row + dir.row, col : loc.col + dir.col };
-
-            while( Queen.isOnBoard( currentLoc ) && moveOn.pieceAt(currentLoc) === null ){
-                allMoves.push( { from: loc, to: currentLoc  });
-                currentLoc = { row: currentLoc.row + dir.row, col : currentLoc.col + dir.col };
+            for (let direction of queenDirections) {
+                let directionMoves: Move[] = Queen.slidePiece(moveOn, loc, direction, this.isWhite);
+                queenMoves.push(...directionMoves);
             }
 
-            if( Queen.isOnBoard( currentLoc )){
-                if( moveOn.pieceAt(currentLoc).isWhite != isWhite  ){
-                    allMoves.push( {from: loc, to: currentLoc});
+            return queenMoves;
+
+        }
+
+    static slidePiece: (moveOn: Board, loc: Position, dir: Position, isWhite: boolean) => Move[] =
+        (moveOn: Board, loc: Position, dir: Position, isWhite: boolean): Move[] => {
+
+            let allMoves: Move[] = [];
+
+            let currentLoc: Position = { row: loc.row + dir.row, col: loc.col + dir.col };
+
+            // && if piece going on piece that is different color
+            while (Queen.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) === null ||
+                ((Queen.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) !== null)
+                    && !(moveOn.pieceAt(loc).isWhite))) {
+                allMoves.push({ from: loc, to: currentLoc });
+                currentLoc = { row: currentLoc.row + dir.row, col: currentLoc.col + dir.col };
+            }
+
+            if (Queen.isOnBoard(currentLoc)) {
+                if (moveOn.pieceAt(currentLoc).isWhite != isWhite) {
+                    allMoves.push({ from: loc, to: currentLoc });
                 }
             }
 
             return allMoves;
         }
 
-    static isOnBoard( loc : Position ) : boolean {
+    static isOnBoard(loc: Position): boolean {
         return loc.col >= 0 && loc.col < 8 && loc.row >= 0 && loc.row < 8;
     }
 }

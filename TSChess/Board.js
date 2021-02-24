@@ -16,12 +16,34 @@ var ChessBoard = /** @class */ (function () {
     function ChessBoard(copyFrom) {
         var _this = this;
         this.makeMove = function (toMake) {
-            //TODO: enpassant stuff
-            //TODO: 50 move rule stuff
             var nextBoard = new ChessBoard(_this);
             var oldPiece = nextBoard.allSquares[toMake.from.row][toMake.from.col];
+            var enPassant = nextBoard.allSquares[toMake.from.row][toMake.from.col];
+            if (oldPiece.isWhite) {
+                _this.isWhiteTurn = false;
+            }
+            else
+                _this.isWhiteTurn = true;
+            //TODO: enpassant stuff
+            if (_this.enPassantCaptureLoc === null && _this.isWhiteTurn) {
+                nextBoard.allSquares[toMake.from.row][toMake.from.col] = null;
+                nextBoard.allSquares[toMake.to.row + 2][toMake.from.col] = enPassant;
+            }
+            else if (_this.enPassantCaptureLoc === null && !_this.isWhiteTurn) {
+                nextBoard.allSquares[toMake.from.row][toMake.from.col] = null;
+                nextBoard.allSquares[toMake.to.row + 2][toMake.from.col] = enPassant;
+            }
+            else if (_this.enPassantCaptureLoc !== null) {
+                enPassant === null;
+            }
+            //TODO: 50 move rule stuff
+            var count = 0;
+            if (count === 50) {
+                //TODO: draw??
+            }
             nextBoard.allSquares[toMake.from.row][toMake.from.col] = null;
             nextBoard.allSquares[toMake.to.row][toMake.to.col] = oldPiece;
+            count++;
             return nextBoard;
         };
         if (copyFrom) {

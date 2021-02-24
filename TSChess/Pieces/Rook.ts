@@ -6,53 +6,56 @@ import { PieceType } from "./Piece";
 
 export class Rook extends ChessPiece {
 
-    constructor( isWhite : boolean ){
-        super( PieceType.Rook, isWhite );
-    }
-    
-
-    generateMoves: (moveOn: Board, loc: Position) => Move[] = 
-    (moveOn: Board, loc: Position)  => {
-    
-        let rookMoves : Move[] = [];
-
-        let rookDirections : Position[] = [];
-
-        rookDirections.push( {row : 1, col: 0} );
-        rookDirections.push( {row : -1, col: 0} );
-        rookDirections.push( {row : 0, col: 1} );
-        rookDirections.push( {row : 0, col: -1} );
-
-        for( let direction of rookDirections ){
-            let directionMoves : Move[] = Rook.slidePiece( moveOn, loc, direction, this.isWhite );
-            rookMoves.push( ...directionMoves );
-        }
-
-        return rookMoves;
+    constructor(isWhite: boolean) {
+        super(PieceType.Rook, isWhite);
     }
 
-    static slidePiece: (moveOn : Board, loc : Position, dir : Position, isWhite : boolean ) =>  Move[] = 
-        ( moveOn : Board, loc : Position, dir : Position, isWhite: boolean ) : Move[] => {
 
-            let allMoves : Move[] = [];
+    generateMoves: (moveOn: Board, loc: Position) => Move[] =
+        (moveOn: Board, loc: Position) => {
 
-            let currentLoc : Position = { row : loc.row + dir.row, col : loc.col + dir.col };
+            let rookMoves: Move[] = [];
 
-            while( Rook.isOnBoard( currentLoc ) && moveOn.pieceAt(currentLoc) === null ){
-                allMoves.push( { from: loc, to: currentLoc  });
-                currentLoc = { row: currentLoc.row + dir.row, col : currentLoc.col + dir.col };
+            let rookDirections: Position[] = [];
+
+            rookDirections.push({ row: 1, col: 0 });
+            rookDirections.push({ row: -1, col: 0 });
+            rookDirections.push({ row: 0, col: 1 });
+            rookDirections.push({ row: 0, col: -1 });
+
+            for (let direction of rookDirections) {
+                let directionMoves: Move[] = Rook.slidePiece(moveOn, loc, direction, this.isWhite);
+                rookMoves.push(...directionMoves);
             }
 
-            if( Rook.isOnBoard( currentLoc )){
-                if( moveOn.pieceAt(currentLoc).isWhite != isWhite  ){
-                    allMoves.push( {from: loc, to: currentLoc});
+            return rookMoves;
+        }
+
+    static slidePiece: (moveOn: Board, loc: Position, dir: Position, isWhite: boolean) => Move[] =
+        (moveOn: Board, loc: Position, dir: Position, isWhite: boolean): Move[] => {
+
+            let allMoves: Move[] = [];
+
+            let currentLoc: Position = { row: loc.row + dir.row, col: loc.col + dir.col };
+
+            // && if piece going on piece that is different color
+            while (Rook.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) === null ||
+                ((Rook.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) !== null)
+                    && !(moveOn.pieceAt(loc).isWhite))) {
+                allMoves.push({ from: loc, to: currentLoc });
+                currentLoc = { row: currentLoc.row + dir.row, col: currentLoc.col + dir.col };
+            }
+
+            if (Rook.isOnBoard(currentLoc)) {
+                if (moveOn.pieceAt(currentLoc).isWhite != isWhite) {
+                    allMoves.push({ from: loc, to: currentLoc });
                 }
             }
 
             return allMoves;
         }
 
-    static isOnBoard( loc : Position ) : boolean {
+    static isOnBoard(loc: Position): boolean {
         return loc.col >= 0 && loc.col < 8 && loc.row >= 0 && loc.row < 8;
     }
 }

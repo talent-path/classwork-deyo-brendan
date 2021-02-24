@@ -21,10 +21,46 @@ var King = /** @class */ (function (_super) {
     function King(isWhite) {
         var _this = _super.call(this, Piece_1.PieceType.King, isWhite) || this;
         _this.generateMoves = function (moveOn, loc) {
-            return [];
+            var kingMoves = [];
+            var kingDirections = [];
+            kingDirections.push({ row: 1, col: 0 });
+            kingDirections.push({ row: -1, col: 0 });
+            kingDirections.push({ row: 0, col: 1 });
+            kingDirections.push({ row: 0, col: -1 });
+            kingDirections.push({ row: 1, col: 1 });
+            kingDirections.push({ row: 1, col: -1 });
+            kingDirections.push({ row: -1, col: 1 });
+            kingDirections.push({ row: -1, col: -1 });
+            for (var _i = 0, kingDirections_1 = kingDirections; _i < kingDirections_1.length; _i++) {
+                var direction = kingDirections_1[_i];
+                var directionMoves = King.movePiece(moveOn, loc, direction, _this.isWhite);
+                kingMoves.push.apply(kingMoves, directionMoves);
+            }
+            return kingMoves;
         };
         return _this;
     }
+    King.isOnBoard = function (loc) {
+        return loc.col >= 0 && loc.col < 8 && loc.row >= 0 && loc.row < 8;
+    };
+    // increment king position by 1  (if)
+    King.movePiece = function (moveOn, loc, dir, isWhite) {
+        var allMoves = [];
+        var currentLoc = { row: loc.row + dir.row, col: loc.col + dir.col };
+        // && if piece going on piece that is different color
+        if (King.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) === null ||
+            ((King.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) !== null)
+                && !(moveOn.pieceAt(loc).isWhite))) {
+            allMoves.push({ from: loc, to: currentLoc });
+            currentLoc = { row: currentLoc.row + dir.row, col: currentLoc.col + dir.col };
+        }
+        if (King.isOnBoard(currentLoc)) {
+            if (moveOn.pieceAt(currentLoc).isWhite != isWhite) {
+                allMoves.push({ from: loc, to: currentLoc });
+            }
+        }
+        return allMoves;
+    };
     return King;
 }(ChessPiece_1.ChessPiece));
 exports.King = King;

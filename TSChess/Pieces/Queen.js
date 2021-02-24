@@ -46,7 +46,10 @@ var Queen = /** @class */ (function (_super) {
     Queen.slidePiece = function (moveOn, loc, dir, isWhite) {
         var allMoves = [];
         var currentLoc = { row: loc.row + dir.row, col: loc.col + dir.col };
-        while (Queen.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) === null) {
+        // && if piece going on piece that is different color
+        while (Queen.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) === null ||
+            ((Queen.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) !== null)
+                && !(moveOn.pieceAt(loc).isWhite))) {
             allMoves.push({ from: loc, to: currentLoc });
             currentLoc = { row: currentLoc.row + dir.row, col: currentLoc.col + dir.col };
         }

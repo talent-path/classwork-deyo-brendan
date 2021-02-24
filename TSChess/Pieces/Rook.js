@@ -42,7 +42,10 @@ var Rook = /** @class */ (function (_super) {
     Rook.slidePiece = function (moveOn, loc, dir, isWhite) {
         var allMoves = [];
         var currentLoc = { row: loc.row + dir.row, col: loc.col + dir.col };
-        while (Rook.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) === null) {
+        // && if piece going on piece that is different color
+        while (Rook.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) === null ||
+            ((Rook.isOnBoard(currentLoc) && moveOn.pieceAt(currentLoc) !== null)
+                && !(moveOn.pieceAt(loc).isWhite))) {
             allMoves.push({ from: loc, to: currentLoc });
             currentLoc = { row: currentLoc.row + dir.row, col: currentLoc.col + dir.col };
         }
