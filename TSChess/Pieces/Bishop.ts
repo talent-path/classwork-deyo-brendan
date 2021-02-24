@@ -1,35 +1,62 @@
 import { Board } from "../Board";
 import { Move } from "../Move";
-import { Piece, PieceType } from "./Piece";
+import { Position } from "../Position";
+import { ChessPiece } from "./ChessPiece";
+import { PieceType } from "./Piece";
 
-export class Bishop implements Piece {
-
-    kind : PieceType = PieceType.Bishop;
-
-    isWhite : boolean;
+export class Bishop extends ChessPiece {
 
 
     constructor( isWhite : boolean ){
-        this.isWhite = isWhite;
+        super( PieceType.Bishop, isWhite );
     }
-    generateMoves: (moveOn: Board, row: number, col: number) => Move[] = 
-         (moveOn: Board, row: number, col: number)  => {
+
+    generateMoves: (moveOn: Board, loc: Position) => Move[] = 
+         (moveOn: Board, loc: Position)  => {
 
             let bishopMoves : Move[]  = [];
 
-            let i = row + 1;
-            let j = col + 1;
+            //we'll generate 4 "position" objects that represent different directions the bishop might move
+            //then try those one at a time and add the results
 
-            while (i < 8 && j < 8)
-            {
-                if (moveOn.allSquares[i][j] === null)
-                {
-                    bishopMoves.push({  });
+            let bishopDirections : Position[] = [];
+
+            bishopDirections.push( {row : 1, col: 1} );
+            bishopDirections.push( {row : 1, col: -1} );
+            bishopDirections.push( {row : -1, col: 1} );
+            bishopDirections.push( {row : -1, col: -1} );
+
+            for( let direction of bishopDirections ){
+                let directionMoves : Move[] = Bishop.slidePiece( moveOn, loc, direction, this.isWhite );
+                bishopMoves.push( ...directionMoves );
+            }
+
+            return bishopMoves;
+         };
+
+    static slidePiece: (moveOn : Board, loc : Position, dir : Position, isWhite : boolean ) =>  Move[] = 
+        ( moveOn : Board, loc : Position, dir : Position, isWhite: boolean ) : Move[] => {
+
+            let allMoves : Move[] = [];
+
+            let currentLoc : Position = { row : loc.row + dir.row, col : loc.col + dir.col };
+
+            while( Bishop.isOnBoard( currentLoc ) && moveOn.pieceAt(currentLoc) === null ){
+                allMoves.push( { from: loc, to: currentLoc  });
+                currentLoc = { row: currentLoc.row + dir.row, col : currentLoc.col + dir.col };
+            }
+
+            if( Bishop.isOnBoard( currentLoc )){
+                if( moveOn.pieceAt(currentLoc).isWhite != isWhite  ){
+                    allMoves.push( {from: loc, to: currentLoc});
                 }
             }
 
+            return allMoves;
+        }
 
-            return bishopMoves;
-         }
+    static isOnBoard( loc : Position ) : boolean {
+        return loc.col >= 0 && loc.col < 8 && loc.row >= 0 && loc.row < 8;
+    }
 
 }

@@ -1,5 +1,6 @@
 import { Board } from "../Board";
-import {Move } from "../Move";
+import { Move } from "../Move";
+import { Position } from "../Position";
 
 export enum PieceType{
     Pawn,
@@ -13,6 +14,6 @@ export enum PieceType{
 export interface Piece{
     kind : PieceType;
     isWhite : boolean;
-    generateMoves? : ( moveOn : Board, row : number, col : number ) => Move[];
+    generateMoves : ( moveOn : Board, loc: Position ) => Move[];
 }
 

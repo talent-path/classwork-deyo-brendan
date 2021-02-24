@@ -1,5 +1,5 @@
 import { Position } from "./Position";
-import { PieceType } from "./Piece";
+import { PieceType } from "./Pieces/Piece";
 
 export interface Move{
 
