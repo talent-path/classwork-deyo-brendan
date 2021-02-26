@@ -1,27 +1,26 @@
 import { Move } from '../ttt/Move';
 import { Position } from '../ttt/Position';
-import { Symbol, SymbolType } from '../ttt/Symbol';
-import { TTTSymbol } from '../ttt/TTTSymbol';
+import { TTTSymbol, SymbolType } from '../ttt/TTTSymbol';
+
 
 export interface Board {
 
-    allSquares: Symbol[][];
+    allSquares: TTTSymbol[][];
 
     isXTurn : boolean;
 
-
-    makeMove: (this: Board, toMake: Move) => Board;
-    symbolAt: (loc: Position) => Symbol;
+    makeMove: (this: Board, pos: Position) => Board;
+    symbolAt: (loc: Position) => TTTSymbol;
     
 }
 
 export class TTTBoard implements Board {
 
-    allSquares: Symbol[][];
+    allSquares: TTTSymbol[][];
 
     isXTurn : boolean = true;
 
-    symbolAt(loc: Position) : Symbol {
+    symbolAt(loc: Position) : TTTSymbol {
         return this.allSquares[loc.row][loc.col];
     }
 
@@ -57,19 +56,14 @@ export class TTTBoard implements Board {
     }
 
 
-    makeMove: (toMake: Move) => Board = toMake => {
+    makeMove: (pos: Position) => Board = pos => {
 
         let nextBoard: TTTBoard = new TTTBoard(this);
 
-
-        let oldSymbol: Symbol = nextBoard.allSquares[toMake.from.row][toMake.from.col];
-
-        nextBoard.allSquares[toMake.from.row][toMake.from.col] = null;
-
-        nextBoard.allSquares[toMake.to.row][toMake.to.col] = oldSymbol;
+        nextBoard.allSquares[pos.row][pos.col] = this.isXTurn ? {kind: SymbolType.X, isX : true} 
+                : {kind: SymbolType.O, isX: false};
 
         nextBoard.isXTurn = !this.isXTurn;
-
 
         return nextBoard;
     }

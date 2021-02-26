@@ -1,1 +1,22 @@
-<p>ttt-board works!</p>
+<div class = "board">
+
+    <h1 style = "display: inline-block; text-align: center;">Welcome to Tic Tac Toe!</h1>
+    <h2>You Will Be Playing As X! :)</h2>
+
+    <br>
+
+    <div *ngFor = "let row of tttBoard.allSquares; index as r" class = "rowDiv">
+        <app-ttt-square *ngFor = "let s of row; index as c" [row] = "r" [col] = "c" [squarePiece] = "s" 
+        (squareClickedEvent) = "onSquareClicked($event)">
+
+        </app-ttt-square>
+    </div>
+
+    <br>
+    <br>
+
+    <button (click) = "startNewGame()">Start New Game</button>
+
+    <div id = "win"></div>
+
+</div>

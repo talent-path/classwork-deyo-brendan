@@ -1,15 +1,9 @@
-import { Board } from "../ttt/Board";
-import { Move } from "../ttt/Move";
-import { Position } from "../ttt/Position";
-import { SymbolType, Symbol } from "../ttt/Symbol";
+export enum SymbolType{
+    X,
+    O
+}
 
-
-export abstract class TTTSymbol implements Symbol {
+export interface TTTSymbol{
     kind : SymbolType;
     isX : boolean;
-
-    constructor( kind : SymbolType, isX : boolean ){
-        this.kind = kind;
-        this.isX = isX;
-    }
 }

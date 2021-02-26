@@ -1,0 +1,9 @@
+.board {
+    display: inline-block;
+    width: 100vmin;
+    height: 100vmin;
+}
+
+.rowDiv {
+    height: 12.5%;
+}
