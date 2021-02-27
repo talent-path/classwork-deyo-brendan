@@ -1,22 +1,36 @@
-<div class = "board">
+<body>
 
-    <h1 style = "display: inline-block; text-align: center;">Welcome to Tic Tac Toe!</h1>
-    <h2>You Will Be Playing As X! :)</h2>
 
-    <br>
+        <div class="board">
 
-    <div *ngFor = "let row of tttBoard.allSquares; index as r" class = "rowDiv">
-        <app-ttt-square *ngFor = "let s of row; index as c" [row] = "r" [col] = "c" [squarePiece] = "s" 
-        (squareClickedEvent) = "onSquareClicked($event)">
 
-        </app-ttt-square>
-    </div>
 
-    <br>
-    <br>
+            <h1>Welcome to Tic Tac Toe!</h1>
+            <h2>You Will Be Playing As X! :)</h2>
 
-    <button (click) = "startNewGame()">Start New Game</button>
+            <br>
 
-    <div id = "win"></div>
+            <div *ngFor="let row of tttBoard.allSquares; index as r" class="rowDiv">
+                <app-ttt-square *ngFor="let s of row; index as c" [row]="r" [col]="c" [squarePiece]="s"
+                    (squareClickedEvent)="onSquareClicked($event)">
 
-</div>
+                </app-ttt-square>
+            </div>
+
+            <br>
+            <br>
+
+            <button (click)="startNewGame()">Start New Game</button>
+
+            <div id="win"></div>
+
+            <div id="stats"></div>
+
+        </div>
+
+
+    <script type="text/javascript" src="/src/app/js/particles.js"></script>
+    <script type="text/javascript" src="/src/app/js/app.js"></script>
+    <script type="text/javascript" src="/src/app/js/particles.min.js"></script>
+
+</body>
