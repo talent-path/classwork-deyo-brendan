@@ -11,4 +11,8 @@ public interface WorkoutDao {
 
     List<Exercise> getExerciseList(Integer workoutID);
 
+    void deleteWorkoutByID(Integer workoutID);
+
+    Workout addWorkoutToList(Workout toAdd);
+
 }

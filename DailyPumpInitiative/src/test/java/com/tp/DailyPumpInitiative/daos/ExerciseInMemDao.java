@@ -87,4 +87,14 @@ public class ExerciseInMemDao implements ExerciseDao {
         return toReturn;
     }
 
+    @Override
+    public void deleteExerciseByID(Integer exerciseID) {
+
+    }
+
+    @Override
+    public Exercise addExerciseToList(Exercise toAdd) {
+        return null;
+    }
+
 }

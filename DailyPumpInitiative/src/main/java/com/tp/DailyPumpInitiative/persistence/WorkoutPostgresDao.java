@@ -4,6 +4,7 @@ package com.tp.DailyPumpInitiative.persistence;
 import com.tp.DailyPumpInitiative.models.Exercise;
 import com.tp.DailyPumpInitiative.models.Workout;
 import com.tp.DailyPumpInitiative.persistence.mappers.ExerciseMapper;
+import com.tp.DailyPumpInitiative.persistence.mappers.IntegerMapper;
 import com.tp.DailyPumpInitiative.persistence.mappers.WorkoutMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -46,6 +47,26 @@ public class WorkoutPostgresDao implements WorkoutDao {
             return null;
 
         return toReturn;
+
+    }
+
+    @Override
+    public void deleteWorkoutByID(Integer workoutID) {
+        template.execute("DELETE from \"Workout\" where \"workoutID\" = " + workoutID + ";");
+    }
+
+    @Override
+    public Workout addWorkoutToList(Workout toAdd) {
+        Integer workoutID = template.queryForObject("INSERT into \"Workout\" (\"intensityID\", \"name\", \"description\", \"completed\")\n" +
+                        "VALUES (?, ?, ?, ?);", new IntegerMapper("workoutID"),
+                toAdd.getIntensityID(),
+                toAdd.getWorkoutName(),
+                toAdd.getWorkoutDescription(),
+                toAdd.isComplete());
+
+        toAdd.setWorkoutID(workoutID);
+
+        return toAdd;
 
     }
 

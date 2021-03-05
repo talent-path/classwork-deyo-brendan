@@ -10,4 +10,8 @@ public interface ExerciseDao {
 
     boolean isCompleted(Integer exerciseID);
 
+    void deleteExerciseByID(Integer exerciseID);
+
+    Exercise addExerciseToList(Exercise toAdd);
+
 }

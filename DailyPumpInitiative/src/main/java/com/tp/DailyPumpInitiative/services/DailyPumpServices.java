@@ -33,10 +33,41 @@ public class DailyPumpServices {
 //        return workoutDao.getIntensityByID(intensityID);
 //    }
 
+    /* INTENSITY SERVICES */
+
     public List<Intensity> getIntensityList() throws NullIntensityException,
             InvalidInputException
     {
         return intensityDao.getIntensityList();
+    }
+
+
+    /* WORKOUT SERVICES */
+
+    public List<Workout> getWorkoutList(Integer intensityID) throws NullIntensityException,
+            NullWorkoutException, InvalidInputException
+    {
+        return intensityDao.getWorkoutList(intensityID);
+    }
+
+    public void deleteWorkoutByID(Integer workoutID) throws NullWorkoutException,
+            InvalidInputException
+    {
+        workoutDao.deleteWorkoutByID(workoutID);
+    }
+
+    public Workout addWorkoutToList(Workout toAdd) throws NullWorkoutException,
+            InvalidInputException
+    {
+        return workoutDao.addWorkoutToList(toAdd);
+    }
+
+    /* EXERCISE SERVICES */
+
+    public boolean getCompleted(Integer exerciseID) throws NullExerciseException,
+            InvalidInputException
+    {
+        return exerciseDao.isCompleted(exerciseID);
     }
 
     public List<Exercise> getExerciseList(Integer workoutID) throws NullExerciseException,
@@ -45,16 +76,22 @@ public class DailyPumpServices {
         return workoutDao.getExerciseList(workoutID);
     }
 
-    public List<Workout> getWorkoutList(Integer intensityID) throws NullIntensityException,
-            NullWorkoutException, InvalidInputException
-    {
-        return intensityDao.getWorkoutList(intensityID);
-    }
-
-    public boolean getCompleted(Integer exerciseID) throws NullExerciseException,
+    public Exercise getExerciseByID(Integer exerciseID) throws NullExerciseException,
             InvalidInputException
     {
-        return exerciseDao.isCompleted(exerciseID);
+        return exerciseDao.getExerciseByID(exerciseID);
+    }
+
+    public void deleteExerciseByID(Integer exerciseID) throws NullExerciseException,
+            InvalidInputException
+    {
+        exerciseDao.deleteExerciseByID(exerciseID);
+    }
+
+    public Exercise addExerciseToList(Exercise toAdd) throws NullExerciseException,
+            InvalidInputException
+    {
+        return exerciseDao.addExerciseToList(toAdd);
     }
 
 }
