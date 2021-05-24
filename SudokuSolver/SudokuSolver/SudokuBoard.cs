@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
-
 namespace SudokuSolver
 {
-
-
-
     public class SudokuBoard
     {
         //int[][] _vals = new int[9][];
@@ -72,9 +67,26 @@ namespace SudokuSolver
 
         public void SolveSudoku(SudokuBoard board)
         {
+            int valCounter = 0;
+
             if (!isValid(board))
             {
+                for (int i = 0; i < 9; i++)
+                {
+                    for (int j = 0; j < 9; j++)
+                    {
+                        for (int k = valCounter; k < board.AllowableVals.Length; k++)
+                        {
+                            board._vals[i,j] = board.AllowableVals[i,j][k];
+                            if (!isValid(board))
+                            {
+                                valCounter++;
+                                SolveSudoku(board);
+                            }
+                        }
 
+                    }
+                }
             }
         }
 

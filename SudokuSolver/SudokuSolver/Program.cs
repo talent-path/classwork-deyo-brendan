@@ -34,7 +34,7 @@ namespace SudokuSolver
                 }
             }
 
-            SudokuBoard copyBoard = new SudokuBoard(board);
+            // SudokuBoard solved = new SudokuBoard().SolveSudoku(board);
 
             Console.WriteLine("Hello World!");
 
