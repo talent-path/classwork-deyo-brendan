@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{720D60C3-C4CC-4FE2-A1B4-000AD1CF7DB0}|Default">
+  <MonoDevelop.Ide.ItemProperties.BigRational PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BigRational/BigRational.cs">
+    <Files>
+      <File FileName="BigRational/Program.cs" Line="51" Column="1" />
+      <File FileName="BigRational/BigRational.cs" Line="146" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BigRational" expanded="True">
+            <Node name="BigRational" expanded="True">
+              <Node name="BigRational.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,12 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/bin/Debug/netcoreapp3.1/DateTimeDemo.deps.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/bin/Debug/netcoreapp3.1/DateTimeDemo.runtimeconfig.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/bin/Debug/netcoreapp3.1/DateTimeDemo.runtimeconfig.dev.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/bin/Debug/netcoreapp3.1/DateTimeDemo.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/bin/Debug/netcoreapp3.1/DateTimeDemo.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/obj/Debug/netcoreapp3.1/DateTimeDemo.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/obj/Debug/netcoreapp3.1/DateTimeDemo.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/obj/Debug/netcoreapp3.1/DateTimeDemo.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/obj/Debug/netcoreapp3.1/DateTimeDemo.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/obj/Debug/netcoreapp3.1/DateTimeDemo.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/obj/Debug/netcoreapp3.1/DateTimeDemo.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DateTimeDemo/DateTimeDemo/obj/Debug/netcoreapp3.1/DateTimeDemo.genruntimeconfig.cache

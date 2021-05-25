@@ -1,0 +1,12 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/bin/Debug/netcoreapp3.1/BigRational.deps.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/bin/Debug/netcoreapp3.1/BigRational.runtimeconfig.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/bin/Debug/netcoreapp3.1/BigRational.runtimeconfig.dev.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/bin/Debug/netcoreapp3.1/BigRational.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/bin/Debug/netcoreapp3.1/BigRational.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/obj/Debug/netcoreapp3.1/BigRational.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/obj/Debug/netcoreapp3.1/BigRational.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/obj/Debug/netcoreapp3.1/BigRational.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/obj/Debug/netcoreapp3.1/BigRational.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/obj/Debug/netcoreapp3.1/BigRational.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/obj/Debug/netcoreapp3.1/BigRational.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/BigRational/BigRational/obj/Debug/netcoreapp3.1/BigRational.genruntimeconfig.cache
