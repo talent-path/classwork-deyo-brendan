@@ -42,7 +42,7 @@ namespace DateTimeDemo
 
             int numDays = DayOfWeek.Friday - userDate.DayOfWeek;
 
-            if (numDays < 0)
+            if (numDays <= 0)
                 numDays += 7;
 
             DateTime thatFriday = userDate.AddDays(numDays);
