@@ -1,0 +1,15 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/bin/Debug/netcoreapp3.1/Problem5.deps.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/bin/Debug/netcoreapp3.1/Problem5.runtimeconfig.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/bin/Debug/netcoreapp3.1/Problem5.runtimeconfig.dev.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/bin/Debug/netcoreapp3.1/Problem5.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/bin/Debug/netcoreapp3.1/Problem5.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/bin/Debug/netcoreapp3.1/Utils.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/bin/Debug/netcoreapp3.1/Utils.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/obj/Debug/netcoreapp3.1/Problem5.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/obj/Debug/netcoreapp3.1/Problem5.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/obj/Debug/netcoreapp3.1/Problem5.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/obj/Debug/netcoreapp3.1/Problem5.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/obj/Debug/netcoreapp3.1/Problem5.csproj.CopyComplete
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/obj/Debug/netcoreapp3.1/Problem5.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/obj/Debug/netcoreapp3.1/Problem5.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem5/obj/Debug/netcoreapp3.1/Problem5.genruntimeconfig.cache

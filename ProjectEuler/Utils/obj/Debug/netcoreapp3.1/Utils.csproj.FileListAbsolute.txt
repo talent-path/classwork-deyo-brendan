@@ -1,0 +1,9 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/bin/Debug/netcoreapp3.1/Utils.deps.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/bin/Debug/netcoreapp3.1/Utils.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/bin/Debug/netcoreapp3.1/Utils.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/obj/Debug/netcoreapp3.1/Utils.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/obj/Debug/netcoreapp3.1/Utils.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/obj/Debug/netcoreapp3.1/Utils.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/obj/Debug/netcoreapp3.1/Utils.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/obj/Debug/netcoreapp3.1/Utils.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/obj/Debug/netcoreapp3.1/Utils.pdb
