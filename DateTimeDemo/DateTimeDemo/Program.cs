@@ -40,7 +40,7 @@ namespace DateTimeDemo
 
             Console.WriteLine(userDate.ToString("yy-MMM-dd"));
 
-            int numDays = System.DayOfWeek.Friday - userDate.DayOfWeek;
+            int numDays = DayOfWeek.Friday - userDate.DayOfWeek;
 
             if (numDays < 0)
                 numDays += 7;
