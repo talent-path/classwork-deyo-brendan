@@ -1,24 +1,20 @@
-﻿<Properties StartupConfiguration="{BA09CCF5-A814-458C-8E80-14014BF65159}|Default">
+﻿<Properties StartupConfiguration="{68C64E5F-E040-47A0-B49C-ABF026A5D4C2}|Default">
   <MonoDevelop.Ide.ItemProperties.Problem6 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Problem5 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Problem7/Program.cs">
-    <Files>
-      <File FileName="Problem7/Program.cs" Line="9" Column="13" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ProjectEuler" expanded="True">
-            <Node name="Problem6" expanded="True" />
-            <Node name="Problem7" expanded="True" selected="True" />
-            <Node name="Utils" expanded="True" />
+            <Node name="Problem9" selected="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Problem3 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.ItemProperties.Problem7 FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.Problem9 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.Problem7 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Problem4 PreferredExecutionTarget="MonoDevelop.Default" />
