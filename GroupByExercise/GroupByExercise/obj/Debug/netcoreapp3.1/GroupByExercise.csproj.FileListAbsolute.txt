@@ -1,0 +1,12 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/bin/Debug/netcoreapp3.1/GroupByExercise.deps.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/bin/Debug/netcoreapp3.1/GroupByExercise.runtimeconfig.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/bin/Debug/netcoreapp3.1/GroupByExercise.runtimeconfig.dev.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/bin/Debug/netcoreapp3.1/GroupByExercise.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/bin/Debug/netcoreapp3.1/GroupByExercise.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/obj/Debug/netcoreapp3.1/GroupByExercise.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/obj/Debug/netcoreapp3.1/GroupByExercise.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/obj/Debug/netcoreapp3.1/GroupByExercise.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/obj/Debug/netcoreapp3.1/GroupByExercise.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/obj/Debug/netcoreapp3.1/GroupByExercise.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/obj/Debug/netcoreapp3.1/GroupByExercise.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/GroupByExercise/GroupByExercise/obj/Debug/netcoreapp3.1/GroupByExercise.genruntimeconfig.cache
