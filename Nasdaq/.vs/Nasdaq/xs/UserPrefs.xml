@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{4D5428B0-0C1B-43E3-B685-1717929D1B09}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Nasdaq/Program.cs">
+    <Files>
+      <File FileName="Nasdaq/Program.cs" Line="52" Column="14" />
+      <File FileName="Nasdaq/DailyQuote.cs" Line="49" Column="33" />
+      <File FileName="Nasdaq/HD.csv" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Nasdaq" expanded="True">
+            <Node name="Nasdaq" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Nasdaq PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

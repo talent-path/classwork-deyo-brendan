@@ -11,8 +11,8 @@ namespace RpgGame.Concrete
         {
             this.Health = Health;
             this.Name = Name;
-            this.Armor = Armor;
-            this.Weapon = Weapon;
+            this.Armor = armor;
+            this.Weapon = weapon;
         }
 
         public Brute()
@@ -25,13 +25,14 @@ namespace RpgGame.Concrete
         public override IArmor Armor { get; set; } = new Helmet();
         public override IWeapon Weapon { get; set; } = new Fists();
 
-        public override void Attack(IFighter defender)
+        public override int Attack(IFighter defender)
         {
             int dmg = Weapon.Damage + 1;
-            defender.Health -= dmg;
+
+            return dmg;
         }
 
-        public override void Defend(IFighter attacker, int incomingDamage)
+        public override void Defend(int incomingDamage)
         {
             int dmg = Armor.ReduceDamage(incomingDamage);
             Health -= dmg;

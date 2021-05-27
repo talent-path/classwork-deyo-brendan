@@ -1,16 +1,16 @@
 ﻿<Properties StartupConfiguration="{1D1B93C0-0BD7-4F99-996C-EB04B99EF620}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GroupByExercise/City.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GroupByExercise/Program.cs">
     <Files>
-      <File FileName="GroupByExercise/City.cs" Line="1" Column="1" />
-      <File FileName="GroupByExercise/Person.cs" Line="1" Column="1" />
-      <File FileName="GroupByExercise/Program.cs" Line="1" Column="1" />
+      <File FileName="GroupByExercise/City.cs" Line="23" Column="4" />
+      <File FileName="GroupByExercise/Person.cs" />
+      <File FileName="GroupByExercise/Program.cs" Line="46" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GroupByExercise" expanded="True">
             <Node name="GroupByExercise" expanded="True">
-              <Node name="City.cs" selected="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>

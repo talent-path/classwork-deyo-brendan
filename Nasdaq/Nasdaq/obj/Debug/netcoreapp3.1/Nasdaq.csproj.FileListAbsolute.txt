@@ -1,0 +1,12 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/bin/Debug/netcoreapp3.1/Nasdaq.deps.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/bin/Debug/netcoreapp3.1/Nasdaq.runtimeconfig.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/bin/Debug/netcoreapp3.1/Nasdaq.runtimeconfig.dev.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/bin/Debug/netcoreapp3.1/Nasdaq.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/bin/Debug/netcoreapp3.1/Nasdaq.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/obj/Debug/netcoreapp3.1/Nasdaq.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/obj/Debug/netcoreapp3.1/Nasdaq.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/obj/Debug/netcoreapp3.1/Nasdaq.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/obj/Debug/netcoreapp3.1/Nasdaq.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/obj/Debug/netcoreapp3.1/Nasdaq.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/obj/Debug/netcoreapp3.1/Nasdaq.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Nasdaq/Nasdaq/obj/Debug/netcoreapp3.1/Nasdaq.genruntimeconfig.cache

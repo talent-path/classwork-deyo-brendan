@@ -1,36 +1,39 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="RpgGame/Interfaces/IFighter.cs">
+﻿<Properties StartupConfiguration="{E3B4AE4F-C6CE-414D-94AE-69A428862CE2}|Default">
+  <MonoDevelop.Ide.ItemProperties.RpgGame PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RpgGame/Program.cs">
     <Files>
-      <File FileName="RpgGame/Interfaces/IArmor.cs" Line="1" Column="1" />
-      <File FileName="RpgGame/Abstractions/Fighter.cs" />
-      <File FileName="RpgGame/Abstractions/Weapon.cs" />
-      <File FileName="RpgGame/Abstractions/Armor.cs" />
-      <File FileName="RpgGame/Concrete/Weapons/Sword.cs" />
-      <File FileName="RpgGame/Concrete/Weapons/Crossbow.cs" />
-      <File FileName="RpgGame/Concrete/Armors/Helmet.cs" />
-      <File FileName="RpgGame/Concrete/Armors/Shield.cs" />
+      <File FileName="RpgGame/Program.cs" Line="42" Column="1" />
       <File FileName="RpgGame/Concrete/Fighters/Brute.cs" />
       <File FileName="RpgGame/Concrete/Fighters/Ninja.cs" />
-      <File FileName="RpgGame/Interfaces/IFighter.cs" Line="7" Column="6" />
-      <File FileName="RpgGame/Interfaces/INamed.cs" />
-      <File FileName="RpgGame/Interfaces/IWeapon.cs" />
+      <File FileName="RpgGame/Interfaces/IFighter.cs" />
+      <File FileName="RpgGame/Concrete/Armors/Helmet.cs" />
+      <File FileName="RpgGame/Abstractions/Fighter.cs" />
       <File FileName="RpgGame/Concrete/Fighters/Troll.cs" />
+      <File FileName="RpgGame/Concrete/Armors/Shield.cs" />
+      <File FileName="RpgGame/Concrete/Weapons/Crossbow.cs" />
       <File FileName="RpgGame/Concrete/Weapons/Fists.cs" />
+      <File FileName="RpgGame/Concrete/Weapons/Sword.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RpgGame" expanded="True">
-            <Node name="RpgGame" selected="True" />
+            <Node name="RpgGame" expanded="True">
+              <Node name="Abstractions" expanded="True" />
+              <Node name="Concrete" expanded="True">
+                <Node name="Armors" expanded="True" />
+                <Node name="Fighters" expanded="True" />
+                <Node name="Weapons" expanded="True" />
+              </Node>
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <DisabledProjects>
-    <String>RpgGame/RpgGame.csproj</String>
-  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
