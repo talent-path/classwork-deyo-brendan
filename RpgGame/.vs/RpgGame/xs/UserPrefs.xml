@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.RpgGame PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="RpgGame/Program.cs">
     <Files>
-      <File FileName="RpgGame/Program.cs" Line="42" Column="1" />
+      <File FileName="RpgGame/Program.cs" Line="46" Column="41" />
       <File FileName="RpgGame/Concrete/Fighters/Brute.cs" />
       <File FileName="RpgGame/Concrete/Fighters/Ninja.cs" />
       <File FileName="RpgGame/Interfaces/IFighter.cs" />
