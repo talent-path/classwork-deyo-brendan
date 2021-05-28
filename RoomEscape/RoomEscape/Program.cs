@@ -72,9 +72,6 @@ namespace RoomEscape
                 int playerRow = playerFighter.Row;
                 int playerCol = playerFighter.Col;
 
-                int[] moveRows;
-                int[] moveCols;
-
                 for (int i = 0; i < enemies.Length; i++)
                 {
                     if (playerRow > enemies[i].Row && playerCol > enemies[i].Col)
@@ -98,10 +95,13 @@ namespace RoomEscape
                         enemies[i].Col += 1;
                     }
                     else if (playerRow == enemies[i].Row && playerCol > enemies[i].Col)
-                    {
-                        // TODO!!!
-                    }
-
+                        enemies[i].Col += 1;
+                    else if (playerRow == enemies[i].Row && playerCol < enemies[i].Col)
+                        enemies[i].Col -= 1;
+                    else if (playerRow > enemies[i].Row && playerCol == enemies[i].Col)
+                        enemies[i].Row += 1;
+                    else if (playerRow < enemies[i].Row && playerCol == enemies[i].Col)
+                        enemies[i].Row -= 1;
                 }
             }
 
