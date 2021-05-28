@@ -10,7 +10,10 @@ namespace RoomEscape.Abstractions
         }
 
         public abstract int Health { get; set; }
+        public abstract int Row { get; set; }
+        public abstract int Col { get; set; }
         public abstract string Name { get; set; }
+        public abstract char Symbol { get; set; }
         public abstract IArmor Armor { get; set; }
         public abstract IWeapon Weapon { get; set; }
         public abstract int Attack(IFighter enemy);

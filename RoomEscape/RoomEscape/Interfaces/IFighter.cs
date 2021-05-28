@@ -5,7 +5,9 @@ namespace RoomEscape.Interfaces
     {
         public int Attack(IFighter enemy);
         public void Defend(int incomingDamage);
-        public bool IsBleeding();
+        public char Symbol { get; set; }
+        public int Row { get; set; }
+        public int Col { get; set; }
 
     }
 }

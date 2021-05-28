@@ -9,7 +9,7 @@ namespace RoomEscape.Concrete.Armors
         {
         }
 
-        public override string Name { get; set; }
+        public override string Name { get; set; } = "Black Knight Shield";
         public override int Durability { get; set; }
 
         // 33% chance to block 50% of incoming damage

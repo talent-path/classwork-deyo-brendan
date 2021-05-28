@@ -6,10 +6,11 @@ namespace RoomEscape.Concrete.Armors
     public class PurpleFlameShield : Armor
     {
         public PurpleFlameShield()
+
         {
         }
 
-        public override string Name { get; set; }
+        public override string Name { get; set; } = "Purple Flame Shield";
         public override int Durability { get; set; }
 
         // 10% chance to block all incoming damage, 50% chance to retain durability

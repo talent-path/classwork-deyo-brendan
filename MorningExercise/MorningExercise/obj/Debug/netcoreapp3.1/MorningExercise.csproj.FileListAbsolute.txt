@@ -1,0 +1,12 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/bin/Debug/netcoreapp3.1/MorningExercise.deps.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/bin/Debug/netcoreapp3.1/MorningExercise.runtimeconfig.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/bin/Debug/netcoreapp3.1/MorningExercise.runtimeconfig.dev.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/bin/Debug/netcoreapp3.1/MorningExercise.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/bin/Debug/netcoreapp3.1/MorningExercise.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/obj/Debug/netcoreapp3.1/MorningExercise.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/obj/Debug/netcoreapp3.1/MorningExercise.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/obj/Debug/netcoreapp3.1/MorningExercise.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/obj/Debug/netcoreapp3.1/MorningExercise.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/obj/Debug/netcoreapp3.1/MorningExercise.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/obj/Debug/netcoreapp3.1/MorningExercise.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/MorningExercise/MorningExercise/obj/Debug/netcoreapp3.1/MorningExercise.genruntimeconfig.cache

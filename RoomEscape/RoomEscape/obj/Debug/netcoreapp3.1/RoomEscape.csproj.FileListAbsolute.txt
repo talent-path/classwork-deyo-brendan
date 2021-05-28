@@ -1,0 +1,12 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/bin/Debug/netcoreapp3.1/RoomEscape.deps.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/bin/Debug/netcoreapp3.1/RoomEscape.runtimeconfig.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/bin/Debug/netcoreapp3.1/RoomEscape.runtimeconfig.dev.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/bin/Debug/netcoreapp3.1/RoomEscape.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/bin/Debug/netcoreapp3.1/RoomEscape.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/obj/Debug/netcoreapp3.1/RoomEscape.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/obj/Debug/netcoreapp3.1/RoomEscape.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/obj/Debug/netcoreapp3.1/RoomEscape.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/obj/Debug/netcoreapp3.1/RoomEscape.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/obj/Debug/netcoreapp3.1/RoomEscape.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/obj/Debug/netcoreapp3.1/RoomEscape.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/RoomEscape/RoomEscape/obj/Debug/netcoreapp3.1/RoomEscape.genruntimeconfig.cache

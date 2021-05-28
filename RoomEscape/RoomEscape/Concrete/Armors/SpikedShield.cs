@@ -9,7 +9,7 @@ namespace RoomEscape.Concrete.Armors
         {
         }
 
-        public override string Name { get; set; }
+        public override string Name { get; set; } = "Spiked Shield";
         public override int Durability { get; set; }
 
         // 50% chance to block all damage, 50% chance to take double damage
