@@ -29,8 +29,6 @@ namespace Problem18
 
                 }
 
-                for(int i = 0; i < )
-
             }
         }
     }

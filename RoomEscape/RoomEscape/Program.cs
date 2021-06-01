@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using RoomEscape.Concrete.Armors;
 using RoomEscape.Concrete.Fighters;
 using RoomEscape.Concrete.Weapons;
@@ -13,9 +14,10 @@ namespace RoomEscape
         static IFighter playerFighter;
         static IFighter firstEnemy;
 
-        static IFighter[] enemies = new IFighter[223];
+        static List<IFighter> enemies = new List<IFighter>();
 
         static bool playerNotDead = true;
+        static bool reachedExit = false;
         static bool gameIsOver = false;
 
         static char empty = '-';
@@ -43,8 +45,8 @@ namespace RoomEscape
             firstEnemy = ChooseFighter("knight", new BlackKnightShield(), new MorningStar(),
                 15, "Java Warrior", 'X', random.Next(3, 13), random.Next(3, 13));
 
-            if (enemies.Length == 0)
-                enemies[0] = firstEnemy;
+            if (enemies.Count == 0)
+                enemies.Add(firstEnemy);
 
             Console.WriteLine();
             Console.WriteLine("========= RULES! =========");
@@ -60,7 +62,13 @@ namespace RoomEscape
             Console.WriteLine();
 
             grid = PromptPlayerMove(grid);
+            Console.WriteLine(firstEnemy.Row + ", " + firstEnemy.Col);
+            grid = IterateEnemiesToPlayer(grid);
+            Console.WriteLine(firstEnemy.Row + ", " + firstEnemy.Col);
             PrintGrid(grid);
+
+            //TODO: enemy row and columns are transitioning but are not being displayed correctly with the grid printing
+
         }
 
         static char[,] IterateEnemiesToPlayer(char[,] grid)
@@ -72,7 +80,7 @@ namespace RoomEscape
                 int playerRow = playerFighter.Row;
                 int playerCol = playerFighter.Col;
 
-                for (int i = 0; i < enemies.Length; i++)
+                for (int i = 0; i < enemies.Count; i++)
                 {
                     if (playerRow > enemies[i].Row && playerCol > enemies[i].Col)
                     {
@@ -106,6 +114,11 @@ namespace RoomEscape
             }
 
             return toReturn;
+        }
+
+        static void Battle()
+        {
+            //TODO: logic stuff
         }
 
         static char[,] PromptPlayerMove(char[,] grid)
@@ -177,23 +190,8 @@ namespace RoomEscape
 
         static int GetEmptyGridRow(char[,] grid)
         {
-            int toReturn = 0;
+            List<int> rowList = new List<int>();
 
-            for (int i = 0; i < grid.GetLength(0); i++)
-            {
-                for (int j = 0; j < grid.GetLength(1); j++)
-                {
-                    if(grid[i,j] == empty)
-                    {
-                        toReturn = i;
-                    }
-                }
-            }
-            return toReturn;
-        }
-
-        static int GetEmptyGridCol(char[,] grid)
-        {
             int toReturn = 0;
 
             for (int i = 0; i < grid.GetLength(0); i++)
@@ -202,10 +200,43 @@ namespace RoomEscape
                 {
                     if (grid[i, j] == empty)
                     {
-                        toReturn = j;
+                        rowList.Add(i);
                     }
                 }
             }
+
+            for (int i = 0; i < rowList.Count; i++)
+            {
+                int x = random.Next(rowList[0], rowList[rowList.Count]);
+                toReturn = x;
+            }
+
+            return toReturn;
+        }
+
+        static int GetEmptyGridCol(char[,] grid)
+        {
+            List<int> colList = new List<int>();
+
+            int toReturn = 0;
+
+            for (int i = 0; i < grid.GetLength(0); i++)
+            {
+                for (int j = 0; j < grid.GetLength(1); j++)
+                {
+                    if (grid[i, j] == empty)
+                    {
+                        colList.Add(j);
+                    }
+                }
+            }
+
+            for(int i = 0; i < colList.Count; i++)
+            {
+                int x = random.Next(colList[0], colList[colList.Count]);
+                toReturn = x;
+            }
+
             return toReturn;
         }
 

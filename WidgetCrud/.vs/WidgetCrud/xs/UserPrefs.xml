@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{1D19C657-0FCD-4F40-AD63-881CD0461DCA}|Default">
+  <MonoDevelop.Ide.ItemProperties.WidgetCrud PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WidgetCrud/Program.cs">
+    <Files>
+      <File FileName="WidgetCrud/Program.cs" Line="52" Column="10" />
+      <File FileName="WidgetCrud/Widget.cs" Line="11" Column="6" />
+      <File FileName="WidgetCrud/InMemWidgetDao.cs" Line="28" Column="36" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WidgetCrud" expanded="True">
+            <Node name="WidgetCrud" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
