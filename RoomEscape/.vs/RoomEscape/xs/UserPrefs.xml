@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{E626DC93-0018-47A4-AE22-F3D8093FAB7F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="RoomEscape/Concrete/Fighters/Viking.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RoomEscape/Program.cs">
     <Files>
-      <File FileName="RoomEscape/Program.cs" Line="113" Column="10" />
+      <File FileName="RoomEscape/Program.cs" Line="51" Column="40" />
       <File FileName="RoomEscape/Interfaces/IFighter.cs" Line="10" Column="37" />
       <File FileName="RoomEscape/Abstractions/Fighter.cs" Line="16" Column="29" />
       <File FileName="RoomEscape/Concrete/Fighters/Knight.cs" Line="20" Column="10" />
@@ -16,12 +16,11 @@
               <Node name="Abstractions" expanded="True" />
               <Node name="Concrete" expanded="True">
                 <Node name="Armors" expanded="True" />
-                <Node name="Fighters" expanded="True">
-                  <Node name="Viking.cs" selected="True" />
-                </Node>
+                <Node name="Fighters" expanded="True" />
                 <Node name="Weapons" expanded="True" />
               </Node>
               <Node name="Interfaces" expanded="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
