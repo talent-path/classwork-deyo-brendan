@@ -75,7 +75,7 @@ namespace WidgetCrud
 
         private static IEnumerable<Widget> GetWidgetsByPage(int pageSize, int pageNumber)
         {
-            throw new NotImplementedException();
+            return dao.GetAllWidgetsForPage(pageSize, pageNumber);
         }
 
     }

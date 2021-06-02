@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.ItemProperties.WidgetCrud PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="WidgetCrud/Program.cs">
     <Files>
-      <File FileName="WidgetCrud/Program.cs" Line="52" Column="10" />
-      <File FileName="WidgetCrud/Widget.cs" Line="11" Column="6" />
-      <File FileName="WidgetCrud/InMemWidgetDao.cs" Line="28" Column="36" />
+      <File FileName="WidgetCrud/Program.cs" Line="33" Column="49" />
+      <File FileName="WidgetCrud/Widget.cs" Line="19" Column="1" />
+      <File FileName="WidgetCrud/InMemWidgetDao.cs" Line="49" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

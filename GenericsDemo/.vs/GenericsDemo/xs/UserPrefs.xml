@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{2CFF42A3-1691-4518-9B54-8A20DF0BA169}|Default">
+  <MonoDevelop.Ide.ItemProperties.GenericsDemo PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GenericHeap/MinHeap.cs">
+    <Files>
+      <File FileName="GenericHeap/MinHeap.cs" Line="54" Column="31" />
+      <File FileName="GenericsDemo/Program.cs" />
+      <File FileName="LinkedList/DavidLinkedList.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GenericsDemo" expanded="True">
+            <Node name="GenericHeap" expanded="True">
+              <Node name="MinHeap.cs" selected="True" />
+            </Node>
+            <Node name="GenericsDemo" expanded="True" />
+            <Node name="LinkedList" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
