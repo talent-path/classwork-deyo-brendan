@@ -58,6 +58,8 @@ namespace RoomEscape
 
             while (!_gameIsOver)
             {
+                _enemies.RemoveRange(0, _enemies.Count);
+
                 for (int i = 1; i <= _roomCount; i++)
                 {
                     _enemies.Add(GenerateRandomEnemy());
@@ -66,9 +68,13 @@ namespace RoomEscape
                 _reachedExit = false;
 
                 PrintGrid();
+                Console.WriteLine();
 
                 while (_playerNotDead && !_reachedExit)
                 {
+                    Console.WriteLine("Room Count: " + _roomCount);
+                    Console.WriteLine();
+
                     if (_playerFighter.Health <= 0)
                     {
                         _gameIsOver = true;
@@ -85,8 +91,8 @@ namespace RoomEscape
                     if (_playerFighter.Row == 14 && _playerFighter.Col == 14)
                     {
                         _reachedExit = true;
-                        Console.WriteLine("ROOM NUMBER: " + _roomCount + 1);
                         Console.WriteLine();
+                        Console.WriteLine("=========NEW ROOM=========");
                     }
 
                     Console.WriteLine();
@@ -130,6 +136,8 @@ namespace RoomEscape
                         desiredCol += colDiff > 0 ? 1 : -1;
                     }
 
+                    bool canMoveEnemy = true;
+
                     if (desiredRow == _playerFighter.Row && desiredCol == _playerFighter.Col)
                         Battle(_enemies[i], _playerFighter);
                     else
@@ -140,14 +148,15 @@ namespace RoomEscape
                             {
                                 _enemies[i].Row = currentRow;
                                 _enemies[i].Col = currentCol;
-                                break;
+                                canMoveEnemy = false;
                             }
                         }
 
-                        _enemies[i].Row = desiredRow;
-                        _enemies[i].Col = desiredCol;
-
-                        //TODO: check if enemies move onto eachother, check above line 124 
+                        if (canMoveEnemy)
+                        {
+                            _enemies[i].Row = desiredRow;
+                            _enemies[i].Col = desiredCol;
+                        }
                     }
                 }
             }
@@ -182,16 +191,30 @@ namespace RoomEscape
                 Console.Write("Move " + _playerFighter.Name + " up (U), left (L), right (R), or down (D)? ");
                 string input = Console.ReadLine().ToLower();
 
+                Console.WriteLine();
+
                 if (_playerFighter.Row == 0 && _playerFighter.Col == 0)
                 {
                     if (input == "r")
                         desiredCol++;
                     else if (input == "d")
                         desiredRow++;
+                    else if (!input.GetType().Equals(typeof(char)))
+                    {
+                        desiredRow = _playerFighter.Row;
+                        desiredCol = _playerFighter.Col;
+                        Console.WriteLine("Invalid input!");
+                        Console.WriteLine();
+                    }
                     else
-                        desiredRow++;
+                    {
+                        desiredRow = _playerFighter.Row;
+                        desiredCol = _playerFighter.Col;
+                        Console.WriteLine("Can't move there!");
+                        Console.WriteLine();
+                    }
                 }
-                else if (_playerFighter.Row == 0 && _playerFighter.Col != 0)
+                else if (_playerFighter.Row == 0 && _playerFighter.Col != 0 && _playerFighter.Col != 14)
                 {
                     if (input == "l")
                         desiredCol--;
@@ -199,8 +222,22 @@ namespace RoomEscape
                         desiredCol++;
                     else if (input == "d")
                         desiredRow++;
+                    else if (!input.GetType().Equals(typeof(char)))
+                    {
+                        desiredRow = _playerFighter.Row;
+                        desiredCol = _playerFighter.Col;
+                        Console.WriteLine("Invalid input!");
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        desiredRow = _playerFighter.Row;
+                        desiredCol = _playerFighter.Col;
+                        Console.WriteLine("Can't move there!");
+                        Console.WriteLine();
+                    }
                 }
-                else if (_playerFighter.Row != 0 && _playerFighter.Col == 0)
+                else if (_playerFighter.Row != 0 && _playerFighter.Col == 0 && _playerFighter.Row != 14)
                 {
                     if (input == "u")
                         desiredRow--;
@@ -208,17 +245,136 @@ namespace RoomEscape
                         desiredRow++;
                     else if (input == "r")
                         desiredCol++;
+                    else if (!input.GetType().Equals(typeof(char)))
+                    {
+                        desiredRow = _playerFighter.Row;
+                        desiredCol = _playerFighter.Col;
+                        Console.WriteLine("Invalid input!");
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        desiredRow = _playerFighter.Row;
+                        desiredCol = _playerFighter.Col;
+                        Console.WriteLine("Can't move there!");
+                        Console.WriteLine();
+                    }
                 }
                 else
                 {
-                    if (input == "u")
-                        desiredRow--;
-                    else if (input == "d")
-                        desiredRow++;
-                    else if (input == "r")
-                        desiredCol++;
-                    else if (input == "l")
-                        desiredCol--;
+                    if (_playerFighter.Row == 14 && _playerFighter.Col == 0)
+                    {
+                        if (input == "u")
+                            desiredRow--;
+                        else if (input == "r")
+                            desiredCol++;
+                        else if (!input.GetType().Equals(typeof(char)))
+                        {
+                            desiredRow = _playerFighter.Row;
+                            desiredCol = _playerFighter.Col;
+                            Console.WriteLine("Invalid input!");
+                            Console.WriteLine();
+                        }
+                        else
+                        {
+                            desiredRow = _playerFighter.Row;
+                            desiredCol = _playerFighter.Col;
+                            Console.WriteLine("Can't move there!");
+                            Console.WriteLine();
+                        }
+                    }
+                    else if (_playerFighter.Row == 0 && _playerFighter.Col == 14)
+                    {
+                        if (input == "d")
+                            desiredRow++;
+                        else if (input == "l")
+                            desiredCol--;
+                        else if (input == "r")
+                        {
+                            desiredRow = _playerFighter.Row;
+                            desiredCol = _playerFighter.Col;
+                            Console.WriteLine("Invalid input!");
+                            Console.WriteLine();
+                        }
+                        else if (!input.GetType().Equals(typeof(char)))
+                        {
+                            desiredRow = _playerFighter.Row;
+                            desiredCol = _playerFighter.Col;
+                            Console.WriteLine("Invalid input!");
+                            Console.WriteLine();
+                        }
+                        else
+                        {
+                            desiredRow = _playerFighter.Row;
+                            desiredCol = _playerFighter.Col;
+                            Console.WriteLine("Can't move there!");
+                            Console.WriteLine();
+                        }
+                    }
+                    else if (_playerFighter.Row == 14 && _playerFighter.Col != 0)
+                    {
+                        if (input == "u")
+                            desiredRow--;
+                        else if (input == "r")
+                            desiredCol++;
+                        else if (input == "l")
+                            desiredCol--;
+                        else if (!input.GetType().Equals(typeof(char)))
+                        {
+                            desiredRow = _playerFighter.Row;
+                            desiredCol = _playerFighter.Col;
+                            Console.WriteLine("Invalid input!");
+                            Console.WriteLine();
+                        }
+                        else
+                        {
+                            desiredRow = _playerFighter.Row;
+                            desiredCol = _playerFighter.Col;
+                            Console.WriteLine("Can't move there!");
+                            Console.WriteLine();
+                        }
+                    }
+                    else if (_playerFighter.Row != 0 && _playerFighter.Col == 14)
+                    {
+                        if (input == "u")
+                            desiredRow--;
+                        else if (input == "d")
+                            desiredRow++;
+                        else if (input == "l")
+                            desiredCol--;
+                        else if (!input.GetType().Equals(typeof(char)))
+                        {
+                            desiredRow = _playerFighter.Row;
+                            desiredCol = _playerFighter.Col;
+                            Console.WriteLine("Invalid input!");
+                            Console.WriteLine();
+                        }
+                        else
+                        {
+                            desiredRow = _playerFighter.Row;
+                            desiredCol = _playerFighter.Col;
+                            Console.WriteLine("Can't move there!");
+                            Console.WriteLine();
+                        }
+                    }
+                    else
+                    {
+                        if (input == "u")
+                            desiredRow--;
+                        else if (input == "d")
+                            desiredRow++;
+                        else if (input == "r")
+                            desiredCol++;
+                        else if (input == "l")
+                            desiredCol--;
+                        else if (!input.GetType().Equals(typeof(char)))
+                        {
+                            desiredRow = _playerFighter.Row;
+                            desiredCol = _playerFighter.Col;
+                            Console.WriteLine("Invalid input!");
+                            Console.WriteLine();
+                        }
+                    }
                 }
 
                 bool fought = false;
@@ -279,8 +435,6 @@ namespace RoomEscape
         static void PrintGrid()
         {
             char[,] grid = GenerateGrid();
-
-            Console.WriteLine();
 
             for (int i = 0; i < grid.GetLength(0); i++)
             {
