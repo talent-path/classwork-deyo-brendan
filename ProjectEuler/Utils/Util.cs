@@ -85,12 +85,10 @@ namespace Utils
             return root;
         }
 
-        public static int[] GenerateTriangulars(int num)
-        {
+        //public static int[] GenerateTriangulars(int num)
+        //{
 
-        }
-
-        public static int 
+        //}
 
         public static bool IsPalindrome(int num)
         {

@@ -12,7 +12,7 @@ namespace RoomEscape
         static Random _random = new Random();
 
         static IFighter _playerFighter;
-        static int _hpPotion = 25;
+        static int _hpPotion = 100;
         static int _roomCount = 1;
 
         static List<IFighter> _enemies = new List<IFighter>();
@@ -43,7 +43,7 @@ namespace RoomEscape
             IWeapon playerWeapon = ChooseWeapon(weapon);
             IArmor playerArmor = ChooseArmor(armor);
 
-            _playerFighter = ChooseFighter(fighter, playerArmor, playerWeapon, 100, playerName, 'O', 0, 0);
+            _playerFighter = ChooseFighter(fighter, playerArmor, playerWeapon, 500, playerName, 'O', 0, 0);
 
             //_enemies.Add(ChooseFighter("knight", new BlackKnightShield(), new MorningStar(),
             //    25, "Java Warrior", 'X', _random.Next(3, 13), _random.Next(3, 13)));
@@ -56,31 +56,38 @@ namespace RoomEscape
             Console.WriteLine("==========================");
             Console.WriteLine();
 
-            PrintGrid();
-            Console.WriteLine();
-
             while (!_gameIsOver)
             {
-                for (int i = 0; i < _roomCount; i++)
+                for (int i = 1; i <= _roomCount; i++)
                 {
                     _enemies.Add(GenerateRandomEnemy());
                 }
+
+                _reachedExit = false;
 
                 PrintGrid();
 
                 while (_playerNotDead && !_reachedExit)
                 {
+                    if (_playerFighter.Health <= 0)
+                    {
+                        _gameIsOver = true;
+                        Console.WriteLine();
+                        Console.WriteLine("You have died!");
+                        break;
+                    }
+
                     PromptPlayerMove();
                     IterateEnemiesToPlayer();
-
-                    foreach (IFighter enemy in _enemies)
-                        if (enemy.Row == _playerFighter.Row && enemy.Col == _playerFighter.Col)
-                            Battle(enemy, _playerFighter);
 
                     PrintGrid();
 
                     if (_playerFighter.Row == 14 && _playerFighter.Col == 14)
+                    {
                         _reachedExit = true;
+                        Console.WriteLine("ROOM NUMBER: " + _roomCount + 1);
+                        Console.WriteLine();
+                    }
 
                     Console.WriteLine();
                 }
@@ -88,190 +95,169 @@ namespace RoomEscape
                 _roomCount++;
 
                 if (_roomCount == 224)
+                {
+                    Console.WriteLine("====YOU WON====");
+                    Console.WriteLine("yay :)");
                     _gameIsOver = true;
+                }
             }
         }
 
         static void IterateEnemiesToPlayer()
         {
-            if (!_gameIsOver)
+            if (!_gameIsOver && _enemies.Count > 0)
             {
                 int playerRow = _playerFighter.Row;
                 int playerCol = _playerFighter.Col;
 
                 for (int i = 0; i < _enemies.Count; i++)
                 {
-                    int rowDiff = playerRow - _enemies[i].Row;
-                    int colDiff = playerCol - _enemies[i].Row;
+                    int desiredRow = _enemies[i].Row;
+                    int desiredCol = _enemies[i].Col;
 
-                    if (Math.Abs(rowDiff) == 1 && Math.Abs(colDiff) == 1)
+                    int currentRow = _enemies[i].Row;
+                    int currentCol = _enemies[i].Col;
+
+                    int rowDiff = playerRow - _enemies[i].Row;
+                    int colDiff = playerCol - _enemies[i].Col;
+
+                    if (Math.Abs(rowDiff) > Math.Abs(colDiff))
                     {
-                        Battle(_enemies[i], _playerFighter);
+                        desiredRow += rowDiff > 0 ? 1 : -1;
                     }
                     else
                     {
-                        if (playerRow > _enemies[i].Row && playerCol > _enemies[i].Col)
+                        desiredCol += colDiff > 0 ? 1 : -1;
+                    }
+
+                    if (desiredRow == _playerFighter.Row && desiredCol == _playerFighter.Col)
+                        Battle(_enemies[i], _playerFighter);
+                    else
+                    {
+                        foreach(IFighter enemy in _enemies)
                         {
-                            _enemies[i].Row += 1;
-                            _enemies[i].Col += 1;
+                            if (enemy.Row == desiredRow && enemy.Col == desiredCol)
+                            {
+                                _enemies[i].Row = currentRow;
+                                _enemies[i].Col = currentCol;
+                                break;
+                            }
                         }
-                        else if (playerRow < _enemies[i].Row && playerCol < _enemies[i].Col)
-                        {
-                            _enemies[i].Row -= 1;
-                            _enemies[i].Col -= 1;
-                        }
-                        else if (playerRow > _enemies[i].Row && playerCol < _enemies[i].Col)
-                        {
-                            _enemies[i].Row += 1;
-                            _enemies[i].Col -= 1;
-                        }
-                        else if (playerRow < _enemies[i].Row && playerCol > _enemies[i].Col)
-                        {
-                            _enemies[i].Row -= 1;
-                            _enemies[i].Col += 1;
-                        }
-                        else if (playerRow == _enemies[i].Row && playerCol > _enemies[i].Col)
-                            _enemies[i].Col += 1;
-                        else if (playerRow == _enemies[i].Row && playerCol < _enemies[i].Col)
-                            _enemies[i].Col -= 1;
-                        else if (playerRow > _enemies[i].Row && playerCol == _enemies[i].Col)
-                            _enemies[i].Row += 1;
-                        else if (playerRow < _enemies[i].Row && playerCol == _enemies[i].Col)
-                            _enemies[i].Row -= 1;
+
+                        _enemies[i].Row = desiredRow;
+                        _enemies[i].Col = desiredCol;
+
+                        //TODO: check if enemies move onto eachother, check above line 124 
                     }
                 }
             }
         }
 
-        static void Battle(IFighter enemy, IFighter player)
+        static void Battle(IFighter attacker, IFighter defender)
         {
-
-            if (player.Health < 25 && _usedPotion == false)
-            {
-                player.Health += _hpPotion;
-                _usedPotion = true;
-                Console.WriteLine(player.Name + " used potion: + 25 HP");
-                Console.WriteLine();
-            }
-
-            IFighter attacker, defender;
-            attacker = player;
-            defender = enemy;
-
-            while (defender.Health > 0 && attacker.Health > 0)
-            {
-                IFighter temp;
-
-                Console.WriteLine();
-                Console.WriteLine("---------------------");
+            Console.WriteLine();
+            Console.WriteLine("---------------------");
+            if (attacker.Health > 0)
                 Console.WriteLine(attacker.Name + " health: " + attacker.Health);
+            else
+                Console.WriteLine(attacker.Name + " health: 0");
+            if (defender.Health > 0)
                 Console.WriteLine(defender.Name + " health: " + defender.Health);
-                Console.WriteLine(attacker.Name + " is attacking " + defender.Name);
-                Console.WriteLine("---------------------");
+            else
+                Console.WriteLine(defender.Name + " health: 0");
+            Console.WriteLine(attacker.Name + " is attacking " + defender.Name);
+            Console.WriteLine("---------------------");
 
-                defender.Defend(attacker.Attack(defender));
+            defender.Defend(attacker.Attack(defender));
 
-                if (attacker.Health <= 0)
-                    _playerNotDead = false;
-
-                temp = attacker;
-                attacker = defender;
-                defender = temp;
-            }
         }
 
         static void PromptPlayerMove()
         {
             if (!_gameIsOver)
             {
+                int desiredRow = _playerFighter.Row;
+                int desiredCol = _playerFighter.Col;
+
                 Console.Write("Move " + _playerFighter.Name + " up (U), left (L), right (R), or down (D)? ");
                 string input = Console.ReadLine().ToLower();
 
                 if (_playerFighter.Row == 0 && _playerFighter.Col == 0)
                 {
                     if (input == "r")
-                        _playerFighter.Col++;
+                        desiredCol++;
                     else if (input == "d")
-                        _playerFighter.Row++;
+                        desiredRow++;
                     else
-                        _playerFighter.Row++;
+                        desiredRow++;
                 }
                 else if (_playerFighter.Row == 0 && _playerFighter.Col != 0)
                 {
                     if (input == "l")
-                        _playerFighter.Col--;
+                        desiredCol--;
                     else if (input == "r")
-                        _playerFighter.Col++;
+                        desiredCol++;
                     else if (input == "d")
-                        _playerFighter.Row++;
+                        desiredRow++;
                 }
                 else if (_playerFighter.Row != 0 && _playerFighter.Col == 0)
                 {
                     if (input == "u")
-                        _playerFighter.Row--;
+                        desiredRow--;
                     else if (input == "d")
-                        _playerFighter.Row++;
+                        desiredRow++;
                     else if (input == "r")
-                        _playerFighter.Col++;
+                        desiredCol++;
                 }
                 else
                 {
                     if (input == "u")
-                        _playerFighter.Row--;
+                        desiredRow--;
                     else if (input == "d")
-                        _playerFighter.Row++;
+                        desiredRow++;
                     else if (input == "r")
-                        _playerFighter.Col++;
+                        desiredCol++;
                     else if (input == "l")
-                        _playerFighter.Col--;
+                        desiredCol--;
                 }
+
+                bool fought = false;
 
                 for (int i = 0; i < _enemies.Count; i++)
                 {
-                    int rowDiff = _playerFighter.Row - _enemies[i].Row;
-                    int colDiff = _playerFighter.Col - _enemies[i].Row;
+                    int rowDiff = desiredRow - _enemies[i].Row;
+                    int colDiff = desiredCol - _enemies[i].Col;
 
-                    if (Math.Max(Math.Abs(rowDiff), Math.Abs(colDiff)) == 1)
+                    if (rowDiff == 0 && colDiff == 0)
                     {
-                        Battle(_enemies[i], _playerFighter);
-                    }
 
+                        if (_playerFighter.Health <= 25 && !_usedPotion)
+                        {
+                            Console.WriteLine(_playerFighter.Name + " used potion: + 25 HP");
+                            _playerFighter.Health += _hpPotion;
+                            _usedPotion = true;
+                        }
+
+                        Battle(_playerFighter, _enemies[i]);
+
+                        fought = true;
+
+                        if (_playerFighter.Health <= 0)
+                            _playerNotDead = false;
+                    }
                 }
 
-                //if (_playerFighter.Row == 14 && _playerFighter.Col == 14)
-                //    _reachedExit = true;
-
+                if (!fought)
+                {
+                    _playerFighter.Row = desiredRow;
+                    _playerFighter.Col = desiredCol;
+                }
             }
 
         }
 
-        //static int GetEmptyGridRow(char[,] grid)
-        //{
-        //    List<int> rowList = new List<int>();
-
-        //    int toReturn = 0;
-
-        //    for (int i = 0; i < grid.GetLength(0); i++)
-        //    {
-        //        for (int j = 0; j < grid.GetLength(1); j++)
-        //        {
-        //            if (grid[i, j] == _empty)
-        //            {
-        //                rowList.Add(i);
-        //            }
-        //        }
-        //    }
-
-        //    int index = _random.Next(rowList.Count);
-
-        //    toReturn = rowList[index];
-
-        //    return toReturn;
-        //}
-
         static List<Tuple<int, int>> GetEmptyCell()
         {
-
             List<Tuple<int, int>> toReturn = new List<Tuple<int, int>>();
 
             char[,] grid = GenerateGrid();
@@ -288,32 +274,7 @@ namespace RoomEscape
             }
 
             return toReturn;
-
         }
-
-        //static int GetEmptyGridCol(char[,] grid)
-        //{
-        //    List<int> colList = new List<int>();
-
-        //    int toReturn = 0;
-
-        //    for (int i = 0; i < grid.GetLength(0); i++)
-        //    {
-        //        for (int j = 0; j < grid.GetLength(1); j++)
-        //        {
-        //            if (grid[i, j] == _empty)
-        //            {
-        //                colList.Add(j);
-        //            }
-        //        }
-        //    }
-
-        //    int index = _random.Next(colList.Count);
-
-        //    toReturn = colList[index];
-
-        //    return toReturn;
-        //}
 
         static void PrintGrid()
         {
@@ -342,12 +303,30 @@ namespace RoomEscape
                     grid[i, j] =_empty;
                 }
 
-            foreach (IFighter enemy in _enemies)
+            if (_enemies.Count != 0)
             {
-                grid[enemy.Row, enemy.Col] = enemy.Symbol;
+                foreach (IFighter enemy in _enemies)
+                {
+                    if (enemy.Health <= 0)
+                    {
+                        grid[enemy.Row, enemy.Col] = _empty;
+                        _enemies.RemoveAt(_enemies.IndexOf(enemy));
+                        break;
+                    }
+                    else
+                        grid[enemy.Row, enemy.Col] = enemy.Symbol;
+
+                }
             }
 
-            grid[_playerFighter.Row, _playerFighter.Col] = _playerFighter.Symbol;
+            if (_reachedExit)
+            {
+                _playerFighter.Row = 0;
+                _playerFighter.Col = 0;
+                grid[_playerFighter.Row, _playerFighter.Col] = _playerFighter.Symbol;
+            }
+            else
+                grid[_playerFighter.Row, _playerFighter.Col] = _playerFighter.Symbol;
 
             grid[14, 14] = _exit;
 
@@ -402,7 +381,7 @@ namespace RoomEscape
 
             int randomIndex = _random.Next(emptyCell.Count);
 
-            Tuple<int, int> cell = emptyCell[_random.Next(randomIndex)];
+            Tuple<int, int> cell = emptyCell[randomIndex];
 
             int enemyRow = cell.Item1;
             int enemyCol = cell.Item2;
