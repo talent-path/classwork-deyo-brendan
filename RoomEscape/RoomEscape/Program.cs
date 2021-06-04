@@ -164,7 +164,6 @@ namespace RoomEscape
 
         static void Battle(IFighter attacker, IFighter defender)
         {
-            Console.WriteLine();
             Console.WriteLine("---------------------");
             if (attacker.Health > 0)
                 Console.WriteLine(attacker.Name + " health: " + attacker.Health);
@@ -178,6 +177,7 @@ namespace RoomEscape
             Console.WriteLine("---------------------");
 
             defender.Defend(attacker.Attack(defender));
+            Console.WriteLine();
 
         }
 
@@ -289,13 +289,6 @@ namespace RoomEscape
                             desiredRow++;
                         else if (input == "l")
                             desiredCol--;
-                        else if (input == "r")
-                        {
-                            desiredRow = _playerFighter.Row;
-                            desiredCol = _playerFighter.Col;
-                            Console.WriteLine("Invalid input!");
-                            Console.WriteLine();
-                        }
                         else if (!input.GetType().Equals(typeof(char)))
                         {
                             desiredRow = _playerFighter.Row;
