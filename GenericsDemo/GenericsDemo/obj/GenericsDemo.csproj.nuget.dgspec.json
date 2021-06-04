@@ -84,9 +84,6 @@
             "projectReferences": {
               "/Users/brendandeyo/Desktop/classwork-deyo-brendan/GenericsDemo/GenericHeap/GenericHeap.csproj": {
                 "projectPath": "/Users/brendandeyo/Desktop/classwork-deyo-brendan/GenericsDemo/GenericHeap/GenericHeap.csproj"
-              },
-              "/Users/brendandeyo/Desktop/classwork-deyo-brendan/GenericsDemo/LinkedList/LinkedList.csproj": {
-                "projectPath": "/Users/brendandeyo/Desktop/classwork-deyo-brendan/GenericsDemo/LinkedList/LinkedList.csproj"
               }
             }
           }

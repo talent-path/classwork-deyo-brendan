@@ -6,6 +6,7 @@ namespace RoomEscape.Concrete.Fighters
 {
     public class Knight : Fighter
     {
+        static Random _random = new Random();
 
         public Knight(int health, string name, IArmor armor,
             IWeapon weapon, char symbol, int row, int col)
@@ -31,14 +32,37 @@ namespace RoomEscape.Concrete.Fighters
         public override IWeapon Weapon { get; set; }
         public override char Symbol { get; set; }
 
+        //50% to do 2 points of additional damage
         public override int Attack(IFighter enemy)
         {
-            throw new NotImplementedException();
+            int x = _random.Next(0, 2);
+
+            int dmg = Weapon.Damage;
+
+            if (x == 0)
+            {
+                dmg += 2;
+                return dmg;
+            }
+            else
+                return dmg;
+
         }
 
+        //33% chance to block all damage because Knights are OD.
         public override void Defend(int incomingDamage)
         {
-            throw new NotImplementedException();
+            int x = _random.Next(3);
+
+            if (x == 2)
+            {
+                incomingDamage = 0;
+            }
+            else
+            {
+                int dmg = Armor.ReduceDamage(incomingDamage);
+                Health -= dmg;
+            }
         }
     }
 }

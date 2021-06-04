@@ -6,6 +6,8 @@ namespace RoomEscape.Concrete.Fighters
 {
     public class Mercenary : Fighter
     {
+        static Random _random = new Random();
+
         public Mercenary()
         {
         }
@@ -30,14 +32,27 @@ namespace RoomEscape.Concrete.Fighters
         public override IWeapon Weapon { get; set; }
         public override char Symbol { get; set; }
 
+        //20% chance to deal 10 extra damage, loses 5 durability
         public override int Attack(IFighter enemy)
         {
-            throw new NotImplementedException();
+            int x = _random.Next(0, 6);
+
+            int dmg = Weapon.Damage;
+
+            if(x == 0)
+            {
+                dmg += 10;
+                Weapon.Durability -= 5;
+                return dmg;
+            }
+
+            return dmg;
         }
 
         public override void Defend(int incomingDamage)
         {
-            throw new NotImplementedException();
+            int dmg = Armor.ReduceDamage(incomingDamage);
+            Health -= dmg;
         }
     }
 }

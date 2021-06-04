@@ -1,12 +1,7 @@
 ﻿<Properties StartupConfiguration="{E626DC93-0018-47A4-AE22-F3D8093FAB7F}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="RoomEscape/Program.cs">
     <Files>
-      <File FileName="RoomEscape/Program.cs" Line="143" Column="54" />
-      <File FileName="RoomEscape/Interfaces/IFighter.cs" />
-      <File FileName="RoomEscape/Abstractions/Fighter.cs" />
-      <File FileName="RoomEscape/Concrete/Fighters/Knight.cs" />
-      <File FileName="RoomEscape/Concrete/Fighters/Mercenary.cs" />
-      <File FileName="RoomEscape/Concrete/Fighters/Viking.cs" />
+      <File FileName="RoomEscape/Program.cs" Line="137" Column="61" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,6 +19,9 @@
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

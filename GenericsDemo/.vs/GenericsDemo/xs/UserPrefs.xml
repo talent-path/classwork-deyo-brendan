@@ -2,9 +2,10 @@
   <MonoDevelop.Ide.ItemProperties.GenericsDemo PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="GenericHeap/MinHeap.cs">
     <Files>
-      <File FileName="GenericHeap/MinHeap.cs" Line="54" Column="31" />
-      <File FileName="GenericsDemo/Program.cs" />
+      <File FileName="GenericHeap/MinHeap.cs" Line="28" Column="6" />
+      <File FileName="GenericsDemo/Program.cs" Line="12" Column="79" />
       <File FileName="LinkedList/DavidLinkedList.cs" />
+      <File FileName="GenericHeap/MaxHeap.cs" Line="21" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

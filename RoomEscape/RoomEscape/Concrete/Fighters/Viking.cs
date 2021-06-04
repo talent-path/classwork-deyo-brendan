@@ -6,6 +6,8 @@ namespace RoomEscape.Concrete.Fighters
 {
     public class Viking : Fighter
     {
+        static Random _random = new Random();
+
         public Viking()
         {
         }
@@ -31,12 +33,26 @@ namespace RoomEscape.Concrete.Fighters
 
         public override int Attack(IFighter enemy)
         {
-            throw new NotImplementedException();
+            int dmg = Weapon.Damage;
+            return dmg;
         }
 
+        //50% chance to block 50% damage and increase Weapon dmg by 1
         public override void Defend(int incomingDamage)
         {
-            throw new NotImplementedException();
+            int x = _random.Next(0, 2);
+
+            int dmg = Armor.ReduceDamage(incomingDamage);
+
+            if (x == 1)
+            {
+                dmg /= 2;
+                Health -= dmg;
+                Weapon.Damage += 1;
+            }
+
+            else
+                Health -= dmg;
         }
     }
 }

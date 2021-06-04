@@ -41,8 +41,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "GenericHeap >= 1.0.0",
-      "LinkedList >= 1.0.0"
+      "GenericHeap >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -72,9 +71,6 @@
           "projectReferences": {
             "/Users/brendandeyo/Desktop/classwork-deyo-brendan/GenericsDemo/GenericHeap/GenericHeap.csproj": {
               "projectPath": "/Users/brendandeyo/Desktop/classwork-deyo-brendan/GenericsDemo/GenericHeap/GenericHeap.csproj"
-            },
-            "/Users/brendandeyo/Desktop/classwork-deyo-brendan/GenericsDemo/LinkedList/LinkedList.csproj": {
-              "projectPath": "/Users/brendandeyo/Desktop/classwork-deyo-brendan/GenericsDemo/LinkedList/LinkedList.csproj"
             }
           }
         }

@@ -1,0 +1,12 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/bin/Debug/netcoreapp3.1/Downloader.deps.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/bin/Debug/netcoreapp3.1/Downloader.runtimeconfig.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/bin/Debug/netcoreapp3.1/Downloader.runtimeconfig.dev.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/bin/Debug/netcoreapp3.1/Downloader.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/bin/Debug/netcoreapp3.1/Downloader.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/obj/Debug/netcoreapp3.1/Downloader.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/obj/Debug/netcoreapp3.1/Downloader.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/obj/Debug/netcoreapp3.1/Downloader.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/obj/Debug/netcoreapp3.1/Downloader.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/obj/Debug/netcoreapp3.1/Downloader.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/obj/Debug/netcoreapp3.1/Downloader.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/Downloader/Downloader/obj/Debug/netcoreapp3.1/Downloader.genruntimeconfig.cache

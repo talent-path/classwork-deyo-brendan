@@ -1,40 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using LinkedList;
 
 namespace GenericHeap
 {
-
-
-    //what is a heap?
-    //heap property - each "node" has 2 children,
-    //each child is (less for maxheap/greater for minheap) than the parent
-    //  therefore top-most node is largest/smallest, respectively
-
-
-    //parents & children in an array/list
-
-    //                  0
-    //       1                    2
-    //    3     4              5    6
-    //   7 8   9 X
-
-    // LeftChildIndex( int parentIndex ) => parentIndex * 2 + 1;
-    // RightChildIndex( int parentIndex ) => parentIndex * 2 + 2;
-    // ParentIndex( int childIndex ) => (childIndex - 1) / 2;
-
-    //https://en.wikipedia.org/wiki/Binary_heap
-    public class MinHeap<T> where T : IComparable<T>
+    public class MaxHeap<T> where T : IComparable<T>
     {
-        //every incoming object will implement IComparable<T>
-        //CompareTo semantics:
-
-        //this.CompareTo( that )
-        //  -  this comes "before" that or this < that
-        //  0  this == that
-        //  +  this comes "after" that or this > that
-
         List<T> _allElements = new List<T>();
+
+        //TODO: finish refactoring for MaxHeap implementation
+
+        public void Swap(T x, T y)
+        {
+            T temp = x;
+            x = y;
+            y = temp;
+        }
+
+        public void Swap(int x, int y)
+        {
+            int temp = x;
+            x = y;
+            y = temp;
+        }
 
         public void Heapify()
         {
@@ -42,7 +29,7 @@ namespace GenericHeap
 
             int maxNode = _allElements.Count - 1;
 
-            for(int i = maxNode; i > 0; i--)
+            for (int i = maxNode; i > 0; i--)
             {
                 int parentIndex = (i + 1) / 2 - 1;
                 parentIndex = parentIndex >= 0 ? parentIndex : 0;
@@ -54,28 +41,14 @@ namespace GenericHeap
             }
         }
 
-        public void Swap(int x, int y)
-        {
-            T temp = _allElements[x];
-            _allElements[x] = _allElements[y];
-            _allElements[y] = temp;
-        }
-
-        public void Swap(T x, T y)
-        {
-            T temp = x;
-            x = y;
-            y = temp;
-        }
-
-        public void Add( T toAdd)
+        public void Add(T toAdd)
         {
             _allElements.Add(toAdd);
             int index = _allElements.IndexOf(toAdd);
             SiftUp(index);
         }
 
-        public void Remove( T toRemove)
+        public void Remove(T toRemove)
         {
             //we're looking for a CompareTo() == 0
             int index = _allElements.IndexOf(toRemove);
@@ -116,8 +89,8 @@ namespace GenericHeap
         }
 
         private void SiftUp(int index)
-        { 
-            while(index > 0)
+        {
+            while (index > 0)
             {
                 int parentIndex = index / 2;
                 int currIndex = index;
