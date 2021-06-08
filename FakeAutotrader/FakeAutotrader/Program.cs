@@ -57,7 +57,7 @@ namespace FakeAutotrader
         //    }
         //}
 
-        static double GetMedianStockValue(int[] prices)
+        static double GetMedianStockValue(double[] prices)
         {
             double toReturn = 0;
 
