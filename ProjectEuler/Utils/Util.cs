@@ -85,10 +85,28 @@ namespace Utils
             return root;
         }
 
-        //public static int[] GenerateTriangulars(int num)
-        //{
+        public static List<int> GenerateDivisors(int num)
+        {
+            List<int> toReturn = new List<int>();
 
-        //}
+            int rootNum = GetRootInteger(num);
+
+            for(int i = 1; i <= rootNum; i++)
+            {
+                if (num % i == 0)
+                {
+                    toReturn.Add(i);
+
+                    //if num == 9, dont add two 3's
+
+                    if (i * i != num)
+                        toReturn.Add(num / i);
+                }
+            }
+
+            return toReturn;
+
+        }
 
         public static bool IsPalindrome(int num)
         {

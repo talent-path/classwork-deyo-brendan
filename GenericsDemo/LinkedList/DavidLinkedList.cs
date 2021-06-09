@@ -114,11 +114,13 @@ namespace LinkedList
 
         public IEnumerator<T> GetEnumerator()
         {
+            _enumerator.Reset();
             return _enumerator;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
+            _enumerator.Reset();
             return _enumerator;
         }
     }
