@@ -7,6 +7,19 @@ using System.Threading.Tasks;
 
 namespace FakeAutotrader
 {
+
+    //DESCRIPTION
+
+    //Fake Autotrader
+
+    //As a user, I should be able to enter a list of stock symbols to watch(just pressing enter to indicate I'm done with a blank line).
+
+    //As a user, I should be able to see periodic updates to prices (once a minute for each monitored stock).
+
+    //As a user, whenever a stock crosses above the median price observed so far, I should get a message to sell that stock.
+
+    //As a user, whenever a stock crosses below the median price observed so far, I should get a message to buy that stock.
+
     class Program
     {
         static HttpClient _client = new HttpClient();
@@ -29,14 +42,11 @@ namespace FakeAutotrader
 
             Console.WriteLine("****Enter stock symbols separated with the enter key****");
 
-            while(!_finished)
+            while (!_finished)
             {
                 line = Console.ReadLine().ToLower();
-                if (line == ConsoleKey.Enter.ToString())
-                {
-                    //TODO: i dont think this comparison will work, ConsoleKey.Enter is represented as 13? D:
+                if (line == "")
                     break;
-                }
                 else
                     userSymbols.Add(line);
             }
@@ -49,13 +59,6 @@ namespace FakeAutotrader
 
         }
 
-        //private void CheckEnter(object sender, System.Windows.Input.AccessKeyPressedEventArgs e)
-        //{
-        //    if (e.KeyChar == (char)13)
-        //    {
-        //        _finished = true;
-        //    }
-        //}
 
         static double GetMedianStockValue(double[] prices)
         {
@@ -64,9 +67,9 @@ namespace FakeAutotrader
             Array.Sort(prices);
 
             if (prices.Length % 2 == 0)
-                toReturn = ((double) prices[prices.Length / 2] + (double) prices[prices.Length / 2 - 1]) / 2;
+                toReturn = ((double)prices[prices.Length / 2] + (double)prices[prices.Length / 2 - 1]) / 2;
             else
-                toReturn = (double) prices[prices.Length / 2];
+                toReturn = (double)prices[prices.Length / 2];
 
             return toReturn;
         }
@@ -77,7 +80,7 @@ namespace FakeAutotrader
             {
                 try
                 {
-                    string requestURL = $"https://finnhub.io/api/v1/quote?symbol={userSymbol}&token=c2t7gc2ad3i9opckklf0";
+                    string requestURL = "https://finnhub.io/api/v1/quote?symbol=" + userSymbol + "&token=c2t7gc2ad3i9opckklf0";
 
                     HttpResponseMessage responseMessage =
                         await _client.GetAsync(requestURL);
