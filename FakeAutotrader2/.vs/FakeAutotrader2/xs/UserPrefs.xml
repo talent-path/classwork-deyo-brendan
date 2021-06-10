@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{0D3B1170-708B-4210-89FF-BEE426931719}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="FakeAutotrader2/Program.cs">
     <Files>
-      <File FileName="FakeAutotrader2/Program.cs" Line="7" Column="1" />
+      <File FileName="FakeAutotrader2/Program.cs" Line="49" Column="56" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,10 +13,13 @@
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.FakeAutotrader2 FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.FakeAutotrader2 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
