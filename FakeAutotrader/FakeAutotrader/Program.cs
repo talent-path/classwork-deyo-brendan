@@ -20,6 +20,8 @@ namespace FakeAutotrader
 
     //As a user, whenever a stock crosses below the median price observed so far, I should get a message to buy that stock.
 
+    //API KEY & URL: https://finnhub.io/api/v1/quote?symbol=GME&token=c2t7gc2ad3i9opckklf0
+
     class Program
     {
         static HttpClient _client = new HttpClient();
@@ -28,7 +30,11 @@ namespace FakeAutotrader
 
         static List<Task> _tasks = new List<Task>();
 
+        static Regex _regex = new Regex(@"(?<={""c"":)[^,]+");
+
         static List<string> _list = new List<string>();
+
+        static Dictionary<string, List<double>> _priceValues = new Dictionary<string, List<double>>();
 
         static bool _finished = false;
 
@@ -46,37 +52,41 @@ namespace FakeAutotrader
             {
                 line = Console.ReadLine().ToLower();
                 if (line == "")
-                    break;
+                {
+                    _finished = true;
+                }
                 else
-                    userSymbols.Add(line);
+                    userSymbols.Add(line.ToUpper());
             }
 
             for (int i = 0; i < userSymbols.Count; i++)
             {
-                var jobToAdd = Task.Factory.StartNew(() => Dispatcher(userSymbols[i]));
+                var jobToAdd = (Task.Factory.StartNew(() => Dispatcher(userSymbols[i])).Unwrap());
                 _tasks.Add(jobToAdd);
             }
+
+            Task.WaitAll(_tasks.ToArray());
 
         }
 
 
-        static double GetMedianStockValue(double[] prices)
+        static double GetMedianStockValue(List<double> prices)
         {
             double toReturn = 0;
 
-            Array.Sort(prices);
+            prices.Sort();
 
-            if (prices.Length % 2 == 0)
-                toReturn = ((double)prices[prices.Length / 2] + (double)prices[prices.Length / 2 - 1]) / 2;
+            if (prices.Count % 2 == 0)
+                toReturn = (prices[prices.Count / 2] + prices[prices.Count / 2 - 1]) / 2;
             else
-                toReturn = (double)prices[prices.Length / 2];
+                toReturn = prices[prices.Count / 2];
 
             return toReturn;
         }
 
-        static async Task Dispatcher(string userSymbol)
+        static async Task CheckSymbolValues(string userSymbol)
         {
-            while (_count < 5000)
+            while (_count < 10000)
             {
                 try
                 {
@@ -89,19 +99,32 @@ namespace FakeAutotrader
 
                     string message = await responseMessage.Content.ReadAsStringAsync();
 
+                    int indexOfPrice = message.IndexOf("\"c\"") + 4;
+
+                    int indexOfComma = message.IndexOf(',', indexOfPrice);
+
+                    string price = message.Substring(indexOfPrice, indexOfComma - indexOfPrice);;
+
+                    double symbolValue = double.Parse(price);
+
                     _mutex.WaitOne();
-                    Console.WriteLine(message);
+
+                    List<double> currStockPrices = _priceValues[userSymbol];
+
+                    
+
                     _mutex.ReleaseMutex();
-
-                    //TODO: figure out regular expression
-
-                    _count++;
 
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
+
+                _count++;
+
+                await Task.Delay(5000);
+
             }
         }
     }

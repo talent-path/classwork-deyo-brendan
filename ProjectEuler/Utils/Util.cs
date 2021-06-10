@@ -23,6 +23,9 @@ namespace Utils
 
         public static bool IntIsPrime(int num)
         {
+            if (num < 2)
+                return false;
+
             int root = GetRootInteger(num);
 
             if (num % 2 == 0 && num != 2)
@@ -30,7 +33,7 @@ namespace Utils
 
             for (int i = 3; i <= root; i+=2)
             {
-                if (root % i == 0)
+                if (num % i == 0)
                     return false;
             }
 
