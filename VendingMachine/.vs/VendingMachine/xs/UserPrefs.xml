@@ -1,15 +1,18 @@
 ﻿<Properties StartupConfiguration="{5C52F539-6DB5-42B8-83A4-075208CCAF03}|Default">
   <MonoDevelop.Ide.ItemProperties.VendingMachine FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="VendingMachine/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="VendingMachine/VMControlPanel.cs">
     <Files>
-      <File FileName="VendingMachine/Program.cs" Line="10" Column="1" />
+      <File FileName="VendingMachine/Program.cs" Line="28" Column="1" />
+      <File FileName="VendingMachine/InMemItemsDao.cs" />
+      <File FileName="VendingMachine/VendingMachineItems.cs" Line="27" Column="6" />
+      <File FileName="VendingMachine/VMControlPanel.cs" Line="8" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="VendingMachine" expanded="True">
             <Node name="VendingMachine" expanded="True">
-              <Node name="Program.cs" selected="True" />
+              <Node name="VMControlPanel.cs" selected="True" />
             </Node>
           </Node>
         </State>
