@@ -1,14 +1,13 @@
-﻿<Properties StartupConfiguration="{5C52F539-6DB5-42B8-83A4-075208CCAF03}|Default">
-  <MonoDevelop.Ide.ItemProperties.VendingMachine FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="VendingMachine/Program.cs">
+﻿<Properties StartupConfiguration="{0D3B1170-708B-4210-89FF-BEE426931719}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FakeAutotrader2/Program.cs">
     <Files>
-      <File FileName="VendingMachine/Program.cs" Line="10" Column="1" />
+      <File FileName="FakeAutotrader2/Program.cs" Line="35" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="VendingMachine" expanded="True">
-            <Node name="VendingMachine" expanded="True">
+          <Node name="FakeAutotrader2" expanded="True">
+            <Node name="FakeAutotrader2" expanded="True">
               <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
@@ -20,6 +19,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.FakeAutotrader2 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
