@@ -27,5 +27,34 @@ namespace VendingMachine
         {
 
         }
+
+        public double GetUserMoneyFromInput()
+        {
+            bool finished = false;
+
+            double toReturn = 0.0;
+
+            while (!finished)
+            {
+                Console.Write("Please enter your amount of money in decimal form: ");
+                string input = Console.ReadLine();
+                toReturn = double.Parse(input);
+
+                double compareType = 0.0;
+
+                if (toReturn.GetType() == compareType.GetType())
+                {
+                    finished = true;
+                }
+                else
+                {
+                    Console.WriteLine("Not a valid input, please try again.");
+                    Console.WriteLine();
+                }
+            }
+
+            return toReturn;
+
+        }
     }
 }

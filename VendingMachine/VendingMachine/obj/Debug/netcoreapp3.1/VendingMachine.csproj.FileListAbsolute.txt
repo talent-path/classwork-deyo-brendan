@@ -1,0 +1,12 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/obj/Debug/netcoreapp3.1/VendingMachine.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/obj/Debug/netcoreapp3.1/VendingMachine.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/obj/Debug/netcoreapp3.1/VendingMachine.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/obj/Debug/netcoreapp3.1/VendingMachine.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/bin/Debug/netcoreapp3.1/VendingMachine.deps.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/bin/Debug/netcoreapp3.1/VendingMachine.runtimeconfig.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/bin/Debug/netcoreapp3.1/VendingMachine.runtimeconfig.dev.json
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/bin/Debug/netcoreapp3.1/VendingMachine.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/bin/Debug/netcoreapp3.1/VendingMachine.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/obj/Debug/netcoreapp3.1/VendingMachine.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/obj/Debug/netcoreapp3.1/VendingMachine.pdb
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/obj/Debug/netcoreapp3.1/VendingMachine.genruntimeconfig.cache
