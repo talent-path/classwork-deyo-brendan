@@ -3,14 +3,44 @@ using System.Collections.Generic;
 using System.IO;
 using VendingMachine.Interfaces;
 using VendingMachine.Models;
+using VendingMachine.Exceptions;
+using System.Linq;
 
 namespace VendingMachine.Persistence
 {
     public class ItemFileDao : IVendingMachineDao
     {
-        public ItemFileDao()
-        {
+        public string Filepath { get; set; } 
 
+        public ItemFileDao(string file)
+        {
+            Filepath = file;
+        }
+
+        private void OverrideItemFile(List<VendingMachineItem> items)
+        {
+            string writeLine = "";
+
+            for(int i = 0; i < items.Count; i++)
+            {
+                writeLine += items[i].ToString() + Environment.NewLine;
+            }
+
+            File.WriteAllText(Filepath, writeLine);
+        }
+
+        public VendingMachineItem GetItemByName(string name)
+        {
+            List<VendingMachineItem> items = GetAllVMItems();
+
+            VendingMachineItem toReturn = new VendingMachineItem();
+
+            toReturn = items.SingleOrDefault(i => i.Name == name);
+
+            if (toReturn == null)
+                throw new ItemDoesNotExistException("No item was found with that given name");
+
+            return toReturn;
         }
 
         public List<VendingMachineItem> GetAllVMItems()
@@ -25,7 +55,7 @@ namespace VendingMachine.Persistence
                 {
                     string[] toAdd = line.Split(",");
                     string itemName = toAdd[0];
-                    double itemPrice = double.Parse(toAdd[1]);
+                    decimal itemPrice = decimal.Parse(toAdd[1]);
                     int itemQty = int.Parse(toAdd[2]);
                     string itemCategory = toAdd[3];
 
@@ -39,7 +69,13 @@ namespace VendingMachine.Persistence
 
         public void RemoveItemQty(VendingMachineItem item)
         {
-            throw new NotImplementedException();
+            List<VendingMachineItem> items = GetAllVMItems();
+
+            items = items.Select(i => i.Name ==
+               item.Name ? new VendingMachineItem(i.Quantity - 1, i.Price, i.Name, i.Category) : i).ToList();
+
+            OverrideItemFile(items);
+
         }
     }
 }

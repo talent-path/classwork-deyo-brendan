@@ -1,13 +1,14 @@
 ﻿using System;
+
 namespace VendingMachine
 {
     public class UserMoney 
     {
-        public const double Dollar = 1.00;
-        public const double Qauter = .25;
-        public const double Dime = .10;
-        public const double Nickel = .05;
-        public const double Penny = .01;
+        public const decimal Dollar = 1.00m;
+        public const decimal Quarter = .25m;
+        public const decimal Dime = .10m;
+        public const decimal Nickel = .05m;
+        public const decimal Penny = .01m;
     }
 
 }

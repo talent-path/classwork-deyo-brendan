@@ -6,8 +6,10 @@ namespace VendingMachine.Interfaces
 {
     public interface IVendingMachineDao
     {
+        public List<VendingMachineItem> GetAllVMItems();
+
         public void RemoveItemQty(VendingMachineItem item);
 
-        public List<VendingMachineItem> GetAllVMItems();
+        public VendingMachineItem GetItemByName(string name);
     }
 }

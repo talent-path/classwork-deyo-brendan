@@ -11,7 +11,7 @@ namespace VendingMachine.Models
 
         }
 
-        public VendingMachineItem(int quantity, double price,
+        public VendingMachineItem(int quantity, decimal price,
             string name, string category)
         {
             Quantity = quantity;
@@ -22,7 +22,7 @@ namespace VendingMachine.Models
 
         public int Quantity { get; set; }
 
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         public string Name { get; set; }
 

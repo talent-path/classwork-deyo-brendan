@@ -8,7 +8,7 @@ namespace VendingMachine.Interfaces
     {
         public List<VendingMachineItem> GetAllVendingMachineItems();
 
-        public void BuyItem(VendingMachineItem item, double cost);
+        public Change BuyItem(VendingMachineItem item, decimal cost);
 
     }
 }

@@ -7,6 +7,7 @@ namespace VendingMachineTests
         [SetUp]
         public void Setup()
         {
+
         }
 
         [Test]

@@ -4,6 +4,7 @@ using VendingMachine.Models;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
+using VendingMachine.Exceptions;
 
 namespace VendingMachine.Persistence
 {
@@ -26,14 +27,14 @@ namespace VendingMachine.Persistence
 
         public VendingMachinInMemDao()
         {
-            VendingMachineItem item1 = new VendingMachineItem(10, 1.99, "Babe Ruth", "Candy");
-            VendingMachineItem item2 = new VendingMachineItem(10, 3.00, "Coca Cola", "Soda");
-            VendingMachineItem item3 = new VendingMachineItem(10, 1.99, "Doritos", "Chips");
-            VendingMachineItem item4 = new VendingMachineItem(10, 1.99, "Kit Kat", "Candy");
-            VendingMachineItem item5 = new VendingMachineItem(10, 2.00, "Sprite", "Soda");
-            VendingMachineItem item6 = new VendingMachineItem(10, 1.99, "Lays", "Chips");
-            VendingMachineItem item7 = new VendingMachineItem(10, 3.00, "Barq's Root Beer", "Soda");
-            VendingMachineItem item8 = new VendingMachineItem(10, 1.99, "Fritos", "Chips");
+            VendingMachineItem item1 = new VendingMachineItem(10, 1.99m, "Babe Ruth", "Candy");
+            VendingMachineItem item2 = new VendingMachineItem(10, 3.00m, "Coca Cola", "Soda");
+            VendingMachineItem item3 = new VendingMachineItem(10, 1.99m, "Doritos", "Chips");
+            VendingMachineItem item4 = new VendingMachineItem(0, 1.99m, "Kit Kat", "Candy");
+            VendingMachineItem item5 = new VendingMachineItem(10, 2.00m, "Sprite", "Soda");
+            VendingMachineItem item6 = new VendingMachineItem(2, 1.99m, "Lays", "Chips");
+            VendingMachineItem item7 = new VendingMachineItem(2, 3.00m, "Barq's Root Beer", "Soda");
+            VendingMachineItem item8 = new VendingMachineItem(2, 1.99m, "Fritos", "Chips");
             _addItems.Add(item1);
             _addItems.Add(item2);
             _addItems.Add(item3);
@@ -42,6 +43,20 @@ namespace VendingMachine.Persistence
             _addItems.Add(item6);
             _addItems.Add(item7);
             _addItems.Add(item8);
+        }
+
+        public VendingMachineItem GetItemByName(string name)
+        {
+            List<VendingMachineItem> items = GetAllVMItems();
+
+            VendingMachineItem toReturn = new VendingMachineItem();
+
+            toReturn = items.SingleOrDefault(i => i.Name == name);
+
+            if (toReturn == null)
+                throw new ItemDoesNotExistException("No item was found with that given name");
+
+            return toReturn;
         }
 
         public List<VendingMachineItem> GetAllVMItems()
@@ -53,7 +68,7 @@ namespace VendingMachine.Persistence
         public void RemoveItemQty(VendingMachineItem item)
         {
             _addItems = _addItems.Select(i => i.Name ==
-                item.Name ? new VendingMachineItem(i.Quantity, i.Price, i.Name, i.Category) : i).ToList();
+                item.Name ? new VendingMachineItem(i.Quantity - 1, i.Price, i.Name, i.Category) : i).ToList();
         }
 
     }

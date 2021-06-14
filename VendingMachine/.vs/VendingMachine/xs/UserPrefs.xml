@@ -1,28 +1,31 @@
 ﻿<Properties StartupConfiguration="{5C52F539-6DB5-42B8-83A4-075208CCAF03}|Default">
   <MonoDevelop.Ide.ItemProperties.VendingMachine PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="VendingMachineTests/ServiceTests/VMServiceTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="VendingMachine/Persistence/ItemFileDao.cs">
     <Files>
-      <File FileName="VendingMachine/Services/VendingMachineService.cs" Line="40" Column="29" />
-      <File FileName="VendingMachine/Interfaces/IVendingMachineDao.cs" Line="11" Column="57" />
-      <File FileName="VendingMachine/Persistence/VendingMachineDao.cs" Line="57" Column="10" />
-      <File FileName="VendingMachine/Persistence/ItemFileDao.cs" Line="42" Column="49" />
-      <File FileName="VendingMachine/items.txt" Line="1" Column="1" />
-      <File FileName="VendingMachineTests/ServiceTests/VMServiceTests.cs" Line="31" Column="23" />
+      <File FileName="VendingMachine/UserMoney.cs" Line="14" Column="2" />
+      <File FileName="VendingMachine/Services/VendingMachineService.cs" Line="72" Column="10" />
+      <File FileName="VendingMachine/Exceptions/VendingMachineEmptyException.cs" Line="13" Column="10" />
+      <File FileName="VendingMachineTests/ServiceTests/VMServiceTests.cs" Line="167" Column="51" />
+      <File FileName="VendingMachineTests/DaoTests/VMDaoTests.cs" Line="10" Column="1" />
+      <File FileName="VendingMachine/Interfaces/IVendingMachineDao.cs" Line="1" Column="1" />
+      <File FileName="VendingMachine/Persistence/ItemFileDao.cs" Line="14" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="VendingMachine" expanded="True">
             <Node name="VendingMachine" expanded="True">
+              <Node name="Exceptions" expanded="True" />
               <Node name="Interfaces" expanded="True" />
               <Node name="Models" expanded="True" />
-              <Node name="Persistence" expanded="True" />
+              <Node name="Persistence" expanded="True">
+                <Node name="ItemFileDao.cs" selected="True" />
+              </Node>
               <Node name="Services" expanded="True" />
             </Node>
             <Node name="VendingMachineTests" expanded="True">
-              <Node name="ServiceTests" expanded="True">
-                <Node name="VMServiceTests.cs" selected="True" />
-              </Node>
+              <Node name="DaoTests" expanded="True" />
+              <Node name="ServiceTests" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -39,7 +42,6 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.VendingMachineTests FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
