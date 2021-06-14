@@ -10,9 +10,9 @@ namespace VendingMachine.Persistence
 {
     public class ItemFileDao : IVendingMachineDao
     {
-        public string Filepath { get; set; } 
+        public string Filepath { get; set; }  
 
-        public ItemFileDao(string file)
+        public ItemFileDao(string file) 
         {
             Filepath = file;
         }
@@ -21,9 +21,9 @@ namespace VendingMachine.Persistence
         {
             string writeLine = "";
 
-            for(int i = 0; i < items.Count; i++)
+            foreach(VendingMachineItem item in items)
             {
-                writeLine += items[i].ToString() + Environment.NewLine;
+                writeLine += items.ToString() + Environment.NewLine;
             }
 
             File.WriteAllText(Filepath, writeLine);
@@ -49,7 +49,7 @@ namespace VendingMachine.Persistence
 
             string line = "";
 
-            using (StreamReader reader = new StreamReader("../../../items.txt"))
+            using (StreamReader reader = new StreamReader(Filepath))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -71,11 +71,21 @@ namespace VendingMachine.Persistence
         {
             List<VendingMachineItem> items = GetAllVMItems();
 
-            items = items.Select(i => i.Name ==
-               item.Name ? new VendingMachineItem(i.Quantity - 1, i.Price, i.Name, i.Category) : i).ToList();
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].Name == item.Name)
+                {
+                    if (item.Quantity <= 0)
+                        throw new ItemDepletedException("There are no more items of this name left");
+                    else
+                    {
+                        items = items.Select(i => i.Name == item.Name ?
+                        new VendingMachineItem(i.Quantity - 1, i.Price, i.Name, i.Category) : i).ToList();
 
-            OverrideItemFile(items);
-
+                        OverrideItemFile(items);
+                    }
+                }
+            }
         }
     }
 }

@@ -171,6 +171,14 @@ namespace VendingMachineTests
             Assert.AreEqual(3, toTest.Penny);
         }
 
+        [TestCase(-1.00)]
+        [TestCase(-10.00)]
+        [TestCase(-.01)]
+        public void ThrowTransactionFailedExceptionTest(decimal userMoney)
+        {
+            Assert.Throws<TransactionFailedException>(() => _service.CalculateReturnChange(userMoney));
+        }
+
     }
 
 

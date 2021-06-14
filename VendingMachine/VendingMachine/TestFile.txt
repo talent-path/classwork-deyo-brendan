@@ -8,5 +8,5 @@ Reese's Peanut Butter Cup,1.99,10,Candy
 Barq's Root Beer,3.00,10,Soda
 Flamin' Hot Cheetos,1.99,10,Chips
 Milky Way,1.99,10,Candy
-Dr. Pepper,3.00,10,Soda
+Dr.Pepper,3.00,10,Soda
 Fritos,1.99,10,Chips

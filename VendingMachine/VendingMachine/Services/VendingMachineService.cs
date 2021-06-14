@@ -42,21 +42,62 @@ namespace VendingMachine.Services
 
             // convert amount of change to int then subtract from user money each time
 
+            int[] transaction = CalculateReturnChange(userMoney);
+
+            toReturn = new Change(transaction[0], transaction[1], transaction[2],
+                transaction[3], transaction[4]);
+
+            return toReturn;
+        }
+
+        public int[] CalculateReturnChange(decimal userMoney)
+        {
+            if (userMoney < 0)
+            {
+                throw new TransactionFailedException("An error occured during transaction");
+            }
+
+            int[] toReturn = new int[5];
+
             int numOfDollars = (int)(userMoney / UserMoney.Dollar);
             userMoney = userMoney - (numOfDollars * UserMoney.Dollar);
+
+            if (userMoney < 0)
+            {
+                throw new TransactionFailedException("An error occured during transaction");
+            }
 
             int numOfQuarters = (int)(userMoney / UserMoney.Quarter);
             userMoney = userMoney - (numOfQuarters * UserMoney.Quarter);
 
+            if (userMoney < 0)
+            {
+                throw new TransactionFailedException("An error occured during transaction");
+            }
+
             int numOfDimes = (int)(userMoney / UserMoney.Dime);
             userMoney = userMoney - (numOfDimes * UserMoney.Dime);
+
+            if (userMoney < 0)
+            {
+                throw new TransactionFailedException("An error occured during transaction");
+            }
 
             int numOfNickels = (int)(userMoney / UserMoney.Nickel);
             userMoney = userMoney - (numOfNickels * UserMoney.Nickel);
 
+            if (userMoney < 0)
+            {
+                throw new TransactionFailedException("An error occured during transaction");
+            }
+
             int numOfPennies = (int)(userMoney / UserMoney.Penny);
 
-            toReturn = new Change(numOfDollars, numOfQuarters, numOfDimes, numOfNickels, numOfPennies);
+            toReturn[0] = numOfDollars;
+            toReturn[1] = numOfQuarters;
+            toReturn[2] = numOfDimes;
+            toReturn[3] = numOfNickels;
+            toReturn[4] = numOfPennies;
 
             return toReturn;
         }

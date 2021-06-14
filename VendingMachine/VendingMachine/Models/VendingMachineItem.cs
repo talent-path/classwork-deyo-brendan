@@ -28,4 +28,7 @@ namespace VendingMachine.Models
 
         public string Category { get; set; }
     }
+
+
+    //TODO create a to string override method that prints items to file nicely
 }

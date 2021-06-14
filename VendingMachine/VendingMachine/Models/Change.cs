@@ -8,8 +8,8 @@ namespace VendingMachine.Models
 
         }
 
-        public Change(decimal dollar, decimal quarter,
-            decimal dime, decimal nickel, decimal penny)
+        public Change(int dollar, int quarter,
+            int dime, int nickel, int penny)
         {
             Dollar = dollar;
             Quarter = quarter;
@@ -18,11 +18,11 @@ namespace VendingMachine.Models
             Penny = penny;
         }
 
-        public decimal Dollar { get; set; }
-        public decimal Quarter { get; set; }
-        public decimal Dime { get; set; }
-        public decimal Nickel { get; set; }
-        public decimal Penny { get; set; }
+        public int Dollar { get; set; }
+        public int Quarter { get; set; }
+        public int Dime { get; set; }
+        public int Nickel { get; set; }
+        public int Penny { get; set; }
 
     }
 }
