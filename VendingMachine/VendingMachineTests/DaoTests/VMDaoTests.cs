@@ -104,6 +104,8 @@ namespace VendingMachineTests
 
             _daoTest.RemoveItemQty(fritos);
 
+            fritos = _daoTest.GetItemByName("Fritos");
+
             Assert.AreEqual(0, fritos.Quantity);
 
             Assert.Throws<ItemDepletedException>(() => _daoTest.RemoveItemQty(fritos));

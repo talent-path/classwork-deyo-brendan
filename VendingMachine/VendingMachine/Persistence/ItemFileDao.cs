@@ -23,7 +23,8 @@ namespace VendingMachine.Persistence
 
             foreach(VendingMachineItem item in items)
             {
-                writeLine += items.ToString() + Environment.NewLine;
+                writeLine += $"{item.Name},{item.Price}," +
+                    $"{item.Quantity},{item.Category}" + Environment.NewLine;
             }
 
             File.WriteAllText(Filepath, writeLine);

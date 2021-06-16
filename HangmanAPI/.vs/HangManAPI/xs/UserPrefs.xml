@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="{DFBBE069-BD82-419A-A34E-95CC69F092DA}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HangManAPI/Services/HangManService.cs">
+    <Files>
+      <File FileName="HangManAPI/Persistence/HangManInMemDao.cs" Line="116" Column="38" />
+      <File FileName="HangManAPI/Controllers/HangmanController.cs" Line="59" Column="68" />
+      <File FileName="HangManAPI/Models/Game.cs" Line="17" Column="40" />
+      <File FileName="HangManAPI/Services/HangManService.cs" Line="42" Column="45" />
+      <File FileName="HangManAPI/Models/Guess.cs" Line="7" Column="27" />
+      <File FileName="HangManAPI/Program.cs" Line="16" Column="1" />
+      <File FileName="HangManAPI/Models/GameView.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HangManAPI" expanded="True">
+            <Node name="HangManAPI" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Persistence" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="HangManService.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/jlavendt/Projects/HangManAPI/HangManAPI/Persistence/HangManInMemDao.cs" relfile="HangManAPI/Persistence/HangManInMemDao.cs" line="119" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.HangManAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>
