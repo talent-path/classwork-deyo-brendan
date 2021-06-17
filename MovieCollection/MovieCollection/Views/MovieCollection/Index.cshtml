@@ -1,0 +1,13 @@
+﻿@model IEnumerable<MovieModel>
+@{
+}
+
+
+@foreach (var movie in Model)
+{
+    <p>Movie Name : <a href="~/MovieCollection/EditMovieView/@movie.Id">@movie.Title</a> @movie.Director @movie.Year</p>
+
+
+}
+
+<a href="~/MovieCollection/AddMovieView"> <button type="submit"> Click Here to Add a Movie</button> </a>

@@ -1,19 +1,11 @@
-﻿<Properties StartupConfiguration="{AD436BA3-4C18-42F6-8248-B69578CB7A66}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MovieCollection/Startup.cs">
+﻿<Properties StartupConfiguration="{2B4439B0-C01B-4114-9C5D-5E99C3F972C0}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MovieCollection/Views/MovieCollection/Index.cshtml">
     <Files>
-      <File FileName="MovieCollection/Controllers/MovieCollectionController.cs" Line="43" Column="10" />
-      <File FileName="MovieCollection/Models/Movie.cs" Line="22" Column="6" />
-      <File FileName="MovieCollection/Services/MovieCollectionService.cs" Line="23" Column="1" />
-      <File FileName="MovieCollection/Views/Movie/Index.cshtml" Line="8" Column="2" />
-      <File FileName="MovieCollection/Views/Movie/MovieView.cshtml" Line="8" Column="1" />
-      <File FileName="MovieCollection/Controllers/HomeController.cs" Line="25" Column="1" />
-      <File FileName="MovieCollection/Views/Movie/EditMovieView.cshtml" Line="1" Column="6" />
-      <File FileName="MovieCollection/Startup.cs" Line="35" Column="14" />
-      <File FileName="MovieCollection/Properties/launchSettings.json" Line="28" Column="1" />
-      <File FileName="MovieCollection/Views/_ViewStart.cshtml" Line="1" Column="1" />
-      <File FileName="MovieCollection/Views/_ViewImports.cshtml" Line="1" Column="1" />
-      <File FileName="MovieCollection/appsettings.json" Line="1" Column="1" />
-      <File FileName="MovieCollection/Program.cs" Line="1" Column="1" />
+      <File FileName="MovieCollection/Views/MovieCollection/AddMovieView.cshtml" Line="11" Column="1" />
+      <File FileName="MovieCollection/Controllers/MovieCollectionController.cs" Line="44" Column="31" />
+      <File FileName="MovieCollection/Services/MovieService.cs" Line="38" Column="44" />
+      <File FileName="MovieCollection/Views/MovieCollection/EditMovieView.cshtml" Line="22" Column="1" />
+      <File FileName="MovieCollection/Views/MovieCollection/Index.cshtml" Line="9" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,8 +16,11 @@
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="Services" expanded="True" />
-              <Node name="Views" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
+              <Node name="Views" expanded="True">
+                <Node name="MovieCollection" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>

@@ -1,0 +1,15 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.MvcApplicationPartsAssemblyInfo.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.RazorAssemblyInfo.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.RazorAssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/staticwebassets/CourseManager.StaticWebAssets.Manifest.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/staticwebassets/CourseManager.StaticWebAssets.xml
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/scopedcss/bundle/CourseManager.styles.css
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.TagHelpers.input.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.TagHelpers.output.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.RazorCoreGenerate.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.dll
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/CourseManager/CourseManager/obj/Debug/netcoreapp3.1/CourseManager.pdb

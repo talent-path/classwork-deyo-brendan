@@ -24,5 +24,6 @@ namespace VendingMachine.Models
         public int Nickel { get; set; }
         public int Penny { get; set; }
 
+
     }
 }

@@ -1,0 +1,41 @@
+﻿<Properties StartupConfiguration="{4AFA37BF-B06B-4F23-9097-D630A930BD6D}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CourseManager/Views/Teacher/Index.cshtml">
+    <Files>
+      <File FileName="CourseManager/Controllers/CourseController.cs" Line="35" Column="1" />
+      <File FileName="CourseManager/Controllers/TeacherController.cs" Line="23" Column="1" />
+      <File FileName="CourseManager/Services/CourseService.cs" Line="18" Column="15" />
+      <File FileName="CourseManager/Views/Teacher/Index.cshtml" Line="18" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CourseManager" expanded="True">
+            <Node name="CourseManager" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Exceptions" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Repos" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Course" expanded="True" />
+                <Node name="Student" expanded="True" />
+                <Node name="Teacher" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+              </Node>
+              <Node name="wwwroot" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.CourseManager PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

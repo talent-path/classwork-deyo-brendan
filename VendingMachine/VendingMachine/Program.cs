@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using VendingMachine.Controllers;
+using VendingMachine.Interfaces;
+using VendingMachine.Models;
+using VendingMachine.Persistence;
+using VendingMachine.Services;
+using VendingMachine.View;
 
 namespace VendingMachine
 {
@@ -23,38 +30,75 @@ namespace VendingMachine
         //Just to make official what I just said verbally: the user should also be able to get back
         //their change without vending an item(functionally as though they had vended a free item).
 
+        private static VendingMachineController _controller;
+
+        private static VendingMachineService _service;
+
+        private static ItemFileDao _fileDao;
+
+        private static VendingMachineView _view = new VendingMachineView();
+
         static void Main(string[] args)
         {
+            _fileDao =
+                new ItemFileDao(@"/Users/brendandeyo/Desktop/classwork-deyo-brendan/VendingMachine/VendingMachine/ItemList.txt");
 
+            _service = new VendingMachineService(_fileDao);
+
+            _controller = new VendingMachineController(_service, _view);
+
+            decimal userMoney = GetUserMoney();
+
+            _controller.StartVendingMachineApp(userMoney);
+            
         }
 
-        public double GetUserMoneyFromInput()
+        public static decimal GetUserMoney()
         {
-            bool finished = false;
+            decimal toReturn = 0;
 
-            double toReturn = 0.0;
+            bool canParse = false;
 
-            while (!finished)
+            while (!canParse)
             {
-                Console.Write("Please enter your amount of money in decimal form: ");
-                string input = Console.ReadLine();
-                toReturn = double.Parse(input);
+                Console.Write("Please enter a money amount for user: ");
+                string toParse = Console.ReadLine();
 
-                double compareType = 0.0;
-
-                if (toReturn.GetType() == compareType.GetType())
-                {
-                    finished = true;
-                }
-                else
-                {
-                    Console.WriteLine("Not a valid input, please try again.");
-                    Console.WriteLine();
-                }
+                canParse = decimal.TryParse(toParse, out toReturn);
             }
 
-            return toReturn;
+            Console.WriteLine();
 
+            return toReturn;
         }
+
+        //public decimal GetUserMoneyFromInput()
+        //{
+        //    bool finished = false;
+
+        //    decimal toReturn = 0;
+
+        //    while (!finished)
+        //    {
+        //        Console.Write("Please enter your amount of money in decimal form: ");
+        //        string input = Console.ReadLine();
+        //        toReturn = decimal.Parse(input);
+
+        //        decimal compareType = 0;
+
+        //        if (toReturn.GetType() == compareType.GetType())
+        //        {
+        //            finished = true;
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("Not a valid input, please try again.");
+        //            Console.WriteLine();
+        //        }
+        //    }
+
+        //    return toReturn;
+        //}
+
     }
 }

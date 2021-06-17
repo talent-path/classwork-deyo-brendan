@@ -30,6 +30,24 @@ namespace VendingMachine.Persistence
             File.WriteAllText(Filepath, writeLine);
         }
 
+        public void ResetItemFile(List<VendingMachineItem> items)
+        {
+            string writeLine = "";
+
+            foreach(VendingMachineItem item in items)
+            {
+                if (item.Name == "Doritos" || item.Name == "Sprite")
+                    item.Quantity = 2;
+                else
+                    item.Quantity = 10;
+
+                writeLine += $"{item.Name},{item.Price}," +
+                    $"{item.Quantity},{item.Category}" + Environment.NewLine;
+            }
+
+            File.WriteAllText(Filepath, writeLine);
+        }
+
         public VendingMachineItem GetItemByName(string name)
         {
             List<VendingMachineItem> items = GetAllVMItems();
