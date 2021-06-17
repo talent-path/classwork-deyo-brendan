@@ -47,10 +47,7 @@ namespace VendingMachine
 
             _controller = new VendingMachineController(_service, _view);
 
-            decimal userMoney = GetUserMoney();
-
-            _controller.StartVendingMachineApp(userMoney);
-            
+            _controller.StartVendingMachineApp();
         }
 
         public static decimal GetUserMoney()
@@ -61,7 +58,7 @@ namespace VendingMachine
 
             while (!canParse)
             {
-                Console.Write("Please enter a money amount for user: ");
+                Console.Write("Please enter a money amount for input: ");
                 string toParse = Console.ReadLine();
 
                 canParse = decimal.TryParse(toParse, out toReturn);

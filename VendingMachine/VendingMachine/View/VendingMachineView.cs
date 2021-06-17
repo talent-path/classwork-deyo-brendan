@@ -16,35 +16,11 @@ namespace VendingMachine.View
 
         }
 
-        //public decimal GetUserMoney()
-        //{
-        //    decimal toReturn = 0;
-
-        //    Console.Write("Please enter a money amount for user: ");
-        //    string toParse = Console.ReadLine();
-
-        //    bool canParse = false;
-
-        //    while(!canParse)
-        //    {
-        //        canParse = decimal.TryParse(toParse, out toReturn);
-        //    }
-
-        //    return toReturn;
-        //}
-
-        //public Change GetUserMoneyChange(decimal money)
-        //{
-        //    int[] toChange = _service.CalculateReturnChange(money);
-
-        //    Change toReturn = new Change(toChange[0], toChange[1], toChange[2], toChange[3], toChange[4]);
-
-        //    return toReturn;
-        //}
-
         public string ShowAllVendingItems(List<VendingMachineItem> items)
         {
             // DISPLAY GOES HERE
+
+            Console.WriteLine();
 
             Console.WriteLine("****OVERLORD BRENDAN'S VENDING MACHINE***");
             Console.WriteLine("*********LIST OF AVAILABLE ITEMS*********");
@@ -55,7 +31,8 @@ namespace VendingMachine.View
 
             foreach(VendingMachineItem item in items)
             {
-                printItemList += "Choose " + item.Name + " by name to purchase. " + item.Quantity + " available";
+                printItemList += "Choose " + item.Name + " by name to purchase | " + item.Quantity + " available. ";
+                printItemList += "Price: $" + item.Price;
                 printItemList += Environment.NewLine;
             }
 
@@ -69,9 +46,13 @@ namespace VendingMachine.View
 
             bool canBuy = false;
 
+            bool itemExists = false;
+
+            bool printError = true;
+
             string toReturn = "";
 
-            while (!canBuy)
+            while (!canBuy && !itemExists)
             {
                 Console.Write("Enter item name to purchase: ");
                 toReturn = Console.ReadLine();
@@ -79,11 +60,15 @@ namespace VendingMachine.View
                 for(int i = 0; i < items.Count; i++)
                 {
                     if (items[i].Name == toReturn && items[i].Quantity > 0)
+                    {
+                        itemExists = true;
                         canBuy = true;
+                        printError = false;
+                    }
                 }
 
-                if (!canBuy)
-                    throw new ItemDoesNotExistException("Cannot buy item that is depleted or non existent.");
+                if (!canBuy && !itemExists && printError)
+                    Console.WriteLine("Item is depleted. Pick another!");
             }
 
             return toReturn;

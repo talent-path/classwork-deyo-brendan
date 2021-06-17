@@ -23,6 +23,15 @@ namespace CourseManager.Repos
         {
         }
 
+        internal void Edit(Student toEdit)
+        {
+            _allStudents = _allStudents.Select(
+                s => s.Id == toEdit.Id ?
+                    new Student(toEdit) :
+                    s
+                    ).ToList();
+        }
+
         public List<Student> GetAll()
         {
             return _allStudents.Select(s => new Student(s)).ToList();
@@ -31,6 +40,11 @@ namespace CourseManager.Repos
         public Student GetById( int id)
         {
             return _allStudents.SingleOrDefault(s => s.Id == id);
+        }
+
+        internal void Delete(int id)
+        {
+            _allStudents = _allStudents.Where(s => s.Id != id).ToList();
         }
     }
 }

@@ -34,8 +34,22 @@ namespace CourseManager.Repos
             }
         };
 
+        internal void Edit(Teacher toEdit)
+        {
+            _allTeachers = _allTeachers.Select(
+                t => t.Id == toEdit.Id ?
+                    new Teacher(toEdit) :
+                    t
+                    ).ToList();
+        }
+
         public InMemTeacherRepo()
         {
+        }
+
+        internal void Delete(int id)
+        {
+            _allTeachers = _allTeachers.Where(t => t.Id != id).ToList();
         }
 
         public List<Teacher> GetAll()

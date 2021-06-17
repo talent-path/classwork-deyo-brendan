@@ -1,9 +1,9 @@
 ﻿using System;
 namespace CourseManager.Models
 {
-    public class DeleteCourseViewModel
+    public class EditStudentViewModel
     {
-        public DeleteCourseViewModel()
+        public EditStudentViewModel()
         {
         }
     }

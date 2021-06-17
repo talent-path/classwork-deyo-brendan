@@ -58,6 +58,16 @@ namespace CourseManager.Services
             _courseRepo.Delete(id);
         }
 
+        public void DeleteTeacher(int id)
+        {
+            _teacherRepo.Delete(id);
+        }
+
+        public void DeleteStudent(int id)
+        {
+            _studentRepo.Delete(id);
+        }
+
         public void EditCourse(Course toEdit)
         {
             _courseRepo.Edit(toEdit);
@@ -84,6 +94,42 @@ namespace CourseManager.Services
                     .Where(course => course.ClassTeacher.Id == anyTeacher.Id)
                     .ToList();
             }
+        }
+
+        public void EditTeacher(Teacher toEdit)
+        {
+            _teacherRepo.Edit(toEdit);
+
+            List<Course> allCourses = _courseRepo.GetAll();
+            List<Student> allStudents = _studentRepo.GetAll();
+            List<Teacher> allTeachers = _teacherRepo.GetAll();
+
+            foreach (Student anyStudent in allStudents)
+            {
+                anyStudent.Courses =
+                    allCourses.Where(
+                        course => course.ClassStudents.Any(
+                            classStudent => classStudent.Id == anyStudent.Id)).ToList();
+
+
+            }
+
+            // TODO, figure out relationship here
+
+            //foreach (var course in allCourses)
+            //{
+            //    course.ClassTeacher = allTeachers.Where(t => t.Courses.Any( == course);
+            //}
+
+        }
+
+        public void EditStudent(Student toEdit)
+        {
+            _studentRepo.Edit(toEdit);
+
+            List<Course> allCourses = _courseRepo.GetAll();
+            List<Student> allStudents = _studentRepo.GetAll();
+            List<Teacher> allTeachers = _teacherRepo.GetAll();
         }
 
         public Student GetStudentById(int id)

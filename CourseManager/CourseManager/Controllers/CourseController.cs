@@ -24,12 +24,6 @@ namespace CourseManager.Controllers
             return View(courses);
         }
 
-        public IActionResult TeacherIndex()
-        {
-            List<Teacher> teachers = _service.GetAllTeachers();
-            return View(teachers);
-        }
-
         public IActionResult Details( int? id )
         {
             if (id != null)
@@ -47,18 +41,6 @@ namespace CourseManager.Controllers
             }
             return BadRequest();
         }
-
-        //[HttpDelete]
-        //public IActionResult Delete(int? id)
-        //{
-        //    if (id != null)
-        //    {
-        //        try
-        //        {
-        //            _service.DeleteCourse(id.Value);
-        //        }
-        //    }
-        //}
 
         [HttpGet]
         public IActionResult Edit( int? id)

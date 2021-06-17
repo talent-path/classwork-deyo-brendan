@@ -25,12 +25,52 @@ namespace VendingMachine.Controllers
             _view = view;
         }
 
-        public void StartVendingMachineApp(decimal userMoney)
+        public decimal GetUserMoney()
         {
-            _fileDao.ResetItemFile(_fileDao.GetAllVMItems());
+            decimal toReturn = 0;
 
-            while (userMoney > 0)
+            bool canParse = false;
+
+            while (!canParse)
             {
+                Console.Write("Please enter a money amount for user: ");
+                string toParse = Console.ReadLine();
+
+                canParse = decimal.TryParse(toParse, out toReturn);
+            }
+
+            return toReturn;
+        }
+
+        public void GetResponseMessage(VendingMachineItem item)
+        {
+            if (item.Category == "Candy")
+            {
+                Console.WriteLine("You have purchased a: " + item.Name + "..... MMMMMMM, YUMMY");
+                Console.WriteLine();
+            }
+            else if (item.Category == "Chips")
+            {
+                Console.WriteLine("You have purchased a bag of: " + item.Name + "..... MMMMMMM, CRUNCHY");
+                Console.WriteLine();
+            }
+            else if (item.Category == "Soda")
+            {
+                Console.WriteLine("You have purchased a bottle of: " + item.Name + "..... OOOOO, REFRESHING");
+                Console.WriteLine();
+            }
+            else
+                throw new ItemDoesNotExistException("I'm confused, this should not be possible");
+        }
+
+        public void StartVendingMachineApp()
+        {
+            bool finished = false;
+
+            while (!finished)
+            {
+                decimal userMoney = GetUserMoney();
+
                 List<VendingMachineItem> items = _fileDao.GetAllVMItems();
 
                 string chooseItem = _view.ShowAllVendingItems(items);
@@ -51,31 +91,37 @@ namespace VendingMachine.Controllers
 
                 Console.WriteLine();
 
-                if (chosenItem.Category == "Candy")
-                {
-                    Console.WriteLine("You have purchased a: " + chosenItem.Name + "..... MMMMMMM, YUMMY");
-                    Console.WriteLine();
-                }
-                else if (chosenItem.Category == "Chips")
-                {
-                    Console.WriteLine("You have purchased a bag of: " + chosenItem.Name + "..... MMMMMMM, CRUNCHY");
-                    Console.WriteLine();
-                }
-                else if (chosenItem.Category == "Soda")
-                {
-                    Console.WriteLine("You have purchased a bottle of: " + chosenItem.Name + "..... OOOOO, REFRESHING");
-                    Console.WriteLine();
-                }
-                else
-                    throw new ItemDoesNotExistException("I'm confused, this should not be possible");
+                GetResponseMessage(chosenItem);
 
                 string changeToString = $"Dollars: {userChange.Dollar}, " +
                    $"Quarters: {userChange.Quarter}, " + $"Dimes: {userChange.Dime}, " +
                    $"Nickels: {userChange.Nickel}, " + $"Pennies: {userChange.Penny}";
 
-                Console.WriteLine("Current money for user: " + changeToString);
+                Console.WriteLine("Your change is: " + changeToString);
 
                 Console.WriteLine();
+
+                finished = PromptUserResponse();
+
+                if (finished)
+                    Console.WriteLine("Okie, see you next time!");
+            }
+        }
+
+        public bool PromptUserResponse()
+        {
+            Console.Write("Buy another item? (Y/N): ");
+            string input = Console.ReadLine().ToLower();
+
+            if (input == "y")
+            {
+                Console.WriteLine();
+                return false;
+            }
+            else
+            {
+                Console.WriteLine();
+                return true;
             }
         }
     }
