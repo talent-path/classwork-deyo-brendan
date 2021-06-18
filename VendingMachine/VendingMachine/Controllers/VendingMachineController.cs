@@ -67,44 +67,68 @@ namespace VendingMachine.Controllers
         {
             bool finished = false;
 
+            bool valid = true;
+
             while (!finished)
             {
-                decimal userMoney = GetUserMoney();
-
-                List<VendingMachineItem> items = _fileDao.GetAllVMItems();
-
-                string chooseItem = _view.ShowAllVendingItems(items);
-
-                int[] change = _service.CalculateReturnChange(userMoney);
-
-                Change userChange = new Change(change[0], change[1], change[2], change[3], change[4]);
-
-                VendingMachineItem chosenItem = new VendingMachineItem();
-                
-                foreach (VendingMachineItem item in items)
+                while (valid)
                 {
-                    if (item.Name == chooseItem)
-                        chosenItem = item;
+                    decimal userMoney = GetUserMoney();
+
+                    if (userMoney <= 0)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("You need more money to purchase an item");
+                        Console.WriteLine();
+                        break;
+                    }
+
+                    List<VendingMachineItem> items = _fileDao.GetAllVMItems();
+
+                    string chooseItem = _view.ShowAllVendingItems(items);
+
+                    int[] change = _service.CalculateReturnChange(userMoney);
+
+                    Change userChange = new Change(change[0], change[1], change[2], change[3], change[4]);
+
+                    VendingMachineItem chosenItem = new VendingMachineItem();
+
+                    foreach (VendingMachineItem item in items)
+                    {
+                        if (item.Name == chooseItem)
+                            chosenItem = item;
+                    }
+
+                    if (userMoney >= chosenItem.Price)
+                        userChange = _service.BuyItem(chosenItem, userMoney);
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("You do not have enough money!");
+                        Console.WriteLine();
+                        break;
+                    }
+
+                    Console.WriteLine();
+
+                    GetResponseMessage(chosenItem);
+
+                    string changeToString = $"Dollars: {userChange.Dollar}, " +
+                       $"Quarters: {userChange.Quarter}, " + $"Dimes: {userChange.Dime}, " +
+                       $"Nickels: {userChange.Nickel}, " + $"Pennies: {userChange.Penny}";
+
+                    Console.WriteLine("Your change is: " + changeToString);
+
+                    Console.WriteLine();
+
+                    finished = PromptUserResponse();
+
+                    if (finished)
+                    {
+                        Console.WriteLine("Okie, see you next time!");
+                        valid = false;
+                    }
                 }
-
-                userChange = _service.BuyItem(chosenItem, userMoney);
-
-                Console.WriteLine();
-
-                GetResponseMessage(chosenItem);
-
-                string changeToString = $"Dollars: {userChange.Dollar}, " +
-                   $"Quarters: {userChange.Quarter}, " + $"Dimes: {userChange.Dime}, " +
-                   $"Nickels: {userChange.Nickel}, " + $"Pennies: {userChange.Penny}";
-
-                Console.WriteLine("Your change is: " + changeToString);
-
-                Console.WriteLine();
-
-                finished = PromptUserResponse();
-
-                if (finished)
-                    Console.WriteLine("Okie, see you next time!");
             }
         }
 

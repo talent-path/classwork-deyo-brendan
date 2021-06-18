@@ -1,12 +1,12 @@
 Babe Ruth,1.99,6,Candy
 Coca Cola,3.00,8,Soda
 Doritos,1.99,0,Chips
-Kit Kat,1.99,10,Candy
+Kit Kat,1.99,9,Candy
 Sprite,2.00,2,Soda
-Lays,1.99,10,Chips
+Lays,1.99,9,Chips
 Reese's Peanut Butter Cup,1.99,10,Candy
-Barq's Root Beer,3.00,10,Soda
+Barq's Root Beer,3.00,9,Soda
 Flamin' Hot Cheetos,10.99,10,Chips
-Milky Way,1.99,10,Candy
+Milky Way,1.99,9,Candy
 Dr.Pepper,3.00,10,Soda
 Fritos,1.99,9,Chips

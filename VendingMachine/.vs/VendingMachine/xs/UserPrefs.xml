@@ -1,24 +1,26 @@
 ﻿<Properties StartupConfiguration="{5C52F539-6DB5-42B8-83A4-075208CCAF03}|Default">
   <MonoDevelop.Ide.ItemProperties.VendingMachine PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="VendingMachine/Services/VendingMachineService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="VendingMachine/Controllers/VendingMachineController.cs">
     <Files>
-      <File FileName="VendingMachine/Persistence/ItemFileDao.cs" Line="36" Column="1" />
-      <File FileName="VendingMachine/Controllers/VendingMachineController.cs" Line="29" Column="10" />
+      <File FileName="VendingMachine/Persistence/ItemFileDao.cs" Line="39" Column="14" />
+      <File FileName="VendingMachine/Controllers/VendingMachineController.cs" Line="122" Column="41" />
       <File FileName="VendingMachine/Program.cs" />
-      <File FileName="VendingMachine/Services/VendingMachineService.cs" Line="59" Column="1" />
-      <File FileName="VendingMachine/View/VendingMachineView.cs" />
-      <File FileName="VendingMachineTests/DaoTests/VMDaoTests.cs" Line="33" Column="43" />
+      <File FileName="VendingMachine/Services/VendingMachineService.cs" Line="24" Column="1" />
+      <File FileName="VendingMachine/View/VendingMachineView.cs" Line="64" Column="22" />
+      <File FileName="VendingMachineTests/DaoTests/VMDaoTests.cs" />
+      <File FileName="VendingMachine/Persistence/VendingMachineInMemDao.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="VendingMachine" expanded="True">
             <Node name="VendingMachine" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Persistence" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="VendingMachineService.cs" selected="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="VendingMachineController.cs" selected="True" />
               </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="Persistence" expanded="True" />
+              <Node name="Services" expanded="True" />
               <Node name="View" expanded="True" />
             </Node>
             <Node name="VendingMachineTests" expanded="True">
@@ -26,11 +28,6 @@
               <Node name="ServiceTests" expanded="True" />
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="VendingMachine" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

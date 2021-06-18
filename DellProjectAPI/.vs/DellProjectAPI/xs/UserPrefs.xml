@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="{A5C59524-1A5E-4160-A5C1-F11B3F5BF09B}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DellProjectAPI/Services/ProjectService.cs">
+    <Files>
+      <File FileName="DellProjectAPI/Models/Attendee.cs" Line="18" Column="10" />
+      <File FileName="DellProjectAPI/Models/Event.cs" Line="25" Column="6" />
+      <File FileName="DellProjectAPI/Models/Organizer.cs" Line="21" Column="2" />
+      <File FileName="DellProjectAPI/Models/Schedule.cs" Line="1" Column="1" />
+      <File FileName="DellProjectAPI/Services/ProjectService.cs" Line="32" Column="10" />
+      <File FileName="DellProjectAPI/Models/Activity.cs" Line="23" Column="1" />
+      <File FileName="DellProjectAPI/Persistence/EventInMemDao.cs" Line="1" Column="1" />
+      <File FileName="DellProjectAPI/Persistence/ScheduleInMemDao.cs" Line="1" Column="1" />
+      <File FileName="DellProjectAPI/Persistence/OrganizerInMemDao.cs" Line="1" Column="1" />
+      <File FileName="DellProjectAPI/Persistence/AttendeeInMemDao.cs" Line="1" Column="1" />
+      <File FileName="DellProjectAPI/Persistence/ActivityInMemDao.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DellProjectAPI" expanded="True">
+            <Node name="DellProjectAPI" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="Persistence" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="ProjectService.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.DellProjectAPI FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>
