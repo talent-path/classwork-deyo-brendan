@@ -18,5 +18,12 @@ namespace DellProjectAPI.Models
             Name = that.Name;
 
         }
+
+        public Activity(int id, string name, int duration)
+        {
+            Id = id;
+            Name = name;
+            Duration = duration;
+        }
     }
 }

@@ -17,5 +17,12 @@ namespace DellProjectAPI.Models
             Id = that.Id;
             OrganizedEvent = that.OrganizedEvent;
         }
+
+        public Organizer(string name, int id, Event thisevent)
+        {
+            Name = name;
+            Id = id;
+            OrganizedEvent = thisevent;
+        }
     }
 }

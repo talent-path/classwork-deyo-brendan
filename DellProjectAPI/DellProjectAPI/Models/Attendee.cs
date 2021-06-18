@@ -17,5 +17,11 @@ namespace DellProjectAPI.Models
             Name = that.Name;
         }
 
+        public Attendee(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
     }
 }

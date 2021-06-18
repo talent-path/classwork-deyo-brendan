@@ -1,0 +1,5 @@
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DellProjectAPI/DellProjectAPI/obj/Debug/netcoreapp3.1/DellProjectAPI.csprojAssemblyReference.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DellProjectAPI/DellProjectAPI/obj/Debug/netcoreapp3.1/DellProjectAPI.AssemblyInfoInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DellProjectAPI/DellProjectAPI/obj/Debug/netcoreapp3.1/DellProjectAPI.AssemblyInfo.cs
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DellProjectAPI/DellProjectAPI/obj/Debug/netcoreapp3.1/DellProjectAPI.csproj.CoreCompileInputs.cache
+/Users/brendandeyo/Desktop/classwork-deyo-brendan/DellProjectAPI/DellProjectAPI/obj/Debug/netcoreapp3.1/DellProjectAPI.MvcApplicationPartsAssemblyInfo.cache
