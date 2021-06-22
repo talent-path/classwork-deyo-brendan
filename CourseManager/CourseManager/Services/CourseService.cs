@@ -9,9 +9,9 @@ namespace CourseManager.Services
 {
     public class CourseService
     {
-        InMemCourseRepo _courseRepo = new InMemCourseRepo();
-        InMemTeacherRepo _teacherRepo = new InMemTeacherRepo();
-        InMemStudentRepo _studentRepo = new InMemStudentRepo();
+        ICourseRepo _courseRepo = new DBCourseRepo();
+        ITeacherRepo _teacherRepo = new DBTeacherRepo();
+        IStudentRepo _studentRepo = new DBStudentRepo();
 
         public List<Course> GetAll()
         {
@@ -72,64 +72,17 @@ namespace CourseManager.Services
         {
             _courseRepo.Edit(toEdit);
 
-            //may need to fix all students and teachers
-            //because of stupid in-mem relationships
 
-            List<Course> allCourses = _courseRepo.GetAll();
-            List<Student> allStudents = _studentRepo.GetAll();
-            List<Teacher> allTeachers = _teacherRepo.GetAll();
-
-            foreach( Student anyStudent in allStudents)
-            {
-                anyStudent.Courses =
-                    allCourses.Where(
-                        course => course.ClassStudents.Any(
-                            classStudent => classStudent.Id == anyStudent.Id)).ToList();
-
-
-            }
-            foreach( var anyTeacher in allTeachers)
-            {
-                anyTeacher.Courses = allCourses
-                    .Where(course => course.ClassTeacher.Id == anyTeacher.Id)
-                    .ToList();
-            }
         }
 
         public void EditTeacher(Teacher toEdit)
         {
             _teacherRepo.Edit(toEdit);
-
-            List<Course> allCourses = _courseRepo.GetAll();
-            List<Student> allStudents = _studentRepo.GetAll();
-            List<Teacher> allTeachers = _teacherRepo.GetAll();
-
-            foreach (Student anyStudent in allStudents)
-            {
-                anyStudent.Courses =
-                    allCourses.Where(
-                        course => course.ClassStudents.Any(
-                            classStudent => classStudent.Id == anyStudent.Id)).ToList();
-
-
-            }
-
-            // TODO, figure out relationship here
-
-            //foreach (var course in allCourses)
-            //{
-            //    course.ClassTeacher = allTeachers.Where(t => t.Courses.Any( == course);
-            //}
-
         }
 
         public void EditStudent(Student toEdit)
         {
             _studentRepo.Edit(toEdit);
-
-            List<Course> allCourses = _courseRepo.GetAll();
-            List<Student> allStudents = _studentRepo.GetAll();
-            List<Teacher> allTeachers = _teacherRepo.GetAll();
         }
 
         public Student GetStudentById(int id)
