@@ -3,14 +3,15 @@
 }
 
 <table>
-
+    Teachers: 
     @foreach (Teacher t in Model)
     {
         <tr>
             <td>@Html.ActionLink(t.Name, "Details", new { id = t.Id })</td>
-            <td>@t.Name</td>
+            <br />
             <td>@Html.ActionLink("Edit", "Edit", new { id = t.Id })</td>
-            <td>Delete</td>
+            <br />
+            <td>@Html.ActionLink("Delete", "Delete", new { id = t.Id })</td>
         </tr>
     }
 

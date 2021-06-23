@@ -40,7 +40,6 @@ namespace CourseManager.Services
             return toReturn;
         }
 
-
         public Teacher GetTeacherById(int id)
         {
             Teacher toReturn = _teacherRepo.GetById(id);

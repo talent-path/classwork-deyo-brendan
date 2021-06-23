@@ -21,6 +21,20 @@ namespace CourseManager.Controllers
             return View(teachers);
         }
 
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            return View(_service.GetTeacherById(id.Value));
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+
+            _service.DeleteTeacher(id);
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Details(int? id)
         {
             if (id != null)

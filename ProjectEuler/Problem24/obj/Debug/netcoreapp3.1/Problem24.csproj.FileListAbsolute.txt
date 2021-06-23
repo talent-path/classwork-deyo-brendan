@@ -1,0 +1,13 @@
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\bin\Debug\netcoreapp3.1\Problem24.exe
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\bin\Debug\netcoreapp3.1\Problem24.deps.json
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\bin\Debug\netcoreapp3.1\Problem24.runtimeconfig.json
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\bin\Debug\netcoreapp3.1\Problem24.runtimeconfig.dev.json
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\bin\Debug\netcoreapp3.1\Problem24.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\bin\Debug\netcoreapp3.1\Problem24.pdb
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\obj\Debug\netcoreapp3.1\Problem24.csproj.AssemblyReference.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\obj\Debug\netcoreapp3.1\Problem24.AssemblyInfoInputs.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\obj\Debug\netcoreapp3.1\Problem24.AssemblyInfo.cs
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\obj\Debug\netcoreapp3.1\Problem24.csproj.CoreCompileInputs.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\obj\Debug\netcoreapp3.1\Problem24.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\obj\Debug\netcoreapp3.1\Problem24.pdb
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem24\obj\Debug\netcoreapp3.1\Problem24.genruntimeconfig.cache

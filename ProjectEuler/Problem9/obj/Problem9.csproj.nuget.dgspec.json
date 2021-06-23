@@ -1,33 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem9/Problem9.csproj": {}
+    "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Problem9\\Problem9.csproj": {}
   },
   "projects": {
-    "/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem9/Problem9.csproj": {
+    "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Problem9\\Problem9.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem9/Problem9.csproj",
+        "projectUniqueName": "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Problem9\\Problem9.csproj",
         "projectName": "Problem9",
-        "projectPath": "/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem9/Problem9.csproj",
-        "packagesPath": "/Users/brendandeyo/.nuget/packages/",
-        "outputPath": "/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem9/obj/",
+        "projectPath": "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Problem9\\Problem9.csproj",
+        "packagesPath": "C:\\Users\\BDeyo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Problem9\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/brendandeyo/.config/NuGet/NuGet.Config"
+          "C:\\Users\\BDeyo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/Utils.csproj": {
-                "projectPath": "/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/Utils.csproj"
+              "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Utils\\Utils.csproj": {
+                "projectPath": "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Utils\\Utils.csproj"
               }
             }
           }
@@ -56,26 +58,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/Utils.csproj": {
+    "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Utils\\Utils.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/Utils.csproj",
+        "projectUniqueName": "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Utils\\Utils.csproj",
         "projectName": "Utils",
-        "projectPath": "/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/Utils.csproj",
-        "packagesPath": "/Users/brendandeyo/.nuget/packages/",
-        "outputPath": "/Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/obj/",
+        "projectPath": "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Utils\\Utils.csproj",
+        "packagesPath": "C:\\Users\\BDeyo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Utils\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/brendandeyo/.config/NuGet/NuGet.Config"
+          "C:\\Users\\BDeyo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -108,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

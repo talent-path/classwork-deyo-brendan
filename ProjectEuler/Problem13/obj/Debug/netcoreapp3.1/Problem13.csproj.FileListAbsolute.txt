@@ -9,3 +9,16 @@
 /Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem13/obj/Debug/netcoreapp3.1/Problem13.dll
 /Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem13/obj/Debug/netcoreapp3.1/Problem13.pdb
 /Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Problem13/obj/Debug/netcoreapp3.1/Problem13.genruntimeconfig.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\bin\Debug\netcoreapp3.1\Problem13.exe
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\bin\Debug\netcoreapp3.1\Problem13.deps.json
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\bin\Debug\netcoreapp3.1\Problem13.runtimeconfig.json
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\bin\Debug\netcoreapp3.1\Problem13.runtimeconfig.dev.json
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\bin\Debug\netcoreapp3.1\Problem13.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\bin\Debug\netcoreapp3.1\Problem13.pdb
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\obj\Debug\netcoreapp3.1\Problem13.csproj.AssemblyReference.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\obj\Debug\netcoreapp3.1\Problem13.AssemblyInfoInputs.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\obj\Debug\netcoreapp3.1\Problem13.AssemblyInfo.cs
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\obj\Debug\netcoreapp3.1\Problem13.csproj.CoreCompileInputs.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\obj\Debug\netcoreapp3.1\Problem13.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\obj\Debug\netcoreapp3.1\Problem13.pdb
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem13\obj\Debug\netcoreapp3.1\Problem13.genruntimeconfig.cache

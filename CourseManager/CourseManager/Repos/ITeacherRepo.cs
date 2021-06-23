@@ -12,5 +12,6 @@ namespace CourseManager.Repos
         Teacher GetById(int id);
         void Delete(int id);
         void Edit(Teacher toEdit);
+        List<Course> GetTeacherCourses(int id);
     }
 }

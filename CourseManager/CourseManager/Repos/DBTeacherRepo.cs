@@ -35,7 +35,7 @@ namespace CourseManager.Repos
                 var name = table.Rows[0].Field<string>("Name");
                 toReturn.Id = setId;
                 toReturn.Name = name;
-
+                toReturn.Courses = GetTeacherCourses(toReturn.Id.Value);
             }
 
             return toReturn;
@@ -69,8 +69,8 @@ namespace CourseManager.Repos
 
         public void Delete(int id)
         {
-            DataSet set = ExecuteQuery($"DELETE FROM Courses WHERE TeacherId = {id}");
-            set = ExecuteQuery($"DELETE FROM Teachers WHERE Id = {id}");
+            ExecuteQuery($"UPDATE Courses SET TeacherId = NULL WHERE TeacherId = {id}");
+            ExecuteQuery($"DELETE FROM Teachers WHERE Id = {id}");
         }
 
         public List<Teacher> GetAll()
@@ -82,6 +82,27 @@ namespace CourseManager.Repos
             foreach(DataRow row in set.Tables[0].Rows)
             {
                 toReturn.Add(ConvertTableRow(row));
+            }
+
+            return toReturn;
+
+        }
+
+        public List<Course> GetTeacherCourses(int id)
+        {
+            List<Course> toReturn = new List<Course>();
+
+            DataSet set = ExecuteQuery($"SELECT Id, Name FROM Courses WHERE TeacherId = {id}");
+
+            var table = set.Tables[0];
+
+            foreach(DataRow row in table.Rows)
+            {
+                Course thisCourse = new Course();
+                thisCourse.Id = row.Field<int>("Id");
+                thisCourse.Name = row.Field<string>("Name");
+
+                toReturn.Add(thisCourse);
             }
 
             return toReturn;

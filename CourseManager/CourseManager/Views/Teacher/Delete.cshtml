@@ -1,0 +1,10 @@
+﻿@model Teacher
+@{
+}
+
+<h4>Are you sure you want to delete @Model.Name?</h4>
+@using (Html.BeginForm("Delete", "Teacher", FormMethod.Post))
+{
+    @Html.HiddenFor(t => t.Id);
+    <button>Yes</button>
+}

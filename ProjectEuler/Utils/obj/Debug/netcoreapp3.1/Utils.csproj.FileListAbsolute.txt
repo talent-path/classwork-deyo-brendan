@@ -7,3 +7,12 @@
 /Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/obj/Debug/netcoreapp3.1/Utils.csproj.CoreCompileInputs.cache
 /Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/obj/Debug/netcoreapp3.1/Utils.dll
 /Users/brendandeyo/Desktop/classwork-deyo-brendan/ProjectEuler/Utils/obj/Debug/netcoreapp3.1/Utils.pdb
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Utils\bin\Debug\netcoreapp3.1\Utils.deps.json
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Utils\bin\Debug\netcoreapp3.1\Utils.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Utils\bin\Debug\netcoreapp3.1\Utils.pdb
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Utils\obj\Debug\netcoreapp3.1\Utils.csproj.AssemblyReference.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Utils\obj\Debug\netcoreapp3.1\Utils.AssemblyInfoInputs.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Utils\obj\Debug\netcoreapp3.1\Utils.AssemblyInfo.cs
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Utils\obj\Debug\netcoreapp3.1\Utils.csproj.CoreCompileInputs.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Utils\obj\Debug\netcoreapp3.1\Utils.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Utils\obj\Debug\netcoreapp3.1\Utils.pdb

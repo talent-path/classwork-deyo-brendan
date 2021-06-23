@@ -100,5 +100,18 @@ namespace CourseManager.Controllers
             return BadRequest();
         }
 
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            return View(_service.GetById(id.Value));
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            _service.DeleteCourse(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }
