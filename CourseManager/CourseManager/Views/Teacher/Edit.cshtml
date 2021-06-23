@@ -1,3 +1,11 @@
-﻿@page
+﻿@model Teacher
 @{
+}
+
+@using (Html.BeginForm("Edit", "Teacher", FormMethod.Post))
+{
+                @Html.HiddenFor(t => t.Id);
+                @Html.TextBoxFor(t => t.Name);
+
+                <button>Edit</button>
 }

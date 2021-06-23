@@ -46,7 +46,7 @@ namespace CourseManager.Services
 
             if (toReturn == null)
             {
-                throw new TeacherNotFoundException($"No teacher has an id of {id}.");
+                return null; 
             }
 
             return toReturn;

@@ -71,7 +71,7 @@ namespace CourseManager.Controllers
                         AllCourses = allCourses
                     };
 
-                    return View(vm);
+                    return View(toDisplay);
 
                 }
                 catch (CourseNotFoundException ex)
@@ -83,27 +83,10 @@ namespace CourseManager.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(EditTeacherViewModel vm)
+        public IActionResult Edit(Teacher updated)
         {
-            //if (vm.ToEdit.Id != null)
-            //{
-
-            //    Teacher fullyHydratedTeacher
-            //        = _service.GetTeacherById(vm.ToEdit.Id.Value);
-
-
-            //    List<Course> fullyHydratedStudents
-            //        = vm.CourseIds.Se(id => _service.GetStudentById(id)).ToList();
-
-            //    vm.ToEdit.ClassTeacher = fullyHydratedTeacher;
-            //    vm.ToEdit.ClassStudents = fullyHydratedStudents;
-
-            //    _service.EditCourse(vm.ToEdit);
-
-            //    return RedirectToAction("Index");
-            //}
-
-            return BadRequest();
+            _service.EditTeacher(updated);
+            return RedirectToAction("Index");
         }
     }
 }

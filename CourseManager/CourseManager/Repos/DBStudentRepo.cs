@@ -68,8 +68,8 @@ namespace CourseManager.Repos
 
         public void Delete(int id)
         {
-            DataSet set = ExecuteQuery($"delete from StudentCourses where StudentId = {id}");
-            set = ExecuteQuery($"delete from Students where id = {id}");
+            ExecuteQuery($"delete from StudentCourses where StudentId = {id}");
+            ExecuteQuery($"delete from Students where id = {id}");
         }
 
         public List<Student> GetAll()

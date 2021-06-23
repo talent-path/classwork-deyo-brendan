@@ -3,26 +3,23 @@
 }
 
 <table>
-
-    @foreach( Course c in Model)
+    <a href="~/Teacher/Index">View All Teachers</a>
+    @foreach (Course c in Model)
     {
         <tr>
             <td>@Html.ActionLink(c.Name, "Details", new { id = c.Id })</td>
-            
+
             @if (c.ClassTeacher != null)
             {
                 <td>@c.ClassTeacher.Name</td>
             }
-                else
-                {
-                    <td>No Teacher</td>
-                }
-            <td>@Html.ActionLink("Edit", "Edit", new { id = c.Id })</td>
-            <td>@Html.ActionLink("Delete", "Delete", new { id = c.Id })</td>
+            else
+            {
+                <td>No Teacher</td>
+            }
+            <td>@Html.ActionLink(" Edit", "Edit", new { id = c.Id })</td>
+            <td>@Html.ActionLink(" Delete", "Delete", new { id = c.Id })</td>
         </tr>
     }
-
-    <a href ="~/Teacher/Index">View All Teachers</a>
-
 
 </table>

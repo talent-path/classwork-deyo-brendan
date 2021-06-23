@@ -15,7 +15,7 @@ Teacher:
     <select name="ToEdit.ClassTeacher.Id">
         @foreach (var t in Model.AllTeachers)
         {
-            if (t.Id == Model.ToEdit.ClassTeacher.Id)
+            if (Model.ToEdit.ClassTeacher != null && t.Id == Model.ToEdit.ClassTeacher.Id)
             {
                 <option value="@t.Id" selected>@t.Name</option>
 

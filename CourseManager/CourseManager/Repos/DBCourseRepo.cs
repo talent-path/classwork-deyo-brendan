@@ -138,12 +138,13 @@ namespace CourseManager.Repos
 
             DataSet set = ExecuteQuery("SELECT Id, Name, TeacherId FROM Courses");
 
-            foreach(DataRow row in set.Tables[0].Rows)
+            foreach (DataRow row in set.Tables[0].Rows)
             {
                 courses.Add(ConvertTableRow(row));
             }
 
             return courses;
+
         }
     }
 }

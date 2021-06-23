@@ -63,7 +63,7 @@ namespace CourseManager.Repos
                 throw new NoNullAllowedException("Teacher can not be null");
             else
             {
-                set = ExecuteQuery($"UPDATE Teachers SET Name = {updated.Name} WHERE Id = {updated.Id}");
+                set = ExecuteQuery($"UPDATE Teachers SET Name = '{updated.Name}' WHERE Id = {updated.Id}");
             }
         }
 
