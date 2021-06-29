@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DellProjectAPI.Persistence
 {
-    public class EventInMemDao
+    public class EventInMemDao : IEventDao
     {
 
         List<Event> _eventList = new List<Event>();

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace DellProjectAPI.Persistence
 {
-    public class ActivityInMemDao
+    public class ActivityInMemDao : IActivityDao
     {
 
         List<Activity> _activityList = new List<Activity>();

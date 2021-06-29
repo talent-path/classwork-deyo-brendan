@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using DellProjectAPI.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace DellProjectAPI
 {
@@ -25,6 +27,8 @@ namespace DellProjectAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<PlannerDbContext>((options) => 
+                options.UseSqlServer(Configuration.GetConnectionString("PlannerDb")));
             services.AddControllers();
         }
 

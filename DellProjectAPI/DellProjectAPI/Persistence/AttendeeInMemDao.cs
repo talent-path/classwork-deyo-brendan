@@ -5,7 +5,7 @@ using DellProjectAPI.Models;
 
 namespace DellProjectAPI.Persistence
 {
-    public class AttendeeInMemDao
+    public class AttendeeInMemDao : IAttendeeDao
     {
         List<Attendee> _attendees = new List<Attendee>();
 
@@ -52,7 +52,7 @@ namespace DellProjectAPI.Persistence
         {
             List<Attendee> attendees = GetAllAttendees();
 
-            for(int i = 0; i < attendees.Count; i++)
+            for (int i = 0; i < attendees.Count; i++)
             {
                 Attendee attendee = attendees[i];
                 if (attendee.Id == updated.Id)

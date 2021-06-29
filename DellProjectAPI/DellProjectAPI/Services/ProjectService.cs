@@ -7,19 +7,20 @@ namespace DellProjectAPI.Services
 {
     public class ProjectService
     {
-        EventInMemDao _eventDao;
-        ActivityInMemDao _activityDao;
-        AttendeeInMemDao _attendeeDao;
-        OrganizerInMemDao _organizerDao;
-        ScheduleInMemDao _scheduleDao;
+        IEventDao _eventDao;
+        IActivityDao _activityDao;
+        IAttendeeDao _attendeeDao;
+        IOrganizerDao _organizerDao;
+        //ScheduleInMemDao _scheduleDao;
 
-        public ProjectService()
+        public ProjectService(IEventDao eventDao, IActivityDao activityDao, 
+            IAttendeeDao attendeeDao, IOrganizerDao organizerDao) 
         {
-            _eventDao = new EventInMemDao();
-            _activityDao = new ActivityInMemDao();
-            _attendeeDao = new AttendeeInMemDao();
-            _organizerDao = new OrganizerInMemDao();
-            _scheduleDao = new ScheduleInMemDao();
+            _eventDao = eventDao;
+            _activityDao = activityDao;
+            _attendeeDao = attendeeDao;
+            _organizerDao = organizerDao;
+            //_scheduleDao = new ScheduleInMemDao();
         }
 
         public List<Event> GetAllEvents()
@@ -112,24 +113,24 @@ namespace DellProjectAPI.Services
 
         }
 
-        public Event GetEventById(int id)
-        {
+        //public Event GetEventById(int id)
+        //{
 
-        }
+        //}
 
-        public Organizer GetOrganizerById(int id)
-        {
+        //public Organizer GetOrganizerById(int id)
+        //{
 
-        }
+        //}
 
-        public Attendee GetAttendeeById(int id)
-        {
+        //public Attendee GetAttendeeById(int id)
+        //{
 
-        }
+        //}
 
-        public Activity GetActivityById(int id)
-        {
+        //public Activity GetActivityById(int id)
+        //{
 
-        }
+        //}
     }
 }

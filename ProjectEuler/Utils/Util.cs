@@ -8,17 +8,22 @@ namespace Utils
     {
         public static bool IsPrime(BigInteger num)
         {
-            BigInteger root = GetRoot(num);
-
-            if (num % 2 == 0 && num != 2)
-                return false;
-
-            for (BigInteger i = 3; i <= root; i+=2)
+            if (num < 2) return false;
+            bool prime = true;
+            BigInteger sqrRoot = GetRoot(num);
+            if (num % 2 == 0)
             {
-                if (root % i == 0)
-                    return false;
+                return num == 2;
             }
-            return true;
+            for (BigInteger check = 3; check <= sqrRoot; check += 2)
+            {
+                if (num % check == 0)
+                {
+                    prime = false;
+                    break;
+                }
+            }
+            return prime;
         }
 
         public static bool IntIsPrime(int num)
@@ -86,6 +91,65 @@ namespace Utils
             }
 
             return root;
+        }
+
+        public static bool IsTruncatable(BigInteger num)
+        {
+            int lengthOfNum = num.ToString().Length;
+
+            bool checkNum = false;
+
+            //num = 3797
+            BigInteger onesDigit = num % 10;
+
+            BigInteger lastDigit = int.Parse(num.ToString().Substring(0, 1));
+
+            if (!IsPrime(onesDigit) || !IsPrime(lastDigit))
+            {
+                return false;
+            }
+            else
+            {
+                // right to left
+                for(int i = lengthOfNum; i >= 1; i--)
+                {
+                    string debug = num.ToString().Substring(0, i);
+                    checkNum = IsPrime(BigInteger.Parse(num.ToString().Substring(0, i)));
+
+                    if (!checkNum)
+                    {
+                        return false;
+                        
+                    }
+                }
+
+                // left to right
+
+                for (int i = 1; i < lengthOfNum; i++)
+                {
+                    checkNum = IsPrime(BigInteger.Parse(num.ToString().Substring(i)));
+
+                    if (!checkNum)
+                    {
+                        return false;
+
+                    }
+                }
+            }
+            return true;
+        }
+
+        public static BigInteger FlipNumber(BigInteger num)
+        {
+            BigInteger reverse = 0;
+            while (num > 0)
+            {
+                BigInteger remainder = num % 10;
+                reverse = (reverse * 10) + remainder;
+                num /= 10;
+            }
+
+            return reverse;
         }
 
         public static List<int> GenerateDivisors(int num)
