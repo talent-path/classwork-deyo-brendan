@@ -9,5 +9,6 @@ namespace DellProjectAPI.Persistence
         List<Event> GetAllEvents();
         Event GetEventById(int id);
         void RemoveEvent(Event toRemove);
+        void EditEvent(Event updated);
     }
 }

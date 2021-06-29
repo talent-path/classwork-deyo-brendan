@@ -10,22 +10,22 @@ using System.Threading.Tasks;
 namespace DellProjectAPI.Controllers
 {
     [ApiController]
-    [Route("/api/Event")]
-    public class EventController : ControllerBase
+    [Route("/api/Attendee")]
+    public class AttendeeController : ControllerBase
     {
         ProjectService _service;
 
-        public EventController(ProjectService service)
+        public AttendeeController(ProjectService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public IActionResult GetAllEvents()
+        public IActionResult GetAllAttendees()
         {
             try
             {
-                return this.Accepted(_service.GetAllEvents());
+                return this.Accepted(_service.GetAllAttendees());
             }
             catch(EmptyListException e)
             {
@@ -34,11 +34,11 @@ namespace DellProjectAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetEventById(int id)
+        public IActionResult GetAttendeeById(int id)
         {
             try
             {
-                return this.Accepted(_service.GetEventById(id));
+                return this.Accepted(_service.GetAttendeeById(id));
             }
             catch(InvalidIdException e)
             {
@@ -47,45 +47,42 @@ namespace DellProjectAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddEvent(Event toAdd)
+        public IActionResult AddAttendee(Attendee toAdd)
         {
             try
             {
-                _service.AddEvent(toAdd);
+                _service.AddAttendee(toAdd);
                 return this.Accepted();
             }
-            catch(InvalidEventException e)
+            catch(InvalidAttendeeException e)
             {
                 return this.BadRequest(e.Message);
             }
         }
 
         [HttpPut]
-        public IActionResult EditEvent(Event updated)
+        public IActionResult EditAttendee(Attendee updated)
         {
             try
             {
-                _service.EditEvent(updated);
+                _service.EditAttendee(updated);
                 return this.Accepted();
             }
-            catch(InvalidEventException e)
+            catch(InvalidAttendeeException e)
             {
                 return this.BadRequest(e.Message);
             }
+
         }
 
         [HttpDelete]
-        public IActionResult DeleteEvent(Event toDelete)
-        {
-            try
+        public IActionResult DeleteAttendee(Attendee toDelete)
+        {try
             {
-                _service.RemoveEvent(toDelete);
+                _service.RemoveAttendee(toDelete);
                 return this.Accepted();
             }
-            catch (InvalidEventException e)
-            {
-                return this.BadRequest(e.Message);
-            }
+            catch (InvalidAttendeeException e) { return this.BadRequest(e.Message); } 
         }
     }
 }

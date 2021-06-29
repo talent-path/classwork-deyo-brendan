@@ -1,4 +1,5 @@
 ﻿using DellProjectAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,21 +24,32 @@ namespace DellProjectAPI.Persistence.Repos
         public void EditActivity(Activity update)
         {
             _context.Activities.Attach(update);
+            _context.Entry(update).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public Activity GetActivityById(int id)
         {
-            throw new NotImplementedException();
+            Activity toReturn = _context.Activities.Find(id);
+            return toReturn;
         }
 
         public List<Activity> GetAllActivities()
         {
-            throw new NotImplementedException();
+            List<Activity> allActivities = _context.Activities.ToList();
+            return allActivities;
         }
 
         public void RemoveActivity(Activity toRemove)
         {
-            throw new NotImplementedException();
+            Activity toDelete = new Activity
+            {
+                Id = toRemove.Id
+            };
+            _context.Activities.Attach(toDelete);
+            _context.Activities.Remove(toDelete);
+            _context.SaveChanges();
+
         }
     }
 }
