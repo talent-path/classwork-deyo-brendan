@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "w1sbMYdDFs5mDSpS6dxJ3U/4l/y0NZrR3WcVBTfW8bwQLx5gDm8lmwHCyvgszzoj9AuO243Rw2PvAdBrUOHruA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\BDeyo\\Desktop\\classwork-deyo-brendan\\ProjectEuler\\Problem55\\Problem55.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\BDeyo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\BDeyo\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\BDeyo\\.nuget\\packages\\nunit\\3.13.2\\nunit.3.13.2.nupkg.sha512",
+    "C:\\Users\\BDeyo\\.nuget\\packages\\nunit3testadapter\\4.0.0\\nunit3testadapter.4.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

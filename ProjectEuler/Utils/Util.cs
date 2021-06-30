@@ -175,7 +175,7 @@ namespace Utils
 
         }
 
-        public static bool IsPalindrome(int num)
+        public static bool IsPalindrome(BigInteger num)
         {
             String toCompare = num.ToString();
 
@@ -184,6 +184,23 @@ namespace Utils
             for (int i = 0; i < length; i++)
             {
                 if (toCompare[i] != toCompare[length - 1 - i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool IsLychrelNumber(BigInteger num)
+        {
+            BigInteger checkNum = num;
+
+            for (int i = 0; i < 50; i++)
+            {
+                checkNum += Util.FlipNumber(checkNum);
+
+                if (Util.IsPalindrome(checkNum))
                 {
                     return false;
                 }
