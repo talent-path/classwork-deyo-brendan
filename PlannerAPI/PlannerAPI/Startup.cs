@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PlannerAPI.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace PlannerAPI
 {
@@ -29,7 +30,8 @@ namespace PlannerAPI
         {
             services.AddDbContext<PlannerDbContext>((options) => 
                 options.UseSqlServer(Configuration.GetConnectionString("PlannerDb")));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson((options) 
+                => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

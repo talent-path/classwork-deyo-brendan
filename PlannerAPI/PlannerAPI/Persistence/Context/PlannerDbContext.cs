@@ -10,7 +10,7 @@ namespace PlannerAPI.Persistence
 {
     public class PlannerDbContext : DbContext
     {
-        private readonly ILoggerFactory _loggerFactory;
+        //private readonly ILoggerFactory _loggerFactory;
 
         public DbSet<Event> Events { get; set; }
 
@@ -22,19 +22,52 @@ namespace PlannerAPI.Persistence
 
         public DbSet<Schedule> Schedules { get; set; }
 
+        public DbSet<EventActivities> EventActivities { get; set; }
+
+        public DbSet<EventAttendees> EventAttendees { get; set; }
+
+        public DbSet<EventOrganizer> EventOrganizer { get; set; }
+
         public PlannerDbContext(DbContextOptions<PlannerDbContext> options) : base(options)
         {
             
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            optionsBuilder.UseLoggerFactory(_loggerFactory);
+            //modelBuilder.Entity<EventActivities>().HasForeignKey(e => new
+            //{
+            //    e.EventId,
+            //    e.ActivityId
+            //});
+
+            modelBuilder.Entity<EventActivities>().HasNoKey();
+
+            modelBuilder.Entity<EventAttendees>().HasNoKey();
+
+            modelBuilder.Entity<EventOrganizer>().HasNoKey();
+
+            //modelBuilder.Entity<EventAttendees>().HasKey(e => new
+            //{
+            //    e.EventId,
+            //    e.AttendeeId
+            //});
+
+            //modelBuilder.Entity<EventOrganizer>().HasKey(e => new
+            //{
+            //    e.EventId,
+            //    e.OrganizerId
+            //});
         }
 
-        public PlannerDbContext() : base()
-        {
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseLoggerFactory(_loggerFactory);
+        //}
 
-        }
+        //public PlannerDbContext() : base()
+        //{
+
+        //}
     }
 }

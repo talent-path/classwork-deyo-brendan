@@ -12,11 +12,11 @@ namespace PlannerAPI.Persistence
 
         public ActivityInMemDao()
         { 
-            _activityList.Add(new Activity(1, "Bowling", 50, new Event()));
-            _activityList.Add(new Activity(2, "Running", 20, new Event()));
-            _activityList.Add(new Activity(3, "Jogging", 40, new Event()));
-            _activityList.Add(new Activity(4, "Lifting", 90, new Event()));
-            _activityList.Add(new Activity(5, "Swimming", 50, new Event()));
+            _activityList.Add(new Activity(1, "Bowling", 50));
+            _activityList.Add(new Activity(2, "Running", 20));
+            _activityList.Add(new Activity(3, "Jogging", 40));
+            _activityList.Add(new Activity(4, "Lifting", 90));
+            _activityList.Add(new Activity(5, "Swimming", 50));
         }
 
         public List<Activity> GetAllActivities()

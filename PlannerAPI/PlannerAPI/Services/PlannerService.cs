@@ -7,7 +7,7 @@ using PlannerAPI.Exceptions;
 
 namespace PlannerAPI.Services
 {
-    public class ProjectService
+    public class PlannerService
     {
         EFEventRepo _eventRepo;
         EFActivityRepo _activityRepo;
@@ -15,13 +15,52 @@ namespace PlannerAPI.Services
         EFOrganizerRepo _organizerRepo;
         //ScheduleInMemDao _scheduleDao;
 
-        public ProjectService(PlannerDbContext context)
+        public PlannerService(PlannerDbContext context)
         {
             _eventRepo = new EFEventRepo(context) ?? throw new System.ArgumentNullException(nameof(context));
             _activityRepo = new EFActivityRepo(context) ?? throw new System.ArgumentNullException(nameof(context));
             _attendeeRepo = new EFAttendeeRepo(context) ?? throw new System.ArgumentNullException(nameof(context));
             _organizerRepo = new EFOrganizerRepo(context) ?? throw new System.ArgumentNullException(nameof(context));
             //_scheduleDao = new ScheduleInMemDao();
+        }
+
+        // BRDIGE GETS FOR EVENTACTIVITIES / EVENTATTENDEES / EVENTORGANIZER
+
+        public List<Activity> GetEventActivities(int id)
+        {
+            List<Activity> toReturn = _eventRepo.GetEventActivities(id);
+
+            if (toReturn == null)
+                throw new NoActivitiesForGivenEventException("No activities were found for this event");
+            if (id <= 0)
+                throw new InvalidIdException("Invalid id for this event");
+           
+            return toReturn;
+        }
+
+        public List<Attendee> GetEventAttendees(int id)
+        {
+            List<Attendee> toReturn = _eventRepo.GetEventAttendees(id);
+
+            if (toReturn == null)
+                throw new NoAttendeesForGivenEventException("No attendees were found for this event");
+            if (id <= 0)
+                throw new InvalidIdException("Invalid id for this event");
+
+            return toReturn;
+        }
+
+        public Organizer GetEventOrganizer(int id)
+        {
+            Organizer toReturn = _eventRepo.GetEventOrganizer(id);
+
+            if (toReturn == null)
+                throw new NoOrganizerForGivenEventException("No organizer was found for this event");
+            if (id <= 0)
+                throw new InvalidIdException("Invalid id for this event");
+
+            return toReturn;
+
         }
 
         // GET ALL FOR OBJECTS 
@@ -107,36 +146,61 @@ namespace PlannerAPI.Services
 
         // REMOVE OBJECTS
 
-        public void RemoveActivity(Activity toRemove)
+        public void RemoveActivity(int id)
         {
-            if (toRemove.Id <= 0)
+            if (id <= 0)
                 throw new InvalidIdException("Can't remove activity with this ID");
             else
-                _activityRepo.RemoveActivity(toRemove);
+            {
+                Activity activity = _activityRepo.GetActivityById(id);
+                if (activity == null)
+                    throw new InvalidActivityException("Activity with this ID does not exist");
+                else
+                    _activityRepo.RemoveActivity(activity);
+            }
+
         }
 
-        public void RemoveEvent(Event toRemove)
+        public void RemoveEvent(int id)
         {
-            if (toRemove.Id <= 0)
+            if (id <= 0)
                 throw new InvalidIdException("Can't remove event with this ID");
             else
-                _eventRepo.RemoveEvent(toRemove);
+            {
+                Event thisEvent = _eventRepo.GetEventById(id);
+                if (thisEvent == null)
+                    throw new InvalidEventException("Event with this ID does not exist");
+                else
+                    _eventRepo.RemoveEvent(thisEvent);
+            }
         }
 
-        public void RemoveOrganizer(Organizer toRemove)
+        public void RemoveOrganizer(int id)
         {
-            if (toRemove.Id <= 0)
+            if (id <= 0)
                 throw new InvalidIdException("Can't remove organizer with this ID");
             else
-                _organizerRepo.RemoveOrganizer(toRemove);
+            {
+                Organizer organizer = _organizerRepo.GetOrganizerById(id);
+                if (organizer == null)
+                    throw new InvalidOrganizerException("Organizer with that ID does not exist");
+                else
+                    _organizerRepo.RemoveOrganizer(organizer);
+            }
         }
 
-        public void RemoveAttendee(Attendee toRemove)
+        public void RemoveAttendee(int id)
         {
-            if (toRemove.Id <= 0)
+            if (id <= 0)
                 throw new InvalidIdException("Can't remove attendee with this ID");
             else
-                _attendeeRepo.RemoveAttendee(toRemove);
+            {
+                Attendee attendee = _attendeeRepo.GetAttendeeById(id);
+                if (attendee == null)
+                    throw new InvalidAttendeeException("Attendee with that ID does not exist");
+                else
+                    _attendeeRepo.RemoveAttendee(attendee);
+            }
         }
 
         // EDIT OBJECTS

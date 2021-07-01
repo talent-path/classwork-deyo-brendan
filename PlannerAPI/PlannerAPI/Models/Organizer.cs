@@ -17,7 +17,7 @@ namespace PlannerAPI.Models
         [Column("Id")]
         public int Id { get; set; }
         [Column("OrganizedEvents")]
-        public List<Event> OrganizedEvents { get; set; }
+        public List<Event> OrganizedEvents { get; set; } = new List<Event>();
 
         public Organizer(Organizer that)
         {

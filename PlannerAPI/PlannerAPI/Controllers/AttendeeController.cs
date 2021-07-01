@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PlannerAPI.Persistence;
 
 namespace PlannerAPI.Controllers
 {
@@ -13,11 +14,11 @@ namespace PlannerAPI.Controllers
     [Route("/api/Attendee")]
     public class AttendeeController : ControllerBase
     {
-        ProjectService _service;
+        PlannerService _service;
 
-        public AttendeeController(ProjectService service)
+        public AttendeeController(PlannerDbContext context)
         {
-            _service = service;
+            _service = new PlannerService(context);
         }
 
         [HttpGet]
@@ -75,14 +76,16 @@ namespace PlannerAPI.Controllers
 
         }
 
-        [HttpDelete]
-        public IActionResult DeleteAttendee(Attendee toDelete)
-        {try
+        [HttpDelete("{id}")]
+        public IActionResult DeleteAttendee(int id)
+        {   
+            try
             {
-                _service.RemoveAttendee(toDelete);
+                _service.RemoveAttendee(id);
                 return this.Accepted();
             }
             catch (InvalidAttendeeException e) { return this.BadRequest(e.Message); } 
+            catch (InvalidIdException e) { return this.BadRequest(e.Message); }
         }
     }
 }

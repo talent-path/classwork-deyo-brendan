@@ -43,15 +43,8 @@ namespace PlannerAPI.Persistence.Repos
 
         public void RemoveOrganizer(Organizer toRemove)
         {
-            Organizer toDelete = new Organizer
-            {
-                Id = toRemove.Id
-            };
-
-            _context.Organizers.Attach(toDelete);
-            _context.Organizers.Remove(toDelete);
+            _context.Organizers.Remove(toRemove);
             _context.SaveChanges();
-
         }
     }
 }

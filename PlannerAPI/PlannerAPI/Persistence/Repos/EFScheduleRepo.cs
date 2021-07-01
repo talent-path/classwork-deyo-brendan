@@ -28,12 +28,7 @@ namespace PlannerAPI.Persistence.Repos
 
         public void RemoveSchedule(Schedule toRemove)
         {
-            Schedule toDelete = new Schedule
-            {
-                Id = toRemove.Id
-            };
-            _context.Schedules.Attach(toDelete);
-            _context.Schedules.Remove(toDelete);
+            _context.Schedules.Remove(toRemove);
             _context.SaveChanges();
         }
 

@@ -10,7 +10,7 @@ namespace Utils
         {
             if (num < 2) return false;
             bool prime = true;
-            BigInteger sqrRoot = GetRoot(num);
+            BigInteger sqrRoot = GetRoot(long.Parse(num.ToString()));
             if (num % 2 == 0)
             {
                 return num == 2;
@@ -68,6 +68,22 @@ namespace Utils
             for (BigInteger i = 1; i < num; i++)
             {
                 if ((i * i) > num)
+                {
+                    root = i - 1;
+                    break;
+                }
+            }
+
+            return root;
+        }
+
+        public static long GetRoot(long num)
+        {
+            long root = 0;
+
+            for(long i = 1; i <num; i++)
+            {
+                if((i*i) > num)
                 {
                     root = i - 1;
                     break;
@@ -150,6 +166,37 @@ namespace Utils
             }
 
             return reverse;
+        }
+
+        //public static List<BigInteger> GetPandigitals()
+        //{
+        //    List<BigInteger> toReturn = new List<BigInteger>();
+
+        //    for(int i = 9; i > 0; i--)
+        //    {
+                
+        //    }
+
+        //}
+
+        public static void GeneratePermutations
+            (List<string> allPermutations, string currNum, List<string> availableNums)
+        {
+            if (availableNums.Count == 0)
+            {
+                if (int.Parse(currNum) % 2 != 0)
+                    allPermutations.Add(currNum);
+            }
+            else
+            {
+                for (int i = 0; i < availableNums.Count; i++)
+                {
+                    string addString = availableNums[i];
+                    availableNums.RemoveAt(i);
+                    GeneratePermutations(allPermutations, currNum + addString, availableNums);
+                    availableNums.Insert(i, addString);
+                }
+            }
         }
 
         public static List<int> GenerateDivisors(int num)

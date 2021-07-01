@@ -15,21 +15,25 @@ namespace PlannerAPI.Models
         public Schedule(Schedule that)
         {
             Id = that.Id;
-            EventDate = that.EventDate;
+            StartDate = that.StartDate;
+            EndDate = that.EndDate;
             Events = that.Events;
         }
 
-        public Schedule(int id, DateTime eventDate, List<Event> events)
+        public Schedule(int id, DateTime start, DateTime end, List<Event> events)
         {
             Id = id;
-            EventDate = eventDate;
+            StartDate = start;
+            EndDate = end;
             Events = events;
         }
 
         [Column("Id")]
         public int Id { get; set; }
 
-        public DateTime EventDate { get; set; }
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
 
         public List<Event> Events { get; set; }
 

@@ -11,12 +11,13 @@ namespace PlannerAPI.Models
         {
         }
 
-        [Column("Name")]
-        public Event Event { get; set; }
+        //[Column("Name")]
+        //public Event Event { get; set; }
 
         [Column("Id")]
         public int Id { get; set; }
 
+        [Column("Name")]
         [Required]
         [MaxLength(100)]
         public string Name { get; set; }
@@ -29,16 +30,13 @@ namespace PlannerAPI.Models
             Duration = that.Duration;
             Id = that.Id;
             Name = that.Name;
-            Event = that.Event;
-
         }
 
-        public Activity(int id, string name, int duration, Event thisEvent)
+        public Activity(int id, string name, int duration)
         {
             Id = id;
             Name = name;
             Duration = duration;
-            Event = thisEvent;
         }
     }
 }

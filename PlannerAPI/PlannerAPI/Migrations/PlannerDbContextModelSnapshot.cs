@@ -36,7 +36,8 @@ namespace PlannerAPI.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("Name");
 
                     b.HasKey("Id");
 
@@ -102,6 +103,47 @@ namespace PlannerAPI.Migrations
                     b.ToTable("Event");
                 });
 
+            modelBuilder.Entity("PlannerAPI.Models.EventActivities", b =>
+                {
+                    b.Property<int>("ActivityId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ActivityId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("EventActivities");
+                });
+
+            modelBuilder.Entity("PlannerAPI.Models.EventAttendees", b =>
+                {
+                    b.Property<int>("AttendeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("AttendeeId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("EventAttendees");
+                });
+
+            modelBuilder.Entity("PlannerAPI.Models.EventOrganizer", b =>
+                {
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrganizerId")
+                        .HasColumnType("int");
+
+                    b.ToTable("EventOrganizer");
+                });
+
             modelBuilder.Entity("PlannerAPI.Models.Organizer", b =>
                 {
                     b.Property<int>("Id")
@@ -127,7 +169,10 @@ namespace PlannerAPI.Migrations
                         .HasColumnName("Id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("EventDate")
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -137,11 +182,9 @@ namespace PlannerAPI.Migrations
 
             modelBuilder.Entity("PlannerAPI.Models.Activity", b =>
                 {
-                    b.HasOne("PlannerAPI.Models.Event", "Event")
+                    b.HasOne("PlannerAPI.Models.Event", null)
                         .WithMany("Activities")
                         .HasForeignKey("EventId");
-
-                    b.Navigation("Event");
                 });
 
             modelBuilder.Entity("PlannerAPI.Models.Attendee", b =>
@@ -153,7 +196,7 @@ namespace PlannerAPI.Migrations
 
             modelBuilder.Entity("PlannerAPI.Models.Event", b =>
                 {
-                    b.HasOne("PlannerAPI.Models.Organizer", "Organizer")
+                    b.HasOne("PlannerAPI.Models.Organizer", null)
                         .WithMany("OrganizedEvents")
                         .HasForeignKey("OrganizerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -162,8 +205,44 @@ namespace PlannerAPI.Migrations
                     b.HasOne("PlannerAPI.Models.Schedule", null)
                         .WithMany("Events")
                         .HasForeignKey("ScheduleId");
+                });
 
-                    b.Navigation("Organizer");
+            modelBuilder.Entity("PlannerAPI.Models.EventActivities", b =>
+                {
+                    b.HasOne("PlannerAPI.Models.Activity", "Activity")
+                        .WithMany()
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PlannerAPI.Models.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Activity");
+
+                    b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("PlannerAPI.Models.EventAttendees", b =>
+                {
+                    b.HasOne("PlannerAPI.Models.Attendee", "Attendee")
+                        .WithMany()
+                        .HasForeignKey("AttendeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PlannerAPI.Models.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Attendee");
+
+                    b.Navigation("Event");
                 });
 
             modelBuilder.Entity("PlannerAPI.Models.Event", b =>

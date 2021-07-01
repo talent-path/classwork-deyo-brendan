@@ -13,18 +13,23 @@ namespace PlannerAPI.Models
         }
         [Column("Activities")]
         public List<Activity> Activities { get; set; }
+
         [Required]
-        [Column("EventOrganizer")]
-        public Organizer Organizer { get; set; }
+        public int OrganizerId { get; set; }
+
         [Required]
         public DateTime Date { get; set; }
+
         [Required]
         [MaxLength(100)]
         public string EventName { get; set; }
+
         [Column("Id")]
         public int Id { get; set; }
+
         [Column("Attendees")]
         public List<Attendee> Attendees { get; set; }
+
         [Required]
         public int Duration { get; set; }
 
@@ -35,12 +40,12 @@ namespace PlannerAPI.Models
             Id = that.Id;
             Attendees = that.Attendees;
             Duration = that.Duration;
-            Organizer = that.Organizer;
+            OrganizerId = that.OrganizerId;
             Activities = that.Activities;
         }
 
         public Event(int id, string name, DateTime date, 
-            List<Attendee> attendees, int duration, List<Activity> activities, Organizer organizer)
+            List<Attendee> attendees, int duration, List<Activity> activities, int organizer)
         {
             Id = id;
             EventName = name;
@@ -48,7 +53,7 @@ namespace PlannerAPI.Models
             Duration = duration;
             Attendees = attendees;
             Activities = activities;
-            Organizer = organizer;
+            OrganizerId = organizer;
         }
 
     }

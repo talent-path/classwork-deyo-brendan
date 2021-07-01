@@ -23,14 +23,14 @@ namespace PlannerTests
                 Duration = 150,
                 Activities = new List<Activity>(),
                 Attendees = new List<Attendee>(),
-                Organizer = new Organizer()
+                OrganizerId = 1
             };
 
             var mockSet = new Mock<DbSet<Event>>();
 
             var mockContext = new Mock<PlannerDbContext>();
 
-            var mockService = new ProjectService(mockContext.Object);
+            var mockService = new PlannerService(mockContext.Object);
 
             mockService.AddEvent(toAdd);
 

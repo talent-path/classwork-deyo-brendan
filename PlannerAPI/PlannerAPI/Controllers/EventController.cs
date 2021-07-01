@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PlannerAPI.Persistence;
 
 namespace PlannerAPI.Controllers
 {
@@ -13,11 +14,11 @@ namespace PlannerAPI.Controllers
     [Route("/api/Event")]
     public class EventController : ControllerBase
     {
-        ProjectService _service;
+        PlannerService _service;
 
-        public EventController(ProjectService service)
+        public EventController(PlannerDbContext context)
         {
-            _service = service;
+            _service = new PlannerService(context);
         }
 
         [HttpGet]
@@ -60,6 +61,42 @@ namespace PlannerAPI.Controllers
             }
         }
 
+        [HttpGet("Activitys/{id}")]
+        public IActionResult GetEventActivities(int id)
+        {
+            try
+            {
+                _service.GetEventActivities(id);
+                return this.Accepted();
+            }
+            catch(NoActivitiesForGivenEventException e) { return this.BadRequest(e.Message); }
+            catch(InvalidIdException e) { return this.BadRequest(e.Message);  }
+        }
+
+        [HttpGet("Attendees/{id}")]
+        public IActionResult GetEventAttendees(int id)
+        {
+            try
+            {
+                _service.GetEventAttendees(id);
+                return this.Accepted();
+            }
+            catch(NoAttendeesForGivenEventException e) { return this.BadRequest(e.Message); }
+            catch(InvalidIdException e) { return this.BadRequest(e.Message); }
+        }
+
+        [HttpGet("Organizer/{id}")]
+        public IActionResult GetEventOrganizer(int id)
+        {
+            try
+            {
+                _service.GetEventOrganizer(id);
+                return this.Accepted();
+            }
+            catch(NoOrganizerForGivenEventException e) { return this.BadRequest(e.Message); }
+            catch(InvalidIdException e) { return this.BadRequest(e.Message); }
+        }
+
         [HttpPut]
         public IActionResult EditEvent(Event updated)
         {
@@ -74,15 +111,19 @@ namespace PlannerAPI.Controllers
             }
         }
 
-        [HttpDelete]
-        public IActionResult DeleteEvent(Event toDelete)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteEvent(int id)
         {
             try
             {
-                _service.RemoveEvent(toDelete);
+                _service.RemoveEvent(id);
                 return this.Accepted();
             }
             catch (InvalidEventException e)
+            {
+                return this.BadRequest(e.Message);
+            }
+            catch (InvalidIdException e)
             {
                 return this.BadRequest(e.Message);
             }

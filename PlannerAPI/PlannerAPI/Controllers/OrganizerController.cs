@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using PlannerAPI.Exceptions;
 using PlannerAPI.Models;
+using PlannerAPI.Persistence;
 
 namespace PlannerAPI.Controllers
 {
@@ -13,10 +14,10 @@ namespace PlannerAPI.Controllers
     [Route("/api/Organizer")]
     public class OrganizerController : ControllerBase
     {
-        ProjectService _service;
-        public OrganizerController(ProjectService service)
+        PlannerService _service;
+        public OrganizerController(PlannerDbContext context)
         {
-            _service = service;
+            _service = new PlannerService(context);
         }
 
         [HttpGet]
@@ -73,18 +74,17 @@ namespace PlannerAPI.Controllers
             }
         }
 
-        [HttpDelete]
-        public IActionResult DeleteOrganizer(Organizer toDelete)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteOrganizer(int id)
         {
             try
             {
-                _service.RemoveOrganizer(toDelete);
+                _service.RemoveOrganizer(id);
                 return this.Accepted();
             }
-            catch(InvalidOrganizerException e)
-            {
-                return this.BadRequest(e.Message);
-            }
+            catch (InvalidOrganizerException e) { return this.BadRequest(e.Message); }
+            catch (InvalidIdException e) { return this.BadRequest(e.Message); }
+        
         }
     }
 }

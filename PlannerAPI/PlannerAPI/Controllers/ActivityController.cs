@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using PlannerAPI.Persistence;
 
 namespace PlannerAPI.Controllers
 {
@@ -14,11 +15,11 @@ namespace PlannerAPI.Controllers
     [Route("/api/Activity")]
     public class ActivityController : ControllerBase
     {
-        ProjectService _service;
+        PlannerService _service;
 
-        public ActivityController(ProjectService service)
+        public ActivityController(PlannerDbContext context)
         {
-            _service = service;
+            _service = new PlannerService(context);
         }
 
         [HttpGet]
@@ -75,15 +76,19 @@ namespace PlannerAPI.Controllers
             }
         }
 
-        [HttpDelete]
-        public IActionResult DeleteActivity(Activity toDelete)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteActivity(int id)
         {
             try
             {
-                _service.RemoveActivity(toDelete);
+                _service.RemoveActivity(id);
                 return this.Accepted();
             }
             catch(InvalidActivityException e)
+            {
+                return this.BadRequest(e.Message);
+            }
+            catch(InvalidIdException e)
             {
                 return this.BadRequest(e.Message);
             }

@@ -34,6 +34,32 @@ namespace PlannerAPI.Persistence.Repos
             return _context.Events.ToList();
         }
 
+        public List<Activity> GetEventActivities(int id)
+        {
+            return _context.EventActivities
+                .Where(e => e.EventId == id)
+                .Include(e => e.Activity)
+                .Select(e => new Activity(e.Activity)).ToList();
+        }
+
+        public List<Attendee> GetEventAttendees(int id)
+        {
+            return _context.EventAttendees
+                .Where(e => e.EventId == id)
+                .Include(e => e.Attendee)
+                .Select(e => new Attendee(e.Attendee)).ToList();
+        }
+
+        public Organizer GetEventOrganizer(int id)
+        {
+            int organizerId = _context.EventOrganizer
+                .Where(e => e.EventId == id)
+                .Select(e => e.OrganizerId).SingleOrDefault();
+
+            return _context.Organizers
+                .Where(o => o.Id == organizerId).SingleOrDefault();
+        }
+
         public Event GetEventById(int id)
         {
             return _context.Events.Find(id);
@@ -41,11 +67,6 @@ namespace PlannerAPI.Persistence.Repos
 
         public void RemoveEvent(Event toRemove)
         {
-            Event toDelete = new Event
-            {
-                Id = toRemove.Id
-            };
-            _context.Events.Attach(toRemove);
             _context.Events.Remove(toRemove);
             _context.SaveChanges();
         }

@@ -44,12 +44,7 @@ namespace PlannerAPI.Persistence.Repos
 
         public void RemoveActivity(Activity toRemove)
         {
-            Activity toDelete = new Activity
-            {
-                Id = toRemove.Id
-            };
-            _context.Activities.Attach(toDelete);
-            _context.Activities.Remove(toDelete);
+            _context.Activities.Remove(toRemove);
             _context.SaveChanges();
 
         }

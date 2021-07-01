@@ -43,12 +43,7 @@ namespace PlannerAPI.Persistence.Repos
 
         public void RemoveAttendee(Attendee toRemove)
         {
-            Attendee toDelete = new Attendee
-            {
-                Id = toRemove.Id
-            };
-            _context.Attendees.Attach(toDelete);
-            _context.Attendees.Remove(toDelete);
+            _context.Attendees.Remove(toRemove);
             _context.SaveChanges();
         }
     }

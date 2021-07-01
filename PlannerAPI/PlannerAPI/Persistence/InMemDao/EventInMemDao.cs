@@ -22,11 +22,11 @@ namespace PlannerAPI.Persistence
             _organizers.Add(new Organizer("Bob", 4, _eventList));
             _organizers.Add(new Organizer("Mario", 5, _eventList));
 
-            _activityList.Add(new Activity(1, "Bowling", 50, new Event()));
-            _activityList.Add(new Activity(2, "Running", 20, new Event()));
-            _activityList.Add(new Activity(3, "Jogging", 40, new Event()));
-            _activityList.Add(new Activity(4, "Lifting", 90, new Event()));
-            _activityList.Add(new Activity(5, "Swimming", 50, new Event()));
+            _activityList.Add(new Activity(1, "Bowling", 50));
+            _activityList.Add(new Activity(2, "Running", 20));
+            _activityList.Add(new Activity(3, "Jogging", 40));
+            _activityList.Add(new Activity(4, "Lifting", 90));
+            _activityList.Add(new Activity(5, "Swimming", 50));
 
             _attendees.Add(new Attendee(1, "John"));
             _attendees.Add(new Attendee(2, "David"));
@@ -35,15 +35,15 @@ namespace PlannerAPI.Persistence
             _attendees.Add(new Attendee(5, "Walter"));
 
             _eventList.Add(new Event(1, "Brendan's Party", 
-                new DateTime(2021, 6, 28), _attendees, 60, _activityList, _organizers[0]));
+                new DateTime(2021, 6, 28), _attendees, 60, _activityList, _organizers[0].Id));
             _eventList.Add(new Event(2, "John's Party", 
-                new DateTime(2020, 5, 06), _attendees, 30, _activityList, _organizers[1]));
+                new DateTime(2020, 5, 06), _attendees, 30, _activityList, _organizers[1].Id));
             _eventList.Add(new Event(3, "Quinton's Party", 
-                new DateTime(1997, 2, 19), _attendees, 85, _activityList, _organizers[2]));
+                new DateTime(1997, 2, 19), _attendees, 85, _activityList, _organizers[2].Id));
             _eventList.Add(new Event(4, "Renee's Party", 
-                new DateTime(1956, 8, 20), _attendees, 90, _activityList, _organizers[3]));
+                new DateTime(1956, 8, 20), _attendees, 90, _activityList, _organizers[3].Id));
             _eventList.Add(new Event(5, "Jimmy's Party", 
-                new DateTime(1996, 2, 20), _attendees, 80, _activityList, _organizers[3]));
+                new DateTime(1996, 2, 20), _attendees, 80, _activityList, _organizers[3].Id));
         }
 
         public Event GetEventById(int id)
