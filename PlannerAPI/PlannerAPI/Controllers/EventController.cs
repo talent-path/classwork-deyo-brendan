@@ -61,7 +61,7 @@ namespace PlannerAPI.Controllers
             }
         }
 
-        [HttpGet("Activitys/{id}")]
+        [HttpGet("Activities/{id}")]
         public IActionResult GetEventActivities(int id)
         {
             try

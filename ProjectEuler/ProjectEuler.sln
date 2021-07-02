@@ -51,7 +51,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problem37", "Problem37\Prob
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problem55", "Problem55\Problem55.csproj", "{288A580E-7842-48BF-9EF9-27E299DDE49E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem41", "Problem41\Problem41.csproj", "{40CD53D4-8E06-4430-ADB5-7212F761ACAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problem41", "Problem41\Problem41.csproj", "{40CD53D4-8E06-4430-ADB5-7212F761ACAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem47", "Problem47\Problem47.csproj", "{05293106-F865-415F-8608-FE8FCC8C513B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +161,10 @@ Global
 		{40CD53D4-8E06-4430-ADB5-7212F761ACAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40CD53D4-8E06-4430-ADB5-7212F761ACAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40CD53D4-8E06-4430-ADB5-7212F761ACAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05293106-F865-415F-8608-FE8FCC8C513B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05293106-F865-415F-8608-FE8FCC8C513B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05293106-F865-415F-8608-FE8FCC8C513B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05293106-F865-415F-8608-FE8FCC8C513B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
