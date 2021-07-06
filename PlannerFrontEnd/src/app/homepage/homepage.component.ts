@@ -13,4 +13,10 @@ export class HomepageComponent implements OnInit {
     
   }
 
+  public slides = [
+    "./assets/WaterBalloonFight.jpg",
+    "./assets/TugOfWar.jpg",
+    "./assets/TheOffice.png"
+  ];
+
 }

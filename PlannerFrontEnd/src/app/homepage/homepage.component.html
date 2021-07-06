@@ -1,5 +1,16 @@
 <body>
     <div id = "header">
-        <img src ="./assets/PlanetPlanner.png">
+        <img src ="./assets/MagicPlanner.png">
+    </div>
+
+    <div id = "menu">
+        <button id = "scheduleEvent" [routerLink] = "['/event']">Schedule An Event</button>
+        <button id = "findEvent">Find An Event</button>
+        <button id = "contactOrganizer" [routerLink] = "['/contact']">Contact Host</button>
+        <hr id = "light">
+    </div>
+
+    <div class = "carouselContainer">
+        <app-carousel></app-carousel>
     </div>
 </body>

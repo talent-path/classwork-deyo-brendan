@@ -1,39 +1,10 @@
-<!-- <div class = "menu">
-  <button mat-button [matMenuTriggerFor]="menu" 
-      class="menuButton">&#9776; MENU</button>
-  <mat-menu #menu="matMenu" class="menuClass">
-      <button mat-menu-item [routerLink] = "['']">Home Page</button>
-      <button mat-menu-item [routerLink] = "['contact']">Contact Page</button>
-      <button mat-menu-item [routerLink] = "['editworkout']">Edit Exercises & Workouts</button>
-      <button mat-menu-item [matMenuTriggerFor]="intensitys">Select Workout</button>
-      <button mat-menu-item [routerLink] = "['warmUps']">Dynamic Warm Ups</button>
-      <button mat-menu-item [routerLink] = "['cooldowns']">Cooldown Exercises</button>
-      <button mat-menu-item [routerLink] = "['motivation']">Get Motivated</button> 
-  </mat-menu> -->
-
-  <!-- <mat-menu #intensitys="matMenu" class="menuClass">
-      <button mat-menu-item [matMenuTriggerFor]="light">Light Intensity</button>
-      <button mat-menu-item [matMenuTriggerFor]="moderate">Moderate Intensity</button>
-      <button mat-menu-item [matMenuTriggerFor]="heavy">Heavy Intensity</button>
-  </mat-menu>
-
-  <mat-menu #light="matMenu">
-      <button mat-menu-item 
-              *ngFor = "let i of workoutList1"
-              [routerLink] = "['/exercises/', i.workoutID]">{{i.workoutName}}</button>
-  </mat-menu>
-
-  <mat-menu #moderate="matMenu">
-      <button mat-menu-item 
-              *ngFor = "let i of workoutList2"
-              [routerLink] = "['/exercises/', i.workoutID]">{{i.workoutName}}</button>
-  </mat-menu>
-
-  <mat-menu #heavy="matMenu">
-      <button mat-menu-item 
-      *ngFor = "let i of workoutList3"
-      [routerLink] = "['/exercises/', i.workoutID]">{{i.workoutName}}</button>
-  </mat-menu>
-</div> -->
+<div class = "menu">
+    <button mat-button [matMenuTriggerFor]="menu" 
+        class="menuButton">&#9776; MENU</button>
+    <mat-menu #menu="matMenu" class="menuClass">
+        <button mat-menu-item [routerLink] = "['home']">Home Page</button>
+        <button mat-menu-item [routerLink] = "['contact']">Contact Page</button>
+    </mat-menu>
+</div>
 
 <router-outlet></router-outlet>
