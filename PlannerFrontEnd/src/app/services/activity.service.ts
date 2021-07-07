@@ -17,23 +17,58 @@ export class ActivityService {
   constructor(private http : HttpClient) { }
 
   getAllActivities() : Observable<Activity[]> {
-    return this.http.get<Activity[]>(this.baseURL + "/Activity");
+    return this.http.get<Activity[]>(this.baseURL + "/Activity")
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
   getActivityById(id : number) : Observable<Activity> {
-    return this.http.get<Activity>(this.baseURL + "/Activity/" + id);
+    return this.http.get<Activity>(this.baseURL + "/Activity/" + id)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
   deleteActivity(id : number) : Observable<Activity> {
-    return this.http.delete<Activity>(this.baseURL + "/Activity/" + id);
+    return this.http.delete<Activity>(this.baseURL + "/Activity/" + id)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
   editActivity(edited : Activity) : Observable<Activity> {
-    return this.http.put<Activity>(this.baseURL + "/Activity/" + edited, this.httpOptions);
+    return this.http.put<Activity>(this.baseURL + "/Activity/" + edited, this.httpOptions)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
   addActivity(toAdd : Activity) : Observable<Activity> {
-    return this.http.post<Activity>(this.baseURL + "/Activity/" + toAdd, this.httpOptions);
+    return this.http.post<Activity>(this.baseURL + "/Activity/" + toAdd, this.httpOptions)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
 }

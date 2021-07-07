@@ -17,23 +17,58 @@ export class AttendeeService {
   constructor(private http : HttpClient) { }
 
   getAllAttendees() : Observable<Attendee[]> {
-    return this.http.get<Attendee[]>(this.baseURL + "/Attendee/");
+    return this.http.get<Attendee[]>(this.baseURL + "/Attendee/")
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );
   }
 
   getAttendeeById(id : number) : Observable<Attendee> {
-    return this.http.get<Attendee>(this.baseURL + "/Attendee/" + id);
+    return this.http.get<Attendee>(this.baseURL + "/Attendee/" + id)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
   deleteAttendee(id : number) : Observable<Attendee> {
-    return this.http.delete<Attendee>(this.baseURL + "/Attendee/" + id);
+    return this.http.delete<Attendee>(this.baseURL + "/Attendee/" + id)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
   editAttendee(id : number, edited : Attendee) : Observable<Attendee> {
-    return this.http.put<Attendee>(this.baseURL + "/Attendee/" + id, edited, this.httpOptions);
+    return this.http.put<Attendee>(this.baseURL + "/Attendee/" + id, edited, this.httpOptions)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
   addAttendee(toAdd : Attendee) : Observable<Attendee> {
-    return this.http.post<Attendee>(this.baseURL + "/Attendee/" + toAdd, this.httpOptions);
+    return this.http.post<Attendee>(this.baseURL + "/Attendee/" + toAdd, this.httpOptions)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
 }

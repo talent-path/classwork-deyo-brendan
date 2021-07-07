@@ -11,8 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AddattendeeComponent implements OnInit {
 
-  name!: string;
-  email!: string;
+  name: string;
+  email: string;
 
   constructor(private attendeeService : AttendeeService,
     private router : Router) { }

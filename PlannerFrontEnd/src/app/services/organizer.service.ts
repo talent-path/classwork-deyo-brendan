@@ -17,23 +17,58 @@ export class OrganizerService {
   constructor(private http : HttpClient) { }
 
   getAllOrganizers() : Observable<Organizer[]> {
-    return this.http.get<Organizer[]>(this.baseURL + "/Organizer");
+    return this.http.get<Organizer[]>(this.baseURL + "/Organizer")
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
   
   getOrganizerById(id : number) : Observable<Organizer> {
-    return this.http.get<Organizer>(this.baseURL + "/Organizer/" + id);
+    return this.http.get<Organizer>(this.baseURL + "/Organizer/" + id)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
   deleteOrganizer(id : number) : Observable<Organizer> {
-    return this.http.delete<Organizer>(this.baseURL + "/Organizer/" + id);
+    return this.http.delete<Organizer>(this.baseURL + "/Organizer/" + id)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
   editOrganizer(o : Organizer, id : number) : Observable<Organizer> {
-    return this.http.put<Organizer>(this.baseURL + "/Organizer/" + id, o, this.httpOptions);
+    return this.http.put<Organizer>(this.baseURL + "/Organizer/" + id, o, this.httpOptions)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
   addOrganizer(toAdd : Organizer) : Observable<Organizer> {
-    return this.http.post<Organizer>(this.baseURL + "/Organizer/" + toAdd, this.httpOptions);
+    return this.http.post<Organizer>(this.baseURL + "/Organizer/" + toAdd, this.httpOptions)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );;
   }
 
 }

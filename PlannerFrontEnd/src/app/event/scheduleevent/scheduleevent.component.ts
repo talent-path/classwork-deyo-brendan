@@ -12,11 +12,11 @@ import { OrganizerService } from 'src/app/services/organizer.service';
 })
 export class ScheduleeventComponent implements OnInit {
 
-  category!: string;
-  orgName!: string;
-  eventDate!: Date;
-  orgEmail!: string;
-  eventName!: string;
+  category: string;
+  orgName: string;
+  eventDate: Date;
+  orgEmail: string;
+  eventName: string;
 
 
   constructor(private eventService : EventService,

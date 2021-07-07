@@ -30,8 +30,10 @@ namespace PlannerAPI.Models
         [Column("Attendees")]
         public List<Attendee> Attendees { get; set; }
 
-        [Required]
         public int Duration { get; set; }
+
+        [Required]
+        public string Category { get; set; }
 
         public Event(Event that)
         {
