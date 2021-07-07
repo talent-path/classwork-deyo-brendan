@@ -9,24 +9,38 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu'
 import {MatButtonModule} from '@angular/material/button';
-import { MatDrawerContainer, MatSidenavModule } from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatCardModule } from '@angular/material/card'
 import { FormsModule } from '@angular/forms';
-import { EventpageComponent } from './eventpage/eventpage/eventpage.component';
-import { AttendeepageComponent } from './attendeepage/attendeepage/attendeepage.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EventComponent } from './event/event.component';
+import { FindeventComponent } from './event/findevent/findevent.component';
+import { ScheduleeventComponent } from './event/scheduleevent/scheduleevent.component';
+import { ActivityComponent } from './activity/activity.component';
+import { AddactivityComponent } from './activity/addactivity/addactivity.component';
+import { EditactivityComponent } from './activity/editactivity/editactivity.component';
+import { AttendeeComponent } from './attendee/attendee.component';
+import { AddattendeeComponent } from './attendee/addattendee/addattendee.component';
+import { EditattendeeComponent } from './attendee/editattendee/editattendee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     ContactpageComponent,
-    EventpageComponent,
-    AttendeepageComponent,
-    CarouselComponent
+    CarouselComponent,
+    EventComponent,
+    FindeventComponent,
+    ScheduleeventComponent,
+    ActivityComponent,
+    AddactivityComponent,
+    EditactivityComponent,
+    AttendeeComponent,
+    AddattendeeComponent,
+    EditattendeeComponent
   ],
   imports: [
     BrowserModule,

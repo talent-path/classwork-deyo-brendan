@@ -1,0 +1,17 @@
+#addEvent {
+    margin: auto;
+    position: relative;
+    text-align: center;
+    width: 50%;
+    height: 70%;
+    border: 2px solid dimgray;
+    padding-top: 20px;
+}
+
+h4 {
+    margin-bottom: 5px;
+    padding: 5px;
+}
+input, select {
+    margin-top: -10px;
+}

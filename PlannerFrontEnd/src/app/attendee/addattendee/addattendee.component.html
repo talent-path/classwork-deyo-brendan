@@ -1,0 +1,20 @@
+<body>
+
+    <div id="addAttendee">
+        <!-- header1 -->
+        <h1>Who Will Be Invited To This Event?</h1>
+        <h4>Enter Each Required Field Marked With *</h4>
+
+        <h4>*Attendee Name*</h4>
+        <input style="width: 300px" type="text" [(ngModel)]="name" placeholder="Enter Name Here : ">
+        <br>
+
+        <h4>*Attendee Email*</h4>
+        <input style="width: 300px" type="text" [(ngModel)]="email" placeholder="Enter Email Here : ">
+        <br>
+
+        <button id = "button1" (click) = "addAttendee()">Add Attendee</button>
+
+    </div>
+
+</body>

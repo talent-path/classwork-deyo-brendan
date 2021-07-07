@@ -1,15 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using PlannerAPI.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -18,6 +11,7 @@ namespace PlannerAPI
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,12 +22,14 @@ namespace PlannerAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            services.AddCors(options =>
             {
-                builder.AllowAnyOrigin()
-                       .AllowAnyMethod()
-                       .AllowAnyHeader();
-            }));
+                options.AddPolicy(name: "AllowOrigins",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowCredentials().AllowAnyMethod();
+                    });
+            });
 
             services.AddDbContext<PlannerDbContext>((options) => 
                 options.UseSqlServer(Configuration.GetConnectionString("PlannerDb")));
@@ -49,11 +45,14 @@ namespace PlannerAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseCors("MyPolicy");
 
             app.UseAuthorization();
 

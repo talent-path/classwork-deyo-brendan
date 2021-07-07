@@ -18,6 +18,10 @@ namespace PlannerAPI.Models
         [MaxLength(75)]
         public string Name { get; set; }
 
+        [Required]
+        [MaxLength(75)]
+        public string Email { get; set; }
+
         public Attendee(Attendee that)
         {
             Id = that.Id;

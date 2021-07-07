@@ -21,19 +21,19 @@ export class ActivityService {
   }
 
   getActivityById(id : number) : Observable<Activity> {
-    return this.http.get<Activity>(this.baseURL + "/Event");
+    return this.http.get<Activity>(this.baseURL + "/Activity/" + id);
   }
 
   deleteActivity(id : number) : Observable<Activity> {
-    return this.http.delete<Activity>(this.baseURL + "/Event/" + id);
+    return this.http.delete<Activity>(this.baseURL + "/Activity/" + id);
   }
 
-  editActivity(id : number, edited : Activity) : Observable<Activity> {
-    return this.http.put<Activity>(this.baseURL + "/Event/" + id, edited, this.httpOptions);
+  editActivity(edited : Activity) : Observable<Activity> {
+    return this.http.put<Activity>(this.baseURL + "/Activity/" + edited, this.httpOptions);
   }
 
-  addActivity(id : number, toAdd : Activity) : Observable<Activity> {
-    return this.http.post<Activity>(this.baseURL + "/Event/" + id, toAdd, this.httpOptions);
+  addActivity(toAdd : Activity) : Observable<Activity> {
+    return this.http.post<Activity>(this.baseURL + "/Activity/" + toAdd, this.httpOptions);
   }
 
 }

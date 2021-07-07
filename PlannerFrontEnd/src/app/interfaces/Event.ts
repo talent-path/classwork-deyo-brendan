@@ -3,12 +3,13 @@ import { Attendee } from "./Attendee";
 
 export interface Event{
     Id? : number,
-    Activities: Activity[],
-    OrganizerId : number,
+    Activities?: Activity[],
+    OrganizerId? : number,
     Date : Date,
     EventName : string,
-    Duration : number,
-    Attendees : Attendee[]
+    Duration? : number,
+    Attendees? : Attendee[],
+    Category : string
 
 }
 

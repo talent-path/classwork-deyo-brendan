@@ -1,0 +1,39 @@
+body {
+    overflow-y: hidden;
+}
+
+#contactDiv {
+    width: auto;
+    height: 600px;
+    text-align: center;
+    margin-top : 10px;
+    border: 10px solid dimgray;
+    /* border-radius: 50%; */
+    margin-bottom: 50px;
+    margin-left: 300px;
+    margin-right: 300px;
+    color: whitesmoke;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    padding-left: 50px;
+    background: linear-gradient(to right bottom, dimgray, darkslategray, black, darkslategray, black, darkslategray, dimgray);
+    opacity: .9;
+}
+
+#contactForm input {
+    margin-bottom: 25px;
+    height: 20px;
+    width: 300px;
+}
+
+
+#contactForm textarea {
+    margin-bottom: 25px;
+    height: 200px;
+    width: 300px;
+}
+
+#header {
+    text-shadow: 10px 10px 10px black;
+}

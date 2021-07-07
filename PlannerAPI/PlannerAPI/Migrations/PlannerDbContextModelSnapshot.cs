@@ -54,6 +54,11 @@ namespace PlannerAPI.Migrations
                         .HasColumnName("Id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(75)
+                        .HasColumnType("nvarchar(75)");
+
                     b.Property<int?>("EventId")
                         .HasColumnType("int");
 
@@ -151,6 +156,11 @@ namespace PlannerAPI.Migrations
                         .HasColumnType("int")
                         .HasColumnName("Id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(75)
+                        .HasColumnType("nvarchar(75)");
 
                     b.Property<string>("Name")
                         .IsRequired()

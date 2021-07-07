@@ -4,13 +4,52 @@
     </div>
 
     <div id = "menu">
-        <button id = "scheduleEvent" [routerLink] = "['/event']">Schedule An Event</button>
-        <button id = "findEvent">Find An Event</button>
-        <button id = "contactOrganizer" [routerLink] = "['/contact']">Contact Host</button>
+        <!-- <button type = "button" class= "btn btn-success" id = "scheduleEvent" [routerLink] = "['/event']">Schedule An Event</button>
+        <button type = "button" class= "btn btn-success" id = "findEvent">Find An Event</button>
+        <button type = "button" class= "btn btn-success" id = "contactOrganizer" [routerLink] = "['/contact']">Contact Host</button> -->
         <hr id = "light">
     </div>
 
     <div class = "carouselContainer">
         <app-carousel></app-carousel>
     </div>
+
+    <div id = "footer">
+        <hr id = "light2">
+        <br>
+        <h1 style="font-family: 'Times New Roman', Times, serif;
+        text-align: center;">Want To Schedule An Event?</h1>
+        <button type = "button" 
+                class= "btn btn-success" 
+                id = "scheduleEvent"
+                [routerLink] = "['scheduleEvent']">Schedule Event</button>
+        <br>
+        <h1 style="font-family: 'Times New Roman', Times, serif;
+        text-align: center;">Are You An Attendee Looking For Your Upcoming Event?</h1>
+        <button type = "button" 
+                class= "btn btn-success" 
+                id = "findEvent"
+                [routerLink] = "['findEvent']">Find An Event</button>
+        <br>
+        <h1 style="font-family: 'Times New Roman', Times, serif;
+        text-align: center;">Questions, Comments, Concerns?</h1>
+        <button type = "button" 
+                class= "btn btn-success" 
+                id = "findEvent"
+                [routerLink] = "['contactMe']">Contact Me</button>
+        <hr id = "light3">
+        <br>
+
+        <h1 style="font-family: 'Times New Roman', Times, serif;
+                    text-align: center;"><i>Thank You For Visiting Magic Planner!</i></h1>
+
+        <br>
+        <h4 style="font-size: 
+                    xx-small;
+                    display: flex;
+                    justify-content: center;">Sponsored By Talent Path, A Division of Genuent Employment LLC</h4>
+        <img id="tpLogo" src ="./assets/TPLOGO.png">
+
+    </div>
+
 </body>

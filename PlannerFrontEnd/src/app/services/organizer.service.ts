@@ -28,12 +28,12 @@ export class OrganizerService {
     return this.http.delete<Organizer>(this.baseURL + "/Organizer/" + id);
   }
 
-  editEvent(o : Organizer, id : number) : Observable<Organizer> {
+  editOrganizer(o : Organizer, id : number) : Observable<Organizer> {
     return this.http.put<Organizer>(this.baseURL + "/Organizer/" + id, o, this.httpOptions);
   }
 
-  addEvent(toAdd : Organizer, id : number) : Observable<Organizer> {
-    return this.http.post<Organizer>(this.baseURL + "/Organizer/" + id, toAdd, this.httpOptions);
+  addOrganizer(toAdd : Organizer) : Observable<Organizer> {
+    return this.http.post<Organizer>(this.baseURL + "/Organizer/" + toAdd, this.httpOptions);
   }
 
 }

@@ -17,23 +17,23 @@ export class AttendeeService {
   constructor(private http : HttpClient) { }
 
   getAllAttendees() : Observable<Attendee[]> {
-    return this.http.get<Attendee[]>(this.baseURL + "/Attendee");
+    return this.http.get<Attendee[]>(this.baseURL + "/Attendee/");
   }
 
   getAttendeeById(id : number) : Observable<Attendee> {
-    return this.http.get<Attendee>(this.baseURL + "/Event/" + id);
+    return this.http.get<Attendee>(this.baseURL + "/Attendee/" + id);
   }
 
   deleteAttendee(id : number) : Observable<Attendee> {
-    return this.http.delete<Attendee>(this.baseURL + "/Event/" + id);
+    return this.http.delete<Attendee>(this.baseURL + "/Attendee/" + id);
   }
 
   editAttendee(id : number, edited : Attendee) : Observable<Attendee> {
-    return this.http.put<Attendee>(this.baseURL + "/Event/" + id, edited, this.httpOptions);
+    return this.http.put<Attendee>(this.baseURL + "/Attendee/" + id, edited, this.httpOptions);
   }
 
-  addAttendee(id : number, toAdd : Attendee) : Observable<Attendee> {
-    return this.http.post<Attendee>(this.baseURL + "/Event/" + id, toAdd, this.httpOptions);
+  addAttendee(toAdd : Attendee) : Observable<Attendee> {
+    return this.http.post<Attendee>(this.baseURL + "/Attendee/" + toAdd, this.httpOptions);
   }
 
 }

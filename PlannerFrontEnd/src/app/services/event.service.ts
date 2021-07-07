@@ -35,8 +35,8 @@ export class EventService {
     return this.http.put<Event>(this.baseURL + "/Event/" + id, event, this.httpOptions);
   }
 
-  addEvent(toAdd : Event, id : number) : Observable<Event> {
-    return this.http.post<Event>(this.baseURL + "/Event/" + id, toAdd, this.httpOptions);
+  addEvent(toAdd : Event) : Observable<Event> {
+    return this.http.post<Event>(this.baseURL + "/Event/" + toAdd, this.httpOptions);
   }
 
   getEventActivities(id : number) : Observable<Activity[]> {

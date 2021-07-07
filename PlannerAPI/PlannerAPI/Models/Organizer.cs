@@ -19,6 +19,10 @@ namespace PlannerAPI.Models
         [Column("OrganizedEvents")]
         public List<Event> OrganizedEvents { get; set; } = new List<Event>();
 
+        [Required]
+        [MaxLength(75)]
+        public string Email { get; set; }
+
         public Organizer(Organizer that)
         {
             Name = that.Name;
