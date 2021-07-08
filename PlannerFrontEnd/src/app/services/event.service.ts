@@ -15,7 +15,12 @@ export class EventService {
 
   baseURL : String = "http://localhost:20292/api";
 
-  httpOptions = {headers: new HttpHeaders({"Content-Type" : "application/json"})};
+  // localhost:20292/api/Event
+
+  httpOptions = {headers: new HttpHeaders({
+    "Content-Type" : "application/json", 
+    "Accept" : "application/json"
+  })};
 
   constructor(private http : HttpClient) { }
 
@@ -64,7 +69,7 @@ export class EventService {
   }
 
   addEvent(toAdd : Event) : Observable<Event> {
-    return this.http.post<Event>(this.baseURL + "/Event/" + toAdd, this.httpOptions)
+    return this.http.post<Event>(this.baseURL + "/Event", toAdd, this.httpOptions)
     .pipe(
       tap(x => console.log(x)),
       catchError(err => {

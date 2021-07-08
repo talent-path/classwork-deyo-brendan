@@ -152,7 +152,7 @@ namespace PlannerAPI.Services
                 throw new InvalidIdException("Can't remove activity with this ID");
             else
             {
-                Activity activity = _activityRepo.GetActivityById(id);
+                Activity activity = new Activity { Id = id };
                 if (activity == null)
                     throw new InvalidActivityException("Activity with this ID does not exist");
                 else
@@ -167,7 +167,7 @@ namespace PlannerAPI.Services
                 throw new InvalidIdException("Can't remove event with this ID");
             else
             {
-                Event thisEvent = _eventRepo.GetEventById(id);
+                Event thisEvent = new Event { Id = id };
                 if (thisEvent == null)
                     throw new InvalidEventException("Event with this ID does not exist");
                 else
@@ -181,7 +181,7 @@ namespace PlannerAPI.Services
                 throw new InvalidIdException("Can't remove organizer with this ID");
             else
             {
-                Organizer organizer = _organizerRepo.GetOrganizerById(id);
+                Organizer organizer = new Organizer { Id = id };
                 if (organizer == null)
                     throw new InvalidOrganizerException("Organizer with that ID does not exist");
                 else
@@ -195,7 +195,7 @@ namespace PlannerAPI.Services
                 throw new InvalidIdException("Can't remove attendee with this ID");
             else
             {
-                Attendee attendee = _attendeeRepo.GetAttendeeById(id);
+                Attendee attendee = new Attendee { Id = id };
                 if (attendee == null)
                     throw new InvalidAttendeeException("Attendee with that ID does not exist");
                 else

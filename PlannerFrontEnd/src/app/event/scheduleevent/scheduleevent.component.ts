@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {Event } from 'src/app/interfaces/Event';
+import { Event } from 'src/app/interfaces/Event';
 import { Organizer } from 'src/app/interfaces/Organizer';
 import { EventService } from 'src/app/services/event.service';
 import { OrganizerService } from 'src/app/services/organizer.service';
@@ -17,35 +17,39 @@ export class ScheduleeventComponent implements OnInit {
   eventDate: Date;
   orgEmail: string;
   eventName: string;
+  @Input('ngModel') orgId: number;
 
+  organizers: Organizer[];
 
-  constructor(private eventService : EventService,
-    private organizerService : OrganizerService,
-    private router : Router) { }
+  constructor(private eventService: EventService,
+    private organizerService: OrganizerService,
+    private router: Router) { }
 
   ngOnInit(): void {
+
+    this.organizerService.getAllOrganizers().subscribe(list => {
+      this.organizers = list;
+    })
+
   }
 
   addEvent() {
-    if (this.category == null || this.category == undefined 
+    if (this.category == null || this.category == undefined
       || this.eventDate == null || this.eventDate == undefined
       || this.eventName == null || this.eventName == undefined
-      || this.orgEmail == null || this.orgEmail == undefined
-      || this.orgName == null || this.orgName == undefined)
-      {
-        alert("Please ensure all required information is filled out.");
+      || this.orgId == null || this.orgId == undefined) {
+      alert("Please ensure all required information is filled out.");
+    }
+    else {
+      let addEvent: Event = {
+        date: this.eventDate, eventName: this.eventName, category: this.category,
+        organizerId: this.orgId
       }
 
-      let addOrg : Organizer = {
-        Name : this.orgName, Email : this.orgEmail
-      };
+      console.log(this.orgId);
 
-      let addEvent : Event = {
-        Date : this.eventDate, EventName : this.eventName, Category : this.category 
-      }
-
-      this.organizerService.addOrganizer(addOrg).subscribe;
-      this.eventService.addEvent(addEvent).subscribe((_) => this.router.navigate((["addAttendee"])));
+      this.eventService.addEvent(addEvent).subscribe((_) => this.router.navigate(["addAttendee"]));
+    }
   }
 
 }

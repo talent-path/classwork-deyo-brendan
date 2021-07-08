@@ -1,6 +1,6 @@
 export interface Organizer {
-    Id? : number,
-    OrganizedEvents? : Event[],
-    Name : string
-    Email : string
+    id? : number,
+    organizedEvents? : Event[],
+    name : string
+    email : string
 }

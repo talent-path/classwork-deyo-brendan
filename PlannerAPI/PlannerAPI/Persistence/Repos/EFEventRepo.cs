@@ -50,11 +50,11 @@ namespace PlannerAPI.Persistence.Repos
                 .Select(e => new Attendee(e.Attendee)).ToList();
         }
 
-        public Organizer GetEventOrganizer(int id)
+        public Organizer GetEventOrganizer(int? id)
         {
             int organizerId = _context.EventOrganizer
-                .Where(e => e.EventId == id)
-                .Select(e => e.OrganizerId).SingleOrDefault();
+                .Where(e => e.EventId.Value == id.Value)
+                .Select(e => e.OrganizerId.Value).SingleOrDefault();
 
             return _context.Organizers
                 .Where(o => o.Id == organizerId).SingleOrDefault();

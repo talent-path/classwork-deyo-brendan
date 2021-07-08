@@ -1,5 +1,5 @@
 export interface Activity {
-    Id? : number,
-    Name : string,
-    Duration : number
+    id? : number,
+    name : string,
+    duration : number
 }

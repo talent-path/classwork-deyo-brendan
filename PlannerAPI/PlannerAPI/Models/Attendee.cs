@@ -22,6 +22,8 @@ namespace PlannerAPI.Models
         [MaxLength(75)]
         public string Email { get; set; }
 
+        public int EventId { get; set; }
+
         public Attendee(Attendee that)
         {
             Id = that.Id;

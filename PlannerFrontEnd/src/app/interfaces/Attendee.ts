@@ -1,5 +1,6 @@
 export interface Attendee{
-    Id? : number,
-    Name : string
-    Email: string
+    id? : number,
+    name : string,
+    email: string,
+    eventId : number
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddactivityComponent } from './activity/addactivity/addactivity.component';
 import { AddattendeeComponent } from './attendee/addattendee/addattendee.component';
 import { ContactpageComponent } from './contactpage/contactpage.component';
 import { FindeventComponent } from './event/findevent/findevent.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: "contactMe", component : ContactpageComponent},
   {path: "scheduleEvent", component : ScheduleeventComponent},
   {path: "findEvent", component: FindeventComponent},
-  {path: "addAttendee", component: AddattendeeComponent}
+  {path: "addAttendee", component: AddattendeeComponent},
+  {path: "addActivity", component: AddactivityComponent}
 ];
 
 @NgModule({

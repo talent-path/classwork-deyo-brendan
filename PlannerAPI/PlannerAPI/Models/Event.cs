@@ -17,7 +17,6 @@ namespace PlannerAPI.Models
         [Required]
         public int OrganizerId { get; set; }
 
-        [Required]
         public DateTime Date { get; set; }
 
         [Required]

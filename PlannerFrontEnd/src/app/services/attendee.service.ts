@@ -61,7 +61,7 @@ export class AttendeeService {
   }
 
   addAttendee(toAdd : Attendee) : Observable<Attendee> {
-    return this.http.post<Attendee>(this.baseURL + "/Attendee/" + toAdd, this.httpOptions)
+    return this.http.post<Attendee>(this.baseURL + "/Attendee", toAdd, this.httpOptions)
     .pipe(
       tap(x => console.log(x)),
       catchError(err => {

@@ -2,14 +2,14 @@ import { Activity } from "./Activity";
 import { Attendee } from "./Attendee";
 
 export interface Event{
-    Id? : number,
-    Activities?: Activity[],
-    OrganizerId? : number,
-    Date : Date,
-    EventName : string,
-    Duration? : number,
-    Attendees? : Attendee[],
-    Category : string
+    id? : number,
+    activities?: Activity[],
+    organizerId? : number,
+    date : Date,
+    eventName : string,
+    duration? : number,
+    attendees? : Attendee[],
+    category : string
 
 }
 

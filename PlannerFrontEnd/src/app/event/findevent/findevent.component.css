@@ -1,0 +1,21 @@
+#findEvent {
+    margin: auto;
+    position: relative;
+    text-align: center;
+    width: 60%;
+    height: auto;
+    border: 2px solid dimgray;
+    padding-top: 20px;
+}
+
+#eventDetails {
+    margin: auto;
+    position: relative;
+    text-align: center;
+    width: 60%;
+    height: auto;
+    border: 2px solid dimgray;
+    padding-top: 20px;
+    margin-top: 30px;
+    display: none;
+}

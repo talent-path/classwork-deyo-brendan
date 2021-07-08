@@ -1,0 +1,14 @@
+#addAttendee {
+    margin: auto;
+    position: relative;
+    text-align: center;
+    width: 50%;
+    min-height: 70%;
+    border: 2px solid dimgray;
+    padding-top: 20px;
+}
+
+#button1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

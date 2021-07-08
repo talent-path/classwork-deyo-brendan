@@ -1,0 +1,12 @@
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\bin\Debug\netcoreapp3.1\Problem81.exe
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\bin\Debug\netcoreapp3.1\Problem81.deps.json
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\bin\Debug\netcoreapp3.1\Problem81.runtimeconfig.json
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\bin\Debug\netcoreapp3.1\Problem81.runtimeconfig.dev.json
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\bin\Debug\netcoreapp3.1\Problem81.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\bin\Debug\netcoreapp3.1\Problem81.pdb
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\obj\Debug\netcoreapp3.1\Problem81.AssemblyInfoInputs.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\obj\Debug\netcoreapp3.1\Problem81.AssemblyInfo.cs
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\obj\Debug\netcoreapp3.1\Problem81.csproj.CoreCompileInputs.cache
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\obj\Debug\netcoreapp3.1\Problem81.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\obj\Debug\netcoreapp3.1\Problem81.pdb
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\ProjectEuler\Problem81\obj\Debug\netcoreapp3.1\Problem81.genruntimeconfig.cache

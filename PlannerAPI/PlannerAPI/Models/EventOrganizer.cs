@@ -10,13 +10,13 @@ namespace PlannerAPI.Models
     public class EventOrganizer
     {
         [ForeignKey("Event")]
-        public int EventId
+        public int? EventId
         {
             get; set;
         }
         [ForeignKey("Organizer")]
-        public int OrganizerId { get; set; }
-        //public Event Event { get; set; }
-        //public Organizer Organizer { get; set; }
+        public int? OrganizerId { get; set; }
+        public Event Event { get; set; }
+        public Organizer Organizer { get; set; }
     }
 }

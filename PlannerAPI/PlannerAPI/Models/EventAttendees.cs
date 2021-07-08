@@ -10,9 +10,9 @@ namespace PlannerAPI.Models
     public class EventAttendees
     {
         [ForeignKey("Event")]
-        public int EventId { get; set; }
+        public int? EventId { get; set; }
         [ForeignKey("Attendee")]
-        public int AttendeeId { get; set; }
+        public int? AttendeeId { get; set; }
         public Event Event { get; set; }
         public Attendee Attendee { get; set; }
         
