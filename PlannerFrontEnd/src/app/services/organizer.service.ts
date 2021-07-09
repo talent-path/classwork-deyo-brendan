@@ -24,7 +24,7 @@ export class OrganizerService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
   
   getOrganizerById(id : number) : Observable<Organizer> {
@@ -35,7 +35,7 @@ export class OrganizerService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   deleteOrganizer(id : number) : Observable<Organizer> {
@@ -46,7 +46,7 @@ export class OrganizerService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   editOrganizer(o : Organizer, id : number) : Observable<Organizer> {
@@ -57,7 +57,7 @@ export class OrganizerService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   addOrganizer(toAdd : Organizer) : Observable<Organizer> {
@@ -68,7 +68,7 @@ export class OrganizerService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
 }

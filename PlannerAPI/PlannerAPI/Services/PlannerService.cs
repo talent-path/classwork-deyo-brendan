@@ -255,6 +255,15 @@ namespace PlannerAPI.Services
                 return _eventRepo.GetEventById(id);
         }
 
+        public Event GetEventByName(string name)
+        {
+            if (name == null)
+                throw new InvalidNameException("This name input was not valid");
+            else
+                return _eventRepo.GetEventByName(name);
+        }
+
+
         public Organizer GetOrganizerById(int id)
         {
             if (id <= 0)

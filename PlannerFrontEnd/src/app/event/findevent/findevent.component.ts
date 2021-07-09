@@ -12,7 +12,7 @@ import { OrganizerService } from 'src/app/services/organizer.service';
 })
 export class FindeventComponent implements OnInit {
 
-  eventId : number;
+  eventName : string;
   selectEvent : Event;
   organizer : Organizer;
 
@@ -23,7 +23,7 @@ export class FindeventComponent implements OnInit {
   }
 
   submit() {
-    this.eventService.getEventById(this.eventId).subscribe(event => {
+    this.eventService.getEventByName(this.eventName).subscribe(event => {
       this.selectEvent = event;
 
       this.organizerService.getOrganizerById(this.selectEvent.organizerId).subscribe(org => {

@@ -22,14 +22,14 @@ namespace PlannerAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy(name: "AllowOrigins",
-                    builder =>
-                    {
-                        builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowCredentials().AllowAnyMethod();
-                    });
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy(name: "AllowOrigins",
+            //        builder =>
+            //        {
+            //            builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowCredentials().AllowAnyMethod();
+            //        });
+            //});
 
             services.AddDbContext<PlannerDbContext>((options) => 
                 options.UseSqlServer(Configuration.GetConnectionString("PlannerDb")));

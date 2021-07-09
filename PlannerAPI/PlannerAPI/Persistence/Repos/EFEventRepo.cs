@@ -65,6 +65,12 @@ namespace PlannerAPI.Persistence.Repos
             return _context.Events.Find(id);
         }
 
+        public Event GetEventByName(string name)
+        {
+            Event toReturn = _context.Events.Where(e => e.EventName.Replace(" ", "") == name.Replace(" ", "")).FirstOrDefault();
+            return toReturn;
+        }
+
         public void RemoveEvent(Event toRemove)
         {
             _context.Events.Remove(toRemove);

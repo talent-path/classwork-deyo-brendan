@@ -35,7 +35,7 @@ export class AttendeeService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   deleteAttendee(id : number) : Observable<Attendee> {
@@ -46,7 +46,7 @@ export class AttendeeService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   editAttendee(id : number, edited : Attendee) : Observable<Attendee> {
@@ -57,7 +57,7 @@ export class AttendeeService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   addAttendee(toAdd : Attendee) : Observable<Attendee> {
@@ -68,7 +68,7 @@ export class AttendeeService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
 }

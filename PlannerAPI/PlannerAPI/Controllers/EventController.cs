@@ -48,6 +48,18 @@ namespace PlannerAPI.Controllers
             }
         }
 
+        [HttpGet("/Search")]
+        public IActionResult GetEventByName(string name)
+        {
+            try
+            {
+                return this.Accepted(_service.GetEventByName(name));
+            }
+            catch(InvalidNameException e) { return this.BadRequest(e.Message); }
+            catch(Exception e) { return this.BadRequest(e.Message); }
+
+        }
+
         [HttpPost]
         public IActionResult AddEvent(Event toAdd)
         {

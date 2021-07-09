@@ -32,7 +32,7 @@ export class EventService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
   
   getEventById(id : number) : Observable<Event> {
@@ -43,7 +43,18 @@ export class EventService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
+  }
+
+  getEventByName(name : string) : Observable<Event> {
+    return this.http.get<Event>(this.baseURL + "/Event/Search?name=" + name)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );
   }
 
   deleteEvent(id : number) : Observable<Event> {
@@ -54,7 +65,7 @@ export class EventService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   editEvent(event : Event, id : number) : Observable<Event> {
@@ -65,7 +76,7 @@ export class EventService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   addEvent(toAdd : Event) : Observable<Event> {
@@ -76,7 +87,7 @@ export class EventService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   getEventActivities(id : number) : Observable<Activity[]> {
@@ -87,7 +98,7 @@ export class EventService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   getEventAttendees(id : number) : Observable<Attendee[]> {
@@ -98,7 +109,7 @@ export class EventService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   getEventOrganizer(id : number) : Observable<Organizer> {
@@ -109,7 +120,7 @@ export class EventService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
 }

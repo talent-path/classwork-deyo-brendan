@@ -83,5 +83,10 @@ namespace PlannerAPI.Persistence
         {
             throw new NotImplementedException();
         }
+
+        public Event GetEventByName(string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

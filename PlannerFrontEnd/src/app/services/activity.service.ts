@@ -24,7 +24,7 @@ export class ActivityService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   getActivityById(id : number) : Observable<Activity> {
@@ -35,7 +35,7 @@ export class ActivityService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   deleteActivity(id : number) : Observable<Activity> {
@@ -46,7 +46,7 @@ export class ActivityService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   editActivity(edited : Activity) : Observable<Activity> {
@@ -57,7 +57,7 @@ export class ActivityService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
   addActivity(toAdd : Activity) : Observable<Activity> {
@@ -68,7 +68,7 @@ export class ActivityService {
         console.log(err);
         return of(null);
       })
-    );;
+    );
   }
 
 }
