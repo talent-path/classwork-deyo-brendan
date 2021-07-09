@@ -1,0 +1,38 @@
+<div id = "box">
+    <br>
+    <br>
+    <br>
+    <div id="editEvent">
+        <!-- header1 -->
+        <h1>Event Details</h1>
+        <br>
+        <h2>Current Name: {{eventToEdit.eventName}}</h2>
+        <br>
+        <h2>Current Date: {{eventToEdit.date}}</h2>
+        <br>
+        <h2>Enter New Event Name</h2>
+        <input style="width: 300px" type="text" [(ngModel)] = "newName" placeholder="Enter New Value Here">
+        <br>
+        <br>
+        <h2>Enter New Date</h2>
+        <input style="width: 300px" type="date" [(ngModel)] = "newDate" placeholder="Enter New Value Here">
+        <br>
+        <br>
+        <h2>Change Category</h2>
+        <select style="width: 100px" [(ngModel)]="newCategory">
+            <option [ngValue]=null></option>
+            <option value="Friends">Friends</option>
+            <option value="Family">Family</option>
+            <option value="Work">Work</option>
+        </select>
+        <br>
+        <br>
+        <button type = "button" class= "btn btn-success" (click) = "edit()">Edit</button>
+        <br>
+        <br>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    </div>

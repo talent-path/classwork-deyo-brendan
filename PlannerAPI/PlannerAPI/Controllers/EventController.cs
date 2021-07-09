@@ -48,7 +48,7 @@ namespace PlannerAPI.Controllers
             }
         }
 
-        [HttpGet("/Search")]
+        [HttpGet("Search")]
         public IActionResult GetEventByName(string name)
         {
             try

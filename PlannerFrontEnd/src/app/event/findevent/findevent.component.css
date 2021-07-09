@@ -33,3 +33,20 @@
     margin-top: 30px;
     display: none;
 }
+#editEvent {
+    margin: auto;
+    position: relative;
+    text-align: center;
+    width: 30%;
+    height: auto;
+    background: whitesmoke;
+    border: 2px solid dimgray;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+#show {
+    margin: auto;
+    position: relative;
+    text-align: center;
+}

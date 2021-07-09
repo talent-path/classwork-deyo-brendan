@@ -25,6 +25,7 @@ import { EditactivityComponent } from './activity/editactivity/editactivity.comp
 import { AttendeeComponent } from './attendee/attendee.component';
 import { AddattendeeComponent } from './attendee/addattendee/addattendee.component';
 import { EditattendeeComponent } from './attendee/editattendee/editattendee.component';
+import { EditeventComponent } from './event/editevent/editevent.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EditattendeeComponent } from './attendee/editattendee/editattendee.comp
     EditactivityComponent,
     AttendeeComponent,
     AddattendeeComponent,
-    EditattendeeComponent
+    EditattendeeComponent,
+    EditeventComponent
   ],
   imports: [
     BrowserModule,

@@ -36,18 +36,12 @@ namespace PlannerAPI.Persistence.Repos
 
         public List<Activity> GetEventActivities(int id)
         {
-            return _context.EventActivities
-                .Where(e => e.EventId == id)
-                .Include(e => e.Activity)
-                .Select(e => new Activity(e.Activity)).ToList();
+            return _context.Activities.Where(a => a.EventId == id).ToList();
         }
 
         public List<Attendee> GetEventAttendees(int id)
         {
-            return _context.EventAttendees
-                .Where(e => e.EventId == id)
-                .Include(e => e.Attendee)
-                .Select(e => new Attendee(e.Attendee)).ToList();
+            return _context.Attendees.Where(a => a.EventId == id).ToList();
         }
 
         public Organizer GetEventOrganizer(int? id)
@@ -67,7 +61,9 @@ namespace PlannerAPI.Persistence.Repos
 
         public Event GetEventByName(string name)
         {
-            Event toReturn = _context.Events.Where(e => e.EventName.Replace(" ", "") == name.Replace(" ", "")).FirstOrDefault();
+            Event toReturn = _context.Events
+                .Where(e => e.EventName.Replace(" ", "").ToLower() == name.Replace(" ", "").ToLower())
+                .FirstOrDefault();
             return toReturn;
         }
 

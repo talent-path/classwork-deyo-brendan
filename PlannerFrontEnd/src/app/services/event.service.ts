@@ -68,8 +68,8 @@ export class EventService {
     );
   }
 
-  editEvent(event : Event, id : number) : Observable<Event> {
-    return this.http.put<Event>(this.baseURL + "/Event/" + id, event, this.httpOptions)
+  editEvent(event : Event) : Observable<Event> {
+    return this.http.put<Event>(this.baseURL + "/Event", event, this.httpOptions)
     .pipe(
       tap(x => console.log(x)),
       catchError(err => {
@@ -91,7 +91,7 @@ export class EventService {
   }
 
   getEventActivities(id : number) : Observable<Activity[]> {
-    return this.http.get<Activity[]>(this.baseURL + "/Event/Activities/" + id)
+    return this.http.get<Activity[]>(this.baseURL + "/Event/Activities?id=" + id)
     .pipe(
       tap(x => console.log(x)),
       catchError(err => {
@@ -102,7 +102,7 @@ export class EventService {
   }
 
   getEventAttendees(id : number) : Observable<Attendee[]> {
-    return this.http.get<Attendee[]>(this.baseURL + "/Event/Attendees/" + id)
+    return this.http.get<Attendee[]>(this.baseURL + "/Event/Attendees?id= " + id)
     .pipe(
       tap(x => console.log(x)),
       catchError(err => {
