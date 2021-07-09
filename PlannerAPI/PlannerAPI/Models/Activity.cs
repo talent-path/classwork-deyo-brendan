@@ -25,6 +25,8 @@ namespace PlannerAPI.Models
         [Required]
         public int Duration { get; set; }
 
+        public int EventId { get; set; }
+
         public Activity(Activity that)
         {
             Duration = that.Duration;

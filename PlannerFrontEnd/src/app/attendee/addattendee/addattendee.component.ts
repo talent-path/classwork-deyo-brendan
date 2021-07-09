@@ -29,8 +29,6 @@ export class AddattendeeComponent implements OnInit {
       this.eventList = list;
 
       this.attendeeEvent = this.eventList[this.eventList.length - 1];
-
-      console.log(this.attendeeEvent.eventName);
     });
   }
 

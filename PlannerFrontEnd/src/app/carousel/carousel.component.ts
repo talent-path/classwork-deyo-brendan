@@ -9,7 +9,7 @@ export class CarouselComponent implements OnInit {
   event_list = [
     {
       event:' Event 1',
-      eventLocation:'FOR THE FAMILY',
+      eventLocation:'FOR FAMILY EVENTS',
       eventDescription:"",
       img: 'https://picsum.photos/900/500?random&t=1',
       eventStartDate: new Date('2019/05/20'),

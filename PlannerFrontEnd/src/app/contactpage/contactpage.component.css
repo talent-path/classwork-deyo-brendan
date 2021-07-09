@@ -17,16 +17,24 @@ body {
     padding-right: 40px;
     padding-bottom: 40px;
     padding-left: 50px;
-    background: linear-gradient(to right bottom, gray, dimgray, gray, gray, gray, dimgray, gray);
+    background: linear-gradient(to right bottom, gray, #138A72, #138A72, #138A72, #138A72, #138A72, gray);
     opacity: .9;
 }
 
 #contactForm input {
     margin-bottom: 25px;
     height: 30px;
-    width: 300px;
+    width: 200px;
 }
 
+#submit {
+    width: 200px;
+    height: 30px;
+}
+
+#submit:hover , #contactform input:hover {
+    background: lightgray;
+}
 
 #contactForm textarea {
     margin-bottom: 25px;

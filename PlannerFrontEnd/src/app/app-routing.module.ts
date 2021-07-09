@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddactivityComponent } from './activity/addactivity/addactivity.component';
 import { AddattendeeComponent } from './attendee/addattendee/addattendee.component';
 import { ContactpageComponent } from './contactpage/contactpage.component';
+import { EventComponent } from './event/event.component';
 import { FindeventComponent } from './event/findevent/findevent.component';
 import { ScheduleeventComponent } from './event/scheduleevent/scheduleevent.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: "scheduleEvent", component : ScheduleeventComponent},
   {path: "findEvent", component: FindeventComponent},
   {path: "addAttendee", component: AddattendeeComponent},
-  {path: "addActivity", component: AddactivityComponent}
+  {path: "addActivity", component: AddactivityComponent},
+  {path: "confirmEvent", component: EventComponent}
 ];
 
 @NgModule({

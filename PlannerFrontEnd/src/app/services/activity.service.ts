@@ -61,7 +61,7 @@ export class ActivityService {
   }
 
   addActivity(toAdd : Activity) : Observable<Activity> {
-    return this.http.post<Activity>(this.baseURL + "/Activity/" + toAdd, this.httpOptions)
+    return this.http.post<Activity>(this.baseURL + "/Activity", toAdd, this.httpOptions)
     .pipe(
       tap(x => console.log(x)),
       catchError(err => {

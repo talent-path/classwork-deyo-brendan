@@ -6,6 +6,19 @@
     height: auto;
     border: 2px solid dimgray;
     padding-top: 20px;
+    background: whitesmoke;
+}
+
+#box {
+    height: auto;
+    background-image: url('/assets/outdoors2.jpg');
+    background-position: center;
+    opacity: .9;
+    width: 60%;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    border: 2px solid dimgray;
 }
 
 #eventDetails {
@@ -14,6 +27,7 @@
     text-align: center;
     width: 60%;
     height: auto;
+    background: whitesmoke;
     border: 2px solid dimgray;
     padding-top: 20px;
     margin-top: 30px;

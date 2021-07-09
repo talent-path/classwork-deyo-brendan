@@ -34,11 +34,17 @@ export class FindeventComponent implements OnInit {
         element.style.display = 'block';
 
         element.innerHTML += `<h1>RESULTS<h1>`;
-        element.innerHTML += `<h3>Event Name : ${this.selectEvent.eventName}<br>`;
-        element.innerHTML += `<h3>Event Date : ${this.selectEvent.date}<br>`;
-        element.innerHTML += `<h3>Organizer : ${this.organizer.name}<br>`;
+        element.innerHTML += `<h3>Event Name: ${this.selectEvent.eventName}<br>`;
+        element.innerHTML += `<h3>Event Date: ${this.selectEvent.date}<br>`;
+        element.innerHTML += `<h3>Organizer: ${this.organizer.name}<br>`;
+        element.innerHTML += `<button type = "button" class= "btn btn-success" (click) = "print()">Print Page</button><br><br>`;
 
       });
     })
   }
+
+  print() {
+    window.print();
+  }
+
 }
