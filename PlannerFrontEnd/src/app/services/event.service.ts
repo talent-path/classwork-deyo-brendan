@@ -91,7 +91,7 @@ export class EventService {
   }
 
   getEventActivities(id : number) : Observable<Activity[]> {
-    return this.http.get<Activity[]>(this.baseURL + "/Event/Activities?id=" + id)
+    return this.http.get<Activity[]>(this.baseURL + "/Event/Activities/" + id)
     .pipe(
       tap(x => console.log(x)),
       catchError(err => {
@@ -102,7 +102,7 @@ export class EventService {
   }
 
   getEventAttendees(id : number) : Observable<Attendee[]> {
-    return this.http.get<Attendee[]>(this.baseURL + "/Event/Attendees?id= " + id)
+    return this.http.get<Attendee[]>(this.baseURL + "/Event/Attendees/" + id)
     .pipe(
       tap(x => console.log(x)),
       catchError(err => {

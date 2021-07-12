@@ -1,4 +1,4 @@
-#editEvent {
+#editEvent, #editActivity, #editAttendee {
     margin: auto;
     position: relative;
     text-align: center;
@@ -19,4 +19,8 @@
     position: relative;
     text-align: center;
     border: 2px solid dimgray;
+}
+
+#current {
+    color: teal;
 }

@@ -1,31 +1,42 @@
-<div id = "box">
-<br>
-<br>
-<br>
-<div id="findEvent">
-    <!-- header1 -->
-    <h1>Find An Event</h1>
-    <h4><i>Enter The Event Name To Lookup Details</i></h4>
-    <input style="width: 300px" type="text" [(ngModel)]="eventName" placeholder="Enter Event Name Here : ">
+<div id="box">
     <br>
     <br>
-    <button type = "button" 
-        class= "btn btn-success" id = "button1" (click) = "submit()">Find</button>
     <br>
-    <br>
+    <div id="findEvent">
+        <!-- header1 -->
+        <h1>Find An Event</h1>
+        <h4><i>Enter The Event Name To Lookup Details</i></h4>
+        <input style="width: 300px" type="text" [(ngModel)]="eventName" placeholder="Enter Event Name Here : ">
+        <br>
+        <br>
+        <button type="button" class="btn btn-success" id="button1" (click)="submit()">Find</button>
+        <br>
+        <br>
 
-</div>
+    </div>
 
-<div id="eventDetails">
-    
-</div>
-<div id="editEvent">
-    <button type = "button" 
-    class= "btn btn-success" (click) = "navigate()">Edit This Event</button>
+    <div id="eventDetails">
+
+    </div>
+    <div id="attendees">
+        <h2><i>ATTENDEES</i></h2>
+        <li *ngFor="let a of attendees">
+            {{a.name}}
+        </li>
+        <br>
+    </div>
+    <div id="activities">
+        <h2><i>ACTIVITIES</i></h2>
+        <li *ngFor="let a of activities">
+            {{a.name}}
+        </li>
+        <br>
+    </div>
+    <div id="editEvent">
+        <button type="button" id="editButton" class="btn btn-success" (click)="navigate()">Edit This Event</button>
+        <button type="success" class=" btn btn-success" (click)="print()">Print Details</button>
+    </div>
     <br>
     <br>
-</div>
-<br>
-<br>
-<br>
+    <br>
 </div>

@@ -79,8 +79,7 @@ namespace PlannerAPI.Controllers
         {
             try
             {
-                _service.GetEventActivities(id);
-                return this.Accepted();
+                return this.Accepted(_service.GetEventActivities(id));
             }
             catch(NoActivitiesForGivenEventException e) { return this.BadRequest(e.Message); }
             catch(InvalidIdException e) { return this.BadRequest(e.Message);  }
@@ -91,8 +90,7 @@ namespace PlannerAPI.Controllers
         {
             try
             {
-                _service.GetEventAttendees(id);
-                return this.Accepted();
+                return this.Accepted(_service.GetEventAttendees(id));
             }
             catch(NoAttendeesForGivenEventException e) { return this.BadRequest(e.Message); }
             catch(InvalidIdException e) { return this.BadRequest(e.Message); }

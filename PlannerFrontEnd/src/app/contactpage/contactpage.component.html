@@ -2,7 +2,9 @@
 
     <div id="contactDiv">
   
-      <h1 id = "header">Please fill out all information. </h1>
+      <div id = "innerBox">
+
+      <h1 id = "header"><b><i>Please fill out all information. </i></b></h1>
   
       <form id="contactForm" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
   
@@ -40,6 +42,7 @@
   
       <button id = "submit" [routerLink] = "['']">Home Page</button>
   
+      </div>
     </div>
   
   <body>

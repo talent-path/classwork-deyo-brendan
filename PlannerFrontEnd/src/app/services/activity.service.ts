@@ -50,7 +50,7 @@ export class ActivityService {
   }
 
   editActivity(edited : Activity) : Observable<Activity> {
-    return this.http.put<Activity>(this.baseURL + "/Activity/" + edited, this.httpOptions)
+    return this.http.put<Activity>(this.baseURL + "/Activity", edited, this.httpOptions)
     .pipe(
       tap(x => console.log(x)),
       catchError(err => {

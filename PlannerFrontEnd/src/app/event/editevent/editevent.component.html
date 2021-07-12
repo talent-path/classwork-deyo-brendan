@@ -1,25 +1,22 @@
-<div id = "box">
+<div id="box">
     <br>
     <br>
     <br>
     <div id="editEvent">
         <!-- header1 -->
-        <h1>Event Details</h1>
-        <br>
-        <h2>Current Name: {{eventToEdit.eventName}}</h2>
-        <br>
-        <h2>Current Date: {{eventToEdit.date}}</h2>
-        <br>
+        <h1><b><i>Event Details</i></b></h1>
+        <h2 id="current">Current Name: {{eventToEdit.eventName}}</h2>
         <h2>Enter New Event Name</h2>
-        <input style="width: 300px" type="text" [(ngModel)] = "newName" placeholder="Enter New Value Here">
+        <input style="width: 300px" type="text" [(ngModel)]="newName" placeholder="Enter New Value Here">
         <br>
         <br>
+        <h2 id="current">Current Date: {{eventToEdit.date.toString().substring(0, 10)}}</h2>
         <h2>Enter New Date</h2>
-        <input style="width: 300px" type="date" [(ngModel)] = "newDate" placeholder="Enter New Value Here">
+        <input style="width: 300px" type="date" [(ngModel)]="newDate" placeholder="Enter New Value Here">
         <br>
         <br>
-        <h2>Change Category</h2>
-        <select style="width: 100px" [(ngModel)]="newCategory">
+        <h2 id="current">Current Category: {{eventToEdit.category}}</h2>
+        <h2>New Category: </h2><select style="width: 100px" [(ngModel)]="newCategory">
             <option [ngValue]=null></option>
             <option value="Friends">Friends</option>
             <option value="Family">Family</option>
@@ -27,12 +24,67 @@
         </select>
         <br>
         <br>
-        <button type = "button" class= "btn btn-success" (click) = "edit()">Edit</button>
+        <br>
+        <button type="button" class="btn btn-success" (click)="editEvent()">Confirm Event Edit</button>
         <br>
         <br>
+        <div id="eventEdited"></div>
+        <br>
     </div>
-    
-    <br>
-    <br>
-    <br>
+
+    <div id="editActivity">
+        <!-- header1 -->
+        <h1><b><i>{{eventToEdit.eventName}}'s Activities</i></b></h1>
+        <h2>Choose An Activity To Edit Or Delete</h2>
+        <select style="width: 100px" [(ngModel)]="activityId">
+            <option [ngValue]=null></option>
+            <option *ngFor="let a of activities" value="{{a.id}}">Name: {{a.name}}</option>
+        </select>
+        <br>
+        <br>
+        <h2>Enter New Name</h2>
+        <input style="width: 300px" type="text" [(ngModel)]="newActivityName" placeholder="Enter New Value Here">
+        <br>
+        <br>
+        <h2>Enter New Duration</h2>
+        <input style="width: 300px" type="text" [(ngModel)]="newActivityDuration" placeholder="Enter New Value Here">
+        <br>
+        <br>
+        <br>
+        <button type="button" class="btn btn-success" (click)="editActivity()">Confirm Activity Edit</button>
+        <br>
+        <br>
+        <div id="activityEdited"></div>
+        <br>
     </div>
+
+    <div id="editAttendee">
+        <!-- header1 -->
+        <h1><b><i>{{eventToEdit.eventName}}'s Attendees</i></b></h1>
+        <h2>Choose An Attendee To Edit Or Delete</h2>
+        <select style="width: 100px" [(ngModel)]="attendeeId">
+            <option [ngValue]=null></option>
+            <option *ngFor="let a of attendees" value="{{a.id}}">Name: {{a.name}}</option>
+        </select>
+        <br>
+        <br>
+        <h2>Enter New Name</h2>
+        <input style="width: 300px" type="text" [(ngModel)]="newAttendeeName" placeholder="Enter New Value Here">
+        <br>
+        <br>
+        <h2>Enter New Email</h2>
+        <input style="width: 300px" type="text" [(ngModel)]="newAttendeeEmail" placeholder="Enter New Value Here">
+        <br>
+        <br>
+        <br>
+        <button type="button" class="btn btn-success" (click)="editAttendee()">Confirm Attendee Edit</button>
+        <br>
+        <br>
+        <div id="attendeeEdited"></div>
+        <br>
+    </div>
+
+    <br>
+    <br>
+    <br>
+</div>

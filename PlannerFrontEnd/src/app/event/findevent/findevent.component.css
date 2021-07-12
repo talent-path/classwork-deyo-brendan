@@ -9,6 +9,10 @@
     background: whitesmoke;
 }
 
+#editButton {
+    margin-right: 10px;
+}
+
 #box {
     height: auto;
     background-image: url('/assets/outdoors2.jpg');
@@ -33,16 +37,30 @@
     margin-top: 30px;
     display: none;
 }
-#editEvent {
+
+#attendees, #activities {
     margin: auto;
     position: relative;
     text-align: center;
-    width: 30%;
+    width: 60%;
     height: auto;
     background: whitesmoke;
     border: 2px solid dimgray;
     padding-top: 20px;
-    margin-top: 30px;
+    display: none;
+}
+
+#editEvent {
+    margin: auto;
+    position: relative;
+    text-align: center;
+    width: 60%;
+    height: auto;
+    background: whitesmoke;
+    border: 2px solid dimgray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: none;
 }
 
 #show {

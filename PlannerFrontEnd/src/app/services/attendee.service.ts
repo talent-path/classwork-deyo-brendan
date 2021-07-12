@@ -49,8 +49,8 @@ export class AttendeeService {
     );
   }
 
-  editAttendee(id : number, edited : Attendee) : Observable<Attendee> {
-    return this.http.put<Attendee>(this.baseURL + "/Attendee/" + id, edited, this.httpOptions)
+  editAttendee(edited : Attendee) : Observable<Attendee> {
+    return this.http.put<Attendee>(this.baseURL + "/Attendee", edited, this.httpOptions)
     .pipe(
       tap(x => console.log(x)),
       catchError(err => {
