@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PlannerAPI.Models
+namespace PlannerAPI.Models.Domain
 {
     [Table("Event")]
     public class Event
@@ -18,6 +18,10 @@ namespace PlannerAPI.Models
         public int OrganizerId { get; set; }
 
         public DateTime Date { get; set; }
+
+        public string Time { get; set; }
+
+        public string Location { get; set; }
 
         [Required]
         [MaxLength(100)]

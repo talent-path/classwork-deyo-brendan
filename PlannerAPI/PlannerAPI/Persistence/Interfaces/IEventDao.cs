@@ -1,4 +1,5 @@
 ﻿using PlannerAPI.Models;
+using PlannerAPI.Models.Domain;
 using System.Collections.Generic;
 
 namespace PlannerAPI.Persistence
@@ -13,5 +14,7 @@ namespace PlannerAPI.Persistence
 
         void RemoveEvent(Event toRemove);
         void EditEvent(Event updated);
+
+        List<Event> GetEventsByOrganizerId(int id);
     }
 }

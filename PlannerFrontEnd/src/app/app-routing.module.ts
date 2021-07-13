@@ -8,6 +8,8 @@ import { EventComponent } from './event/event.component';
 import { FindeventComponent } from './event/findevent/findevent.component';
 import { ScheduleeventComponent } from './event/scheduleevent/scheduleevent.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { LoginComponent } from './login/login.component';
+import { UserregistrationComponent } from './userregistration/userregistration.component';
 
 const routes: Routes = [
   {path: "", component : HomepageComponent},
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path: "addAttendee", component: AddattendeeComponent},
   {path: "addActivity", component: AddactivityComponent},
   {path: "confirmEvent", component: EventComponent},
-  {path: "editEvent/:id", component: EditeventComponent}
+  {path: "editEvent/:id", component: EditeventComponent},
+  {path: "register", component: UserregistrationComponent},
+  {path: "login", component : LoginComponent}
 ];
 
 @NgModule({

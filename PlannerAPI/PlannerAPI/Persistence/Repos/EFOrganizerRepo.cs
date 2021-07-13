@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PlannerAPI.Models.Auth;
 
 namespace PlannerAPI.Persistence.Repos
 {
@@ -16,6 +17,10 @@ namespace PlannerAPI.Persistence.Repos
             _context = context;
         }
 
+        public Role GetOrganizerRole(string name)
+        {
+            return _context.Roles.SingleOrDefault(r => r.Name.ToLower() == name.ToLower());
+        }
         public int AddOrganizer(Organizer toAdd)
         {
             _context.Organizers.Add(toAdd);
@@ -45,6 +50,12 @@ namespace PlannerAPI.Persistence.Repos
         {
             _context.Organizers.Remove(toRemove);
             _context.SaveChanges();
+        }
+
+        public Organizer GetOrganizerByName(string username)
+        {
+            return _context.Organizers.Include("Roles.SelectedRole")
+                .SingleOrDefault(o => o.Name.ToLower() == username.ToLower());
         }
     }
 }

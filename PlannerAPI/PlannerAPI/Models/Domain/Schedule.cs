@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PlannerAPI.Models
+namespace PlannerAPI.Models.Domain
 {
     [Table("Schedule")]
     public class Schedule

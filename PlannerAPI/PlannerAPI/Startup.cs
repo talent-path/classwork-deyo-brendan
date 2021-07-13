@@ -6,6 +6,14 @@ using Microsoft.Extensions.Hosting;
 using PlannerAPI.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using PlannerAPI.Services;
+using System.Linq;
+using System.Security.Claims;
+using PlannerAPI.Models.Auth;
+using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace PlannerAPI
 {
@@ -31,6 +39,44 @@ namespace PlannerAPI
             //        });
             //});
 
+            services.AddScoped<UserService, UserService>();
+
+            services.AddCors();
+
+            services.AddAuthentication(options => 
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options => 
+            {
+                options.Events = new JwtBearerEvents
+                {
+                    OnTokenValidated = (context =>
+                    {
+                        UserService service = context.HttpContext.RequestServices.GetRequiredService<UserService>();
+                        var claims = context.Principal.Claims.ToList();
+                        int id = int.Parse(context.Principal.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier.ToString()).Value);
+                        Organizer test = service.GetOrganizerById(id);
+
+                        if (test == null)
+                            context.Fail("Unauthorized User");
+                        return Task.CompletedTask;
+                    })
+                };
+
+                options.RequireHttpsMetadata = false; // For Development Only // TURN OFF IN PRODUCTION
+
+                options.SaveToken = true;
+
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(AppSettings.Secret)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
             services.AddDbContext<PlannerDbContext>((options) => 
                 options.UseSqlServer(Configuration.GetConnectionString("PlannerDb")));
             services.AddControllers().AddNewtonsoftJson((options) 
@@ -53,6 +99,8 @@ namespace PlannerAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

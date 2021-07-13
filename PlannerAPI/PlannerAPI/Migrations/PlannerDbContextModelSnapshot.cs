@@ -19,7 +19,65 @@ namespace PlannerAPI.Migrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("PlannerAPI.Models.Activity", b =>
+            modelBuilder.Entity("PlannerAPI.Models.Auth.Organizer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(75)
+                        .HasColumnType("nvarchar(75)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Organizer");
+                });
+
+            modelBuilder.Entity("PlannerAPI.Models.Auth.OrganizerRole", b =>
+                {
+                    b.Property<int>("OrganizerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrganizerId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("OrganizerRoles");
+                });
+
+            modelBuilder.Entity("PlannerAPI.Models.Auth.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("PlannerAPI.Models.Domain.Activity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -46,7 +104,7 @@ namespace PlannerAPI.Migrations
                     b.ToTable("Activity");
                 });
 
-            modelBuilder.Entity("PlannerAPI.Models.Attendee", b =>
+            modelBuilder.Entity("PlannerAPI.Models.Domain.Attendee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -74,7 +132,7 @@ namespace PlannerAPI.Migrations
                     b.ToTable("Attendee");
                 });
 
-            modelBuilder.Entity("PlannerAPI.Models.Event", b =>
+            modelBuilder.Entity("PlannerAPI.Models.Domain.Event", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -97,11 +155,17 @@ namespace PlannerAPI.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("OrganizerId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ScheduleId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Time")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -110,6 +174,25 @@ namespace PlannerAPI.Migrations
                     b.HasIndex("ScheduleId");
 
                     b.ToTable("Event");
+                });
+
+            modelBuilder.Entity("PlannerAPI.Models.Domain.Schedule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Schedule");
                 });
 
             modelBuilder.Entity("PlannerAPI.Models.EventActivities", b =>
@@ -157,136 +240,116 @@ namespace PlannerAPI.Migrations
                     b.ToTable("EventOrganizer");
                 });
 
-            modelBuilder.Entity("PlannerAPI.Models.Organizer", b =>
+            modelBuilder.Entity("PlannerAPI.Models.Auth.OrganizerRole", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.HasOne("PlannerAPI.Models.Auth.Organizer", "EnrolledOrganizer")
+                        .WithMany("Roles")
+                        .HasForeignKey("OrganizerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(75)
-                        .HasColumnType("nvarchar(75)");
+                    b.HasOne("PlannerAPI.Models.Auth.Role", "SelectedRole")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Navigation("EnrolledOrganizer");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Organizer");
+                    b.Navigation("SelectedRole");
                 });
 
-            modelBuilder.Entity("PlannerAPI.Models.Schedule", b =>
+            modelBuilder.Entity("PlannerAPI.Models.Domain.Activity", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Schedule");
-                });
-
-            modelBuilder.Entity("PlannerAPI.Models.Activity", b =>
-                {
-                    b.HasOne("PlannerAPI.Models.Event", null)
+                    b.HasOne("PlannerAPI.Models.Domain.Event", null)
                         .WithMany("Activities")
                         .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PlannerAPI.Models.Attendee", b =>
+            modelBuilder.Entity("PlannerAPI.Models.Domain.Attendee", b =>
                 {
-                    b.HasOne("PlannerAPI.Models.Event", null)
+                    b.HasOne("PlannerAPI.Models.Domain.Event", null)
                         .WithMany("Attendees")
                         .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PlannerAPI.Models.Event", b =>
+            modelBuilder.Entity("PlannerAPI.Models.Domain.Event", b =>
                 {
-                    b.HasOne("PlannerAPI.Models.Organizer", null)
+                    b.HasOne("PlannerAPI.Models.Auth.Organizer", null)
                         .WithMany("OrganizedEvents")
                         .HasForeignKey("OrganizerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PlannerAPI.Models.Schedule", null)
+                    b.HasOne("PlannerAPI.Models.Domain.Schedule", null)
                         .WithMany("Events")
                         .HasForeignKey("ScheduleId");
                 });
 
             modelBuilder.Entity("PlannerAPI.Models.EventActivities", b =>
                 {
-                    b.HasOne("PlannerAPI.Models.Activity", "Activity")
+                    b.HasOne("PlannerAPI.Models.Domain.Activity", "SelectedActivity")
                         .WithMany()
                         .HasForeignKey("ActivityId");
 
-                    b.HasOne("PlannerAPI.Models.Event", "Event")
+                    b.HasOne("PlannerAPI.Models.Domain.Event", "SelectedEvent")
                         .WithMany()
                         .HasForeignKey("EventId");
 
-                    b.Navigation("Activity");
+                    b.Navigation("SelectedActivity");
 
-                    b.Navigation("Event");
+                    b.Navigation("SelectedEvent");
                 });
 
             modelBuilder.Entity("PlannerAPI.Models.EventAttendees", b =>
                 {
-                    b.HasOne("PlannerAPI.Models.Attendee", "Attendee")
+                    b.HasOne("PlannerAPI.Models.Domain.Attendee", "SelectedAttendee")
                         .WithMany()
                         .HasForeignKey("AttendeeId");
 
-                    b.HasOne("PlannerAPI.Models.Event", "Event")
+                    b.HasOne("PlannerAPI.Models.Domain.Event", "SelectedEvent")
                         .WithMany()
                         .HasForeignKey("EventId");
 
-                    b.Navigation("Attendee");
+                    b.Navigation("SelectedAttendee");
 
-                    b.Navigation("Event");
+                    b.Navigation("SelectedEvent");
                 });
 
             modelBuilder.Entity("PlannerAPI.Models.EventOrganizer", b =>
                 {
-                    b.HasOne("PlannerAPI.Models.Event", "Event")
+                    b.HasOne("PlannerAPI.Models.Domain.Event", "SelectedEvent")
                         .WithMany()
                         .HasForeignKey("EventId");
 
-                    b.HasOne("PlannerAPI.Models.Organizer", "Organizer")
+                    b.HasOne("PlannerAPI.Models.Auth.Organizer", "SelectedOrganizer")
                         .WithMany()
                         .HasForeignKey("OrganizerId");
 
-                    b.Navigation("Event");
+                    b.Navigation("SelectedEvent");
 
-                    b.Navigation("Organizer");
+                    b.Navigation("SelectedOrganizer");
                 });
 
-            modelBuilder.Entity("PlannerAPI.Models.Event", b =>
+            modelBuilder.Entity("PlannerAPI.Models.Auth.Organizer", b =>
+                {
+                    b.Navigation("OrganizedEvents");
+
+                    b.Navigation("Roles");
+                });
+
+            modelBuilder.Entity("PlannerAPI.Models.Domain.Event", b =>
                 {
                     b.Navigation("Activities");
 
                     b.Navigation("Attendees");
                 });
 
-            modelBuilder.Entity("PlannerAPI.Models.Organizer", b =>
-                {
-                    b.Navigation("OrganizedEvents");
-                });
-
-            modelBuilder.Entity("PlannerAPI.Models.Schedule", b =>
+            modelBuilder.Entity("PlannerAPI.Models.Domain.Schedule", b =>
                 {
                     b.Navigation("Events");
                 });

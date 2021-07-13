@@ -5,6 +5,7 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MediaMatcher } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
 import { Input } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +14,24 @@ import { Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'PlannerFrontEnd';
+
+  signedIn : boolean = false;
+
+  username : string;
+
+  constructor(private authService : AuthService) { 
+
+  }
+
+  ngOnInit() {
+    this.signedIn = this.authService.isSignedIn();
+
+    this.authService.loginChangedEvent.subscribe((signedIn) => this.signedIn = signedIn);
+
+  }
+
+  signOut() {
+    this.authService.signOut();
+  }
+
 }

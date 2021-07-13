@@ -1,4 +1,5 @@
 ﻿using PlannerAPI.Models;
+using PlannerAPI.Models.Auth;
 using System.Collections.Generic;
 
 namespace PlannerAPI.Persistence
@@ -10,5 +11,8 @@ namespace PlannerAPI.Persistence
         List<Organizer> GetAllOrganizers();
         Organizer GetOrganizerById(int id);
         void RemoveOrganizer(Organizer toRemove);
+
+        Role GetOrganizerRole(string name);
+        Organizer GetOrganizerByName(string username);
     }
 }

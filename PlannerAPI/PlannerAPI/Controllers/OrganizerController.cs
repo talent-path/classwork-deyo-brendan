@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 using PlannerAPI.Exceptions;
 using PlannerAPI.Models;
 using PlannerAPI.Persistence;
+using PlannerAPI.Models.Auth;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PlannerAPI.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("/api/Organizer")]
     public class OrganizerController : ControllerBase
     {
@@ -18,19 +21,6 @@ namespace PlannerAPI.Controllers
         public OrganizerController(PlannerDbContext context)
         {
             _service = new PlannerService(context);
-        }
-
-        [HttpGet]
-        public IActionResult GetAllOrganizers()
-        {
-            try
-            {
-                return this.Accepted(_service.GetAllOrganizers());
-            }
-            catch(EmptyListException e)
-            {
-                return this.BadRequest(e.Message);
-            }
         }
 
         [HttpGet("{id}")]

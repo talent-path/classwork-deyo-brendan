@@ -2,6 +2,7 @@
 using System.Linq;
 using PlannerAPI.Models;
 using System.Collections.Generic;
+using PlannerAPI.Models.Domain;
 
 namespace PlannerAPI.Persistence
 {

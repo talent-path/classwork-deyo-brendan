@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using PlannerAPI.Models;
 using System.Linq;
+using PlannerAPI.Models.Domain;
+using PlannerAPI.Models.Auth;
 
 namespace PlannerAPI.Persistence
 {
@@ -85,6 +87,11 @@ namespace PlannerAPI.Persistence
         }
 
         public Event GetEventByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Event> GetEventsByOrganizerId(int id)
         {
             throw new NotImplementedException();
         }

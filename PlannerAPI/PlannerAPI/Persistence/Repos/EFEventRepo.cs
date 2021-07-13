@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PlannerAPI.Models.Domain;
+using PlannerAPI.Models.Auth;
 
 namespace PlannerAPI.Persistence.Repos
 {
@@ -71,6 +73,11 @@ namespace PlannerAPI.Persistence.Repos
         {
             _context.Events.Remove(toRemove);
             _context.SaveChanges();
+        }
+
+        public List<Event> GetEventsByOrganizerId(int id)
+        {
+            return _context.Events.Where(ev => ev.OrganizerId == id).ToList();
         }
     }
 }

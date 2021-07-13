@@ -1,5 +1,5 @@
 ﻿using PlannerAPI.Exceptions;
-using PlannerAPI.Models;
+using PlannerAPI.Models.Domain;
 using PlannerAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,10 +8,12 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using PlannerAPI.Persistence;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PlannerAPI.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("/api/Activity")]
     public class ActivityController : ControllerBase
     {

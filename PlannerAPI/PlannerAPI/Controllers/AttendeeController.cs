@@ -7,10 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PlannerAPI.Persistence;
+using PlannerAPI.Models.Domain;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PlannerAPI.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("/api/Attendee")]
     public class AttendeeController : ControllerBase
     {

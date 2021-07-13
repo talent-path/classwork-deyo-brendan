@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PlannerAPI.Models;
+using PlannerAPI.Models.Domain;
 using PlannerAPI.Persistence;
 using PlannerAPI.Persistence.Interfaces;
 using System;

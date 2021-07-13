@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Collections.Generic;
 using PlannerAPI.Models;
+using PlannerAPI.Models.Auth;
+using PlannerAPI.Models.Domain;
 
 namespace PlannerAPI.Persistence
 {
@@ -87,6 +89,16 @@ namespace PlannerAPI.Persistence
                 throw new NullReferenceException("Organizer is null");
             else
                 return toReturn;
+        }
+
+        public Role GetOrganizerRole(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Organizer GetOrganizerByName(string username)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -2,43 +2,39 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PlannerAPI.Models
+namespace PlannerAPI.Models.Domain
 {
-    [Table("Activity")]
-    public class Activity
+    [Table("Attendee")]
+    public class Attendee
     {
-        public Activity()
+        public Attendee()
         {
-        }
 
-        //[Column("Name")]
-        //public Event Event { get; set; }
+        }
 
         [Column("Id")]
         public int Id { get; set; }
-
-        [Column("Name")]
         [Required]
-        [MaxLength(100)]
+        [MaxLength(75)]
         public string Name { get; set; }
 
         [Required]
-        public int Duration { get; set; }
+        [MaxLength(75)]
+        public string Email { get; set; }
 
         public int EventId { get; set; }
 
-        public Activity(Activity that)
+        public Attendee(Attendee that)
         {
-            Duration = that.Duration;
             Id = that.Id;
             Name = that.Name;
         }
 
-        public Activity(int id, string name, int duration)
+        public Attendee(int id, string name)
         {
             Id = id;
             Name = name;
-            Duration = duration;
         }
+
     }
 }

@@ -4,6 +4,8 @@ using PlannerAPI.Models;
 using PlannerAPI.Persistence;
 using PlannerAPI.Persistence.Repos;
 using PlannerAPI.Exceptions;
+using PlannerAPI.Models.Domain;
+using PlannerAPI.Models.Auth;
 
 namespace PlannerAPI.Services
 {
@@ -26,6 +28,18 @@ namespace PlannerAPI.Services
 
         // BRDIGE GETS FOR EVENTACTIVITIES / EVENTATTENDEES / EVENTORGANIZER
 
+
+        public List<Event> GetEventsByOrganizerId(int id)
+        {
+            List<Event> toReturn = _eventRepo.GetEventsByOrganizerId(id);
+
+            if (toReturn == null)
+                throw new NoEventsForGivenOrganizer("No events were found with this organizer.");
+            if (id <= 0)
+                throw new InvalidIdException("Invalid id for this organizer");
+
+            return toReturn;
+        }
         public List<Activity> GetEventActivities(int id)
         {
             List<Activity> toReturn = _eventRepo.GetEventActivities(id);
@@ -90,16 +104,6 @@ namespace PlannerAPI.Services
 
             if (toReturn == null)
                 throw new EmptyListException("No activities were found");
-            else
-                return toReturn;
-        }
-
-        public List<Organizer> GetAllOrganizers()
-        {
-            List<Organizer> toReturn = _organizerRepo.GetAllOrganizers();
-
-            if (toReturn == null)
-                throw new EmptyListException("No organizers were found");
             else
                 return toReturn;
         }

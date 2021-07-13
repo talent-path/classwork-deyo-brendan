@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { EventService } from '../services/event.service';
 
 @Component({
@@ -9,15 +10,15 @@ import { EventService } from '../services/event.service';
 export class HomepageComponent implements OnInit {
 
   eventName : string = "Event";
+  
+  username : string;
 
-  constructor(private eventService : EventService) { }
+  constructor(private eventService : EventService,
+    private authService : AuthService) { }
 
   ngOnInit(): void {
+    this.authService.loginChangedEvent.subscribe((bool) => console.log(this.authService.user));
 
-      this.eventService.getEventById(2).subscribe(e => {
-        this.eventName = e.eventName;
-      });
-    
   }
 
   public slides = [

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using PlannerAPI.Models.Domain;
 
-namespace PlannerAPI.Models
+namespace PlannerAPI.Models.Auth
 {
     [Table("Organizer")]
     public class Organizer
@@ -22,6 +23,12 @@ namespace PlannerAPI.Models
         [Required]
         [MaxLength(75)]
         public string Email { get; set; }
+
+        public byte[] PasswordHash { get; set; }
+
+        public byte[] PasswordSalt { get; set; }
+
+        public List<OrganizerRole> Roles { get; set; } = new List<OrganizerRole>();
 
         public Organizer(Organizer that)
         {

@@ -1,6 +1,7 @@
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 import { Activity } from 'src/app/interfaces/Activity';
 import { Attendee } from 'src/app/interfaces/Attendee';
 import { Event } from 'src/app/interfaces/Event';
@@ -24,7 +25,8 @@ export class FindeventComponent implements OnInit {
 
   constructor(private eventService: EventService,
     private organizerService: OrganizerService,
-    private router: Router) { }
+    private router: Router,
+    private authService : AuthService) { }
 
   ngOnInit(): void {
     

@@ -26,6 +26,10 @@ import { AttendeeComponent } from './attendee/attendee.component';
 import { AddattendeeComponent } from './attendee/addattendee/addattendee.component';
 import { EditattendeeComponent } from './attendee/editattendee/editattendee.component';
 import { EditeventComponent } from './event/editevent/editevent.component';
+import { UserregistrationComponent } from './userregistration/userregistration.component';
+import { LoginComponent } from './login/login.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,9 @@ import { EditeventComponent } from './event/editevent/editevent.component';
     AttendeeComponent,
     AddattendeeComponent,
     EditattendeeComponent,
-    EditeventComponent
+    EditeventComponent,
+    UserregistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,11 @@ import { EditeventComponent } from './event/editevent/editevent.component';
     HttpClientModule,
     NgbModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi : true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

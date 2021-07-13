@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PlannerAPI.Models.Auth;
+using PlannerAPI.Models.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,14 +11,13 @@ namespace PlannerAPI.Models
     [Table("EventOrganizer")]
     public class EventOrganizer
     {
-        [ForeignKey("Event")]
-        public int? EventId
-        {
-            get; set;
-        }
-        [ForeignKey("Organizer")]
+        public Event SelectedEvent { get; set; }
+        public Organizer SelectedOrganizer { get; set; }
+
+        [ForeignKey("SelectedEvent")]
+        public int? EventId { get; set; }
+
+        [ForeignKey("SelectedOrganizer")]
         public int? OrganizerId { get; set; }
-        public Event Event { get; set; }
-        public Organizer Organizer { get; set; }
     }
 }

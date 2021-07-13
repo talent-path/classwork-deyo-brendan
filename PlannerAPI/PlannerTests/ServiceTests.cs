@@ -7,6 +7,7 @@ using PlannerAPI.Persistence;
 using PlannerAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using PlannerAPI.Models.Domain;
 
 namespace PlannerTests
 {

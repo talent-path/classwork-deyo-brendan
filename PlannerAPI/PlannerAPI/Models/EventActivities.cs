@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlannerAPI.Models.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,11 +10,13 @@ namespace PlannerAPI.Models
     [Table("EventActivities")]
     public class EventActivities
     {
-        [ForeignKey("Event")]
+        public Event SelectedEvent { get; set; }
+        public Activity SelectedActivity { get; set; }
+
+        [ForeignKey("SelectedEvent")]
         public int? EventId { get; set; }
-        [ForeignKey("Activity")]
+
+        [ForeignKey("SelectedActivity")]
         public int? ActivityId { get; set; }
-        public Event Event { get; set; }
-        public Activity Activity { get; set; }
     }
 }

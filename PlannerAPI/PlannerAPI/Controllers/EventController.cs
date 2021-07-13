@@ -8,10 +8,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using PlannerAPI.Persistence;
 using Microsoft.AspNetCore.Cors;
+using PlannerAPI.Models.Domain;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PlannerAPI.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("/api/Event")]
     public class EventController : ControllerBase
     {
@@ -27,7 +31,16 @@ namespace PlannerAPI.Controllers
         {
             try
             {
-                return this.Accepted(_service.GetAllEvents());
+                if(this.User.Claims.Any(c => c.Type == ClaimTypes.Role.ToString() && c.Value == "Admin"))
+                {
+                    return this.Accepted(_service.GetAllEvents());
+                }
+                else
+                {
+                    int userId = int.Parse(this.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier.ToString()).Value);
+
+                    return Ok(_service.GetEventsByOrganizerId(userId));
+                }
             }
             catch(EmptyListException e)
             {
@@ -65,6 +78,13 @@ namespace PlannerAPI.Controllers
         {
             try
             {
+                var user = this.User;
+
+                int userId = int.Parse(user.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier.ToString()).Value);
+
+                if (userId != toAdd.OrganizerId)
+                    return this.Unauthorized("Can not add events for someone else!");
+
                 _service.AddEvent(toAdd);
                 return this.Accepted();
             }
@@ -101,8 +121,7 @@ namespace PlannerAPI.Controllers
         {
             try
             {
-                _service.GetEventOrganizer(id);
-                return this.Accepted();
+                return this.Accepted(_service.GetEventOrganizer(id));
             }
             catch(NoOrganizerForGivenEventException e) { return this.BadRequest(e.Message); }
             catch(InvalidIdException e) { return this.BadRequest(e.Message); }
@@ -113,6 +132,13 @@ namespace PlannerAPI.Controllers
         {
             try
             {
+                var user = this.User;
+
+                int userId = int.Parse(user.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier.ToString()).Value);
+
+                if (userId != updated.OrganizerId)
+                    return this.Unauthorized("Can not edit events for someone else!");
+
                 _service.EditEvent(updated);
                 return this.Accepted();
             }

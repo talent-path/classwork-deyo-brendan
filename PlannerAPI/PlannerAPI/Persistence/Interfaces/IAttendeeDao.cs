@@ -1,4 +1,5 @@
 ﻿using PlannerAPI.Models;
+using PlannerAPI.Models.Domain;
 using System.Collections.Generic;
 
 namespace PlannerAPI.Persistence

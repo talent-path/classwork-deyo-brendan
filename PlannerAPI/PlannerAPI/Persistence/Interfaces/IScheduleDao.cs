@@ -1,4 +1,5 @@
 ﻿using PlannerAPI.Models;
+using PlannerAPI.Models.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
