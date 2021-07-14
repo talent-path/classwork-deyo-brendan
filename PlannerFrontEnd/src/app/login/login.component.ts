@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
     }
 
     this.authService.loginUser(toSend);
-    this.router.navigate([""]);
   }
 
   navigate()

@@ -11,7 +11,7 @@ export class CarouselComponent implements OnInit {
       event:' Event 1',
       eventLocation:'FOR FAMILY EVENTS',
       eventDescription:"",
-      img: '/assets/FamilyEvent.jpg',
+      img: '/assets/FamilyMovie.jpg',
       eventStartDate: new Date('2019/05/20'),
       eventEndingDate: new Date('2019/05/24')
     },

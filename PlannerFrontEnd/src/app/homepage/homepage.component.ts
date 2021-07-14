@@ -13,26 +13,24 @@ import { OrganizerService } from '../services/organizer.service';
 export class HomepageComponent implements OnInit {
 
   eventName : string = "Event";
-  
-  username : string = "user";
-
-  signedIn : boolean = false;
 
   organizer : Organizer;
+
+  username : string = '';
 
   constructor(private eventService : EventService,
     private authService : AuthService,
     private orgService : OrganizerService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
 
-    this.signedIn = this.authService.isSignedIn();
-
-    if(this.signedIn){
-      this.getUser();
+    if(this.authService.isSignedIn())
+    {
+      this.username = this.authService.user.username;
     }
-
-    this.authService.loginChangedEvent.subscribe((signedIn) => this.signedIn = signedIn);
+    
+    this.authService.loginChangedEvent.subscribe((signedIn) => this.username = this.authService.user.username);
   }
 
   getUser() {

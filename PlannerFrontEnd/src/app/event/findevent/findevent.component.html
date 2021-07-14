@@ -1,47 +1,68 @@
-<div id="box">
-    <br>
-    <br>
-    <br>
-    <div id="findEvent">
-        <!-- header1 -->
-        <h1>Find An Event</h1>
-        <h4 *ngIf = "signedIn"><i>Choose The Event Name To Lookup Details</i></h4>
-        <select *ngIf="signedIn" style="width: 300px" [(ngModel)]="eventName">
-            <option [ngValue]=null></option>
-            <option *ngFor="let event of currentUserList" value="{{event.eventName}}">Name: {{event.eventName}}</option>
-        </select>
-        <h2 *ngIf="!signedIn" style="color: black;
-            text-align: center;"><i>Please <a href = "http://localhost:4200/login">Sign In</a> To View Events</i></h2>
+<body>
+    <div id="box">
         <br>
         <br>
-        <button type="button" class="btn btn-success" id="button1" (click)="submit()">Find</button>
         <br>
-        <br>
+        <div id="findEvent">
+            <!-- header1 -->
+            <h1>Find An Event</h1>
+            <h4 *ngIf="signedIn"><i>Choose The Event Name To Lookup Details</i></h4>
+            <select *ngIf="signedIn" style="width: 300px" [(ngModel)]="eventName">
+                <option [ngValue]=null></option>
+                <option *ngFor="let event of currentUserList" value="{{event.eventName}}">Name: {{event.eventName}}
+                </option>
+            </select>
+            <h2 *ngIf="!signedIn" style="color: black;
+            text-align: center;"><i>Please <a href="http://localhost:4200/login">Sign In</a> To View Events</i></h2>
+            <br>
+            <br>
+            <button *ngIf = "signedIn" type="button" class="btn btn-success" id="button1" (click)="submit()">Find</button>
+            <br>
+            <br>
 
-    </div>
+        </div>
 
-    <div id="eventDetails">
+        <div id="eventDetails">
 
-    </div>
-    <div id="attendees">
-        <h2><i>ATTENDEES</i></h2>
-        <li *ngFor="let a of attendees">
-            {{a.name}}
-        </li>
+        </div>
+        <div id="attendees">
+            <h2><i>ATTENDEES</i></h2>
+            <li *ngFor="let a of attendees">
+                {{a.name}}
+            </li>
+            <br>
+            <br>
+        </div>
+        <div id="activities">
+            <h2><i>ACTIVITIES</i></h2>
+            <li *ngFor="let a of activities">
+                {{a.name}}
+            </li>
+            <br>
+            <br>
+        </div>
+        <div id="editEvent">
+            <button type="button" 
+                    id="editButton" 
+                    class="btn btn-success" (click)="navigate()">Edit This Event</button>
+            <button type="success" 
+                    id="editButton" 
+                    class=" btn btn-success" (click)="delete()">Delete Event</button>
+            <button type="success" 
+                    id="editButton" class=" btn btn-success" (click)="sendEmail()">Send Emails To Attendees</button>
+            <button type="success" 
+                    class="btn btn-success" (click) = "print()">Print Page</button>
+            <br>
+            <br>
+            <h4 *ngIf="checkDelete"><i>Are You Sure You Want To Delete This Event?</i></h4>
+            <button id = "editButton" *ngIf="checkDelete" 
+                    type="success" 
+                    class=" btn btn-success" (click) = "confirm()" [(ngModel)] = "validate" value ="yes">Yes</button>
+            <button *ngIf="checkDelete" type="success" 
+                    class=" btn btn-success" (click) = "confirm()" [(ngModel)] = "validate" value="no">No</button>
+        </div>
+        <br>
+        <br>
         <br>
     </div>
-    <div id="activities">
-        <h2><i>ACTIVITIES</i></h2>
-        <li *ngFor="let a of activities">
-            {{a.name}}
-        </li>
-        <br>
-    </div>
-    <div id="editEvent">
-        <button type="button" id="editButton" class="btn btn-success" (click)="navigate()">Edit This Event</button>
-        <button type="success" class=" btn btn-success" (click)="print()">Print Details</button>
-    </div>
-    <br>
-    <br>
-    <br>
-</div>
+</body>

@@ -22,6 +22,10 @@ export class FindeventComponent implements OnInit {
 
   signedIn : boolean = false;
 
+  validate : string;
+
+  checkDelete : boolean = false;
+
   currentUserList : Event[];
 
   activities: Activity[];
@@ -57,7 +61,10 @@ export class FindeventComponent implements OnInit {
 
             var element = document.getElementById("eventDetails");
 
+            element.innerHTML = "";
+
             element.style.display = 'block';
+            
 
             element.innerHTML += `<h1>EVENT SUMMARY<h1>`;
             element.innerHTML += `<h3>Event Name: ${this.selectEvent.eventName}<br>`;
@@ -90,6 +97,27 @@ export class FindeventComponent implements OnInit {
 
   print() {
     window.print();
+  }
+
+  delete(){
+    this.checkDelete = true;
+    console.log("CHECK " + this.checkDelete);
+    this.confirm()
+  }
+
+  confirm() {
+    if(this.validate == "yes")
+    {
+      console.log("confirmed!");
+    }
+    else
+    {
+      this.checkDelete = false;
+    }
+  }
+
+  sendEmail() {
+
   }
 
 }

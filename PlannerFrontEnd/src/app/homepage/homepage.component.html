@@ -22,19 +22,19 @@
         <br>
         <br>
         <h1 style="font-family: 'Times New Roman', Times, serif;
-        text-align: center;" *ngIf="!signedIn">You Need To Signed In To Schedule An Event</h1>
-        <button type="button" class="btn btn-success" id="scheduleEvent" *ngIf="!signedIn"
+        text-align: center;" *ngIf="username == ''">You Need To Signed In To Schedule An Event</h1>
+        <button type="button" class="btn btn-success" id="scheduleEvent" *ngIf="username == ''"
             [routerLink]="['login']">Click Here To Sign In</button>
 
         <h1 style="font-family: 'Times New Roman', Times, serif;
-                text-align: center;" *ngIf="signedIn"><i><b>Signed In As Organizer: user</b></i></h1>
+                text-align: center;" *ngIf="username != ''"><i><b>Signed In As Organizer: {{username}}</b></i></h1>
         <br>
-        <button type="button" *ngIf="signedIn" class="btn btn-success" id="findEvent"
+        <button type="button" *ngIf="username != ''" class="btn btn-success" id="findEvent"
             [routerLink]="['scheduleEvent']">Schedule A New Event</button>
 
         <br>
 
-        <button type="button" *ngIf="signedIn" class="btn btn-success" id="findEvent" [routerLink]="['findEvent']">Find
+        <button type="button" *ngIf="username != ''" class="btn btn-success" id="findEvent" [routerLink]="['findEvent']">Find
             & Edit An Existing Event</button>
 
         <br>
