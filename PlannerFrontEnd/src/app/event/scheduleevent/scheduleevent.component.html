@@ -8,19 +8,22 @@
 
         <div id="addEvent">
             <!-- header1 -->
-            <h1>Schedule An Event</h1>
-            <h4>Enter Each Required Field Marked With *</h4>
-
-            <h4>*Organizer Name*</h4>
-            <select [(ngModel)]="orgId" style="width: 300px;">
-                <option *ngFor="let organizer of organizers" value="{{organizer.id}}">
-                    Name : {{organizer.name}}
-                </option>
-            </select>
-            <h4>*Event Name*</h4>
+            <h1><b><i>Schedule An Event</i></b></h1>
+            <h3><b>Enter Attributes Into Each Field</b></h3>
+            <h4>Organizer: {{organizer.name}}</h4>
+            <h4>Event Name</h4>
             <input style="width: 300px" type="text" [(ngModel)]="eventName" placeholder="Enter Event Name Here : ">
             <br>
-            <h4>*Event Category*</h4>
+            <br>
+            <h4>Event Location</h4>
+            <input style="width: 300px" type="text" [(ngModel)]="location" placeholder="Enter Event Location Here : ">
+            <br>
+            <br>
+            <h4>Event Time</h4>
+            <input style="width: 300px" type="text" [(ngModel)]="time" placeholder="Enter Event Time Here : ">
+            <br>
+            <br>
+            <h4>Event Category</h4>
             <select style="width: 100px" [(ngModel)]="category">
                 <option [ngValue]=null></option>
                 <option value="Friends">Friends</option>
@@ -28,7 +31,8 @@
                 <option value="Work">Work</option>
             </select>
             <br>
-            <h4>*Date*</h4>
+            <br>
+            <h4>Date</h4>
             <input style="width: 300px" type="date" [(ngModel)]="eventDate" value="YYYY-MM-DD" min="2021-07-07"
                 max="2025-12-31">
             <br>

@@ -9,6 +9,8 @@ export interface Event{
     eventName : string,
     duration? : number,
     attendees? : Attendee[],
-    category : string
+    category : string,
+    time: string,
+    location: string
 
 }

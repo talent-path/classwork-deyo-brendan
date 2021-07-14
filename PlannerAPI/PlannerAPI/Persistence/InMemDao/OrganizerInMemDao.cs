@@ -100,6 +100,11 @@ namespace PlannerAPI.Persistence
         {
             throw new NotImplementedException();
         }
+
+        public Organizer GetUserAsOrganizer(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

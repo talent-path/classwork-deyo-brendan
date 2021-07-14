@@ -13,6 +13,7 @@ export class EventComponent implements OnInit {
 
   eventList : Event[];
   event : Event;
+  part: number;
 
   constructor(private eventService : EventService,
     private router : Router) { }
@@ -23,6 +24,13 @@ export class EventComponent implements OnInit {
 
       this.event = this.eventList[this.eventList.length - 1];
     });
+  }
+
+  relocate() {
+    setTimeout(() => {
+      this.router.navigate(['findEvent'], {queryParams: {'part': this.part + 1}})
+    }
+    , 5000);
   }
 
 }

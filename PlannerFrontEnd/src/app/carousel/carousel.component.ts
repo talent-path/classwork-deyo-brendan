@@ -11,7 +11,7 @@ export class CarouselComponent implements OnInit {
       event:' Event 1',
       eventLocation:'FOR FAMILY EVENTS',
       eventDescription:"",
-      img: 'https://picsum.photos/900/500?random&t=1',
+      img: '/assets/FamilyEvent.jpg',
       eventStartDate: new Date('2019/05/20'),
       eventEndingDate: new Date('2019/05/24')
     },
@@ -19,7 +19,7 @@ export class CarouselComponent implements OnInit {
       event:' Event 2',
       eventLocation:'FOR YOU & YOUR FRIENDS',
       eventDescription:"",
-      img: 'https://picsum.photos/900/500?random&t=3',
+      img: '/assets/FriendsReunion.jpg',
       eventStartDate: new Date('2019/07/28'),
       eventEndingDate: new Date('2019/07/30')
     },
@@ -27,7 +27,7 @@ export class CarouselComponent implements OnInit {
       event:' Event 3',
       eventLocation:'FOR THE WORKPLACE',
       eventDescription:"",
-      img: 'https://picsum.photos/900/500?random&t=4',
+      img: '/assets/OfficeStuff.png',
       eventStartDate: new Date('2020/05/20'),
       eventEndingDate: new Date('2020/05/24')
     }

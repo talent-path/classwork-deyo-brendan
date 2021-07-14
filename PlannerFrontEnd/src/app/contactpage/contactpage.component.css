@@ -1,5 +1,5 @@
 body {
-    overflow-y: hidden;
+    height:45%;
 }
 
 #innerBox {
@@ -14,7 +14,7 @@ body {
 
 #contactDiv {
     width: auto;
-    height: auto;
+    min-height: auto;
     text-align: center;
     margin-top : 10px;
     /* border-radius: 50%; */

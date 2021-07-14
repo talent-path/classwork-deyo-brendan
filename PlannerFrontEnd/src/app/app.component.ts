@@ -6,6 +6,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
 import { Input } from '@angular/core';
 import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ export class AppComponent {
 
   username : string;
 
-  constructor(private authService : AuthService) { 
+  constructor(private authService : AuthService,
+    private router: Router) { 
 
   }
 
@@ -32,6 +34,7 @@ export class AppComponent {
 
   signOut() {
     this.authService.signOut();
+    this.router.navigate([""]);
   }
 
 }

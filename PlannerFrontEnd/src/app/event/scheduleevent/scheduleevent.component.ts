@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 import { Event } from 'src/app/interfaces/Event';
 import { Organizer } from 'src/app/interfaces/Organizer';
 import { EventService } from 'src/app/services/event.service';
@@ -13,23 +14,29 @@ import { OrganizerService } from 'src/app/services/organizer.service';
 export class ScheduleeventComponent implements OnInit {
 
   category: string;
-  orgName: string;
+  organizer : Organizer;
+  location: string;
+  signedIn : boolean = false;
+  time: string;
   eventDate: Date;
-  orgEmail: string;
   eventName: string;
-  @Input('ngModel') orgId: number;
-
-  organizers: Organizer[];
 
   constructor(private eventService: EventService,
     private organizerService: OrganizerService,
-    private router: Router) { }
+    private router: Router,
+    private authService : AuthService) { }
 
   ngOnInit(): void {
+    this.organizerService.getUserAsOrganizer().subscribe(org => this.organizer = org);
 
-    this.organizerService.getAllOrganizers().subscribe(list => {
-      this.organizers = list;
-    })
+    this.signedIn = this.authService.isSignedIn();
+
+    this.authService.loginChangedEvent.subscribe((signedIn) => this.signedIn = signedIn);
+
+    if(!this.signedIn)
+    {
+      this.router.navigate([""]);
+    }
 
   }
 
@@ -37,16 +44,15 @@ export class ScheduleeventComponent implements OnInit {
     if (this.category == null || this.category == undefined
       || this.eventDate == null || this.eventDate == undefined
       || this.eventName == null || this.eventName == undefined
-      || this.orgId == null || this.orgId == undefined) {
+      || this.location == null || this.location == undefined
+      || this.time == null || this.time == undefined) {
       alert("Please ensure all required information is filled out.");
     }
     else {
       let addEvent: Event = {
         date: this.eventDate, eventName: this.eventName, category: this.category,
-        organizerId: this.orgId
+        organizerId: this.organizer.id, location : this.location, time : this.time
       }
-
-      console.log(this.orgId);
 
       this.eventService.addEvent(addEvent).subscribe((_) => this.router.navigate(["addAttendee"]));
     }

@@ -12,6 +12,8 @@ namespace PlannerAPI.Persistence
         Organizer GetOrganizerById(int id);
         void RemoveOrganizer(Organizer toRemove);
 
+        Organizer GetUserAsOrganizer(int id);
+
         Role GetOrganizerRole(string name);
         Organizer GetOrganizerByName(string username);
     }

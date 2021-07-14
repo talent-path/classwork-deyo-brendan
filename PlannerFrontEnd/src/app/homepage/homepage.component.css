@@ -47,7 +47,7 @@ body {
     bottom: 12.5%;
 }
 
-#findEvent, #contactOrganizer, #scheduleEvent, #clickHere{
+#contactOrganizer, #scheduleEvent, #clickHere{
     margin: auto;
     display: flex;
     justify-content: center;
@@ -56,6 +56,17 @@ body {
     font-size: large;
     position: relative;
 } 
+
+#findEvent {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    position: relative;
+    margin-bottom: 20px;
+}
 
 .carouselContainer {
     position: relative;

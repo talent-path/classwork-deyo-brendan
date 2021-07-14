@@ -9,6 +9,7 @@ using PlannerAPI.Models;
 using PlannerAPI.Persistence;
 using PlannerAPI.Models.Auth;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace PlannerAPI.Controllers
 {
@@ -21,6 +22,21 @@ namespace PlannerAPI.Controllers
         public OrganizerController(PlannerDbContext context)
         {
             _service = new PlannerService(context);
+        }
+
+        [HttpGet("User")]
+        public IActionResult GetUserAsOrganizer()
+        {
+            try
+            {
+                int userId = int.Parse(this.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier.ToString()).Value);
+
+                return this.Accepted(_service.GetUserAsOrganizer(userId));
+            }
+            catch (Exception e)
+            {
+                return this.BadRequest(e.Message);
+            }
         }
 
         [HttpGet("{id}")]

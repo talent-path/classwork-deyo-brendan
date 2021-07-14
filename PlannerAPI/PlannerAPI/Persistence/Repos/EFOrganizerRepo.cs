@@ -57,5 +57,10 @@ namespace PlannerAPI.Persistence.Repos
             return _context.Organizers.Include("Roles.SelectedRole")
                 .SingleOrDefault(o => o.Name.ToLower() == username.ToLower());
         }
+
+        public Organizer GetUserAsOrganizer(int id)
+        {
+            return _context.Organizers.SingleOrDefault(org => org.Id == id);
+        }
     }
 }

@@ -4,8 +4,10 @@
   
       <div id = "innerBox">
 
-      <h1 id = "header"><b><i>Please fill out all information. </i></b></h1>
+      <h1><b><i>Please fill out all information. </i></b></h1>
   
+      <br>
+
       <form id="contactForm" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
   
         <input id = "name" type="text" placeholder="Enter Full Name" name="name" ngModel required #name="ngModel">

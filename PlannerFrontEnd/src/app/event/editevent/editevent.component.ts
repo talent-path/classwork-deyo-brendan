@@ -31,6 +31,8 @@ export class EditeventComponent implements OnInit {
   newCategory: string;
   newName: string;
   newDate: Date;
+  newTime: string;
+  newLocation: string;
 
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -105,7 +107,7 @@ export class EditeventComponent implements OnInit {
         category: this.newCategory, eventName: this.newName, date: this.newDate,
         organizerId: this.eventToEdit.organizerId, duration: this.eventToEdit.duration,
         attendees: this.eventToEdit.attendees, activities: this.eventToEdit.activities,
-        id: this.eventID
+        id: this.eventID, location: this.newLocation, time: this.newTime
       };
 
       this.eventService.editEvent(editedEvent).subscribe((_) => console.log(_));

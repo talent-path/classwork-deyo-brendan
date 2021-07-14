@@ -32,7 +32,6 @@ export class AuthService {
   }
 
   saveUserAndToken(cred : UserCredentials) {
-    console.log(cred);
     this.user = cred;
     this.loginChangedEvent.emit(true);
   }

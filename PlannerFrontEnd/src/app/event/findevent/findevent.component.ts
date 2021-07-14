@@ -20,6 +20,10 @@ export class FindeventComponent implements OnInit {
   selectEvent: Event;
   organizer: Organizer;
 
+  signedIn : boolean = false;
+
+  currentUserList : Event[];
+
   activities: Activity[];
   attendees: Attendee[];
 
@@ -29,7 +33,13 @@ export class FindeventComponent implements OnInit {
     private authService : AuthService) { }
 
   ngOnInit(): void {
-    
+    this.eventService.getAllEvents().subscribe((list) => {
+      this.currentUserList = list;
+    })
+
+    this.signedIn = this.authService.isSignedIn();
+
+    this.authService.loginChangedEvent.subscribe((signedIn) => this.signedIn = signedIn);
   }
 
   submit() {
@@ -72,6 +82,10 @@ export class FindeventComponent implements OnInit {
 
   navigate() {
     this.router.navigate(["editEvent/" + this.selectEvent.id]);
+  }
+
+  navigateLogin() {
+    this.router.navigate(["login"]);
   }
 
   print() {

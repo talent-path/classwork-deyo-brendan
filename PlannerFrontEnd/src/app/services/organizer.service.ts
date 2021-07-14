@@ -26,6 +26,17 @@ export class OrganizerService {
       })
     );
   }
+
+  getUserAsOrganizer() : Observable<Organizer> {
+    return this.http.get<Organizer>(this.baseURL + "/Organizer/User")
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );
+  }
   
   getOrganizerById(id : number) : Observable<Organizer> {
     return this.http.get<Organizer>(this.baseURL + "/Organizer/" + id)
