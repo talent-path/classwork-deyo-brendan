@@ -7,12 +7,22 @@
         <h1><b><i>Event Details</i></b></h1>
         <h2 id="current">Current Name: {{eventToEdit.eventName}}</h2>
         <h2>Enter New Event Name</h2>
-        <input style="width: 300px" type="text" [(ngModel)]="newName" placeholder="Enter New Value Here">
+        <input style="width: 300px" type="text" [(ngModel)]="newName" placeholder="Enter New Value">
         <br>
         <br>
         <h2 id="current">Current Date: {{eventToEdit.date.toString().substring(0, 10)}}</h2>
         <h2>Enter New Date</h2>
-        <input style="width: 300px" type="date" [(ngModel)]="newDate" placeholder="Enter New Value Here">
+        <input style="width: 300px" type="date" [(ngModel)]="newDate" placeholder="Enter New Value">
+        <br>
+        <br>
+        <h2 id="current">Current Location: {{eventToEdit.location}}</h2>
+        <h2>Enter New Location</h2>
+        <input style="width: 300px" type="text" [(ngModel)] = "newLocation" placeholder="Enter New Location">
+        <br>
+        <br>
+        <h2 id="current">Current Date: {{eventToEdit.time}}</h2>
+        <h2>Enter New Event Time</h2>
+        <input style="width: 300px" type="text" [(ngModel)]="newTime" placeholder="Enter New Event Time">
         <br>
         <br>
         <h2 id="current">Current Category: {{eventToEdit.category}}</h2>
@@ -43,11 +53,11 @@
         <br>
         <br>
         <h2>Enter New Name</h2>
-        <input style="width: 300px" type="text" [(ngModel)]="newActivityName" placeholder="Enter New Value Here">
+        <input style="width: 300px" type="text" [(ngModel)]="newActivityName" placeholder="Enter New Value">
         <br>
         <br>
         <h2>Enter New Duration</h2>
-        <input style="width: 300px" type="text" [(ngModel)]="newActivityDuration" placeholder="Enter New Value Here">
+        <input style="width: 300px" type="text" [(ngModel)]="newActivityDuration" placeholder="Enter New Value">
         <br>
         <div id="changeActivity">
             <button type="button" id="editButton" class="btn btn-success" (click)="editActivity()">Confirm Edit</button>
@@ -88,11 +98,11 @@
         <br>
         <br>
         <h2>Enter New Name</h2>
-        <input style="width: 300px" type="text" [(ngModel)]="newAttendeeName" placeholder="Enter New Value Here">
+        <input style="width: 300px" type="text" [(ngModel)]="newAttendeeName" placeholder="Enter New Name">
         <br>
         <br>
         <h2>Enter New Email</h2>
-        <input style="width: 300px" type="text" [(ngModel)]="newAttendeeEmail" placeholder="Enter New Value Here">
+        <input style="width: 300px" type="text" [(ngModel)]="newAttendeeEmail" placeholder="Enter New Email">
         <br>
         <div id="changeAttendee">
             <button type="button" id="editButton" class="btn btn-success" (click)="editAttendee()">Confirm Edit</button>

@@ -66,7 +66,7 @@ export class FindeventComponent implements OnInit {
             element.style.display = 'block';
 
 
-            element.innerHTML += `<h1>EVENT SUMMARY<h1>`;
+            element.innerHTML += `<h1><i>EVENT SUMMARY</i><h1>`;
             element.innerHTML += `<h3>Event Name: ${this.selectEvent.eventName}<br>`;
             element.innerHTML += `<h3>Event Date: ${this.selectEvent.date.toString().substring(0, 10)}<br>`;
             element.innerHTML += `<h3>Event Location: ${this.selectEvent.location}<br>`;

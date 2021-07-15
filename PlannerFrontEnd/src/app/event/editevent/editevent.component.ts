@@ -130,6 +130,8 @@ export class EditeventComponent implements OnInit {
       document.getElementById("eventEdited").innerHTML += `<i>Successfully Edited: ${editedEvent.eventName}</i>` + "<br>";
       this.newName = '';
       this.newDate = null;
+      this.newTime = '';
+      this.newLocation = '';
 
     }
   }

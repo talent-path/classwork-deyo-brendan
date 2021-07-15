@@ -11,25 +11,56 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username : string;
-  password : string;
+  username: string;
+  password: string;
 
-  constructor(private authService : AuthService,
-    private router : Router) { }
+  constructor(private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
   submit() {
-    let toSend : LoginUserRequest = {
-      Username : this.username, Password : this.password
+
+    var passwordElement = document.getElementById("passwordInvalid");
+    var usernameElement = document.getElementById("usernameInvalid");
+    var errorBox = document.getElementById("errorBox");
+
+    errorBox.style.display = "none";
+
+    passwordElement.innerHTML = "";
+    usernameElement.innerHTML = "";
+    
+    let checkValid : boolean = true;
+
+    if (this.password == null || this.password == undefined) 
+    {
+      passwordElement.innerHTML += "<b><i>Username or password is invalid!</i></b>";
+      errorBox.style.display = "block";
+      checkValid = false;
+      this.username = "";
+      this.password = "";
+    }
+    if(this.username == null || this.username == undefined)
+    {
+      usernameElement.innerHTML += "<b><i>Username is invalid!</i></b>";
+      errorBox.style.display = "block";
+      checkValid = false;
+      this.password = "";
+      this.username = "";
     }
 
-    this.authService.loginUser(toSend);
+    if(checkValid)
+    {
+      let toSend: LoginUserRequest = {
+        Username: this.username, Password: this.password
+      }
+
+      this.authService.loginUser(toSend);
+    }
   }
 
-  navigate()
-  {
+  navigate() {
     this.router.navigate(["register"]);
   }
 
