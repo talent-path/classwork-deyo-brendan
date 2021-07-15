@@ -156,3 +156,8 @@ C:\Users\BDeyo\Desktop\classwork-deyo-brendan\PlannerAPI\PlannerTests\bin\Debug\
 C:\Users\BDeyo\Desktop\classwork-deyo-brendan\PlannerAPI\PlannerTests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\BDeyo\Desktop\classwork-deyo-brendan\PlannerAPI\PlannerTests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\BDeyo\Desktop\classwork-deyo-brendan\PlannerAPI\PlannerTests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\PlannerAPI\PlannerTests\bin\Debug\netcoreapp3.1\Google.Apis.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\PlannerAPI\PlannerTests\bin\Debug\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\PlannerAPI\PlannerTests\bin\Debug\netcoreapp3.1\Google.Apis.Auth.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\PlannerAPI\PlannerTests\bin\Debug\netcoreapp3.1\Google.Apis.Core.dll
+C:\Users\BDeyo\Desktop\classwork-deyo-brendan\PlannerAPI\PlannerTests\bin\Debug\netcoreapp3.1\Google.Apis.Gmail.v1.dll

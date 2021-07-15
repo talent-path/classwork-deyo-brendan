@@ -2,6 +2,58 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Google.Apis/1.52.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.52.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Auth/1.52.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis": "1.52.0",
+          "Google.Apis.Core": "1.52.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {},
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {},
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.52.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {}
+        }
+      },
+      "Google.Apis.Gmail.v1/1.52.0.2356": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis": "1.52.0",
+          "Google.Apis.Auth": "1.52.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Gmail.v1.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Gmail.v1.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -490,7 +542,7 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/12.0.2": {
+      "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -1505,6 +1557,108 @@
     }
   },
   "libraries": {
+    "Google.Apis/1.52.0": {
+      "sha512": "5YWTBzHuNUiYIUoIBkCGYMokyYuaOuAn+w96lIJ2WNqeiAurKq3ZLqZ86fYae32PDWHZa+itFYc9O1iVfYi5dQ==",
+      "type": "package",
+      "path": "google.apis/1.52.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.1.52.0.nupkg.sha512",
+        "google.apis.nuspec",
+        "lib/net45/Google.Apis.PlatformServices.dll",
+        "lib/net45/Google.Apis.dll",
+        "lib/net45/Google.Apis.pdb",
+        "lib/net45/Google.Apis.xml",
+        "lib/netstandard1.3/Google.Apis.dll",
+        "lib/netstandard1.3/Google.Apis.pdb",
+        "lib/netstandard1.3/Google.Apis.xml",
+        "lib/netstandard2.0/Google.Apis.dll",
+        "lib/netstandard2.0/Google.Apis.pdb",
+        "lib/netstandard2.0/Google.Apis.xml"
+      ]
+    },
+    "Google.Apis.Auth/1.52.0": {
+      "sha512": "T7JKjq4zmk8b4lrOn+kyatgDQdLytoV+i6Fw4agyWlm4Q+bbZbu3DcCz+UuliEtXHbShgHD1PWfiMJoQGuPEog==",
+      "type": "package",
+      "path": "google.apis.auth/1.52.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.auth.1.52.0.nupkg.sha512",
+        "google.apis.auth.nuspec",
+        "lib/net45/Google.Apis.Auth.PlatformServices.dll",
+        "lib/net45/Google.Apis.Auth.dll",
+        "lib/net45/Google.Apis.Auth.pdb",
+        "lib/net45/Google.Apis.Auth.xml",
+        "lib/net461/Google.Apis.Auth.PlatformServices.dll",
+        "lib/net461/Google.Apis.Auth.dll",
+        "lib/net461/Google.Apis.Auth.pdb",
+        "lib/net461/Google.Apis.Auth.xml",
+        "lib/netstandard1.3/Google.Apis.Auth.PlatformServices.dll",
+        "lib/netstandard1.3/Google.Apis.Auth.dll",
+        "lib/netstandard1.3/Google.Apis.Auth.pdb",
+        "lib/netstandard1.3/Google.Apis.Auth.xml",
+        "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll",
+        "lib/netstandard2.0/Google.Apis.Auth.dll",
+        "lib/netstandard2.0/Google.Apis.Auth.pdb",
+        "lib/netstandard2.0/Google.Apis.Auth.xml"
+      ]
+    },
+    "Google.Apis.Core/1.52.0": {
+      "sha512": "cgQpnZ9IC5SBNsAFTXHKUMB8bOkBWPLtXcLgwSYkV8oL0FfUdHwrDzH5qrf/mFB9fQIPgJyV6tdUwf2hu1UJ+A==",
+      "type": "package",
+      "path": "google.apis.core/1.52.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.core.1.52.0.nupkg.sha512",
+        "google.apis.core.nuspec",
+        "lib/net45/Google.Apis.Core.dll",
+        "lib/net45/Google.Apis.Core.pdb",
+        "lib/net45/Google.Apis.Core.xml",
+        "lib/netstandard1.3/Google.Apis.Core.dll",
+        "lib/netstandard1.3/Google.Apis.Core.pdb",
+        "lib/netstandard1.3/Google.Apis.Core.xml",
+        "lib/netstandard2.0/Google.Apis.Core.dll",
+        "lib/netstandard2.0/Google.Apis.Core.pdb",
+        "lib/netstandard2.0/Google.Apis.Core.xml"
+      ]
+    },
+    "Google.Apis.Gmail.v1/1.52.0.2356": {
+      "sha512": "3ys2Us5TO0nm1eQGlJhgxDUz021hVtjxGmDGgd9jdPZTnouW1AZEzktjxKPyVGjij7gq5WP3agigf206LpTnjw==",
+      "type": "package",
+      "path": "google.apis.gmail.v1/1.52.0.2356",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.gmail.v1.1.52.0.2356.nupkg.sha512",
+        "google.apis.gmail.v1.nuspec",
+        "lib/net40/Google.Apis.Gmail.v1.dll",
+        "lib/net40/Google.Apis.Gmail.v1.pdb",
+        "lib/net40/Google.Apis.Gmail.v1.xml",
+        "lib/net45/Google.Apis.Gmail.v1.dll",
+        "lib/net45/Google.Apis.Gmail.v1.pdb",
+        "lib/net45/Google.Apis.Gmail.v1.xml",
+        "lib/netstandard1.0/Google.Apis.Gmail.v1.dll",
+        "lib/netstandard1.0/Google.Apis.Gmail.v1.pdb",
+        "lib/netstandard1.0/Google.Apis.Gmail.v1.xml",
+        "lib/netstandard1.3/Google.Apis.Gmail.v1.dll",
+        "lib/netstandard1.3/Google.Apis.Gmail.v1.pdb",
+        "lib/netstandard1.3/Google.Apis.Gmail.v1.xml",
+        "lib/netstandard2.0/Google.Apis.Gmail.v1.dll",
+        "lib/netstandard2.0/Google.Apis.Gmail.v1.pdb",
+        "lib/netstandard2.0/Google.Apis.Gmail.v1.xml"
+      ]
+    },
     "Humanizer.Core/2.8.26": {
       "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "type": "package",
@@ -2398,10 +2552,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/12.0.2": {
-      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "type": "package",
-      "path": "newtonsoft.json/12.0.2",
+      "path": "newtonsoft.json/12.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2424,8 +2578,9 @@
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.2.nupkg.sha512",
-        "newtonsoft.json.nuspec"
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
       ]
     },
     "Newtonsoft.Json.Bson/1.0.2": {
@@ -5739,6 +5894,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Google.Apis.Gmail.v1 >= 1.52.0.2356",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.17",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.16",
       "Microsoft.EntityFrameworkCore >= 5.0.7",
@@ -5787,6 +5943,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "Google.Apis.Gmail.v1": {
+            "target": "Package",
+            "version": "[1.52.0.2356, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[3.1.17, )"

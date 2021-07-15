@@ -7,6 +7,7 @@ import {Event} from 'src/app/interfaces/Event';
 import { Activity } from '../interfaces/Activity';
 import { Attendee } from '../interfaces/Attendee';
 import { Organizer } from '../interfaces/Organizer';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class EventService {
   })};
 
   constructor(private http : HttpClient) { }
+
+  sendEmail(id : number) {
+    this.http.post<any>(this.baseURL + "/Event/Email/" + id, this.httpOptions);
+  }
 
   getAllEvents() : Observable<Event[]> {
     return this.http.get<Event[]>(this.baseURL + "/Event")

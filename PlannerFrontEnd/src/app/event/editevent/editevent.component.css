@@ -21,6 +21,39 @@
     border: 2px solid dimgray;
 }
 
+#changeAttendee, #changeActivity {
+        margin: auto;
+        position: relative;
+        text-align: center;
+        width: 80%;
+        height: auto;
+        background: whitesmoke;
+        padding-top: 20px;
+        padding-bottom: 20px;
+}
+
+#addNewAttendee, #addNewActivity {
+    display: none;
+}
+
+#input1 {
+    margin-left: 20px;
+}
+
 #current {
     color: teal;
+}
+
+#editButton {
+    margin-right: 10px;
+}
+
+.option {
+    width: 200px;
+    background: dimgray;
+    color: black;
+}
+
+.option:hover {
+    background: lightgray;
 }

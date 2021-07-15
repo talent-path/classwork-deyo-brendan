@@ -8,6 +8,8 @@ import { Event } from 'src/app/interfaces/Event';
 import { Organizer } from 'src/app/interfaces/Organizer';
 import { EventService } from 'src/app/services/event.service';
 import { OrganizerService } from 'src/app/services/organizer.service';
+import 'src/assets/smtp.js';
+declare let Email: any;
 
 @Component({
   selector: 'app-findevent',
@@ -20,13 +22,11 @@ export class FindeventComponent implements OnInit {
   selectEvent: Event;
   organizer: Organizer;
 
-  signedIn : boolean = false;
+  signedIn: boolean = false;
 
-  validate : string;
+  checkDelete: boolean = false;
 
-  checkDelete : boolean = false;
-
-  currentUserList : Event[];
+  currentUserList: Event[];
 
   activities: Activity[];
   attendees: Attendee[];
@@ -34,7 +34,7 @@ export class FindeventComponent implements OnInit {
   constructor(private eventService: EventService,
     private organizerService: OrganizerService,
     private router: Router,
-    private authService : AuthService) { }
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     this.eventService.getAllEvents().subscribe((list) => {
@@ -64,7 +64,7 @@ export class FindeventComponent implements OnInit {
             element.innerHTML = "";
 
             element.style.display = 'block';
-            
+
 
             element.innerHTML += `<h1>EVENT SUMMARY<h1>`;
             element.innerHTML += `<h3>Event Name: ${this.selectEvent.eventName}<br>`;
@@ -99,25 +99,47 @@ export class FindeventComponent implements OnInit {
     window.print();
   }
 
-  delete(){
+  renavigate() {
+    this.router.navigate(["findEvent"]);
+  }
+
+  delete() {
     this.checkDelete = true;
-    console.log("CHECK " + this.checkDelete);
-    this.confirm()
   }
 
   confirm() {
-    if(this.validate == "yes")
-    {
-      console.log("confirmed!");
-    }
-    else
-    {
-      this.checkDelete = false;
-    }
+    var eventDetails = document.getElementById("eventDetails");
+    eventDetails.innerHTML = "";
+    eventDetails.style.display = "none";
+    var att = document.getElementById("attendees");
+    att.style.display = "none";
+    var act = document.getElementById("activities");
+    act.style.display = "none";
+    var editEvent = document.getElementById("editEvent");
+    editEvent.style.display = "none";
+    this.eventService.deleteEvent(this.selectEvent.id).subscribe((_) => console.log(_));
+    this.checkDelete = false;
+    this.eventName = null;
+  }
+
+  unconfirm() {
+    this.checkDelete = false;
   }
 
   sendEmail() {
 
-  }
+    // 9E7E4CB499A2D7E174E92DFC269A08E7D870
 
+    for (var attendee of this.attendees) {
+      Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "ezplanner2021@gmail.com",
+        Password: "9E7E4CB499A2D7E174E92DFC269A08E7D870",
+        To: attendee.email,
+        From: "ezplanner2021@gmail.com",
+        Subject: "You're Invited!",
+        Body: ""
+      })
+    }
+  }
 }

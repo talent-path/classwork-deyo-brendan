@@ -27,14 +27,15 @@
             [routerLink]="['login']">Click Here To Sign In</button>
 
         <h1 style="font-family: 'Times New Roman', Times, serif;
-                text-align: center;" *ngIf="username != ''"><i><b>Signed In As Organizer: {{username}}</b></i></h1>
+                text-align: center; color: #3BD1B3" 
+                *ngIf="username != ''"><i><b>Signed In As Organizer: {{username}}</b></i></h1>
         <br>
-        <button type="button" *ngIf="username != ''" class="btn btn-success" id="findEvent"
+        <button style="width: 300px;"type="button" *ngIf="username != ''" class="btn btn-success" id="findEvent"
             [routerLink]="['scheduleEvent']">Schedule A New Event</button>
 
         <br>
 
-        <button type="button" *ngIf="username != ''" class="btn btn-success" id="findEvent" [routerLink]="['findEvent']">Find
+        <button style="width: 300px;" type="button" *ngIf="username != ''" class="btn btn-success" id="findEvent" [routerLink]="['findEvent']">Find
             & Edit An Existing Event</button>
 
         <br>

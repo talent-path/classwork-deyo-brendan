@@ -26,20 +26,9 @@ namespace PlannerAPI.Services
             //_scheduleDao = new ScheduleInMemDao();
         }
 
+        // SEND EMAIL TO ATTENDEES
+
         // BRDIGE GETS FOR EVENTACTIVITIES / EVENTATTENDEES / EVENTORGANIZER
-
-        public Organizer GetUserAsOrganizer(int id)
-        {
-            Organizer toReturn = _organizerRepo.GetUserAsOrganizer(id);
-
-            if (id <= 0)
-                throw new InvalidIdException("Invalid Id");
-            if (toReturn == null)
-                throw new InvalidIdException("This user organizer Id can not be found");
-
-            return toReturn;
-
-        }
 
         public List<Event> GetEventsByOrganizerId(int id)
         {
@@ -254,6 +243,19 @@ namespace PlannerAPI.Services
         }
 
         // GET BY OBJECT ID'S
+
+        public Organizer GetUserAsOrganizer(int id)
+        {
+            Organizer toReturn = _organizerRepo.GetUserAsOrganizer(id);
+
+            if (id <= 0)
+                throw new InvalidIdException("Invalid Id");
+            if (toReturn == null)
+                throw new InvalidIdException("This user organizer Id can not be found");
+
+            return toReturn;
+
+        }
 
         public Activity GetActivityById(int id)
         {
